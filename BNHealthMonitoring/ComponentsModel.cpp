@@ -1,10 +1,10 @@
 #include "ComponentsModel.h"
-
+#include "Gps.h"
 
 
 ComponentsModel::ComponentsModel()
 {
-	//initilize network here
+	system_root = new CGps("root");
 }
 
 

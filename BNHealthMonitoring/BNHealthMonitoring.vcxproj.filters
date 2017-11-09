@@ -13,10 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{cf5f7e1c-4f5d-4f11-a9f3-80900b3383f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Source Components Files">
+      <UniqueIdentifier>{4487fae1-b6be-4dcb-8808-d41d8e4a9289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Header Components Files">
+      <UniqueIdentifier>{00bfb5e2-b74f-41fa-bbda-912c403d4ba7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentsModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gps.cpp">
+      <Filter>Components\Source Components Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentsModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Link.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gps.h">
+      <Filter>Components\Header Components Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

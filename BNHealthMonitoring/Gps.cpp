@@ -9,7 +9,8 @@ CGps::~CGps()
 {
 }
 
-void update_component_state(int* p_signals)
+void CGps::update_component_state(int* p_signals)
 {
 	
 }
+

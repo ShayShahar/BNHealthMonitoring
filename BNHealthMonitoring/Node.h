@@ -9,9 +9,9 @@ using namespace std;
 class Node
 {
 private:
-	//TODO: implement fuzzier for each component
-	virtual  void fuzzier() = 0;
 	int state;
+	map<int, list<Link>*> probabilities_table;
+	string component_name;
 
 public:
 	Node(string p_name);
@@ -21,8 +21,5 @@ public:
 
 	//todo:: generate evidence from signals
 	virtual void update_component_state(int* p_signals) = 0;
-
-	map<int, list<Link>*> probabilities_table;
-	string component_name;
 };
 
