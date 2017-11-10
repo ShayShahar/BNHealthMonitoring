@@ -1,6 +1,6 @@
 #include "Gps.h"
 
-CGps::CGps(string p_name): Node(p_name)
+CGps::CGps(const char* p_name): Node(p_name)
 {
 }
 
@@ -9,7 +9,7 @@ CGps::~CGps()
 {
 }
 
-void CGps::update_component_state(int* p_signals)
+void CGps::update_component_state(char* p_signals)
 {
 	
 }

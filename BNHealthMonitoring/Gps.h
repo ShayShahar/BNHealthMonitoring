@@ -4,9 +4,9 @@
 class CGps : public Node
 {
 public:
-	CGps(string p_name);
+	CGps(const char* p_name);
 	~CGps();
 
-	void update_component_state(int* p_signals) override;
+	void update_component_state(char* p_signals) override;
 };
 

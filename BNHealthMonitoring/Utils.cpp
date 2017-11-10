@@ -21,7 +21,7 @@ char* strcopy(const char* str)
 
 	char* newStr = (char*)allocate_memory(sizeof(char)*size + 1);
 
-	if (newStr == NULL)
+	if (newStr == nullptr)
 		exit(1);
 
 	for (i = 0; i < size + 1; i++)
