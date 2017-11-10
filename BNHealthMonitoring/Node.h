@@ -1,25 +1,23 @@
 #pragma once
 
-#include <list>
-#include <map>
 #include "Link.h"
-
-using namespace std;
+#include "LinkedList.h"
+#include "Utils.h"
 
 class Node
 {
 private:
 	int state;
-	map<int, list<Link>*> probabilities_table;
-	string component_name;
+	char* component_name;
+	LinkedList<Link*> probabilities_list;
 
 public:
-	Node(string p_name);
+	Node(const char* p_name);
 	virtual ~Node();
 	Node* get_next();
 	void add_link(int p_state, Link p_link);
 
-	//todo:: generate evidence from signals
-	virtual void update_component_state(int* p_signals) = 0;
+	//generate evidence from signals and set the update the link probabilities for each component
+	virtual void update_component_state(char* p_signals) = 0;
 };
 

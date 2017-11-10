@@ -1,6 +1,10 @@
-#include <iostream>
+void test(const char* test)
+{
 
+
+}
 void main (int argc, char* argv[])
 {
-	std::cout << "hello!" << std::endl;
+	test("shay");
 }
+
