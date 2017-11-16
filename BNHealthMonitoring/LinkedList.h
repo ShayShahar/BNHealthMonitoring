@@ -32,7 +32,7 @@ LinkedList<T>::LinkedList()
 template <class T>
 void LinkedList<T>::add(T p_value)
 {
-	ListItem<T> item = new ListItem<T>(p_value);
+	ListItem<T> *item = new ListItem<T>(p_value);
 	size++;
 
 	if (head == nullptr)
@@ -58,9 +58,7 @@ void LinkedList<T>::remove(T p_value)
 		size--;
 		return;
 	}
-
-	
-
+	 //not implemented yet
 }
 
 template <class T>

@@ -1,5 +1,9 @@
 #include "Utils.h"
 
+//global definitions for random()
+unsigned int t1 = 0;
+unsigned int t2 = 0;
+
 int strlength(const char* str)
 {
 	const char* p = str;
@@ -19,10 +23,10 @@ char* strcopy(const char* str)
 	int i;
 	int size = strlength(str);
 
-	char* newStr = (char*)allocate_memory(sizeof(char)*size + 1);
+	char* newStr = new char[size + 1];
 
 	if (newStr == nullptr)
-		exit(1);
+		return nullptr;
 
 	for (i = 0; i < size + 1; i++)
 	{
@@ -46,15 +50,6 @@ int strcompare(char* str1, char* str2)
 	return 1;
 }
 
-void* allocate_memory(size_t size)
-{
-	return malloc(size);
-}
-
-void free_memory(void* var)
-{
-	free(var);
-}
 
 int stoint(char* str)
 {
@@ -74,4 +69,17 @@ int stoint(char* str)
 	}
 
 	return result;
+}
+
+unsigned int random()
+{
+	unsigned b;
+
+	b = t1 ^ (t1 >> 2) ^ (t1 >> 6) ^ (t1 >> 7);
+	t1 = (t1 >> 1) | (~b << 31);
+
+	b = (t2 << 1) ^ (t2 << 2) ^ (t1 << 3) ^ (t2 << 4);
+	t2 = (t2 << 1) | (~b >> 31);
+
+	return t1 ^ t2;
 }

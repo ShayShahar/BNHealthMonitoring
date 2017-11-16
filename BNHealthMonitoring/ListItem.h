@@ -20,5 +20,5 @@ bool operator==(const ListItem<T>& p_left, const ListItem<T>& p_right)
 template <class T>
 bool operator!=(const ListItem<T>& p_left, const ListItem<T>& p_right)
 {
-	return !(p_left.value == p_right.value && p_left.next == p_right.nex);
+	return !(p_left.value == p_right.value && p_left.next == p_right.next);
 }

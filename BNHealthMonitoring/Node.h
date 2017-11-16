@@ -16,7 +16,7 @@ public:
 	Node(const char* p_name, unsigned int p_nStates);
 	virtual ~Node();
 	Node* get_next() const;
-	void add_link(int p_state, Link p_link);
+	void add_link(unsigned int p_state, Link p_link);
 
 	//generate evidence from signals and set the update the link probabilities for each component
 	virtual void update_component_state(char* p_signals) = 0;

@@ -14,7 +14,7 @@ Node::~Node()
 
 Node* Node::get_next() const
 {
-	double random = (rand() % 100) / 100;
+	double rand = (random() % 100) / 100;
 	double begin = 0;
 	double end = 0;
 
@@ -26,7 +26,7 @@ Node* Node::get_next() const
 		begin = end;
 		end += begin + current.value.value;
 
-		if (random > begin && random <= end)
+		if (rand > begin && rand <= end)
 		{
 			return current.value.parent;
 		}
@@ -37,9 +37,9 @@ Node* Node::get_next() const
 	return nullptr;
 }
 
-void Node::add_link(int p_state, Link p_link)
+void Node::add_link(unsigned int p_state, Link p_link)
 {
-	if (p_state < 0 || p_state >= nStates)
+	if (p_state >= nStates)
 		return;
 	
 	probabilities_list[p_state].add(p_link);
