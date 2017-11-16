@@ -1,6 +1,6 @@
 #include "Gps.h"
 
-CGps::CGps(const char* p_name): Node(p_name)
+CGps::CGps(const char* p_name, unsigned int p_nStates) : Node(p_name, p_nStates)
 {
 }
 

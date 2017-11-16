@@ -8,11 +8,12 @@ public:
 
 	~Link();
 
-	bool operator==(const Link&  p_left, const Link&  p_right);
-	bool operator!=(const Link&  p_left, const Link&  p_right);
-
 	Node* current;
 	Node* parent;
 	double value;
 };
+
+bool operator==(const Link& p_left, const Link& p_right);
+bool operator!=(const Link& p_left, const Link& p_right);
+
 

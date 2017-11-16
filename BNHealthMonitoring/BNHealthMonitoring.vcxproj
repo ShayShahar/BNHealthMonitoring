@@ -112,14 +112,19 @@
   <ItemGroup>
     <ClCompile Include="ComponentsModel.cpp" />
     <ClCompile Include="Gps.cpp" />
+    <ClCompile Include="Link.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComponentsModel.h" />
     <ClInclude Include="Gps.h" />
     <ClInclude Include="Link.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="ListItem.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

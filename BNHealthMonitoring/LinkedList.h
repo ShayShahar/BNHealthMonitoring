@@ -18,6 +18,8 @@ public:
 	void remove(T p_value);
 	bool contains(T p_value);
 	void clear();
+	ListItem<T> first();
+	ListItem<T> end();
 };
 
 template <class T>
@@ -91,4 +93,16 @@ void LinkedList<T>::clear()
 
 	size = 0;
 	values = nullptr;
+}
+
+template <class T>
+ListItem<T> LinkedList<T>::first()
+{
+	return *head;
+}
+
+template <class T>
+ListItem<T> LinkedList<T>::end()
+{
+	return *tail;
 }
