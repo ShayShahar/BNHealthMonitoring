@@ -4,7 +4,6 @@
 template <class T> class LinkedList
 {
 private:
-	unsigned int size;
 	ListItem<T>* values;
 	ListItem<T>* head;
 	ListItem<T>* tail;
@@ -20,6 +19,8 @@ public:
 	void clear();
 	ListItem<T> first();
 	ListItem<T> end();
+
+	unsigned int size;
 };
 
 template <class T>
@@ -27,6 +28,8 @@ LinkedList<T>::LinkedList()
 {
 	size = 0;
 	values = nullptr;
+	head = nullptr;
+	tail = nullptr;
 }
 
 template <class T>

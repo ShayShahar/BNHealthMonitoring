@@ -4,9 +4,11 @@
 class ComponentsModel
 {
 public:
-	ComponentsModel();
+	ComponentsModel(Node*);
 	~ComponentsModel();
-	
+	Node* find_fault();
+
 	Node* system_root;
+
 };
 

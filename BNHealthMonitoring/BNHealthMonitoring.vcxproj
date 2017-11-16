@@ -111,6 +111,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ComponentsModel.cpp" />
+    <ClCompile Include="GenericComp.cpp" />
     <ClCompile Include="Gps.cpp" />
     <ClCompile Include="Link.cpp" />
     <ClCompile Include="main.cpp" />
@@ -119,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComponentsModel.h" />
+    <ClInclude Include="GenericComp.h" />
     <ClInclude Include="Gps.h" />
     <ClInclude Include="Link.h" />
     <ClInclude Include="LinkedList.h" />
