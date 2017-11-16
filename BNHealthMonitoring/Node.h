@@ -9,7 +9,7 @@ class Node
 private:
 	int state;
 	char* component_name;
-	LinkedList<Link*> probabilities_list;
+	LinkedList<Link*>* probabilities_list;
 
 public:
 	Node(const char* p_name);
@@ -20,4 +20,3 @@ public:
 	//generate evidence from signals and set the update the link probabilities for each component
 	virtual void update_component_state(char* p_signals) = 0;
 };
-

@@ -12,21 +12,25 @@ Node::~Node()
 
 Node* Node::get_next()
 {
-
 	double random = (rand() % 100) / 100;
 	double begin = 0;
 	double end = 0;
 
-	//for (list<Link>::iterator it = lst->begin(); it != lst->end(); ++it)
-	//{
-	//	begin = end;
-	//	end += begin + it->value;
+	LinkedList<Link*> prob_list = probabilities_list[state];
+	ListItem<Link*> current = prob_list.first();
+	
+	while(current != prob_list.end())
+	{
+		begin = end;
+		end += begin + current.value->value;
 
-	//	if (random > begin && random <= end)
-	//	{
-	//		return it->parent;
-	//	}
-	//}
+		if (random > begin && random <= end)
+		{
+			return current.value->parent;
+		}
+
+		current = *(current.next);
+	}
 
 	return nullptr;
 }
