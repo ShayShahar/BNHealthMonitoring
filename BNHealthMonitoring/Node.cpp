@@ -14,7 +14,7 @@ Node::~Node()
 
 Node* Node::get_next() const
 {
-	double rand = (random() % 100) / 100;
+	double rand = (double)(random() % 100) / 100;
 	double begin = 0;
 	double end = 0;
 
