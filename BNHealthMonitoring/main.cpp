@@ -28,11 +28,38 @@ void main (int argc, char* argv[])
 	comp3->add_link(0, Link(comp3, comp6, 0.1));
 	comp3->add_link(0, Link(comp3, comp7, 0.9));
 
+	int c4 = 0, c5 = 0, c6 = 0, c7 = 0;
+
 	for (int i = 0; i < 100; i++)
 	{
-		std::cout << cdm->find_fault()->name()<< std::endl;
+		Node* component = cdm->find_fault();
+		std::cout << component->name()<< std::endl;
+
+		if (strcompare(component->name(), "component_4"))
+		{
+			c4++;
+		}
+		else if (strcompare(component->name(), "component_5"))
+		{
+			c5++;
+		}
+		else if (strcompare(component->name(), "component_6"))
+		{
+			c6++;
+		}
+		else if (strcompare(component->name(), "component_7"))
+		{
+			c7++;
+		}
 	}
 	
+	int sum = c4 + c5 + c6 + c7;
+	std::cout << "component 4: " << (float)c4 / sum * 100 << std::endl;
+	std::cout << "component 5: " << (float)c5 / sum * 100 << std::endl;
+	std::cout << "component 6: " << (float)c6 / sum * 100 << std::endl;
+	std::cout << "component 7: " << (float)c7 / sum * 100 << std::endl;
+
+
 	int a;
 	std::cin >> a;
 	
