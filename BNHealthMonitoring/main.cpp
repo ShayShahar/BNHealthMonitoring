@@ -20,6 +20,9 @@ void main (int argc, char* argv[])
 	comp1->add_link(0, Link(comp1, comp2, 0.9));
 	comp1->add_link(0, Link(comp1, comp3, 0.1));
 
+	comp1->add_link(1, Link(comp1, comp2, 0.3));
+	comp1->add_link(1, Link(comp1, comp3, 0.7));
+
 	//probabilities of comp2 for state 0
 	comp2->add_link(0, Link(comp2, comp4, 0.1));
 	comp2->add_link(0, Link(comp2, comp5, 0.9));

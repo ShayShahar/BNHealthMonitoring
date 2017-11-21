@@ -1,7 +1,8 @@
 #include "Utils.h"
 
 //global definition for random()
-unsigned int seed;
+unsigned int seed = 0;
+bool initialized = false;
 
 int strlength(const char* str)
 {
@@ -72,6 +73,13 @@ int stoint(char* str)
 
 unsigned int random()
 {
+	if (initialized == false)
+	{
+		char t = '1';
+		seed = (unsigned int)&t;
+		initialized = true;
+	}
+
 	seed = (seed * 1103515245U + 12345U) & 0x7fffffffU;
 	return seed;
 }
