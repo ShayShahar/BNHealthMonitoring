@@ -7,7 +7,7 @@
 
 class Node
 {
-private:
+protected:
 	int state;
 	char* component_name;
 	LinkedList<Link>* probabilities_list;
@@ -22,5 +22,5 @@ public:
 	char* name();
 
 	//generate evidence from signals and set the update the link probabilities for each component
-	virtual void update_component_state(char* p_signals) = 0;
+	virtual void update_component_state() = 0;
 };

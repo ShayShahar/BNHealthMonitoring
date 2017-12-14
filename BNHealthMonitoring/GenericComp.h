@@ -7,6 +7,6 @@ public:
 	GenericComp(const char* p_name, unsigned int p_nStates);
 	~GenericComp();
 
-	void update_component_state(char* p_signals) override;
+	void update_component_state() override;
 };
 

@@ -9,6 +9,6 @@ GenericComp::~GenericComp()
 {
 }
 
-void GenericComp::update_component_state(char * p_signals)
+void GenericComp::update_component_state()
 {
 }
