@@ -2,11 +2,11 @@
 
 Node::Node(const char* p_name, unsigned int p_nStates)
 {
+	segment = MemoryWrapper::getInstance();
 	probabilities_list = new LinkedList<Link>[p_nStates];
-	component_name = strcopy(p_name);
+	component_name = Utils::strcopy(p_name);
 	state = 0;
 	nStates = p_nStates;
-
 }
 
 Node::~Node()
@@ -15,7 +15,7 @@ Node::~Node()
 
 Node* Node::get_next() const
 {
-	double rand = (double)(random() % 100) / 100;
+	double rand = (double)(Utils::random() % 100) / 100;
 	double begin = 0;
 	double end = 0;
 

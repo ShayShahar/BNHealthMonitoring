@@ -115,6 +115,7 @@
     <ClCompile Include="Gps.cpp" />
     <ClCompile Include="Link.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MemoryWrapper.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
@@ -125,6 +126,7 @@
     <ClInclude Include="Link.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="ListItem.h" />
+    <ClInclude Include="MemoryWrapper.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>

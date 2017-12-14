@@ -1,5 +1,6 @@
 #pragma once
 #include "Node.h"
+
 class GenericComp : public Node
 {
 public:

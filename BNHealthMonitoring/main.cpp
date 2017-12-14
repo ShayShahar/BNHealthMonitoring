@@ -1,10 +1,13 @@
 #include "GenericComp.h"
 #include "ComponentsModel.h"
+#include "MemoryWrapper.h"
 #include <iostream>
 
 
 void main (int argc, char* argv[])
 {
+	MemoryWrapper* seg = MemoryWrapper::getInstance();
+
 	GenericComp *comp1 = new GenericComp("component_1", 3);
 	GenericComp *comp2 = new GenericComp("component_2", 3);
 	GenericComp *comp3 = new GenericComp("component_3", 3);
@@ -37,20 +40,20 @@ void main (int argc, char* argv[])
 	{
 		Node* component = cdm->find_fault();
 		std::cout << component->name()<< std::endl;
-
-		if (strcompare(component->name(), "component_4"))
+		
+		if (Utils::strcompare(component->name(), "component_4"))
 		{
 			c4++;
 		}
-		else if (strcompare(component->name(), "component_5"))
+		else if (Utils::strcompare(component->name(), "component_5"))
 		{
 			c5++;
 		}
-		else if (strcompare(component->name(), "component_6"))
+		else if (Utils::strcompare(component->name(), "component_6"))
 		{
 			c6++;
 		}
-		else if (strcompare(component->name(), "component_7"))
+		else if (Utils::strcompare(component->name(), "component_7"))
 		{
 			c7++;
 		}

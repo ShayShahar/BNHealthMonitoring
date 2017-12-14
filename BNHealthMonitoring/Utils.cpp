@@ -1,10 +1,6 @@
 #include "Utils.h"
 
-//global definition for random()
-unsigned int seed = 0;
-bool initialized = false;
-
-int strlength(const char* str)
+int Utils::strlength(const char* str)
 {
 	const char* p = str;
 	int count = 0;
@@ -18,7 +14,7 @@ int strlength(const char* str)
 	return count;
 }
 
-char* strcopy(const char* str)
+char* Utils::strcopy(const char* str)
 {
 	int i;
 	int size = strlength(str);
@@ -36,7 +32,7 @@ char* strcopy(const char* str)
 	return newStr;
 }
 
-int strcompare(char* str1, char* str2)
+bool Utils::strcompare(char* str1, char* str2)
 {
 	char* p = str1;
 	char* q = str2;
@@ -50,8 +46,7 @@ int strcompare(char* str1, char* str2)
 	return 1;
 }
 
-
-int stoint(char* str)
+int Utils::stoint(char* str)
 {
 	char* p = str;
 	int result = 0;
@@ -71,15 +66,15 @@ int stoint(char* str)
 	return result;
 }
 
-unsigned int random()
+unsigned int Utils::random()
 {
-	if (initialized == false)
+	if (m_initialized == false)
 	{
 		char t = '1';
-		seed = (unsigned int)&t;
-		initialized = true;
+		m_seed = (unsigned int)&t;
+		m_initialized = true;
 	}
 
-	seed = (seed * 1103515245U + 12345U) & 0x7fffffffU;
-	return seed;
+	m_seed = (m_seed * 1103515245U + 12345U) & 0x7fffffffU;
+	return m_seed;
 }
