@@ -1,12 +1,16 @@
 #include "GenericComp.h"
 #include "ComponentsModel.h"
 #include "MemoryWrapper.h"
-#include <iostream>
+#include "CSVReader.h"
+#include "Gps.h"
 
 
 void main (int argc, char* argv[])
 {
+
 	MemoryWrapper* seg = MemoryWrapper::getInstance();
+	CGps* gps = new CGps("GPS", 3);
+	gps->update_component_state();
 
 	GenericComp *comp1 = new GenericComp("component_1", 3);
 	GenericComp *comp2 = new GenericComp("component_2", 3);
