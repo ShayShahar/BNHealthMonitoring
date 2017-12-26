@@ -114,6 +114,9 @@
     <ProjectReference>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+    <PreBuildEvent>
+      <Command>xcopy ..\..\Workspace\packages\ZeroMQ4.0.4\bin\libzmq-v120-mt-gd-4_0_4.dll ..\..\Deployment /y</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
