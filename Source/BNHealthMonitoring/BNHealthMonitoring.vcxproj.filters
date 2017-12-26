@@ -22,6 +22,9 @@
     <Filter Include="Components\Header Components Files">
       <UniqueIdentifier>{00bfb5e2-b74f-41fa-bbda-912c403d4ba7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Messages">
+      <UniqueIdentifier>{db3b8196-94d3-426c-b360-31c5893b5834}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -50,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="CSVReader.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.cc">
+      <Filter>Messages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="Externals.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.h">
+      <Filter>Messages</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
