@@ -137,10 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\PlotViewModel.cs" />
-    <Compile Include="View\PlotView.xaml.cs">
-      <DependentUpon>PlotView.xaml</DependentUpon>
-    </Compile>
+    <Page Include="View\CptView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -154,6 +154,12 @@
     </Compile>
     <Compile Include="BL\DataState.cs" />
     <Compile Include="BL\MessageService.cs" />
+    <Compile Include="Converters\StringToUppercaseConverter.cs" />
+    <Compile Include="Model\Link.cs" />
+    <Compile Include="ViewModel\CptViewModel.cs" />
+    <Compile Include="View\CptView.xaml.cs">
+      <DependentUpon>CptView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Component.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -161,10 +167,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\PlotView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

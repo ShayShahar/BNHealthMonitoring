@@ -170,6 +170,7 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CSVFiles\Gps_Ant.csv" />
     <None Include="CSVFiles\OutFileSatAlpha.csv" />
     <None Include="packages.config" />
   </ItemGroup>

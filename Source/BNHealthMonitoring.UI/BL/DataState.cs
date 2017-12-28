@@ -13,10 +13,13 @@ namespace BNHealthMonitoring.UI.BL
         private ObservableCollection<Component> m_components;
         private readonly ISubject<Unit> m_componentsUpdated;
         private static DataState s_dataState;
+        private readonly ISubject<Unit> m_selectedComponentChanged;
+        private Component m_selectedComponent;
 
         private DataState()
         {
             m_componentsUpdated = new Subject<Unit>();
+            m_selectedComponentChanged = new Subject<Unit>();
 
             m_components = new ObservableCollection<Component>();
             Component c = new Component
@@ -50,6 +53,12 @@ namespace BNHealthMonitoring.UI.BL
             get { return m_componentsUpdated; }
         }
 
+        public IObservable<Unit> SelectedComponentChangedEvent
+        {
+            get { return m_selectedComponentChanged; }
+        }
+
+
         public ObservableCollection<Component> Components
         {
             get
@@ -63,6 +72,21 @@ namespace BNHealthMonitoring.UI.BL
 
                 m_components = value;
                 m_componentsUpdated.OnNext(new Unit());
+            }
+        }
+
+        public Component SelectedComponent
+        {
+            get { return m_selectedComponent; }
+            set
+            {
+                if (m_selectedComponent != null && m_selectedComponent.Equals(value))
+                {
+                    return;
+                }
+
+                m_selectedComponent = value;
+                m_selectedComponentChanged.OnNext(new Unit());
             }
         }
 
@@ -83,15 +107,22 @@ namespace BNHealthMonitoring.UI.BL
                 {
                     Name = p_component.Name,
                     State = p_component.State,
-                    Children =  new ObservableCollection<Component>()
+                    Children = new ObservableCollection<Component>()
                 };
 
                 p_list.Add(component);
-            }
 
-            foreach (var c in p_component.LinksList)
-            {
-                addComponent(component.Children, c.Children);
+                foreach (var c in p_component.LinksList)
+                {
+                    component.Links.Add(new Link
+                    {
+                        DestenationName = c.Children.Name,
+                        State = c.State,
+                        Probability = c.Probability
+                    });
+
+                    addComponent(component.Children, c.Children);
+                }
             }
         }
     }
