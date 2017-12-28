@@ -1,8 +1,8 @@
 #include "Gps.h"
 
-CGps::CGps(const char* p_name, unsigned int p_nStates) : Node(p_name, p_nStates)
+CGps::CGps(string p_name) : Node(p_name)
 {
-	m_reader = new CSVReader("C:\\Users\\shays\\Desktop\\OutFileSatAlpha.csv");
+	m_reader = new CSVReader("CSVFiles//OutFileSatAlpha.csv");
 }
 
 

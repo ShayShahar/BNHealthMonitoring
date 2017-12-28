@@ -1,4 +1,4 @@
-#pragma 
+#pragma once
 #include "zmq.hpp"
 #include "Externals.h"
 #include "Node.h"
@@ -6,14 +6,11 @@
 
 class ComponentsModel
 {
-private:
-	zmq::context_t* m_context;
-	zmq::socket_t* m_socket;
-
 public:
 	ComponentsModel(Node*);
 	~ComponentsModel();
 	Node* find_fault() const;
+	void publish(HealthMonitoringMessages::DataReplyMsg& p_msg);
 
 	Node* system_root;
 };

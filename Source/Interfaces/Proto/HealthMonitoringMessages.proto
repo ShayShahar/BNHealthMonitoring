@@ -1,5 +1,35 @@
 package HealthMonitoringMessages;
 
-message Dummy{
-	optional string name = 1;
+enum OpCode 
+{
+	Components = 0;	
+}
+
+message pLink
+{
+	optional pComponent children = 1;
+	optional double probability = 2;
+    optional int32 state = 3;
+}
+
+message pComponent
+{
+    repeated pLink links = 1;
+	required string name = 2;
+	optional int32 state = 3;
+}
+
+message CDMMessage{
+	required pComponent cdm_root = 1;
+}
+
+message DataRequestMsg
+{
+	required OpCode opcode = 1;
+}
+
+message DataReplyMsg
+{
+	required OpCode opcode = 1;
+	optional CDMMessage components = 2;
 }

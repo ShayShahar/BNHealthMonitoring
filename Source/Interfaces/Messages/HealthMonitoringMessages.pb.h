@@ -32,18 +32,40 @@ void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
 void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
 void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
 
-class Dummy;
+class pLink;
+class pComponent;
+class CDMMessage;
+class DataRequestMsg;
+class DataReplyMsg;
 
+enum OpCode {
+  Components = 0
+};
+bool OpCode_IsValid(int value);
+const OpCode OpCode_MIN = Components;
+const OpCode OpCode_MAX = Components;
+const int OpCode_ARRAYSIZE = OpCode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* OpCode_descriptor();
+inline const ::std::string& OpCode_Name(OpCode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    OpCode_descriptor(), value);
+}
+inline bool OpCode_Parse(
+    const ::std::string& name, OpCode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<OpCode>(
+    OpCode_descriptor(), name, value);
+}
 // ===================================================================
 
-class Dummy : public ::google::protobuf::Message {
+class pLink : public ::google::protobuf::Message {
  public:
-  Dummy();
-  virtual ~Dummy();
+  pLink();
+  virtual ~pLink();
   
-  Dummy(const Dummy& from);
+  pLink(const pLink& from);
   
-  inline Dummy& operator=(const Dummy& from) {
+  inline pLink& operator=(const pLink& from) {
     CopyFrom(from);
     return *this;
   }
@@ -57,17 +79,17 @@ class Dummy : public ::google::protobuf::Message {
   }
   
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Dummy& default_instance();
+  static const pLink& default_instance();
   
-  void Swap(Dummy* other);
+  void Swap(pLink* other);
   
   // implements Message ----------------------------------------------
   
-  Dummy* New() const;
+  pLink* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Dummy& from);
-  void MergeFrom(const Dummy& from);
+  void CopyFrom(const pLink& from);
+  void MergeFrom(const pLink& from);
   void Clear();
   bool IsInitialized() const;
   
@@ -90,10 +112,125 @@ class Dummy : public ::google::protobuf::Message {
   
   // accessors -------------------------------------------------------
   
-  // optional string name = 1;
+  // optional .HealthMonitoringMessages.pComponent children = 1;
+  inline bool has_children() const;
+  inline void clear_children();
+  static const int kChildrenFieldNumber = 1;
+  inline const ::HealthMonitoringMessages::pComponent& children() const;
+  inline ::HealthMonitoringMessages::pComponent* mutable_children();
+  inline ::HealthMonitoringMessages::pComponent* release_children();
+  
+  // optional double probability = 2;
+  inline bool has_probability() const;
+  inline void clear_probability();
+  static const int kProbabilityFieldNumber = 2;
+  inline double probability() const;
+  inline void set_probability(double value);
+  
+  // optional int32 state = 3;
+  inline bool has_state() const;
+  inline void clear_state();
+  static const int kStateFieldNumber = 3;
+  inline ::google::protobuf::int32 state() const;
+  inline void set_state(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.pLink)
+ private:
+  inline void set_has_children();
+  inline void clear_has_children();
+  inline void set_has_probability();
+  inline void clear_has_probability();
+  inline void set_has_state();
+  inline void clear_has_state();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::HealthMonitoringMessages::pComponent* children_;
+  double probability_;
+  ::google::protobuf::int32 state_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
+  friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
+  friend void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
+  
+  void InitAsDefaultInstance();
+  static pLink* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class pComponent : public ::google::protobuf::Message {
+ public:
+  pComponent();
+  virtual ~pComponent();
+  
+  pComponent(const pComponent& from);
+  
+  inline pComponent& operator=(const pComponent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pComponent& default_instance();
+  
+  void Swap(pComponent* other);
+  
+  // implements Message ----------------------------------------------
+  
+  pComponent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pComponent& from);
+  void MergeFrom(const pComponent& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // repeated .HealthMonitoringMessages.pLink links = 1;
+  inline int links_size() const;
+  inline void clear_links();
+  static const int kLinksFieldNumber = 1;
+  inline const ::HealthMonitoringMessages::pLink& links(int index) const;
+  inline ::HealthMonitoringMessages::pLink* mutable_links(int index);
+  inline ::HealthMonitoringMessages::pLink* add_links();
+  inline const ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pLink >&
+      links() const;
+  inline ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pLink >*
+      mutable_links();
+  
+  // required string name = 2;
   inline bool has_name() const;
   inline void clear_name();
-  static const int kNameFieldNumber = 1;
+  static const int kNameFieldNumber = 2;
   inline const ::std::string& name() const;
   inline void set_name(const ::std::string& value);
   inline void set_name(const char* value);
@@ -101,14 +238,108 @@ class Dummy : public ::google::protobuf::Message {
   inline ::std::string* mutable_name();
   inline ::std::string* release_name();
   
-  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.Dummy)
+  // optional int32 state = 3;
+  inline bool has_state() const;
+  inline void clear_state();
+  static const int kStateFieldNumber = 3;
+  inline ::google::protobuf::int32 state() const;
+  inline void set_state(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.pComponent)
  private:
   inline void set_has_name();
   inline void clear_has_name();
+  inline void set_has_state();
+  inline void clear_has_state();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
+  ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pLink > links_;
   ::std::string* name_;
+  ::google::protobuf::int32 state_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
+  friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
+  friend void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
+  
+  void InitAsDefaultInstance();
+  static pComponent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CDMMessage : public ::google::protobuf::Message {
+ public:
+  CDMMessage();
+  virtual ~CDMMessage();
+  
+  CDMMessage(const CDMMessage& from);
+  
+  inline CDMMessage& operator=(const CDMMessage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CDMMessage& default_instance();
+  
+  void Swap(CDMMessage* other);
+  
+  // implements Message ----------------------------------------------
+  
+  CDMMessage* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CDMMessage& from);
+  void MergeFrom(const CDMMessage& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required .HealthMonitoringMessages.pComponent cdm_root = 1;
+  inline bool has_cdm_root() const;
+  inline void clear_cdm_root();
+  static const int kCdmRootFieldNumber = 1;
+  inline const ::HealthMonitoringMessages::pComponent& cdm_root() const;
+  inline ::HealthMonitoringMessages::pComponent* mutable_cdm_root();
+  inline ::HealthMonitoringMessages::pComponent* release_cdm_root();
+  
+  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.CDMMessage)
+ private:
+  inline void set_has_cdm_root();
+  inline void clear_has_cdm_root();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::HealthMonitoringMessages::pComponent* cdm_root_;
   
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -118,63 +349,340 @@ class Dummy : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
   
   void InitAsDefaultInstance();
-  static Dummy* default_instance_;
+  static CDMMessage* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DataRequestMsg : public ::google::protobuf::Message {
+ public:
+  DataRequestMsg();
+  virtual ~DataRequestMsg();
+  
+  DataRequestMsg(const DataRequestMsg& from);
+  
+  inline DataRequestMsg& operator=(const DataRequestMsg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DataRequestMsg& default_instance();
+  
+  void Swap(DataRequestMsg* other);
+  
+  // implements Message ----------------------------------------------
+  
+  DataRequestMsg* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DataRequestMsg& from);
+  void MergeFrom(const DataRequestMsg& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required .HealthMonitoringMessages.OpCode opcode = 1;
+  inline bool has_opcode() const;
+  inline void clear_opcode();
+  static const int kOpcodeFieldNumber = 1;
+  inline HealthMonitoringMessages::OpCode opcode() const;
+  inline void set_opcode(HealthMonitoringMessages::OpCode value);
+  
+  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.DataRequestMsg)
+ private:
+  inline void set_has_opcode();
+  inline void clear_has_opcode();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  int opcode_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
+  friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
+  friend void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
+  
+  void InitAsDefaultInstance();
+  static DataRequestMsg* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DataReplyMsg : public ::google::protobuf::Message {
+ public:
+  DataReplyMsg();
+  virtual ~DataReplyMsg();
+  
+  DataReplyMsg(const DataReplyMsg& from);
+  
+  inline DataReplyMsg& operator=(const DataReplyMsg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DataReplyMsg& default_instance();
+  
+  void Swap(DataReplyMsg* other);
+  
+  // implements Message ----------------------------------------------
+  
+  DataReplyMsg* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DataReplyMsg& from);
+  void MergeFrom(const DataReplyMsg& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required .HealthMonitoringMessages.OpCode opcode = 1;
+  inline bool has_opcode() const;
+  inline void clear_opcode();
+  static const int kOpcodeFieldNumber = 1;
+  inline HealthMonitoringMessages::OpCode opcode() const;
+  inline void set_opcode(HealthMonitoringMessages::OpCode value);
+  
+  // optional .HealthMonitoringMessages.CDMMessage components = 2;
+  inline bool has_components() const;
+  inline void clear_components();
+  static const int kComponentsFieldNumber = 2;
+  inline const ::HealthMonitoringMessages::CDMMessage& components() const;
+  inline ::HealthMonitoringMessages::CDMMessage* mutable_components();
+  inline ::HealthMonitoringMessages::CDMMessage* release_components();
+  
+  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.DataReplyMsg)
+ private:
+  inline void set_has_opcode();
+  inline void clear_has_opcode();
+  inline void set_has_components();
+  inline void clear_has_components();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::HealthMonitoringMessages::CDMMessage* components_;
+  int opcode_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
+  friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
+  friend void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
+  
+  void InitAsDefaultInstance();
+  static DataReplyMsg* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// Dummy
+// pLink
 
-// optional string name = 1;
-inline bool Dummy::has_name() const {
+// optional .HealthMonitoringMessages.pComponent children = 1;
+inline bool pLink::has_children() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Dummy::set_has_name() {
+inline void pLink::set_has_children() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Dummy::clear_has_name() {
+inline void pLink::clear_has_children() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Dummy::clear_name() {
+inline void pLink::clear_children() {
+  if (children_ != NULL) children_->::HealthMonitoringMessages::pComponent::Clear();
+  clear_has_children();
+}
+inline const ::HealthMonitoringMessages::pComponent& pLink::children() const {
+  return children_ != NULL ? *children_ : *default_instance_->children_;
+}
+inline ::HealthMonitoringMessages::pComponent* pLink::mutable_children() {
+  set_has_children();
+  if (children_ == NULL) children_ = new ::HealthMonitoringMessages::pComponent;
+  return children_;
+}
+inline ::HealthMonitoringMessages::pComponent* pLink::release_children() {
+  clear_has_children();
+  ::HealthMonitoringMessages::pComponent* temp = children_;
+  children_ = NULL;
+  return temp;
+}
+
+// optional double probability = 2;
+inline bool pLink::has_probability() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pLink::set_has_probability() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pLink::clear_has_probability() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pLink::clear_probability() {
+  probability_ = 0;
+  clear_has_probability();
+}
+inline double pLink::probability() const {
+  return probability_;
+}
+inline void pLink::set_probability(double value) {
+  set_has_probability();
+  probability_ = value;
+}
+
+// optional int32 state = 3;
+inline bool pLink::has_state() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pLink::set_has_state() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pLink::clear_has_state() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pLink::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::google::protobuf::int32 pLink::state() const {
+  return state_;
+}
+inline void pLink::set_state(::google::protobuf::int32 value) {
+  set_has_state();
+  state_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// pComponent
+
+// repeated .HealthMonitoringMessages.pLink links = 1;
+inline int pComponent::links_size() const {
+  return links_.size();
+}
+inline void pComponent::clear_links() {
+  links_.Clear();
+}
+inline const ::HealthMonitoringMessages::pLink& pComponent::links(int index) const {
+  return links_.Get(index);
+}
+inline ::HealthMonitoringMessages::pLink* pComponent::mutable_links(int index) {
+  return links_.Mutable(index);
+}
+inline ::HealthMonitoringMessages::pLink* pComponent::add_links() {
+  return links_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pLink >&
+pComponent::links() const {
+  return links_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pLink >*
+pComponent::mutable_links() {
+  return &links_;
+}
+
+// required string name = 2;
+inline bool pComponent::has_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pComponent::set_has_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pComponent::clear_has_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pComponent::clear_name() {
   if (name_ != &::google::protobuf::internal::kEmptyString) {
     name_->clear();
   }
   clear_has_name();
 }
-inline const ::std::string& Dummy::name() const {
+inline const ::std::string& pComponent::name() const {
   return *name_;
 }
-inline void Dummy::set_name(const ::std::string& value) {
+inline void pComponent::set_name(const ::std::string& value) {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   name_->assign(value);
 }
-inline void Dummy::set_name(const char* value) {
+inline void pComponent::set_name(const char* value) {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   name_->assign(value);
 }
-inline void Dummy::set_name(const char* value, size_t size) {
+inline void pComponent::set_name(const char* value, size_t size) {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* Dummy::mutable_name() {
+inline ::std::string* pComponent::mutable_name() {
   set_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     name_ = new ::std::string;
   }
   return name_;
 }
-inline ::std::string* Dummy::release_name() {
+inline ::std::string* pComponent::release_name() {
   clear_has_name();
   if (name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -183,6 +691,144 @@ inline ::std::string* Dummy::release_name() {
     name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
+}
+
+// optional int32 state = 3;
+inline bool pComponent::has_state() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pComponent::set_has_state() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pComponent::clear_has_state() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pComponent::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::google::protobuf::int32 pComponent::state() const {
+  return state_;
+}
+inline void pComponent::set_state(::google::protobuf::int32 value) {
+  set_has_state();
+  state_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CDMMessage
+
+// required .HealthMonitoringMessages.pComponent cdm_root = 1;
+inline bool CDMMessage::has_cdm_root() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CDMMessage::set_has_cdm_root() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CDMMessage::clear_has_cdm_root() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CDMMessage::clear_cdm_root() {
+  if (cdm_root_ != NULL) cdm_root_->::HealthMonitoringMessages::pComponent::Clear();
+  clear_has_cdm_root();
+}
+inline const ::HealthMonitoringMessages::pComponent& CDMMessage::cdm_root() const {
+  return cdm_root_ != NULL ? *cdm_root_ : *default_instance_->cdm_root_;
+}
+inline ::HealthMonitoringMessages::pComponent* CDMMessage::mutable_cdm_root() {
+  set_has_cdm_root();
+  if (cdm_root_ == NULL) cdm_root_ = new ::HealthMonitoringMessages::pComponent;
+  return cdm_root_;
+}
+inline ::HealthMonitoringMessages::pComponent* CDMMessage::release_cdm_root() {
+  clear_has_cdm_root();
+  ::HealthMonitoringMessages::pComponent* temp = cdm_root_;
+  cdm_root_ = NULL;
+  return temp;
+}
+
+// -------------------------------------------------------------------
+
+// DataRequestMsg
+
+// required .HealthMonitoringMessages.OpCode opcode = 1;
+inline bool DataRequestMsg::has_opcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DataRequestMsg::set_has_opcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DataRequestMsg::clear_has_opcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DataRequestMsg::clear_opcode() {
+  opcode_ = 0;
+  clear_has_opcode();
+}
+inline HealthMonitoringMessages::OpCode DataRequestMsg::opcode() const {
+  return static_cast< HealthMonitoringMessages::OpCode >(opcode_);
+}
+inline void DataRequestMsg::set_opcode(HealthMonitoringMessages::OpCode value) {
+  GOOGLE_DCHECK(HealthMonitoringMessages::OpCode_IsValid(value));
+  set_has_opcode();
+  opcode_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DataReplyMsg
+
+// required .HealthMonitoringMessages.OpCode opcode = 1;
+inline bool DataReplyMsg::has_opcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DataReplyMsg::set_has_opcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DataReplyMsg::clear_has_opcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DataReplyMsg::clear_opcode() {
+  opcode_ = 0;
+  clear_has_opcode();
+}
+inline HealthMonitoringMessages::OpCode DataReplyMsg::opcode() const {
+  return static_cast< HealthMonitoringMessages::OpCode >(opcode_);
+}
+inline void DataReplyMsg::set_opcode(HealthMonitoringMessages::OpCode value) {
+  GOOGLE_DCHECK(HealthMonitoringMessages::OpCode_IsValid(value));
+  set_has_opcode();
+  opcode_ = value;
+}
+
+// optional .HealthMonitoringMessages.CDMMessage components = 2;
+inline bool DataReplyMsg::has_components() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DataReplyMsg::set_has_components() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DataReplyMsg::clear_has_components() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DataReplyMsg::clear_components() {
+  if (components_ != NULL) components_->::HealthMonitoringMessages::CDMMessage::Clear();
+  clear_has_components();
+}
+inline const ::HealthMonitoringMessages::CDMMessage& DataReplyMsg::components() const {
+  return components_ != NULL ? *components_ : *default_instance_->components_;
+}
+inline ::HealthMonitoringMessages::CDMMessage* DataReplyMsg::mutable_components() {
+  set_has_components();
+  if (components_ == NULL) components_ = new ::HealthMonitoringMessages::CDMMessage;
+  return components_;
+}
+inline ::HealthMonitoringMessages::CDMMessage* DataReplyMsg::release_components() {
+  clear_has_components();
+  ::HealthMonitoringMessages::CDMMessage* temp = components_;
+  components_ = NULL;
+  return temp;
 }
 
 
@@ -194,6 +840,10 @@ inline ::std::string* Dummy::release_name() {
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< HealthMonitoringMessages::OpCode>() {
+  return HealthMonitoringMessages::OpCode_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf

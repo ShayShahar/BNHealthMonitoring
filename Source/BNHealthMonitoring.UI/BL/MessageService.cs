@@ -1,36 +1,43 @@
-﻿using System.Reactive;
-using System.Reactive.Subjects;
+﻿using System;
 using System.Text;
 using HealthMonitoringMessages;
-using NetMQ; 
+using NetMQ;
 using NetMQ.Sockets;
 
 namespace BNHealthMonitoring.UI.BL
 {
     public class MessageService
     {
-        private readonly ResponseSocket m_socket;
+        private readonly SubscriberSocket m_socket;
         private readonly NetMQContext m_context;
         private readonly Poller m_poller;
         private static MessageService s_messageService;
-        private ISubject<Unit> m_componentsUpdated = new Subject<Unit>();
+        private DataState m_dataState;
 
         private MessageService()
         {
+            m_dataState = DataState.GetInstance();
             m_context = NetMQContext.Create();
-            m_socket = m_context.CreateResponseSocket();
+            m_socket = m_context.CreateSubscriberSocket();
 
             m_poller = new Poller(m_socket);
             m_socket.ReceiveReady += onMessageReceived;
             m_poller.PollTillCancelledNonBlocking();
 
-            m_socket.Bind("tcp://127.0.0.1:49991");
-          //  m_socket.Subscribe("", Encoding.ASCII);
+            m_socket.Connect("tcp://127.0.0.1:49993");
+            m_socket.Subscribe("", Encoding.ASCII);
         }
 
         private void onMessageReceived(object p_sender, NetMQSocketEventArgs p_e)
         {
-            var msg = Dummy.ParseFrom(p_e.Socket.ReceiveFrameBytes());
+            var msg = DataReplyMsg.ParseFrom(p_e.Socket.ReceiveFrameBytes());
+
+            switch (msg.Opcode)
+            {
+                case OpCode.Components:
+                    m_dataState.SetComponents(msg.Components);
+                    break;
+            }
         }
 
         public static MessageService GetInsatnce()
@@ -41,10 +48,9 @@ namespace BNHealthMonitoring.UI.BL
             return s_messageService;
         }
 
-        public ISubject<Unit> ComponentsUpdate
+        public void Close()
         {
-            get { return m_componentsUpdated; }
+            m_socket.Disconnect("tcp://127.0.0.1:49993");
         }
-
     }
 }

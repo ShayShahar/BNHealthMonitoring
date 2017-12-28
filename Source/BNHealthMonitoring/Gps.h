@@ -18,7 +18,7 @@ private:
 	CSVReader* m_reader;
 	
 public:
-	CGps(const char* p_name, unsigned int p_nStates);
+	CGps(string p_name);
 	~CGps();
 
 	void update_component_state() override;

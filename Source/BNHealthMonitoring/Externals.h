@@ -5,6 +5,9 @@
 #include <time.h>
 #include <fstream>
 #include <vector>
+#include <list>
 #include <sstream>
+#include <map>
+#include <thread>
 
 using namespace std;
