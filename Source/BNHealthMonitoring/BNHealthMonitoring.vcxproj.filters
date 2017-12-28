@@ -57,6 +57,9 @@
     <ClCompile Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.cc">
       <Filter>Messages</Filter>
     </ClCompile>
+    <ClCompile Include="Gps_Ant.cpp">
+      <Filter>Components\Source Components Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -94,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.h">
       <Filter>Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Gps_Ant.h">
+      <Filter>Components\Header Components Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
