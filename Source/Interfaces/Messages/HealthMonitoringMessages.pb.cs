@@ -16,8 +16,16 @@ namespace HealthMonitoringMessages {
     }
     #endregion
     #region Static variables
-    internal static pbd::MessageDescriptor internal__static_HealthMonitoringMessages_Dummy__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.Dummy, global::HealthMonitoringMessages.Dummy.Builder> internal__static_HealthMonitoringMessages_Dummy__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_HealthMonitoringMessages_pLink__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.pLink, global::HealthMonitoringMessages.pLink.Builder> internal__static_HealthMonitoringMessages_pLink__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_HealthMonitoringMessages_pComponent__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.pComponent, global::HealthMonitoringMessages.pComponent.Builder> internal__static_HealthMonitoringMessages_pComponent__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_HealthMonitoringMessages_CDMMessage__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.CDMMessage, global::HealthMonitoringMessages.CDMMessage.Builder> internal__static_HealthMonitoringMessages_CDMMessage__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_HealthMonitoringMessages_DataRequestMsg__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.DataRequestMsg, global::HealthMonitoringMessages.DataRequestMsg.Builder> internal__static_HealthMonitoringMessages_DataRequestMsg__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_HealthMonitoringMessages_DataReplyMsg__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.DataReplyMsg, global::HealthMonitoringMessages.DataReplyMsg.Builder> internal__static_HealthMonitoringMessages_DataReplyMsg__FieldAccessorTable;
     #endregion
     #region Descriptor
     public static pbd::FileDescriptor Descriptor {
@@ -29,13 +37,39 @@ namespace HealthMonitoringMessages {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch5IZWFsdGhNb25pdG9yaW5nTWVzc2FnZXMucHJvdG8SGEhlYWx0aE1vbml0", 
-          "b3JpbmdNZXNzYWdlcyIVCgVEdW1teRIMCgRuYW1lGAEgASgJ"));
+            "b3JpbmdNZXNzYWdlcyJjCgVwTGluaxI2CghjaGlsZHJlbhgBIAEoCzIkLkhl", 
+            "YWx0aE1vbml0b3JpbmdNZXNzYWdlcy5wQ29tcG9uZW50EhMKC3Byb2JhYmls", 
+            "aXR5GAIgASgBEg0KBXN0YXRlGAMgASgFIlkKCnBDb21wb25lbnQSLgoFbGlu", 
+            "a3MYASADKAsyHy5IZWFsdGhNb25pdG9yaW5nTWVzc2FnZXMucExpbmsSDAoE", 
+            "bmFtZRgCIAIoCRINCgVzdGF0ZRgDIAEoBSJECgpDRE1NZXNzYWdlEjYKCGNk", 
+            "bV9yb290GAEgAigLMiQuSGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLnBDb21w", 
+            "b25lbnQiQgoORGF0YVJlcXVlc3RNc2cSMAoGb3Bjb2RlGAEgAigOMiAuSGVh", 
+            "bHRoTW9uaXRvcmluZ01lc3NhZ2VzLk9wQ29kZSJ6CgxEYXRhUmVwbHlNc2cS", 
+            "MAoGb3Bjb2RlGAEgAigOMiAuSGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLk9w", 
+            "Q29kZRI4Cgpjb21wb25lbnRzGAIgASgLMiQuSGVhbHRoTW9uaXRvcmluZ01l", 
+          "c3NhZ2VzLkNETU1lc3NhZ2UqGAoGT3BDb2RlEg4KCkNvbXBvbmVudHMQAA=="));
       pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
         descriptor = root;
-        internal__static_HealthMonitoringMessages_Dummy__Descriptor = Descriptor.MessageTypes[0];
-        internal__static_HealthMonitoringMessages_Dummy__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.Dummy, global::HealthMonitoringMessages.Dummy.Builder>(internal__static_HealthMonitoringMessages_Dummy__Descriptor,
-                new string[] { "Name", });
+        internal__static_HealthMonitoringMessages_pLink__Descriptor = Descriptor.MessageTypes[0];
+        internal__static_HealthMonitoringMessages_pLink__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.pLink, global::HealthMonitoringMessages.pLink.Builder>(internal__static_HealthMonitoringMessages_pLink__Descriptor,
+                new string[] { "Children", "Probability", "State", });
+        internal__static_HealthMonitoringMessages_pComponent__Descriptor = Descriptor.MessageTypes[1];
+        internal__static_HealthMonitoringMessages_pComponent__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.pComponent, global::HealthMonitoringMessages.pComponent.Builder>(internal__static_HealthMonitoringMessages_pComponent__Descriptor,
+                new string[] { "Links", "Name", "State", });
+        internal__static_HealthMonitoringMessages_CDMMessage__Descriptor = Descriptor.MessageTypes[2];
+        internal__static_HealthMonitoringMessages_CDMMessage__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.CDMMessage, global::HealthMonitoringMessages.CDMMessage.Builder>(internal__static_HealthMonitoringMessages_CDMMessage__Descriptor,
+                new string[] { "CdmRoot", });
+        internal__static_HealthMonitoringMessages_DataRequestMsg__Descriptor = Descriptor.MessageTypes[3];
+        internal__static_HealthMonitoringMessages_DataRequestMsg__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.DataRequestMsg, global::HealthMonitoringMessages.DataRequestMsg.Builder>(internal__static_HealthMonitoringMessages_DataRequestMsg__Descriptor,
+                new string[] { "Opcode", });
+        internal__static_HealthMonitoringMessages_DataReplyMsg__Descriptor = Descriptor.MessageTypes[4];
+        internal__static_HealthMonitoringMessages_DataReplyMsg__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.DataReplyMsg, global::HealthMonitoringMessages.DataReplyMsg.Builder>(internal__static_HealthMonitoringMessages_DataReplyMsg__Descriptor,
+                new string[] { "Opcode", "Components", });
         return null;
       };
       pbd::FileDescriptor.InternalBuildGeneratedFileFrom(descriptorData,
@@ -45,55 +79,91 @@ namespace HealthMonitoringMessages {
     #endregion
     
   }
+  #region Enums
+  public enum OpCode {
+    Components = 0,
+  }
+  
+  #endregion
+  
   #region Messages
   [global::System.SerializableAttribute()]
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class Dummy : pb::GeneratedMessage<Dummy, Dummy.Builder> {
-    private Dummy() { }
-    private static readonly Dummy defaultInstance = new Dummy().MakeReadOnly();
-    private static readonly string[] _dummyFieldNames = new string[] { "name" };
-    private static readonly uint[] _dummyFieldTags = new uint[] { 10 };
-    public static Dummy DefaultInstance {
+  public sealed partial class pLink : pb::GeneratedMessage<pLink, pLink.Builder> {
+    private pLink() { }
+    private static readonly pLink defaultInstance = new pLink().MakeReadOnly();
+    private static readonly string[] _pLinkFieldNames = new string[] { "children", "probability", "state" };
+    private static readonly uint[] _pLinkFieldTags = new uint[] { 10, 17, 24 };
+    public static pLink DefaultInstance {
       get { return defaultInstance; }
     }
     
-    public override Dummy DefaultInstanceForType {
+    public override pLink DefaultInstanceForType {
       get { return DefaultInstance; }
     }
     
-    protected override Dummy ThisMessage {
+    protected override pLink ThisMessage {
       get { return this; }
     }
     
     public static pbd::MessageDescriptor Descriptor {
-      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_Dummy__Descriptor; }
+      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_pLink__Descriptor; }
     }
     
-    protected override pb::FieldAccess.FieldAccessorTable<Dummy, Dummy.Builder> InternalFieldAccessors {
-      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_Dummy__FieldAccessorTable; }
+    protected override pb::FieldAccess.FieldAccessorTable<pLink, pLink.Builder> InternalFieldAccessors {
+      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_pLink__FieldAccessorTable; }
     }
     
-    public const int NameFieldNumber = 1;
-    private bool hasName;
-    private string name_ = "";
-    public bool HasName {
-      get { return hasName; }
+    public const int ChildrenFieldNumber = 1;
+    private bool hasChildren;
+    private global::HealthMonitoringMessages.pComponent children_;
+    public bool HasChildren {
+      get { return hasChildren; }
     }
-    public string Name {
-      get { return name_; }
+    public global::HealthMonitoringMessages.pComponent Children {
+      get { return children_ ?? global::HealthMonitoringMessages.pComponent.DefaultInstance; }
+    }
+    
+    public const int ProbabilityFieldNumber = 2;
+    private bool hasProbability;
+    private double probability_;
+    public bool HasProbability {
+      get { return hasProbability; }
+    }
+    public double Probability {
+      get { return probability_; }
+    }
+    
+    public const int StateFieldNumber = 3;
+    private bool hasState;
+    private int state_;
+    public bool HasState {
+      get { return hasState; }
+    }
+    public int State {
+      get { return state_; }
     }
     
     public override bool IsInitialized {
       get {
+        if (HasChildren) {
+          if (!Children.IsInitialized) return false;
+        }
         return true;
       }
     }
     
     public override void WriteTo(pb::ICodedOutputStream output) {
       CalcSerializedSize();
-      string[] field_names = _dummyFieldNames;
-      if (hasName) {
-        output.WriteString(1, field_names[0], Name);
+      string[] field_names = _pLinkFieldNames;
+      if (hasChildren) {
+        output.WriteMessage(1, field_names[0], Children);
+      }
+      if (hasProbability) {
+        output.WriteDouble(2, field_names[1], Probability);
+      }
+      if (hasState) {
+        output.WriteInt32(3, field_names[2], State);
       }
       UnknownFields.WriteTo(output);
     }
@@ -112,57 +182,63 @@ namespace HealthMonitoringMessages {
       if (size != -1) return size;
       
       size = 0;
-      if (hasName) {
-        size += pb::CodedOutputStream.ComputeStringSize(1, Name);
+      if (hasChildren) {
+        size += pb::CodedOutputStream.ComputeMessageSize(1, Children);
+      }
+      if (hasProbability) {
+        size += pb::CodedOutputStream.ComputeDoubleSize(2, Probability);
+      }
+      if (hasState) {
+        size += pb::CodedOutputStream.ComputeInt32Size(3, State);
       }
       size += UnknownFields.SerializedSize;
       memoizedSerializedSize = size;
       return size;
     }
-    public static Dummy ParseFrom(pb::ByteString data) {
+    public static pLink ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
-    public static Dummy ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+    public static pLink ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
-    public static Dummy ParseFrom(byte[] data) {
+    public static pLink ParseFrom(byte[] data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
-    public static Dummy ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+    public static pLink ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
-    public static Dummy ParseFrom(global::System.IO.Stream input) {
+    public static pLink ParseFrom(global::System.IO.Stream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
-    public static Dummy ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static pLink ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    public static Dummy ParseDelimitedFrom(global::System.IO.Stream input) {
+    public static pLink ParseDelimitedFrom(global::System.IO.Stream input) {
       return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
     }
-    public static Dummy ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static pLink ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
     }
-    public static Dummy ParseFrom(pb::ICodedInputStream input) {
+    public static pLink ParseFrom(pb::ICodedInputStream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
-    public static Dummy ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+    public static pLink ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    private Dummy MakeReadOnly() {
+    private pLink MakeReadOnly() {
       return this;
     }
     
     public static Builder CreateBuilder() { return new Builder(); }
     public override Builder ToBuilder() { return CreateBuilder(this); }
     public override Builder CreateBuilderForType() { return new Builder(); }
-    public static Builder CreateBuilder(Dummy prototype) {
+    public static Builder CreateBuilder(pLink prototype) {
       return new Builder(prototype);
     }
     
     [global::System.SerializableAttribute()]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed partial class Builder : pb::GeneratedBuilder<Dummy, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilder<pLink, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -170,18 +246,18 @@ namespace HealthMonitoringMessages {
         result = DefaultInstance;
         resultIsReadOnly = true;
       }
-      internal Builder(Dummy cloneFrom) {
+      internal Builder(pLink cloneFrom) {
         result = cloneFrom;
         resultIsReadOnly = true;
       }
       
       private bool resultIsReadOnly;
-      private Dummy result;
+      private pLink result;
       
-      private Dummy PrepareBuilder() {
+      private pLink PrepareBuilder() {
         if (resultIsReadOnly) {
-          Dummy original = result;
-          result = new Dummy();
+          pLink original = result;
+          result = new pLink();
           resultIsReadOnly = false;
           MergeFrom(original);
         }
@@ -192,7 +268,7 @@ namespace HealthMonitoringMessages {
         get { return result.IsInitialized; }
       }
       
-      protected override Dummy MessageBeingBuilt {
+      protected override pLink MessageBeingBuilt {
         get { return PrepareBuilder(); }
       }
       
@@ -211,14 +287,14 @@ namespace HealthMonitoringMessages {
       }
       
       public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::HealthMonitoringMessages.Dummy.Descriptor; }
+        get { return global::HealthMonitoringMessages.pLink.Descriptor; }
       }
       
-      public override Dummy DefaultInstanceForType {
-        get { return global::HealthMonitoringMessages.Dummy.DefaultInstance; }
+      public override pLink DefaultInstanceForType {
+        get { return global::HealthMonitoringMessages.pLink.DefaultInstance; }
       }
       
-      public override Dummy BuildPartial() {
+      public override pLink BuildPartial() {
         if (resultIsReadOnly) {
           return result;
         }
@@ -227,19 +303,25 @@ namespace HealthMonitoringMessages {
       }
       
       public override Builder MergeFrom(pb::IMessage other) {
-        if (other is Dummy) {
-          return MergeFrom((Dummy) other);
+        if (other is pLink) {
+          return MergeFrom((pLink) other);
         } else {
           base.MergeFrom(other);
           return this;
         }
       }
       
-      public override Builder MergeFrom(Dummy other) {
-        if (other == global::HealthMonitoringMessages.Dummy.DefaultInstance) return this;
+      public override Builder MergeFrom(pLink other) {
+        if (other == global::HealthMonitoringMessages.pLink.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasName) {
-          Name = other.Name;
+        if (other.HasChildren) {
+          MergeChildren(other.Children);
+        }
+        if (other.HasProbability) {
+          Probability = other.Probability;
+        }
+        if (other.HasState) {
+          State = other.State;
         }
         this.MergeUnknownFields(other.UnknownFields);
         return this;
@@ -256,9 +338,9 @@ namespace HealthMonitoringMessages {
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
           if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_dummyFieldNames, field_name, global::System.StringComparer.Ordinal);
+            int field_ordinal = global::System.Array.BinarySearch(_pLinkFieldNames, field_name, global::System.StringComparer.Ordinal);
             if(field_ordinal >= 0)
-              tag = _dummyFieldTags[field_ordinal];
+              tag = _pLinkFieldTags[field_ordinal];
             else {
               if (unknownFields == null) {
                 unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
@@ -285,7 +367,20 @@ namespace HealthMonitoringMessages {
               break;
             }
             case 10: {
-              result.hasName = input.ReadString(ref result.name_);
+              global::HealthMonitoringMessages.pComponent.Builder subBuilder = global::HealthMonitoringMessages.pComponent.CreateBuilder();
+              if (result.hasChildren) {
+                subBuilder.MergeFrom(Children);
+              }
+              input.ReadMessage(subBuilder, extensionRegistry);
+              Children = subBuilder.BuildPartial();
+              break;
+            }
+            case 17: {
+              result.hasProbability = input.ReadDouble(ref result.probability_);
+              break;
+            }
+            case 24: {
+              result.hasState = input.ReadInt32(ref result.state_);
               break;
             }
           }
@@ -297,6 +392,440 @@ namespace HealthMonitoringMessages {
         return this;
       }
       
+      
+      public bool HasChildren {
+       get { return result.hasChildren; }
+      }
+      public global::HealthMonitoringMessages.pComponent Children {
+        get { return result.Children; }
+        set { SetChildren(value); }
+      }
+      public Builder SetChildren(global::HealthMonitoringMessages.pComponent value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasChildren = true;
+        result.children_ = value;
+        return this;
+      }
+      public Builder SetChildren(global::HealthMonitoringMessages.pComponent.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.hasChildren = true;
+        result.children_ = builderForValue.Build();
+        return this;
+      }
+      public Builder MergeChildren(global::HealthMonitoringMessages.pComponent value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        if (result.hasChildren &&
+            result.children_ != global::HealthMonitoringMessages.pComponent.DefaultInstance) {
+            result.children_ = global::HealthMonitoringMessages.pComponent.CreateBuilder(result.children_).MergeFrom(value).BuildPartial();
+        } else {
+          result.children_ = value;
+        }
+        result.hasChildren = true;
+        return this;
+      }
+      public Builder ClearChildren() {
+        PrepareBuilder();
+        result.hasChildren = false;
+        result.children_ = null;
+        return this;
+      }
+      
+      public bool HasProbability {
+        get { return result.hasProbability; }
+      }
+      public double Probability {
+        get { return result.Probability; }
+        set { SetProbability(value); }
+      }
+      public Builder SetProbability(double value) {
+        PrepareBuilder();
+        result.hasProbability = true;
+        result.probability_ = value;
+        return this;
+      }
+      public Builder ClearProbability() {
+        PrepareBuilder();
+        result.hasProbability = false;
+        result.probability_ = 0D;
+        return this;
+      }
+      
+      public bool HasState {
+        get { return result.hasState; }
+      }
+      public int State {
+        get { return result.State; }
+        set { SetState(value); }
+      }
+      public Builder SetState(int value) {
+        PrepareBuilder();
+        result.hasState = true;
+        result.state_ = value;
+        return this;
+      }
+      public Builder ClearState() {
+        PrepareBuilder();
+        result.hasState = false;
+        result.state_ = 0;
+        return this;
+      }
+    }
+    static pLink() {
+      object.ReferenceEquals(global::HealthMonitoringMessages.HealthMonitoringMessages.Descriptor, null);
+    }
+  }
+  
+  [global::System.SerializableAttribute()]
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class pComponent : pb::GeneratedMessage<pComponent, pComponent.Builder> {
+    private pComponent() { }
+    private static readonly pComponent defaultInstance = new pComponent().MakeReadOnly();
+    private static readonly string[] _pComponentFieldNames = new string[] { "links", "name", "state" };
+    private static readonly uint[] _pComponentFieldTags = new uint[] { 10, 18, 24 };
+    public static pComponent DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override pComponent DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override pComponent ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_pComponent__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<pComponent, pComponent.Builder> InternalFieldAccessors {
+      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_pComponent__FieldAccessorTable; }
+    }
+    
+    public const int LinksFieldNumber = 1;
+    private pbc::PopsicleList<global::HealthMonitoringMessages.pLink> links_ = new pbc::PopsicleList<global::HealthMonitoringMessages.pLink>();
+    public scg::IList<global::HealthMonitoringMessages.pLink> LinksList {
+      get { return links_; }
+    }
+    public int LinksCount {
+      get { return links_.Count; }
+    }
+    public global::HealthMonitoringMessages.pLink GetLinks(int index) {
+      return links_[index];
+    }
+    
+    public const int NameFieldNumber = 2;
+    private bool hasName;
+    private string name_ = "";
+    public bool HasName {
+      get { return hasName; }
+    }
+    public string Name {
+      get { return name_; }
+    }
+    
+    public const int StateFieldNumber = 3;
+    private bool hasState;
+    private int state_;
+    public bool HasState {
+      get { return hasState; }
+    }
+    public int State {
+      get { return state_; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        if (!hasName) return false;
+        foreach (global::HealthMonitoringMessages.pLink element in LinksList) {
+          if (!element.IsInitialized) return false;
+        }
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      CalcSerializedSize();
+      string[] field_names = _pComponentFieldNames;
+      if (links_.Count > 0) {
+        output.WriteMessageArray(1, field_names[0], links_);
+      }
+      if (hasName) {
+        output.WriteString(2, field_names[1], Name);
+      }
+      if (hasState) {
+        output.WriteInt32(3, field_names[2], State);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        return CalcSerializedSize();
+      }
+    }
+    
+    private int CalcSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+      
+      size = 0;
+      foreach (global::HealthMonitoringMessages.pLink element in LinksList) {
+        size += pb::CodedOutputStream.ComputeMessageSize(1, element);
+      }
+      if (hasName) {
+        size += pb::CodedOutputStream.ComputeStringSize(2, Name);
+      }
+      if (hasState) {
+        size += pb::CodedOutputStream.ComputeInt32Size(3, State);
+      }
+      size += UnknownFields.SerializedSize;
+      memoizedSerializedSize = size;
+      return size;
+    }
+    public static pComponent ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static pComponent ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static pComponent ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static pComponent ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static pComponent ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static pComponent ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static pComponent ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static pComponent ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static pComponent ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static pComponent ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private pComponent MakeReadOnly() {
+      links_.MakeReadOnly();
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(pComponent prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.SerializableAttribute()]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<pComponent, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(pComponent cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private pComponent result;
+      
+      private pComponent PrepareBuilder() {
+        if (resultIsReadOnly) {
+          pComponent original = result;
+          result = new pComponent();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override pComponent MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::HealthMonitoringMessages.pComponent.Descriptor; }
+      }
+      
+      public override pComponent DefaultInstanceForType {
+        get { return global::HealthMonitoringMessages.pComponent.DefaultInstance; }
+      }
+      
+      public override pComponent BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is pComponent) {
+          return MergeFrom((pComponent) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(pComponent other) {
+        if (other == global::HealthMonitoringMessages.pComponent.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.links_.Count != 0) {
+          result.links_.Add(other.links_);
+        }
+        if (other.HasName) {
+          Name = other.Name;
+        }
+        if (other.HasState) {
+          State = other.State;
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_pComponentFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _pComponentFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 10: {
+              input.ReadMessageArray(tag, field_name, result.links_, global::HealthMonitoringMessages.pLink.DefaultInstance, extensionRegistry);
+              break;
+            }
+            case 18: {
+              result.hasName = input.ReadString(ref result.name_);
+              break;
+            }
+            case 24: {
+              result.hasState = input.ReadInt32(ref result.state_);
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public pbc::IPopsicleList<global::HealthMonitoringMessages.pLink> LinksList {
+        get { return PrepareBuilder().links_; }
+      }
+      public int LinksCount {
+        get { return result.LinksCount; }
+      }
+      public global::HealthMonitoringMessages.pLink GetLinks(int index) {
+        return result.GetLinks(index);
+      }
+      public Builder SetLinks(int index, global::HealthMonitoringMessages.pLink value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.links_[index] = value;
+        return this;
+      }
+      public Builder SetLinks(int index, global::HealthMonitoringMessages.pLink.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.links_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddLinks(global::HealthMonitoringMessages.pLink value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.links_.Add(value);
+        return this;
+      }
+      public Builder AddLinks(global::HealthMonitoringMessages.pLink.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.links_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeLinks(scg::IEnumerable<global::HealthMonitoringMessages.pLink> values) {
+        PrepareBuilder();
+        result.links_.Add(values);
+        return this;
+      }
+      public Builder ClearLinks() {
+        PrepareBuilder();
+        result.links_.Clear();
+        return this;
+      }
       
       public bool HasName {
         get { return result.hasName; }
@@ -318,8 +847,975 @@ namespace HealthMonitoringMessages {
         result.name_ = "";
         return this;
       }
+      
+      public bool HasState {
+        get { return result.hasState; }
+      }
+      public int State {
+        get { return result.State; }
+        set { SetState(value); }
+      }
+      public Builder SetState(int value) {
+        PrepareBuilder();
+        result.hasState = true;
+        result.state_ = value;
+        return this;
+      }
+      public Builder ClearState() {
+        PrepareBuilder();
+        result.hasState = false;
+        result.state_ = 0;
+        return this;
+      }
     }
-    static Dummy() {
+    static pComponent() {
+      object.ReferenceEquals(global::HealthMonitoringMessages.HealthMonitoringMessages.Descriptor, null);
+    }
+  }
+  
+  [global::System.SerializableAttribute()]
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class CDMMessage : pb::GeneratedMessage<CDMMessage, CDMMessage.Builder> {
+    private CDMMessage() { }
+    private static readonly CDMMessage defaultInstance = new CDMMessage().MakeReadOnly();
+    private static readonly string[] _cDMMessageFieldNames = new string[] { "cdm_root" };
+    private static readonly uint[] _cDMMessageFieldTags = new uint[] { 10 };
+    public static CDMMessage DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override CDMMessage DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override CDMMessage ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_CDMMessage__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<CDMMessage, CDMMessage.Builder> InternalFieldAccessors {
+      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_CDMMessage__FieldAccessorTable; }
+    }
+    
+    public const int CdmRootFieldNumber = 1;
+    private bool hasCdmRoot;
+    private global::HealthMonitoringMessages.pComponent cdmRoot_;
+    public bool HasCdmRoot {
+      get { return hasCdmRoot; }
+    }
+    public global::HealthMonitoringMessages.pComponent CdmRoot {
+      get { return cdmRoot_ ?? global::HealthMonitoringMessages.pComponent.DefaultInstance; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        if (!hasCdmRoot) return false;
+        if (!CdmRoot.IsInitialized) return false;
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      CalcSerializedSize();
+      string[] field_names = _cDMMessageFieldNames;
+      if (hasCdmRoot) {
+        output.WriteMessage(1, field_names[0], CdmRoot);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        return CalcSerializedSize();
+      }
+    }
+    
+    private int CalcSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+      
+      size = 0;
+      if (hasCdmRoot) {
+        size += pb::CodedOutputStream.ComputeMessageSize(1, CdmRoot);
+      }
+      size += UnknownFields.SerializedSize;
+      memoizedSerializedSize = size;
+      return size;
+    }
+    public static CDMMessage ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static CDMMessage ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static CDMMessage ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static CDMMessage ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static CDMMessage ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static CDMMessage ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static CDMMessage ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static CDMMessage ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static CDMMessage ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static CDMMessage ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private CDMMessage MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(CDMMessage prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.SerializableAttribute()]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<CDMMessage, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(CDMMessage cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private CDMMessage result;
+      
+      private CDMMessage PrepareBuilder() {
+        if (resultIsReadOnly) {
+          CDMMessage original = result;
+          result = new CDMMessage();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override CDMMessage MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::HealthMonitoringMessages.CDMMessage.Descriptor; }
+      }
+      
+      public override CDMMessage DefaultInstanceForType {
+        get { return global::HealthMonitoringMessages.CDMMessage.DefaultInstance; }
+      }
+      
+      public override CDMMessage BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is CDMMessage) {
+          return MergeFrom((CDMMessage) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(CDMMessage other) {
+        if (other == global::HealthMonitoringMessages.CDMMessage.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasCdmRoot) {
+          MergeCdmRoot(other.CdmRoot);
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_cDMMessageFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _cDMMessageFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 10: {
+              global::HealthMonitoringMessages.pComponent.Builder subBuilder = global::HealthMonitoringMessages.pComponent.CreateBuilder();
+              if (result.hasCdmRoot) {
+                subBuilder.MergeFrom(CdmRoot);
+              }
+              input.ReadMessage(subBuilder, extensionRegistry);
+              CdmRoot = subBuilder.BuildPartial();
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasCdmRoot {
+       get { return result.hasCdmRoot; }
+      }
+      public global::HealthMonitoringMessages.pComponent CdmRoot {
+        get { return result.CdmRoot; }
+        set { SetCdmRoot(value); }
+      }
+      public Builder SetCdmRoot(global::HealthMonitoringMessages.pComponent value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasCdmRoot = true;
+        result.cdmRoot_ = value;
+        return this;
+      }
+      public Builder SetCdmRoot(global::HealthMonitoringMessages.pComponent.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.hasCdmRoot = true;
+        result.cdmRoot_ = builderForValue.Build();
+        return this;
+      }
+      public Builder MergeCdmRoot(global::HealthMonitoringMessages.pComponent value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        if (result.hasCdmRoot &&
+            result.cdmRoot_ != global::HealthMonitoringMessages.pComponent.DefaultInstance) {
+            result.cdmRoot_ = global::HealthMonitoringMessages.pComponent.CreateBuilder(result.cdmRoot_).MergeFrom(value).BuildPartial();
+        } else {
+          result.cdmRoot_ = value;
+        }
+        result.hasCdmRoot = true;
+        return this;
+      }
+      public Builder ClearCdmRoot() {
+        PrepareBuilder();
+        result.hasCdmRoot = false;
+        result.cdmRoot_ = null;
+        return this;
+      }
+    }
+    static CDMMessage() {
+      object.ReferenceEquals(global::HealthMonitoringMessages.HealthMonitoringMessages.Descriptor, null);
+    }
+  }
+  
+  [global::System.SerializableAttribute()]
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class DataRequestMsg : pb::GeneratedMessage<DataRequestMsg, DataRequestMsg.Builder> {
+    private DataRequestMsg() { }
+    private static readonly DataRequestMsg defaultInstance = new DataRequestMsg().MakeReadOnly();
+    private static readonly string[] _dataRequestMsgFieldNames = new string[] { "opcode" };
+    private static readonly uint[] _dataRequestMsgFieldTags = new uint[] { 8 };
+    public static DataRequestMsg DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override DataRequestMsg DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override DataRequestMsg ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_DataRequestMsg__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<DataRequestMsg, DataRequestMsg.Builder> InternalFieldAccessors {
+      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_DataRequestMsg__FieldAccessorTable; }
+    }
+    
+    public const int OpcodeFieldNumber = 1;
+    private bool hasOpcode;
+    private global::HealthMonitoringMessages.OpCode opcode_ = global::HealthMonitoringMessages.OpCode.Components;
+    public bool HasOpcode {
+      get { return hasOpcode; }
+    }
+    public global::HealthMonitoringMessages.OpCode Opcode {
+      get { return opcode_; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        if (!hasOpcode) return false;
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      CalcSerializedSize();
+      string[] field_names = _dataRequestMsgFieldNames;
+      if (hasOpcode) {
+        output.WriteEnum(1, field_names[0], (int) Opcode, Opcode);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        return CalcSerializedSize();
+      }
+    }
+    
+    private int CalcSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+      
+      size = 0;
+      if (hasOpcode) {
+        size += pb::CodedOutputStream.ComputeEnumSize(1, (int) Opcode);
+      }
+      size += UnknownFields.SerializedSize;
+      memoizedSerializedSize = size;
+      return size;
+    }
+    public static DataRequestMsg ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static DataRequestMsg ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static DataRequestMsg ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static DataRequestMsg ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static DataRequestMsg ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static DataRequestMsg ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static DataRequestMsg ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static DataRequestMsg ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static DataRequestMsg ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static DataRequestMsg ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private DataRequestMsg MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(DataRequestMsg prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.SerializableAttribute()]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<DataRequestMsg, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(DataRequestMsg cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private DataRequestMsg result;
+      
+      private DataRequestMsg PrepareBuilder() {
+        if (resultIsReadOnly) {
+          DataRequestMsg original = result;
+          result = new DataRequestMsg();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override DataRequestMsg MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::HealthMonitoringMessages.DataRequestMsg.Descriptor; }
+      }
+      
+      public override DataRequestMsg DefaultInstanceForType {
+        get { return global::HealthMonitoringMessages.DataRequestMsg.DefaultInstance; }
+      }
+      
+      public override DataRequestMsg BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is DataRequestMsg) {
+          return MergeFrom((DataRequestMsg) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(DataRequestMsg other) {
+        if (other == global::HealthMonitoringMessages.DataRequestMsg.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasOpcode) {
+          Opcode = other.Opcode;
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_dataRequestMsgFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _dataRequestMsgFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              object unknown;
+              if(input.ReadEnum(ref result.opcode_, out unknown)) {
+                result.hasOpcode = true;
+              } else if(unknown is int) {
+                if (unknownFields == null) {
+                  unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+                }
+                unknownFields.MergeVarintField(1, (ulong)(int)unknown);
+              }
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasOpcode {
+       get { return result.hasOpcode; }
+      }
+      public global::HealthMonitoringMessages.OpCode Opcode {
+        get { return result.Opcode; }
+        set { SetOpcode(value); }
+      }
+      public Builder SetOpcode(global::HealthMonitoringMessages.OpCode value) {
+        PrepareBuilder();
+        result.hasOpcode = true;
+        result.opcode_ = value;
+        return this;
+      }
+      public Builder ClearOpcode() {
+        PrepareBuilder();
+        result.hasOpcode = false;
+        result.opcode_ = global::HealthMonitoringMessages.OpCode.Components;
+        return this;
+      }
+    }
+    static DataRequestMsg() {
+      object.ReferenceEquals(global::HealthMonitoringMessages.HealthMonitoringMessages.Descriptor, null);
+    }
+  }
+  
+  [global::System.SerializableAttribute()]
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class DataReplyMsg : pb::GeneratedMessage<DataReplyMsg, DataReplyMsg.Builder> {
+    private DataReplyMsg() { }
+    private static readonly DataReplyMsg defaultInstance = new DataReplyMsg().MakeReadOnly();
+    private static readonly string[] _dataReplyMsgFieldNames = new string[] { "components", "opcode" };
+    private static readonly uint[] _dataReplyMsgFieldTags = new uint[] { 18, 8 };
+    public static DataReplyMsg DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override DataReplyMsg DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override DataReplyMsg ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_DataReplyMsg__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<DataReplyMsg, DataReplyMsg.Builder> InternalFieldAccessors {
+      get { return global::HealthMonitoringMessages.HealthMonitoringMessages.internal__static_HealthMonitoringMessages_DataReplyMsg__FieldAccessorTable; }
+    }
+    
+    public const int OpcodeFieldNumber = 1;
+    private bool hasOpcode;
+    private global::HealthMonitoringMessages.OpCode opcode_ = global::HealthMonitoringMessages.OpCode.Components;
+    public bool HasOpcode {
+      get { return hasOpcode; }
+    }
+    public global::HealthMonitoringMessages.OpCode Opcode {
+      get { return opcode_; }
+    }
+    
+    public const int ComponentsFieldNumber = 2;
+    private bool hasComponents;
+    private global::HealthMonitoringMessages.CDMMessage components_;
+    public bool HasComponents {
+      get { return hasComponents; }
+    }
+    public global::HealthMonitoringMessages.CDMMessage Components {
+      get { return components_ ?? global::HealthMonitoringMessages.CDMMessage.DefaultInstance; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        if (!hasOpcode) return false;
+        if (HasComponents) {
+          if (!Components.IsInitialized) return false;
+        }
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      CalcSerializedSize();
+      string[] field_names = _dataReplyMsgFieldNames;
+      if (hasOpcode) {
+        output.WriteEnum(1, field_names[1], (int) Opcode, Opcode);
+      }
+      if (hasComponents) {
+        output.WriteMessage(2, field_names[0], Components);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        return CalcSerializedSize();
+      }
+    }
+    
+    private int CalcSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+      
+      size = 0;
+      if (hasOpcode) {
+        size += pb::CodedOutputStream.ComputeEnumSize(1, (int) Opcode);
+      }
+      if (hasComponents) {
+        size += pb::CodedOutputStream.ComputeMessageSize(2, Components);
+      }
+      size += UnknownFields.SerializedSize;
+      memoizedSerializedSize = size;
+      return size;
+    }
+    public static DataReplyMsg ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static DataReplyMsg ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static DataReplyMsg ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static DataReplyMsg ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static DataReplyMsg ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static DataReplyMsg ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static DataReplyMsg ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static DataReplyMsg ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static DataReplyMsg ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static DataReplyMsg ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private DataReplyMsg MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(DataReplyMsg prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.SerializableAttribute()]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<DataReplyMsg, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(DataReplyMsg cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private DataReplyMsg result;
+      
+      private DataReplyMsg PrepareBuilder() {
+        if (resultIsReadOnly) {
+          DataReplyMsg original = result;
+          result = new DataReplyMsg();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override DataReplyMsg MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::HealthMonitoringMessages.DataReplyMsg.Descriptor; }
+      }
+      
+      public override DataReplyMsg DefaultInstanceForType {
+        get { return global::HealthMonitoringMessages.DataReplyMsg.DefaultInstance; }
+      }
+      
+      public override DataReplyMsg BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is DataReplyMsg) {
+          return MergeFrom((DataReplyMsg) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(DataReplyMsg other) {
+        if (other == global::HealthMonitoringMessages.DataReplyMsg.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasOpcode) {
+          Opcode = other.Opcode;
+        }
+        if (other.HasComponents) {
+          MergeComponents(other.Components);
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_dataReplyMsgFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _dataReplyMsgFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              object unknown;
+              if(input.ReadEnum(ref result.opcode_, out unknown)) {
+                result.hasOpcode = true;
+              } else if(unknown is int) {
+                if (unknownFields == null) {
+                  unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+                }
+                unknownFields.MergeVarintField(1, (ulong)(int)unknown);
+              }
+              break;
+            }
+            case 18: {
+              global::HealthMonitoringMessages.CDMMessage.Builder subBuilder = global::HealthMonitoringMessages.CDMMessage.CreateBuilder();
+              if (result.hasComponents) {
+                subBuilder.MergeFrom(Components);
+              }
+              input.ReadMessage(subBuilder, extensionRegistry);
+              Components = subBuilder.BuildPartial();
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasOpcode {
+       get { return result.hasOpcode; }
+      }
+      public global::HealthMonitoringMessages.OpCode Opcode {
+        get { return result.Opcode; }
+        set { SetOpcode(value); }
+      }
+      public Builder SetOpcode(global::HealthMonitoringMessages.OpCode value) {
+        PrepareBuilder();
+        result.hasOpcode = true;
+        result.opcode_ = value;
+        return this;
+      }
+      public Builder ClearOpcode() {
+        PrepareBuilder();
+        result.hasOpcode = false;
+        result.opcode_ = global::HealthMonitoringMessages.OpCode.Components;
+        return this;
+      }
+      
+      public bool HasComponents {
+       get { return result.hasComponents; }
+      }
+      public global::HealthMonitoringMessages.CDMMessage Components {
+        get { return result.Components; }
+        set { SetComponents(value); }
+      }
+      public Builder SetComponents(global::HealthMonitoringMessages.CDMMessage value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasComponents = true;
+        result.components_ = value;
+        return this;
+      }
+      public Builder SetComponents(global::HealthMonitoringMessages.CDMMessage.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.hasComponents = true;
+        result.components_ = builderForValue.Build();
+        return this;
+      }
+      public Builder MergeComponents(global::HealthMonitoringMessages.CDMMessage value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        if (result.hasComponents &&
+            result.components_ != global::HealthMonitoringMessages.CDMMessage.DefaultInstance) {
+            result.components_ = global::HealthMonitoringMessages.CDMMessage.CreateBuilder(result.components_).MergeFrom(value).BuildPartial();
+        } else {
+          result.components_ = value;
+        }
+        result.hasComponents = true;
+        return this;
+      }
+      public Builder ClearComponents() {
+        PrepareBuilder();
+        result.hasComponents = false;
+        result.components_ = null;
+        return this;
+      }
+    }
+    static DataReplyMsg() {
       object.ReferenceEquals(global::HealthMonitoringMessages.HealthMonitoringMessages.Descriptor, null);
     }
   }

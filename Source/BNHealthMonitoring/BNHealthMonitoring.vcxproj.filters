@@ -22,9 +22,6 @@
     <Filter Include="Components\Header Components Files">
       <UniqueIdentifier>{00bfb5e2-b74f-41fa-bbda-912c403d4ba7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Messages">
-      <UniqueIdentifier>{db3b8196-94d3-426c-b360-31c5893b5834}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,17 +42,17 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GenericComp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MemoryWrapper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CSVReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.cc">
-      <Filter>Messages</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommunicationHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericComp.cpp">
+      <Filter>Components\Source Components Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,19 +68,7 @@
     <ClInclude Include="Gps.h">
       <Filter>Components\Header Components Files</Filter>
     </ClInclude>
-    <ClInclude Include="LinkedList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ListItem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GenericComp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MemoryWrapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CSVReader.h">
@@ -92,8 +77,11 @@
     <ClInclude Include="Externals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.h">
-      <Filter>Messages</Filter>
+    <ClInclude Include="CommunicationHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericComp.h">
+      <Filter>Components\Header Components Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

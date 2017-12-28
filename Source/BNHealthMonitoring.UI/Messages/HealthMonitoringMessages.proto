@@ -1,6 +1,0 @@
-package HealthMonitoringMessages;
-
-message Dummy{
-	optional string name = 1;
-	required int32 id = 2;
-}

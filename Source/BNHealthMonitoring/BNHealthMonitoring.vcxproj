@@ -146,27 +146,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.cc" />
+    <ClCompile Include="CommunicationHandler.cpp" />
     <ClCompile Include="ComponentsModel.cpp" />
     <ClCompile Include="CSVReader.cpp" />
     <ClCompile Include="GenericComp.cpp" />
     <ClCompile Include="Gps.cpp" />
     <ClCompile Include="Link.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MemoryWrapper.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.h" />
+    <ClInclude Include="CommunicationHandler.h" />
     <ClInclude Include="ComponentsModel.h" />
     <ClInclude Include="CSVReader.h" />
     <ClInclude Include="Externals.h" />
     <ClInclude Include="GenericComp.h" />
     <ClInclude Include="Gps.h" />
     <ClInclude Include="Link.h" />
-    <ClInclude Include="LinkedList.h" />
-    <ClInclude Include="ListItem.h" />
-    <ClInclude Include="MemoryWrapper.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>

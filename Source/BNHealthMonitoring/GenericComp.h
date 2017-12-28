@@ -4,7 +4,7 @@
 class GenericComp : public Node
 {
 public:
-	GenericComp(const char* p_name, unsigned int p_nStates);
+	GenericComp(string p_name);
 	~GenericComp();
 
 	void update_component_state() override;
