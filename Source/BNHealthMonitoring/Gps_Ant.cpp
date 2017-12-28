@@ -1,6 +1,6 @@
 #include "Gps_Ant.h"
 
-Gps_Ant::Gps_Ant(const char* p_name, unsigned int p_nStates) : Node(p_name, p_nStates)
+Gps_Ant::Gps_Ant(string p_name) : Node(p_name)
 {
 	m_reader = new CSVReader("C:\\Users\\Yakir\\Desktop\\Gps_Ant.csv");
 }

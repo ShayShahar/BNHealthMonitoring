@@ -22,6 +22,9 @@
     <Filter Include="Components\Header Components Files">
       <UniqueIdentifier>{00bfb5e2-b74f-41fa-bbda-912c403d4ba7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CSVFiles">
+      <UniqueIdentifier>{e71ce89e-fd64-482d-8998-c9f820f7e685}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,6 +57,9 @@
     <ClCompile Include="GenericComp.cpp">
       <Filter>Components\Source Components Files</Filter>
     </ClCompile>
+    <ClCompile Include="Gps_Ant.cpp">
+      <Filter>Components\Source Components Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -83,8 +89,14 @@
     <ClInclude Include="GenericComp.h">
       <Filter>Components\Header Components Files</Filter>
     </ClInclude>
+    <ClInclude Include="Gps_Ant.h">
+      <Filter>Components\Header Components Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="CSVFiles\OutFileSatAlpha.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
   </ItemGroup>
 </Project>

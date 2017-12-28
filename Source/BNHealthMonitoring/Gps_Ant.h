@@ -18,7 +18,7 @@ private:
 	float altitude;
 
 public:
-	Gps_Ant(const char* p_name, unsigned int p_nStates);
+	Gps_Ant(string p_name);
 	~Gps_Ant();
 	void update_component_state() override;
 };

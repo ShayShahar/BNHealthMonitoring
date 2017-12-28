@@ -2,7 +2,7 @@
 
 CGps::CGps(string p_name) : Node(p_name)
 {
-	m_reader = new CSVReader("C:\\Users\\shays\\Desktop\\OutFileSatAlpha.csv");
+	m_reader = new CSVReader("CSVFiles//OutFileSatAlpha.csv");
 }
 
 
