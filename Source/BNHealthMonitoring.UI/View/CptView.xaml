@@ -12,89 +12,112 @@
 
     <UserControl.Resources>
         <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </UserControl.Resources>
 
-
     <Grid>
-        <DataGrid ItemsSource="{Binding SelectedComponent, Mode=OneWay}" 
+        <StackPanel>
+            <DataGrid ItemsSource="{Binding SelectedComponent, Mode=OneWay}" 
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
                   IsReadOnly="True"
+                  Visibility="{Binding IsDataNotAvailable, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                  HorizontalScrollBarVisibility="Disabled"
                   AutoGenerateColumns="false">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="STATE"
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Margin" Value="0,2,2,0"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsCurrentState}" Value="True">
+                                <Setter Property="Background" Value="#5b5b5b"></Setter>
+                            </DataTrigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="#453c4d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="STATE"
                                     Width="0.5*"
                                     Binding="{Binding State, Mode=OneWay}">
-                    <DataGridTextColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="Background" Value="#222E31"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="BorderBrush" Value="DarkGray"/>
-                            <Setter Property="BorderThickness" Value="0,0,0.4,0"/>
-                            <Setter Property="FontWeight" Value="DemiBold"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter Property="Background" Value="#453c4d"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGridTextColumn.HeaderStyle>
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="TextAlignment" Value="Center" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="PROBABILITY"
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="Background" Value="#222E31"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="DarkGray"/>
+                                <Setter Property="BorderThickness" Value="0,0,0.4,0"/>
+                                <Setter Property="FontWeight" Value="DemiBold"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" Value="#453c4d"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="PROBABILITY"
                                     Width="0.7*"
                                     Binding="{Binding Probability, Mode=OneWay}">
-                    <DataGridTextColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="Background" Value="#222E31"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="BorderBrush" Value="DarkGray"/>
-                            <Setter Property="BorderThickness" Value="0.4,0,0.4,0"/>
-                            <Setter Property="FontWeight" Value="DemiBold"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter Property="Background" Value="#453c4d"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGridTextColumn.HeaderStyle>
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="TextAlignment" Value="Center" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="DESTENATION"
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="Background" Value="#222E31"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="DarkGray"/>
+                                <Setter Property="BorderThickness" Value="0.4,0,0.4,0"/>
+                                <Setter Property="FontWeight" Value="DemiBold"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" Value="#453c4d"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DESTENATION"
                                     Width="*"
                                     Binding="{Binding DestenationName, Mode=OneWay, Converter={StaticResource StringToUppercaseConverter}}">
-                    <DataGridTextColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="Background" Value="#222E31"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="BorderBrush" Value="DarkGray"/>
-                            <Setter Property="BorderThickness" Value="0.4,0,0,0"/>
-                            <Setter Property="FontWeight" Value="DemiBold"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter Property="Background" Value="#453c4d"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGridTextColumn.HeaderStyle>
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="TextAlignment" Value="Center" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="Background" Value="#222E31"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="DarkGray"/>
+                                <Setter Property="BorderThickness" Value="0.4,0,0,0"/>
+                                <Setter Property="FontWeight" Value="DemiBold"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" Value="#453c4d"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        <Label Visibility="{Binding IsDataAvailable, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+               Content="NO DATA TO DISPLAY"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+
+        </StackPanel>
     </Grid>
 </UserControl>

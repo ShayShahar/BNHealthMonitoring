@@ -16,7 +16,7 @@
                             Background="#222e31">
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis Name="Axis" Title="DELTA (m)">
-                    <lvc:Axis.Sections>
+                    <!--<lvc:Axis.Sections>
                         <lvc:AxisSection Value="140" SectionWidth="15" Label="Good">
                             <lvc:AxisSection.Fill>
                                 <SolidColorBrush Color="#222e31" Opacity="0.4"></SolidColorBrush>
@@ -32,7 +32,7 @@
                                 <SolidColorBrush Color="#FF8585" Opacity=".2"></SolidColorBrush>
                             </lvc:AxisSection.Fill>
                         </lvc:AxisSection>
-                    </lvc:Axis.Sections>
+                    </lvc:Axis.Sections>-->
                 </lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>

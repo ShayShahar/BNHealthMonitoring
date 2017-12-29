@@ -13,15 +13,14 @@
     <UserControl.Resources>
         <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter" />
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
     </UserControl.Resources>
 
     <Grid>
         <StackPanel>
             <Label Content="WAITING FOR DATA..."
                    HorizontalAlignment="Center"
-               Visibility="{Binding IsLoaded, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-               Foreground="White"></Label>
+                   Visibility="{Binding IsLoaded, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                   Foreground="White"></Label>
             <TreeView 
                   ItemsSource="{Binding Components}" 
                   x:Name="ComponentsTree"

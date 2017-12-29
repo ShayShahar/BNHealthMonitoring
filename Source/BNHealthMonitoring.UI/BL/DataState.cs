@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Subjects;
+using System.Windows;
+using System.Windows.Threading;
 using BNHealthMonitoring.UI.Model;
 using HealthMonitoringMessages;
 
@@ -87,10 +89,11 @@ namespace BNHealthMonitoring.UI.BL
 
         public void SetComponents(CDMMessage p_components)
         {
-            ObservableCollection<Component> components = new ObservableCollection<Component>();
-            addComponent(components, p_components.CdmRoot);
-            Components = components;
+            Application.Current.Dispatcher.Invoke(() => addComponent(m_components, p_components.CdmRoot));
+           // addComponent(m_components, p_components.CdmRoot);
+            m_componentsUpdated.OnNext(new Unit());
         }
+
 
         private void addComponent(ObservableCollection<Component> p_list, pComponent p_component)
         {
@@ -106,18 +109,32 @@ namespace BNHealthMonitoring.UI.BL
                 };
 
                 p_list.Add(component);
+            }
+            else
+            {
+                component.State = p_component.State;
+            }
 
-                foreach (var c in p_component.LinksList)
+            foreach (var c in p_component.LinksList)
+            {
+                var link = component.Links.FirstOrDefault(p_l => p_l.DestenationName == c.Children.Name && p_l.State == c.State);
+
+                if (link == null)
                 {
                     component.Links.Add(new Link
                     {
+                        ResponsibleComponent = component,
                         DestenationName = c.Children.Name,
                         State = c.State,
                         Probability = c.Probability
                     });
-
-                    addComponent(component.Children, c.Children);
                 }
+                else
+                {
+                    link.Probability = c.Probability;
+                }
+
+                addComponent(component.Children, c.Children);
             }
         }
 

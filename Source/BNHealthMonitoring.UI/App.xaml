@@ -16,12 +16,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
                 <!-- Accent and AppTheme setting -->
-                <!--<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/crimson.xaml" />-->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Mauve.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/basedark.xaml" />
-
-
-                
             </ResourceDictionary.MergedDictionaries>
         <viewModel:ViewModelLocator xmlns:vm="clr-namespace:BNHealthMonitoring.UI.ViewModel" x:Key="Locator" />
         </ResourceDictionary>
