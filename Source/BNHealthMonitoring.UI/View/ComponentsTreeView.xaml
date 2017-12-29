@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="BNHealthMonitoring.UI.View.ComponentsTreeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BNHealthMonitoring.UI.View"
+             xmlns:model="clr-namespace:BNHealthMonitoring.UI.Model"
+             xmlns:converters="clr-namespace:BNHealthMonitoring.UI.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{Binding ComponentsTree, Source={StaticResource Locator}}">
+
+    <UserControl.Resources>
+        <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel>
+            <Label Content="WAITING FOR DATA..."
+                   HorizontalAlignment="Center"
+               Visibility="{Binding IsLoaded, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+               Foreground="White"></Label>
+            <TreeView 
+                  ItemsSource="{Binding Components}" 
+                  x:Name="ComponentsTree"
+                  SelectedItemChanged="TreeView_SelectedItemChanged">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type model:Component}"
+                                          ItemsSource="{Binding Children}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" 
+                                       Margin="5,0,0,0"
+                                       Text="{Binding Name, Converter={StaticResource StringToUppercaseConverter}}"/>
+                            <StackPanel Grid.Column="1" 
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,0,10,0">
+                                <TextBlock Text="STATE:"/>
+                                <TextBlock Foreground="#e1e1e1" 
+                                       Text="{Binding State}" 
+                                       Margin="5,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </StackPanel>
+    </Grid>
+</UserControl>

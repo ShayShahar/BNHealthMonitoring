@@ -35,15 +35,16 @@ void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
 class pLink;
 class pComponent;
 class CDMMessage;
-class DataRequestMsg;
-class DataReplyMsg;
+class LocationMessage;
+class DataUpdateMsg;
 
 enum OpCode {
-  Components = 0
+  Components = 0,
+  SatLocation = 1
 };
 bool OpCode_IsValid(int value);
 const OpCode OpCode_MIN = Components;
-const OpCode OpCode_MAX = Components;
+const OpCode OpCode_MAX = SatLocation;
 const int OpCode_ARRAYSIZE = OpCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* OpCode_descriptor();
@@ -353,14 +354,14 @@ class CDMMessage : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class DataRequestMsg : public ::google::protobuf::Message {
+class LocationMessage : public ::google::protobuf::Message {
  public:
-  DataRequestMsg();
-  virtual ~DataRequestMsg();
+  LocationMessage();
+  virtual ~LocationMessage();
   
-  DataRequestMsg(const DataRequestMsg& from);
+  LocationMessage(const LocationMessage& from);
   
-  inline DataRequestMsg& operator=(const DataRequestMsg& from) {
+  inline LocationMessage& operator=(const LocationMessage& from) {
     CopyFrom(from);
     return *this;
   }
@@ -374,17 +375,17 @@ class DataRequestMsg : public ::google::protobuf::Message {
   }
   
   static const ::google::protobuf::Descriptor* descriptor();
-  static const DataRequestMsg& default_instance();
+  static const LocationMessage& default_instance();
   
-  void Swap(DataRequestMsg* other);
+  void Swap(LocationMessage* other);
   
   // implements Message ----------------------------------------------
   
-  DataRequestMsg* New() const;
+  LocationMessage* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const DataRequestMsg& from);
-  void MergeFrom(const DataRequestMsg& from);
+  void CopyFrom(const LocationMessage& from);
+  void MergeFrom(const LocationMessage& from);
   void Clear();
   bool IsInitialized() const;
   
@@ -407,42 +408,72 @@ class DataRequestMsg : public ::google::protobuf::Message {
   
   // accessors -------------------------------------------------------
   
-  // required .HealthMonitoringMessages.OpCode opcode = 1;
-  inline bool has_opcode() const;
-  inline void clear_opcode();
-  static const int kOpcodeFieldNumber = 1;
-  inline HealthMonitoringMessages::OpCode opcode() const;
-  inline void set_opcode(HealthMonitoringMessages::OpCode value);
+  // required double x = 1;
+  inline bool has_x() const;
+  inline void clear_x();
+  static const int kXFieldNumber = 1;
+  inline double x() const;
+  inline void set_x(double value);
   
-  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.DataRequestMsg)
+  // required double y = 2;
+  inline bool has_y() const;
+  inline void clear_y();
+  static const int kYFieldNumber = 2;
+  inline double y() const;
+  inline void set_y(double value);
+  
+  // required double z = 3;
+  inline bool has_z() const;
+  inline void clear_z();
+  static const int kZFieldNumber = 3;
+  inline double z() const;
+  inline void set_z(double value);
+  
+  // required int32 seconds = 4;
+  inline bool has_seconds() const;
+  inline void clear_seconds();
+  static const int kSecondsFieldNumber = 4;
+  inline ::google::protobuf::int32 seconds() const;
+  inline void set_seconds(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.LocationMessage)
  private:
-  inline void set_has_opcode();
-  inline void clear_has_opcode();
+  inline void set_has_x();
+  inline void clear_has_x();
+  inline void set_has_y();
+  inline void clear_has_y();
+  inline void set_has_z();
+  inline void clear_has_z();
+  inline void set_has_seconds();
+  inline void clear_has_seconds();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
-  int opcode_;
+  double x_;
+  double y_;
+  double z_;
+  ::google::protobuf::int32 seconds_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
   
   friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
   friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
   friend void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
   
   void InitAsDefaultInstance();
-  static DataRequestMsg* default_instance_;
+  static LocationMessage* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class DataReplyMsg : public ::google::protobuf::Message {
+class DataUpdateMsg : public ::google::protobuf::Message {
  public:
-  DataReplyMsg();
-  virtual ~DataReplyMsg();
+  DataUpdateMsg();
+  virtual ~DataUpdateMsg();
   
-  DataReplyMsg(const DataReplyMsg& from);
+  DataUpdateMsg(const DataUpdateMsg& from);
   
-  inline DataReplyMsg& operator=(const DataReplyMsg& from) {
+  inline DataUpdateMsg& operator=(const DataUpdateMsg& from) {
     CopyFrom(from);
     return *this;
   }
@@ -456,17 +487,17 @@ class DataReplyMsg : public ::google::protobuf::Message {
   }
   
   static const ::google::protobuf::Descriptor* descriptor();
-  static const DataReplyMsg& default_instance();
+  static const DataUpdateMsg& default_instance();
   
-  void Swap(DataReplyMsg* other);
+  void Swap(DataUpdateMsg* other);
   
   // implements Message ----------------------------------------------
   
-  DataReplyMsg* New() const;
+  DataUpdateMsg* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const DataReplyMsg& from);
-  void MergeFrom(const DataReplyMsg& from);
+  void CopyFrom(const DataUpdateMsg& from);
+  void MergeFrom(const DataUpdateMsg& from);
   void Clear();
   bool IsInitialized() const;
   
@@ -504,27 +535,38 @@ class DataReplyMsg : public ::google::protobuf::Message {
   inline ::HealthMonitoringMessages::CDMMessage* mutable_components();
   inline ::HealthMonitoringMessages::CDMMessage* release_components();
   
-  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.DataReplyMsg)
+  // optional .HealthMonitoringMessages.LocationMessage location = 3;
+  inline bool has_location() const;
+  inline void clear_location();
+  static const int kLocationFieldNumber = 3;
+  inline const ::HealthMonitoringMessages::LocationMessage& location() const;
+  inline ::HealthMonitoringMessages::LocationMessage* mutable_location();
+  inline ::HealthMonitoringMessages::LocationMessage* release_location();
+  
+  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.DataUpdateMsg)
  private:
   inline void set_has_opcode();
   inline void clear_has_opcode();
   inline void set_has_components();
   inline void clear_has_components();
+  inline void set_has_location();
+  inline void clear_has_location();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::HealthMonitoringMessages::CDMMessage* components_;
+  ::HealthMonitoringMessages::LocationMessage* location_;
   int opcode_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
   
   friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
   friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
   friend void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
   
   void InitAsDefaultInstance();
-  static DataReplyMsg* default_instance_;
+  static DataUpdateMsg* default_instance_;
 };
 // ===================================================================
 
@@ -750,84 +792,178 @@ inline ::HealthMonitoringMessages::pComponent* CDMMessage::release_cdm_root() {
 
 // -------------------------------------------------------------------
 
-// DataRequestMsg
+// LocationMessage
 
-// required .HealthMonitoringMessages.OpCode opcode = 1;
-inline bool DataRequestMsg::has_opcode() const {
+// required double x = 1;
+inline bool LocationMessage::has_x() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void DataRequestMsg::set_has_opcode() {
+inline void LocationMessage::set_has_x() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void DataRequestMsg::clear_has_opcode() {
+inline void LocationMessage::clear_has_x() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void DataRequestMsg::clear_opcode() {
-  opcode_ = 0;
-  clear_has_opcode();
+inline void LocationMessage::clear_x() {
+  x_ = 0;
+  clear_has_x();
 }
-inline HealthMonitoringMessages::OpCode DataRequestMsg::opcode() const {
-  return static_cast< HealthMonitoringMessages::OpCode >(opcode_);
+inline double LocationMessage::x() const {
+  return x_;
 }
-inline void DataRequestMsg::set_opcode(HealthMonitoringMessages::OpCode value) {
-  GOOGLE_DCHECK(HealthMonitoringMessages::OpCode_IsValid(value));
-  set_has_opcode();
-  opcode_ = value;
+inline void LocationMessage::set_x(double value) {
+  set_has_x();
+  x_ = value;
+}
+
+// required double y = 2;
+inline bool LocationMessage::has_y() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LocationMessage::set_has_y() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LocationMessage::clear_has_y() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LocationMessage::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline double LocationMessage::y() const {
+  return y_;
+}
+inline void LocationMessage::set_y(double value) {
+  set_has_y();
+  y_ = value;
+}
+
+// required double z = 3;
+inline bool LocationMessage::has_z() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LocationMessage::set_has_z() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LocationMessage::clear_has_z() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LocationMessage::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline double LocationMessage::z() const {
+  return z_;
+}
+inline void LocationMessage::set_z(double value) {
+  set_has_z();
+  z_ = value;
+}
+
+// required int32 seconds = 4;
+inline bool LocationMessage::has_seconds() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void LocationMessage::set_has_seconds() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void LocationMessage::clear_has_seconds() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void LocationMessage::clear_seconds() {
+  seconds_ = 0;
+  clear_has_seconds();
+}
+inline ::google::protobuf::int32 LocationMessage::seconds() const {
+  return seconds_;
+}
+inline void LocationMessage::set_seconds(::google::protobuf::int32 value) {
+  set_has_seconds();
+  seconds_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// DataReplyMsg
+// DataUpdateMsg
 
 // required .HealthMonitoringMessages.OpCode opcode = 1;
-inline bool DataReplyMsg::has_opcode() const {
+inline bool DataUpdateMsg::has_opcode() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void DataReplyMsg::set_has_opcode() {
+inline void DataUpdateMsg::set_has_opcode() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void DataReplyMsg::clear_has_opcode() {
+inline void DataUpdateMsg::clear_has_opcode() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void DataReplyMsg::clear_opcode() {
+inline void DataUpdateMsg::clear_opcode() {
   opcode_ = 0;
   clear_has_opcode();
 }
-inline HealthMonitoringMessages::OpCode DataReplyMsg::opcode() const {
+inline HealthMonitoringMessages::OpCode DataUpdateMsg::opcode() const {
   return static_cast< HealthMonitoringMessages::OpCode >(opcode_);
 }
-inline void DataReplyMsg::set_opcode(HealthMonitoringMessages::OpCode value) {
+inline void DataUpdateMsg::set_opcode(HealthMonitoringMessages::OpCode value) {
   GOOGLE_DCHECK(HealthMonitoringMessages::OpCode_IsValid(value));
   set_has_opcode();
   opcode_ = value;
 }
 
 // optional .HealthMonitoringMessages.CDMMessage components = 2;
-inline bool DataReplyMsg::has_components() const {
+inline bool DataUpdateMsg::has_components() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void DataReplyMsg::set_has_components() {
+inline void DataUpdateMsg::set_has_components() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void DataReplyMsg::clear_has_components() {
+inline void DataUpdateMsg::clear_has_components() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void DataReplyMsg::clear_components() {
+inline void DataUpdateMsg::clear_components() {
   if (components_ != NULL) components_->::HealthMonitoringMessages::CDMMessage::Clear();
   clear_has_components();
 }
-inline const ::HealthMonitoringMessages::CDMMessage& DataReplyMsg::components() const {
+inline const ::HealthMonitoringMessages::CDMMessage& DataUpdateMsg::components() const {
   return components_ != NULL ? *components_ : *default_instance_->components_;
 }
-inline ::HealthMonitoringMessages::CDMMessage* DataReplyMsg::mutable_components() {
+inline ::HealthMonitoringMessages::CDMMessage* DataUpdateMsg::mutable_components() {
   set_has_components();
   if (components_ == NULL) components_ = new ::HealthMonitoringMessages::CDMMessage;
   return components_;
 }
-inline ::HealthMonitoringMessages::CDMMessage* DataReplyMsg::release_components() {
+inline ::HealthMonitoringMessages::CDMMessage* DataUpdateMsg::release_components() {
   clear_has_components();
   ::HealthMonitoringMessages::CDMMessage* temp = components_;
   components_ = NULL;
+  return temp;
+}
+
+// optional .HealthMonitoringMessages.LocationMessage location = 3;
+inline bool DataUpdateMsg::has_location() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DataUpdateMsg::set_has_location() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DataUpdateMsg::clear_has_location() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DataUpdateMsg::clear_location() {
+  if (location_ != NULL) location_->::HealthMonitoringMessages::LocationMessage::Clear();
+  clear_has_location();
+}
+inline const ::HealthMonitoringMessages::LocationMessage& DataUpdateMsg::location() const {
+  return location_ != NULL ? *location_ : *default_instance_->location_;
+}
+inline ::HealthMonitoringMessages::LocationMessage* DataUpdateMsg::mutable_location() {
+  set_has_location();
+  if (location_ == NULL) location_ = new ::HealthMonitoringMessages::LocationMessage;
+  return location_;
+}
+inline ::HealthMonitoringMessages::LocationMessage* DataUpdateMsg::release_location() {
+  clear_has_location();
+  ::HealthMonitoringMessages::LocationMessage* temp = location_;
+  location_ = NULL;
   return temp;
 }
 

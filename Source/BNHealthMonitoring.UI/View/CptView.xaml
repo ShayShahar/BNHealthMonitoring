@@ -28,13 +28,14 @@
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="Background" Value="#E1E1E1"/>
+                            <Setter Property="Background" Value="#222E31"/>
+                            <Setter Property="Foreground" Value="White"/>
                             <Setter Property="BorderBrush" Value="DarkGray"/>
-                            <Setter Property="BorderThickness" Value="0.5,0,0.5,0"/>
+                            <Setter Property="BorderThickness" Value="0,0,0.4,0"/>
                             <Setter Property="FontWeight" Value="DemiBold"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter Property="Background" Value="#da99a8"/>
+                                    <Setter Property="Background" Value="#453c4d"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -51,13 +52,14 @@
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="Background" Value="#E1E1E1"/>
+                            <Setter Property="Background" Value="#222E31"/>
+                            <Setter Property="Foreground" Value="White"/>
                             <Setter Property="BorderBrush" Value="DarkGray"/>
-                            <Setter Property="BorderThickness" Value="0.5,0,0.5,0"/>
+                            <Setter Property="BorderThickness" Value="0.4,0,0.4,0"/>
                             <Setter Property="FontWeight" Value="DemiBold"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter Property="Background" Value="#da99a8"/>
+                                    <Setter Property="Background" Value="#453c4d"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -74,13 +76,14 @@
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            <Setter Property="Background" Value="#E1E1E1"/>
+                            <Setter Property="Background" Value="#222E31"/>
+                            <Setter Property="Foreground" Value="White"/>
                             <Setter Property="BorderBrush" Value="DarkGray"/>
-                            <Setter Property="BorderThickness" Value="0.5,0,0.5,0"/>
+                            <Setter Property="BorderThickness" Value="0.4,0,0,0"/>
                             <Setter Property="FontWeight" Value="DemiBold"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter Property="Background" Value="#da99a8"/>
+                                    <Setter Property="Background" Value="#453c4d"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>

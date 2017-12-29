@@ -115,7 +115,8 @@
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
     <PreBuildEvent>
-      <Command>xcopy ..\..\Workspace\packages\ZeroMQ4.0.4\bin\libzmq-v120-mt-gd-4_0_4.dll ..\..\Deployment /y</Command>
+      <Command>xcopy ..\..\Workspace\packages\ZeroMQ4.0.4\bin\libzmq-v120-mt-gd-4_0_4.dll ..\..\Deployment /y
+xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R /Y /I</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -155,10 +156,12 @@
     <ClCompile Include="Link.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommunicationHandler.h" />
+    <ClInclude Include="Components.h" />
     <ClInclude Include="ComponentsModel.h" />
     <ClInclude Include="CSVReader.h" />
     <ClInclude Include="Externals.h" />
@@ -167,6 +170,7 @@
     <ClInclude Include="Gps_Ant.h" />
     <ClInclude Include="Link.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

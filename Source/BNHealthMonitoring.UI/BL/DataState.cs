@@ -12,32 +12,24 @@ namespace BNHealthMonitoring.UI.BL
     {
         private ObservableCollection<Component> m_components;
         private readonly ISubject<Unit> m_componentsUpdated;
+        private readonly ISubject<Tuple<int, double>> m_locationUpdate;
         private static DataState s_dataState;
         private readonly ISubject<Unit> m_selectedComponentChanged;
         private Component m_selectedComponent;
+        private double m_px;
+        private double m_py;
+        private double m_pz;
 
         private DataState()
         {
+            m_locationUpdate = new Subject<Tuple<int, double>>();
             m_componentsUpdated = new Subject<Unit>();
             m_selectedComponentChanged = new Subject<Unit>();
-
             m_components = new ObservableCollection<Component>();
-            Component c = new Component
-            {
-                Name = "Sattelite Alpha",
-                Children = new ObservableCollection<Component>
-                {
-                    new Component
-                    {
-                        Name = "GPS"
-                    },
-                    new Component
-                    {
-                        Name = "Magnometer"
-                    }
-                }
-            };
-            m_components.Add(c);
+
+            m_px = 0;
+            m_py = 0;
+            m_pz = 0;
         }
 
         public static DataState GetInstance()
@@ -57,7 +49,10 @@ namespace BNHealthMonitoring.UI.BL
         {
             get { return m_selectedComponentChanged; }
         }
-
+        public IObservable<Tuple<int, double>> LocationUpdated
+        {
+            get { return m_locationUpdate; }
+        }
 
         public ObservableCollection<Component> Components
         {
@@ -124,6 +119,29 @@ namespace BNHealthMonitoring.UI.BL
                     addComponent(component.Children, c.Children);
                 }
             }
+        }
+
+        public void UpdateLocation(LocationMessage p_location)
+        {
+            if (m_px == m_py && m_py == m_pz && m_pz == 0)
+            {
+                m_px = p_location.X;
+                m_py = p_location.Y;
+                m_pz = p_location.Z;
+
+                return;
+            }
+
+            double delta =
+                Math.Sqrt(Math.Pow(p_location.X - m_px, 2) 
+                          + Math.Pow(p_location.Y - m_py, 2) 
+                          + Math.Pow(p_location.Z - m_pz, 2));
+
+            m_locationUpdate.OnNext(new Tuple<int, double>(p_location.Seconds, delta));
+
+            m_px = p_location.X;
+            m_py = p_location.Y;
+            m_pz = p_location.Z;
         }
     }
 }

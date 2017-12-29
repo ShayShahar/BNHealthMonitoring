@@ -26,12 +26,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* CDMMessage_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CDMMessage_reflection_ = NULL;
-const ::google::protobuf::Descriptor* DataRequestMsg_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* LocationMessage_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  DataRequestMsg_reflection_ = NULL;
-const ::google::protobuf::Descriptor* DataReplyMsg_descriptor_ = NULL;
+  LocationMessage_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DataUpdateMsg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  DataReplyMsg_reflection_ = NULL;
+  DataUpdateMsg_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* OpCode_descriptor_ = NULL;
 
 }  // namespace
@@ -92,37 +92,41 @@ void protobuf_AssignDesc_HealthMonitoringMessages_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CDMMessage));
-  DataRequestMsg_descriptor_ = file->message_type(3);
-  static const int DataRequestMsg_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRequestMsg, opcode_),
+  LocationMessage_descriptor_ = file->message_type(3);
+  static const int LocationMessage_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LocationMessage, x_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LocationMessage, y_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LocationMessage, z_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LocationMessage, seconds_),
   };
-  DataRequestMsg_reflection_ =
+  LocationMessage_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      DataRequestMsg_descriptor_,
-      DataRequestMsg::default_instance_,
-      DataRequestMsg_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRequestMsg, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRequestMsg, _unknown_fields_),
+      LocationMessage_descriptor_,
+      LocationMessage::default_instance_,
+      LocationMessage_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LocationMessage, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LocationMessage, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(DataRequestMsg));
-  DataReplyMsg_descriptor_ = file->message_type(4);
-  static const int DataReplyMsg_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataReplyMsg, opcode_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataReplyMsg, components_),
+      sizeof(LocationMessage));
+  DataUpdateMsg_descriptor_ = file->message_type(4);
+  static const int DataUpdateMsg_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataUpdateMsg, opcode_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataUpdateMsg, components_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataUpdateMsg, location_),
   };
-  DataReplyMsg_reflection_ =
+  DataUpdateMsg_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      DataReplyMsg_descriptor_,
-      DataReplyMsg::default_instance_,
-      DataReplyMsg_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataReplyMsg, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataReplyMsg, _unknown_fields_),
+      DataUpdateMsg_descriptor_,
+      DataUpdateMsg::default_instance_,
+      DataUpdateMsg_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataUpdateMsg, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataUpdateMsg, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(DataReplyMsg));
+      sizeof(DataUpdateMsg));
   OpCode_descriptor_ = file->enum_type(0);
 }
 
@@ -143,9 +147,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CDMMessage_descriptor_, &CDMMessage::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    DataRequestMsg_descriptor_, &DataRequestMsg::default_instance());
+    LocationMessage_descriptor_, &LocationMessage::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    DataReplyMsg_descriptor_, &DataReplyMsg::default_instance());
+    DataUpdateMsg_descriptor_, &DataUpdateMsg::default_instance());
 }
 
 }  // namespace
@@ -157,10 +161,10 @@ void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto() {
   delete pComponent_reflection_;
   delete CDMMessage::default_instance_;
   delete CDMMessage_reflection_;
-  delete DataRequestMsg::default_instance_;
-  delete DataRequestMsg_reflection_;
-  delete DataReplyMsg::default_instance_;
-  delete DataReplyMsg_reflection_;
+  delete LocationMessage::default_instance_;
+  delete LocationMessage_reflection_;
+  delete DataUpdateMsg::default_instance_;
+  delete DataUpdateMsg_reflection_;
 }
 
 void protobuf_AddDesc_HealthMonitoringMessages_2eproto() {
@@ -178,24 +182,26 @@ void protobuf_AddDesc_HealthMonitoringMessages_2eproto() {
     "itoringMessages.pLink\022\014\n\004name\030\002 \002(\t\022\r\n\005s"
     "tate\030\003 \001(\005\"D\n\nCDMMessage\0226\n\010cdm_root\030\001 \002"
     "(\0132$.HealthMonitoringMessages.pComponent"
-    "\"B\n\016DataRequestMsg\0220\n\006opcode\030\001 \002(\0162 .Hea"
-    "lthMonitoringMessages.OpCode\"z\n\014DataRepl"
-    "yMsg\0220\n\006opcode\030\001 \002(\0162 .HealthMonitoringM"
-    "essages.OpCode\0228\n\ncomponents\030\002 \001(\0132$.Hea"
-    "lthMonitoringMessages.CDMMessage*\030\n\006OpCo"
-    "de\022\016\n\nComponents\020\000", 538);
+    "\"C\n\017LocationMessage\022\t\n\001x\030\001 \002(\001\022\t\n\001y\030\002 \002("
+    "\001\022\t\n\001z\030\003 \002(\001\022\017\n\007seconds\030\004 \002(\005\"\270\001\n\rDataUp"
+    "dateMsg\0220\n\006opcode\030\001 \002(\0162 .HealthMonitori"
+    "ngMessages.OpCode\0228\n\ncomponents\030\002 \001(\0132$."
+    "HealthMonitoringMessages.CDMMessage\022;\n\010l"
+    "ocation\030\003 \001(\0132).HealthMonitoringMessages"
+    ".LocationMessage*)\n\006OpCode\022\016\n\nComponents"
+    "\020\000\022\017\n\013SatLocation\020\001", 619);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "HealthMonitoringMessages.proto", &protobuf_RegisterTypes);
   pLink::default_instance_ = new pLink();
   pComponent::default_instance_ = new pComponent();
   CDMMessage::default_instance_ = new CDMMessage();
-  DataRequestMsg::default_instance_ = new DataRequestMsg();
-  DataReplyMsg::default_instance_ = new DataReplyMsg();
+  LocationMessage::default_instance_ = new LocationMessage();
+  DataUpdateMsg::default_instance_ = new DataUpdateMsg();
   pLink::default_instance_->InitAsDefaultInstance();
   pComponent::default_instance_->InitAsDefaultInstance();
   CDMMessage::default_instance_->InitAsDefaultInstance();
-  DataRequestMsg::default_instance_->InitAsDefaultInstance();
-  DataReplyMsg::default_instance_->InitAsDefaultInstance();
+  LocationMessage::default_instance_->InitAsDefaultInstance();
+  DataUpdateMsg::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_HealthMonitoringMessages_2eproto);
 }
 
@@ -213,6 +219,7 @@ const ::google::protobuf::EnumDescriptor* OpCode_descriptor() {
 bool OpCode_IsValid(int value) {
   switch(value) {
     case 0:
+    case 1:
       return true;
     default:
       return false;
@@ -1041,85 +1048,137 @@ void CDMMessage::Swap(CDMMessage* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int DataRequestMsg::kOpcodeFieldNumber;
+const int LocationMessage::kXFieldNumber;
+const int LocationMessage::kYFieldNumber;
+const int LocationMessage::kZFieldNumber;
+const int LocationMessage::kSecondsFieldNumber;
 #endif  // !_MSC_VER
 
-DataRequestMsg::DataRequestMsg()
+LocationMessage::LocationMessage()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void DataRequestMsg::InitAsDefaultInstance() {
+void LocationMessage::InitAsDefaultInstance() {
 }
 
-DataRequestMsg::DataRequestMsg(const DataRequestMsg& from)
+LocationMessage::LocationMessage(const LocationMessage& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void DataRequestMsg::SharedCtor() {
+void LocationMessage::SharedCtor() {
   _cached_size_ = 0;
-  opcode_ = 0;
+  x_ = 0;
+  y_ = 0;
+  z_ = 0;
+  seconds_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-DataRequestMsg::~DataRequestMsg() {
+LocationMessage::~LocationMessage() {
   SharedDtor();
 }
 
-void DataRequestMsg::SharedDtor() {
+void LocationMessage::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void DataRequestMsg::SetCachedSize(int size) const {
+void LocationMessage::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* DataRequestMsg::descriptor() {
+const ::google::protobuf::Descriptor* LocationMessage::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return DataRequestMsg_descriptor_;
+  return LocationMessage_descriptor_;
 }
 
-const DataRequestMsg& DataRequestMsg::default_instance() {
+const LocationMessage& LocationMessage::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_HealthMonitoringMessages_2eproto();  return *default_instance_;
 }
 
-DataRequestMsg* DataRequestMsg::default_instance_ = NULL;
+LocationMessage* LocationMessage::default_instance_ = NULL;
 
-DataRequestMsg* DataRequestMsg::New() const {
-  return new DataRequestMsg;
+LocationMessage* LocationMessage::New() const {
+  return new LocationMessage;
 }
 
-void DataRequestMsg::Clear() {
+void LocationMessage::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    opcode_ = 0;
+    x_ = 0;
+    y_ = 0;
+    z_ = 0;
+    seconds_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool DataRequestMsg::MergePartialFromCodedStream(
+bool LocationMessage::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .HealthMonitoringMessages.OpCode opcode = 1;
+      // required double x = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          int value;
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED64) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (HealthMonitoringMessages::OpCode_IsValid(value)) {
-            set_opcode(static_cast< HealthMonitoringMessages::OpCode >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &x_)));
+          set_has_x();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(17)) goto parse_y;
+        break;
+      }
+      
+      // required double y = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED64) {
+         parse_y:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &y_)));
+          set_has_y();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(25)) goto parse_z;
+        break;
+      }
+      
+      // required double z = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED64) {
+         parse_z:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &z_)));
+          set_has_z();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_seconds;
+        break;
+      }
+      
+      // required int32 seconds = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_seconds:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &seconds_)));
+          set_has_seconds();
         } else {
           goto handle_uninterpreted;
         }
@@ -1143,12 +1202,26 @@ bool DataRequestMsg::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void DataRequestMsg::SerializeWithCachedSizes(
+void LocationMessage::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .HealthMonitoringMessages.OpCode opcode = 1;
-  if (has_opcode()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->opcode(), output);
+  // required double x = 1;
+  if (has_x()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->x(), output);
+  }
+  
+  // required double y = 2;
+  if (has_y()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->y(), output);
+  }
+  
+  // required double z = 3;
+  if (has_z()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->z(), output);
+  }
+  
+  // required int32 seconds = 4;
+  if (has_seconds()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->seconds(), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -1157,12 +1230,26 @@ void DataRequestMsg::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* DataRequestMsg::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* LocationMessage::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .HealthMonitoringMessages.OpCode opcode = 1;
-  if (has_opcode()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->opcode(), target);
+  // required double x = 1;
+  if (has_x()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->x(), target);
+  }
+  
+  // required double y = 2;
+  if (has_y()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->y(), target);
+  }
+  
+  // required double z = 3;
+  if (has_z()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->z(), target);
+  }
+  
+  // required int32 seconds = 4;
+  if (has_seconds()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->seconds(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -1172,14 +1259,30 @@ void DataRequestMsg::SerializeWithCachedSizes(
   return target;
 }
 
-int DataRequestMsg::ByteSize() const {
+int LocationMessage::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .HealthMonitoringMessages.OpCode opcode = 1;
-    if (has_opcode()) {
+    // required double x = 1;
+    if (has_x()) {
+      total_size += 1 + 8;
+    }
+    
+    // required double y = 2;
+    if (has_y()) {
+      total_size += 1 + 8;
+    }
+    
+    // required double z = 3;
+    if (has_z()) {
+      total_size += 1 + 8;
+    }
+    
+    // required int32 seconds = 4;
+    if (has_seconds()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->opcode());
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->seconds());
     }
     
   }
@@ -1194,10 +1297,10 @@ int DataRequestMsg::ByteSize() const {
   return total_size;
 }
 
-void DataRequestMsg::MergeFrom(const ::google::protobuf::Message& from) {
+void LocationMessage::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const DataRequestMsg* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const DataRequestMsg*>(
+  const LocationMessage* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LocationMessage*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1206,48 +1309,60 @@ void DataRequestMsg::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void DataRequestMsg::MergeFrom(const DataRequestMsg& from) {
+void LocationMessage::MergeFrom(const LocationMessage& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_opcode()) {
-      set_opcode(from.opcode());
+    if (from.has_x()) {
+      set_x(from.x());
+    }
+    if (from.has_y()) {
+      set_y(from.y());
+    }
+    if (from.has_z()) {
+      set_z(from.z());
+    }
+    if (from.has_seconds()) {
+      set_seconds(from.seconds());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void DataRequestMsg::CopyFrom(const ::google::protobuf::Message& from) {
+void LocationMessage::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void DataRequestMsg::CopyFrom(const DataRequestMsg& from) {
+void LocationMessage::CopyFrom(const LocationMessage& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool DataRequestMsg::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+bool LocationMessage::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
   
   return true;
 }
 
-void DataRequestMsg::Swap(DataRequestMsg* other) {
+void LocationMessage::Swap(LocationMessage* other) {
   if (other != this) {
-    std::swap(opcode_, other->opcode_);
+    std::swap(x_, other->x_);
+    std::swap(y_, other->y_);
+    std::swap(z_, other->z_);
+    std::swap(seconds_, other->seconds_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata DataRequestMsg::GetMetadata() const {
+::google::protobuf::Metadata LocationMessage::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = DataRequestMsg_descriptor_;
-  metadata.reflection = DataRequestMsg_reflection_;
+  metadata.descriptor = LocationMessage_descriptor_;
+  metadata.reflection = LocationMessage_reflection_;
   return metadata;
 }
 
@@ -1255,74 +1370,81 @@ void DataRequestMsg::Swap(DataRequestMsg* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int DataReplyMsg::kOpcodeFieldNumber;
-const int DataReplyMsg::kComponentsFieldNumber;
+const int DataUpdateMsg::kOpcodeFieldNumber;
+const int DataUpdateMsg::kComponentsFieldNumber;
+const int DataUpdateMsg::kLocationFieldNumber;
 #endif  // !_MSC_VER
 
-DataReplyMsg::DataReplyMsg()
+DataUpdateMsg::DataUpdateMsg()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void DataReplyMsg::InitAsDefaultInstance() {
+void DataUpdateMsg::InitAsDefaultInstance() {
   components_ = const_cast< ::HealthMonitoringMessages::CDMMessage*>(&::HealthMonitoringMessages::CDMMessage::default_instance());
+  location_ = const_cast< ::HealthMonitoringMessages::LocationMessage*>(&::HealthMonitoringMessages::LocationMessage::default_instance());
 }
 
-DataReplyMsg::DataReplyMsg(const DataReplyMsg& from)
+DataUpdateMsg::DataUpdateMsg(const DataUpdateMsg& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void DataReplyMsg::SharedCtor() {
+void DataUpdateMsg::SharedCtor() {
   _cached_size_ = 0;
   opcode_ = 0;
   components_ = NULL;
+  location_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-DataReplyMsg::~DataReplyMsg() {
+DataUpdateMsg::~DataUpdateMsg() {
   SharedDtor();
 }
 
-void DataReplyMsg::SharedDtor() {
+void DataUpdateMsg::SharedDtor() {
   if (this != default_instance_) {
     delete components_;
+    delete location_;
   }
 }
 
-void DataReplyMsg::SetCachedSize(int size) const {
+void DataUpdateMsg::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* DataReplyMsg::descriptor() {
+const ::google::protobuf::Descriptor* DataUpdateMsg::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return DataReplyMsg_descriptor_;
+  return DataUpdateMsg_descriptor_;
 }
 
-const DataReplyMsg& DataReplyMsg::default_instance() {
+const DataUpdateMsg& DataUpdateMsg::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_HealthMonitoringMessages_2eproto();  return *default_instance_;
 }
 
-DataReplyMsg* DataReplyMsg::default_instance_ = NULL;
+DataUpdateMsg* DataUpdateMsg::default_instance_ = NULL;
 
-DataReplyMsg* DataReplyMsg::New() const {
-  return new DataReplyMsg;
+DataUpdateMsg* DataUpdateMsg::New() const {
+  return new DataUpdateMsg;
 }
 
-void DataReplyMsg::Clear() {
+void DataUpdateMsg::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     opcode_ = 0;
     if (has_components()) {
       if (components_ != NULL) components_->::HealthMonitoringMessages::CDMMessage::Clear();
+    }
+    if (has_location()) {
+      if (location_ != NULL) location_->::HealthMonitoringMessages::LocationMessage::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool DataReplyMsg::MergePartialFromCodedStream(
+bool DataUpdateMsg::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -1358,6 +1480,20 @@ bool DataReplyMsg::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(26)) goto parse_location;
+        break;
+      }
+      
+      // optional .HealthMonitoringMessages.LocationMessage location = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_location:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_location()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1378,7 +1514,7 @@ bool DataReplyMsg::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void DataReplyMsg::SerializeWithCachedSizes(
+void DataUpdateMsg::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required .HealthMonitoringMessages.OpCode opcode = 1;
   if (has_opcode()) {
@@ -1392,13 +1528,19 @@ void DataReplyMsg::SerializeWithCachedSizes(
       2, this->components(), output);
   }
   
+  // optional .HealthMonitoringMessages.LocationMessage location = 3;
+  if (has_location()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->location(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
 }
 
-::google::protobuf::uint8* DataReplyMsg::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* DataUpdateMsg::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required .HealthMonitoringMessages.OpCode opcode = 1;
   if (has_opcode()) {
@@ -1413,6 +1555,13 @@ void DataReplyMsg::SerializeWithCachedSizes(
         2, this->components(), target);
   }
   
+  // optional .HealthMonitoringMessages.LocationMessage location = 3;
+  if (has_location()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->location(), target);
+  }
+  
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1420,7 +1569,7 @@ void DataReplyMsg::SerializeWithCachedSizes(
   return target;
 }
 
-int DataReplyMsg::ByteSize() const {
+int DataUpdateMsg::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1437,6 +1586,13 @@ int DataReplyMsg::ByteSize() const {
           this->components());
     }
     
+    // optional .HealthMonitoringMessages.LocationMessage location = 3;
+    if (has_location()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->location());
+    }
+    
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -1449,10 +1605,10 @@ int DataReplyMsg::ByteSize() const {
   return total_size;
 }
 
-void DataReplyMsg::MergeFrom(const ::google::protobuf::Message& from) {
+void DataUpdateMsg::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const DataReplyMsg* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const DataReplyMsg*>(
+  const DataUpdateMsg* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DataUpdateMsg*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1461,7 +1617,7 @@ void DataReplyMsg::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void DataReplyMsg::MergeFrom(const DataReplyMsg& from) {
+void DataUpdateMsg::MergeFrom(const DataUpdateMsg& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_opcode()) {
@@ -1470,46 +1626,53 @@ void DataReplyMsg::MergeFrom(const DataReplyMsg& from) {
     if (from.has_components()) {
       mutable_components()->::HealthMonitoringMessages::CDMMessage::MergeFrom(from.components());
     }
+    if (from.has_location()) {
+      mutable_location()->::HealthMonitoringMessages::LocationMessage::MergeFrom(from.location());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void DataReplyMsg::CopyFrom(const ::google::protobuf::Message& from) {
+void DataUpdateMsg::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void DataReplyMsg::CopyFrom(const DataReplyMsg& from) {
+void DataUpdateMsg::CopyFrom(const DataUpdateMsg& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool DataReplyMsg::IsInitialized() const {
+bool DataUpdateMsg::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   
   if (has_components()) {
     if (!this->components().IsInitialized()) return false;
   }
+  if (has_location()) {
+    if (!this->location().IsInitialized()) return false;
+  }
   return true;
 }
 
-void DataReplyMsg::Swap(DataReplyMsg* other) {
+void DataUpdateMsg::Swap(DataUpdateMsg* other) {
   if (other != this) {
     std::swap(opcode_, other->opcode_);
     std::swap(components_, other->components_);
+    std::swap(location_, other->location_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata DataReplyMsg::GetMetadata() const {
+::google::protobuf::Metadata DataUpdateMsg::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = DataReplyMsg_descriptor_;
-  metadata.reflection = DataReplyMsg_reflection_;
+  metadata.descriptor = DataUpdateMsg_descriptor_;
+  metadata.reflection = DataUpdateMsg_reflection_;
   return metadata;
 }
 

@@ -63,6 +63,9 @@
     <ClCompile Include="Gps_Ant.cpp">
       <Filter>Components\Source Components Files</Filter>
     </ClCompile>
+    <ClCompile Include="Scheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -97,6 +100,12 @@
     </ClInclude>
     <ClInclude Include="Gps_Ant.h">
       <Filter>Components\Header Components Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scheduler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Components.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

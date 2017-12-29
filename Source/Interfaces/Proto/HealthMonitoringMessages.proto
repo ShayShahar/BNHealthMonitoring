@@ -3,6 +3,7 @@ package HealthMonitoringMessages;
 enum OpCode 
 {
 	Components = 0;	
+	SatLocation = 1;
 }
 
 message pLink
@@ -23,13 +24,18 @@ message CDMMessage{
 	required pComponent cdm_root = 1;
 }
 
-message DataRequestMsg
+message LocationMessage
 {
-	required OpCode opcode = 1;
+	required double x = 1;
+	required double y = 2;
+	required double z = 3;
+	required int32 seconds = 4;
 }
 
-message DataReplyMsg
+message DataUpdateMsg
 {
 	required OpCode opcode = 1;
 	optional CDMMessage components = 2;
+	optional LocationMessage location = 3;
 }
+

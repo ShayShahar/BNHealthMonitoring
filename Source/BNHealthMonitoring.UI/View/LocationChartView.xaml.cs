@@ -12,23 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BNHealthMonitoring.UI.BL;
-using BNHealthMonitoring.UI.Model;
-using MahApps.Metro.Controls;
 
 namespace BNHealthMonitoring.UI.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LocationChartView.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class LocationChartView : UserControl
     {
-
-        public MainWindow()
+        public LocationChartView()
         {
             InitializeComponent();
         }
-
-
     }
 }

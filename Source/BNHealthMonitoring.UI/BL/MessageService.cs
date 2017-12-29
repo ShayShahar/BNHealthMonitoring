@@ -30,12 +30,15 @@ namespace BNHealthMonitoring.UI.BL
 
         private void onMessageReceived(object p_sender, NetMQSocketEventArgs p_e)
         {
-            var msg = DataReplyMsg.ParseFrom(p_e.Socket.ReceiveFrameBytes());
+            var msg = DataUpdateMsg.ParseFrom(p_e.Socket.ReceiveFrameBytes());
 
             switch (msg.Opcode)
             {
                 case OpCode.Components:
                     m_dataState.SetComponents(msg.Components);
+                    break;
+                case OpCode.SatLocation:
+                    m_dataState.UpdateLocation(msg.Location);
                     break;
             }
         }

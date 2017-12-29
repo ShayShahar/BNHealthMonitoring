@@ -1,9 +1,7 @@
 #include "Node.h"
-#include "Utils.h"
 
 Node::Node(string p_name)
 {
-//	m_segment = MemoryWrapper::getInstance();
 	m_name = p_name;
 	m_state = 0;
 }
@@ -12,7 +10,7 @@ Node::~Node()
 {
 }
 
-Node* Node::get_next() const
+Node* Node::get_next()
 {
 	if (m_probabilities.find(m_state) == m_probabilities.end())
 	{
@@ -51,7 +49,6 @@ void Node::add_link(unsigned int p_state, Link p_link)
 		m_probabilities[p_state]->push_back(p_link);
 	}
 }
-
 
 string Node::name()
 {

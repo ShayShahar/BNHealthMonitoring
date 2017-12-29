@@ -44,6 +44,8 @@ namespace BNHealthMonitoring.UI.ViewModel
 
             SimpleIoc.Default.Register<MainWindowViewModel>();
             SimpleIoc.Default.Register<CptViewModel>();
+            SimpleIoc.Default.Register<ComponentsTreeViewModel>();
+            SimpleIoc.Default.Register<LocationChartViewModel>();
         }
 
         public MainWindowViewModel Main
@@ -58,6 +60,22 @@ namespace BNHealthMonitoring.UI.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<CptViewModel>();
+            }
+        }
+
+        public LocationChartViewModel LocationChart
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<LocationChartViewModel>();
+            }
+        }
+
+        public ComponentsTreeViewModel ComponentsTree
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ComponentsTreeViewModel>();
             }
         }
 

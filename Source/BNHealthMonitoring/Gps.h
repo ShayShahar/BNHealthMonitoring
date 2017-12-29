@@ -1,22 +1,21 @@
 #pragma once
 #include "Node.h"
+#include "CommunicationHandler.h"
 #include "CSVReader.h"
 
 class CGps : public Node
 {
 private:
-	float m_x;
-	float m_y;
-	float m_z;
-	float m_px;
-	float m_py;
-	float m_pz;
-	const int m_xOffset = 100;
-	const int m_yOffset = 104;
-	const int m_zOffset = 108;
+	double m_x;
+	double m_y;
+	double m_z;
+	int m_seconds;
 
 	CSVReader* m_reader;
-	
+	CommunicationHandler* m_communication_handler;
+
+	void create_location_msg(double p_x, double p_y, double p_z, int p_sec);
+
 public:
 	CGps(string p_name);
 	~CGps();

@@ -1,17 +1,23 @@
 #pragma once
-#include "zmq.hpp"
+
 #include "Externals.h"
 #include "Node.h"
 #include "../../Source/Interfaces/Messages/HealthMonitoringMessages.pb.h"
+#include "Components.h"
 
 class ComponentsModel
 {
-public:
-	ComponentsModel(Node*);
-	~ComponentsModel();
-	Node* find_fault() const;
-	void publish(HealthMonitoringMessages::DataReplyMsg& p_msg);
+private:
+	list<Node*>* m_components;
+	Node* m_root;
 
-	Node* system_root;
+public:
+	ComponentsModel();
+	~ComponentsModel();
+	void init();
+	Node* find_fault();
+	void get_cdm_data(HealthMonitoringMessages::DataUpdateMsg& p_msg);
+	void update();
+	Node* root();
 };
 

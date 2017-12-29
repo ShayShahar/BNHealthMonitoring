@@ -14,21 +14,25 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BNHealthMonitoring.UI.BL;
 using BNHealthMonitoring.UI.Model;
-using MahApps.Metro.Controls;
 
 namespace BNHealthMonitoring.UI.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ComponentsTreeView.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class ComponentsTreeView : UserControl
     {
+        private DataState m_dataState;
 
-        public MainWindow()
+        public ComponentsTreeView()
         {
             InitializeComponent();
+            m_dataState = DataState.GetInstance();
         }
 
-
+        private void TreeView_SelectedItemChanged(object p_sender, RoutedPropertyChangedEventArgs<object> p_e)
+        {
+            m_dataState.SelectedComponent = (Component)p_e.NewValue;
+        }
     }
 }

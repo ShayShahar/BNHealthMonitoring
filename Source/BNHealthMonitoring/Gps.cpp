@@ -3,6 +3,7 @@
 CGps::CGps(string p_name) : Node(p_name)
 {
 	m_reader = new CSVReader("CSVFiles//OutFileSatAlpha.csv");
+	m_communication_handler = CommunicationHandler::get_instance();
 }
 
 
@@ -15,6 +16,7 @@ void CGps::update_component_state()
 {
 	vector<string> data = m_reader->readLine();
 
+	m_seconds = stoi(data[0]);
 	m_x = stod(data[3]);
 	m_y = stod(data[4]);
 	m_z = stod(data[5]);
@@ -22,6 +24,23 @@ void CGps::update_component_state()
 	double v_x = stod(data[6]);
 	double v_y = stod(data[7]);
 	double v_z = stod(data[8]);
+
+	create_location_msg(m_x, m_y, m_z, m_seconds);
+}
+
+
+void CGps::create_location_msg(double p_x, double p_y, double p_z, int p_sec)
+{
+	HealthMonitoringMessages::DataUpdateMsg msg;
+	msg.set_opcode(HealthMonitoringMessages::OpCode::SatLocation);
+	
+	HealthMonitoringMessages::LocationMessage* data = msg.mutable_location();
+	data->set_x(p_x);
+	data->set_y(p_y);
+	data->set_z(p_z);
+	data->set_seconds(p_sec);
+
+	m_communication_handler->send(msg);
 }
 
 

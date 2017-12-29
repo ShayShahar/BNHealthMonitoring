@@ -13,7 +13,7 @@
         xmlns:converters="clr-namespace:BNHealthMonitoring.UI.Converters"
         mc:Ignorable="d"
         Title="Health Monitoring" Height="500" Width="950"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
+        DataContext="{Binding Main, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen">
     
     <Window.Resources>
         <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter" />
@@ -23,6 +23,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.7*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -36,12 +37,12 @@
         </Grid>
         <Grid Grid.Column="1"
               Grid.Row="1"
-              Margin="0,10,0,10"
-              Background="DarkGray"></Grid>
-        <Grid Grid.Row="0"
+              Background="Gray"
+             />
+            <Grid Grid.Row="0"
               Grid.Column="0"
               ColumnSpan="3"
-              Background="DarkGray">
+              Background="#373c3d">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -61,32 +62,16 @@
             </Grid>
         </Grid>
 
-        <TreeView Grid.Column="0" 
-                  ItemsSource="{Binding Components}" 
-                  Grid.Row="1" 
-                  x:Name="ComponentsTree"
-                  SelectedItemChanged="TreeView_SelectedItemChanged">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate DataType="{x:Type model:Component}"
-                                          ItemsSource="{Binding Children}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Name, Converter={StaticResource StringToUppercaseConverter}}"/>
-                        <StackPanel Grid.Column="1" 
-                                    Orientation="Horizontal"
-                                    HorizontalAlignment="Right"
-                                    Margin="0,0,10,0">
-                            <TextBlock Text="STATE:"/>
-                            <TextBlock Foreground="Brown" 
-                                       Text="{Binding State}" 
-                                       Margin="5,0,0,0"/>
-                        </StackPanel>
-                    </Grid>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
+        <Grid Grid.Row="1"
+              Grid.Column="0">
+            <view:ComponentsTreeView></view:ComponentsTreeView>
+        </Grid>
+        
+        <Grid Grid.Row="2"
+              Grid.Column="0"
+              ColumnSpan="3">
+            <view:LocationChartView></view:LocationChartView>
+        </Grid>
+        
     </Grid>
 </Controls:MetroWindow>

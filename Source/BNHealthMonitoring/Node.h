@@ -1,11 +1,9 @@
 #pragma once
 
 #include "Link.h"
-#include "LinkedList.h"
-//#include "MemoryWrapper.h"
 #include "../../Source/Interfaces/Messages/HealthMonitoringMessages.pb.h"
 #include "Externals.h"
-
+#include "Utils.h"
 
 class Node
 {
@@ -13,12 +11,11 @@ protected:
 	int m_state;
 	string m_name;
 	std::map<int, list<Link>*> m_probabilities;
-	//MemoryWrapper* m_segment;
 
 public:
 	Node(string p_name);
 	virtual ~Node();
-	Node* get_next() const;
+	Node* get_next();
 	void add_link(unsigned int p_state, Link p_link);
 	string name();
 	map<int, list<Link>*> links();
