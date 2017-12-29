@@ -24,7 +24,7 @@ namespace BNHealthMonitoring.UI.ViewModel
                 new LineSeries
                 {
                     Title = "DELTA",
-                    Values = new ChartValues<ObservablePoint>() { new ObservablePoint(0,0) },
+                    Values = new ChartValues<ObservablePoint>(),
                     PointGeometry = DefaultGeometries.Circle,
                     PointGeometrySize = 10,
                     StrokeThickness = 1.5,
@@ -38,7 +38,7 @@ namespace BNHealthMonitoring.UI.ViewModel
 
         private void onLocationUpdate(Tuple<int, double> p_data)
         {
-            m_locationDelta[0].Values.Add(new ObservablePoint(p_data.Item1, p_data.Item2));
+            m_locationDelta[0].Values.Add(new ObservablePoint(p_data.Item1, Math.Round(p_data.Item2,2)));
             RaisePropertyChanged(() => LocationData);
         }
         public SeriesCollection LocationData

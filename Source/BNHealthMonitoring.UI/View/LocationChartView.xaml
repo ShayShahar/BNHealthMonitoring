@@ -15,7 +15,25 @@
                             Foreground="Black"
                             Background="#222e31">
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="DELTA (m)"></lvc:Axis>
+                <lvc:Axis Name="Axis" Title="DELTA (m)">
+                    <lvc:Axis.Sections>
+                        <lvc:AxisSection Value="140" SectionWidth="15" Label="Good">
+                            <lvc:AxisSection.Fill>
+                                <SolidColorBrush Color="#222e31" Opacity="0.4"></SolidColorBrush>
+                            </lvc:AxisSection.Fill>
+                        </lvc:AxisSection>
+                        <lvc:AxisSection Value="0" SectionWidth="140" Label="Bad">
+                            <lvc:AxisSection.Fill>
+                                <SolidColorBrush Color="#FF8585" Opacity=".2"></SolidColorBrush>
+                            </lvc:AxisSection.Fill>
+                        </lvc:AxisSection>                      
+                        <lvc:AxisSection Value="160" SectionWidth="200" Label="Bad">
+                            <lvc:AxisSection.Fill>
+                                <SolidColorBrush Color="#FF8585" Opacity=".2"></SolidColorBrush>
+                            </lvc:AxisSection.Fill>
+                        </lvc:AxisSection>
+                    </lvc:Axis.Sections>
+                </lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="TIME (sec)"></lvc:Axis>
