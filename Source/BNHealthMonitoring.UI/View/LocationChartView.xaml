@@ -13,7 +13,7 @@
                             LegendLocation="None"
                             Margin="2,0,2,0"
                             Foreground="Black"
-                            Background="#222e31">
+                            Background="#2c2f30">
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis Name="Axis" Title="DELTA (m)">
                     <!--<lvc:Axis.Sections>
