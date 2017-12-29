@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BNHealthMonitoring.UI.View
+namespace BNHealthMonitoring.UI
 {
     /// <summary>
-    /// Interaction logic for PlotView.xaml
+    /// Interaction logic for CptView.xaml
     /// </summary>
-    public partial class PlotView : UserControl
+    public partial class CptView : UserControl
     {
-        public PlotView()
+        public CptView()
         {
-            
+            InitializeComponent();
         }
     }
 }

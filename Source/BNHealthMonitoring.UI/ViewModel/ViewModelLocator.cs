@@ -43,7 +43,7 @@ namespace BNHealthMonitoring.UI.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainWindowViewModel>();
-            SimpleIoc.Default.Register<PlotViewModel>();
+            SimpleIoc.Default.Register<CptViewModel>();
         }
 
         public MainWindowViewModel Main
@@ -53,11 +53,11 @@ namespace BNHealthMonitoring.UI.ViewModel
                 return ServiceLocator.Current.GetInstance<MainWindowViewModel>();
             }
         }
-        public PlotViewModel Plot
+        public CptViewModel Cpt
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<PlotViewModel>();
+                return ServiceLocator.Current.GetInstance<CptViewModel>();
             }
         }
 

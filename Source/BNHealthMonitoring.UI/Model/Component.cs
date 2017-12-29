@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using Caliburn.Micro;
 
 namespace BNHealthMonitoring.UI.Model
@@ -13,17 +8,19 @@ namespace BNHealthMonitoring.UI.Model
         public Component()
         {
             Children = new ObservableCollection<Component>();
+            Links =new ObservableCollection<Link>();
         }
 
         public string Name { get; set; }
         public int State { get; set; }
         public ObservableCollection<Component> Children { get; set; }
+        public ObservableCollection<Link> Links { get; set; }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object p_obj)
         {
-            if (obj != null)
+            if (p_obj != null)
             {
-                Component p = obj as Component;
+                Component p = p_obj as Component;
                 if (p == null)
                     return false;
 
@@ -32,5 +29,7 @@ namespace BNHealthMonitoring.UI.Model
             }
             return false;
         }
+
+
     }
 }

@@ -104,5 +104,8 @@
     <None Include="CSVFiles\OutFileSatAlpha.csv">
       <Filter>CSVFiles</Filter>
     </None>
+    <None Include="CSVFiles\Gps_Ant.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
   </ItemGroup>
 </Project>

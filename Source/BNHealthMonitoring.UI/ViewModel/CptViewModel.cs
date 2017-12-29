@@ -2,35 +2,35 @@
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Windows.Input;
 using BNHealthMonitoring.UI.BL;
 using BNHealthMonitoring.UI.Model;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 
 namespace BNHealthMonitoring.UI.ViewModel
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class CptViewModel : ViewModelBase
     {
         private readonly MessageService m_messageService;
         private readonly DataState m_dataState;
 
-        public MainWindowViewModel()
+        public CptViewModel()
         {
             m_dataState = DataState.GetInstance();
             m_messageService = MessageService.GetInsatnce();
-            m_dataState.ComponentsUpdate.ObserveOnDispatcher().Subscribe(onComponentsUpdateEvent);
+            m_dataState.SelectedComponentChangedEvent.ObserveOnDispatcher().Subscribe(onSelectionChanged);
         }
 
-        public ObservableCollection<Component> Components
+        public ObservableCollection<Link> SelectedComponent
         {
-            get { return m_dataState.Components; }
+            get
+            {
+                return m_dataState.SelectedComponent?.Links;
+            }
         }
 
-
-        private void onComponentsUpdateEvent(Unit p_unit)
+        private void onSelectionChanged(Unit p_unit)
         {
-            RaisePropertyChanged(() => Components);
+            RaisePropertyChanged(() => SelectedComponent);
         }
     }
 }
