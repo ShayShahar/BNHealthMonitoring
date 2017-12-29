@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using BNHealthMonitoring.UI.BL;
 
 namespace BNHealthMonitoring.UI
 {
@@ -26,6 +27,7 @@ namespace BNHealthMonitoring.UI
         {
             try
             {
+                MessageService.GetInsatnce().Close();
                 m_module.Kill();
             }
             catch (Exception e)

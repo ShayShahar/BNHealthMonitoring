@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using HealthMonitoringMessages;
 using NetMQ;
 using NetMQ.Sockets;
@@ -12,7 +11,7 @@ namespace BNHealthMonitoring.UI.BL
         private readonly NetMQContext m_context;
         private readonly Poller m_poller;
         private static MessageService s_messageService;
-        private DataState m_dataState;
+        private readonly DataState m_dataState;
 
         private MessageService()
         {
@@ -53,6 +52,7 @@ namespace BNHealthMonitoring.UI.BL
 
         public void Close()
         {
+            m_poller.Cancel();
             m_socket.Disconnect("tcp://127.0.0.1:49993");
         }
     }

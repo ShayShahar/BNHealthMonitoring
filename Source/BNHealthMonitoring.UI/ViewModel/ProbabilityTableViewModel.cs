@@ -8,11 +8,11 @@ using GalaSoft.MvvmLight;
 
 namespace BNHealthMonitoring.UI.ViewModel
 {
-    public class CptViewModel : ViewModelBase
+    public class ProbabilityTableViewModel : ViewModelBase
     {
         private readonly DataState m_dataState;
 
-        public CptViewModel()
+        public ProbabilityTableViewModel()
         {
             m_dataState = DataState.GetInstance();
             m_dataState.SelectedComponentChangedEvent.ObserveOnDispatcher().Subscribe(onSelectionChanged);

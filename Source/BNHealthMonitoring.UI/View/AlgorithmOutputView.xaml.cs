@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BNHealthMonitoring.UI
+namespace BNHealthMonitoring.UI.View
 {
     /// <summary>
-    /// Interaction logic for CptView.xaml
+    /// Interaction logic for AlgorithmOutputView.xaml
     /// </summary>
-    public partial class CptView : UserControl
+    public partial class AlgorithmOutputView : UserControl
     {
-        public CptView()
+        public AlgorithmOutputView()
         {
             InitializeComponent();
         }

@@ -145,11 +145,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\AlgorithmOutputView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ComponentsTreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CptView.xaml">
+    <Page Include="View\ProbabilityTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,14 +177,18 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
     <Compile Include="Model\Link.cs" />
+    <Compile Include="ViewModel\AlgorithmOutputViewModel.cs" />
     <Compile Include="ViewModel\ComponentsTreeViewModel.cs" />
-    <Compile Include="ViewModel\CptViewModel.cs" />
+    <Compile Include="ViewModel\ProbabilityTableViewModel.cs" />
     <Compile Include="ViewModel\LocationChartViewModel.cs" />
+    <Compile Include="View\AlgorithmOutputView.xaml.cs">
+      <DependentUpon>AlgorithmOutputView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ComponentsTreeView.xaml.cs">
       <DependentUpon>ComponentsTreeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CptView.xaml.cs">
-      <DependentUpon>CptView.xaml</DependentUpon>
+    <Compile Include="View\ProbabilityTableView.xaml.cs">
+      <DependentUpon>ProbabilityTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Component.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />

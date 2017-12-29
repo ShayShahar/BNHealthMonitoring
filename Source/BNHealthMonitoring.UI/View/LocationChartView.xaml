@@ -11,7 +11,7 @@
     <Grid>
         <lvc:CartesianChart Series="{Binding LocationData}" 
                             LegendLocation="None"
-                            Margin="5"
+                            Margin="2,0,2,0"
                             Foreground="Black"
                             Background="#222e31">
             <lvc:CartesianChart.AxisY>

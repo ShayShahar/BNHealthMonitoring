@@ -90,7 +90,6 @@ namespace BNHealthMonitoring.UI.BL
         public void SetComponents(CDMMessage p_components)
         {
             Application.Current.Dispatcher.Invoke(() => addComponent(m_components, p_components.CdmRoot));
-           // addComponent(m_components, p_components.CdmRoot);
             m_componentsUpdated.OnNext(new Unit());
         }
 
