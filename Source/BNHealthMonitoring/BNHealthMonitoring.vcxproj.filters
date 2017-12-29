@@ -63,8 +63,25 @@
     <ClCompile Include="Gps_Ant.cpp">
       <Filter>Components\Source Components Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Scheduler.cpp">
       <Filter>Source Files</Filter>
+=======
+    <ClCompile Include="Transceiver.cpp">
+      <Filter>Components\Source Components Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Receiver.cpp">
+      <Filter>Components\Source Components Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GpsReceiver.cpp">
+      <Filter>Components\Source Components Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transmitter.cpp">
+      <Filter>Components\Source Components Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stx.cpp">
+      <Filter>Components\Source Components Files</Filter>
+>>>>>>> 5b40e8ff9e41503ec695ca17976067750cb030b7
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,11 +118,28 @@
     <ClInclude Include="Gps_Ant.h">
       <Filter>Components\Header Components Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Scheduler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Components.h">
       <Filter>Components</Filter>
+=======
+    <ClInclude Include="Transceiver.h">
+      <Filter>Components\Header Components Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GpsReceiver.h">
+      <Filter>Components\Header Components Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Receiver.h">
+      <Filter>Components\Header Components Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transmitter.h">
+      <Filter>Components\Header Components Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Stx.h">
+      <Filter>Components\Header Components Files</Filter>
+>>>>>>> 5b40e8ff9e41503ec695ca17976067750cb030b7
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +148,21 @@
       <Filter>CSVFiles</Filter>
     </None>
     <None Include="CSVFiles\Gps_Ant.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\GpsReceiver.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\Transceiver.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\Receiver.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\Transmitter.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\Stx.csv">
       <Filter>CSVFiles</Filter>
     </None>
   </ItemGroup>

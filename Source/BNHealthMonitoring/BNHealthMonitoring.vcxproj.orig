@@ -157,11 +157,14 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClCompile Include="Link.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="Scheduler.cpp" />
+=======
     <ClCompile Include="Receiver.cpp" />
     <ClCompile Include="Stx.cpp" />
     <ClCompile Include="Transceiver.cpp" />
     <ClCompile Include="Transmitter.cpp" />
+>>>>>>> 5b40e8ff9e41503ec695ca17976067750cb030b7
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -176,11 +179,14 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClInclude Include="Gps_Ant.h" />
     <ClInclude Include="Link.h" />
     <ClInclude Include="Node.h" />
+<<<<<<< HEAD
     <ClInclude Include="Scheduler.h" />
+=======
     <ClInclude Include="Receiver.h" />
     <ClInclude Include="Stx.h" />
     <ClInclude Include="Transceiver.h" />
     <ClInclude Include="Transmitter.h" />
+>>>>>>> 5b40e8ff9e41503ec695ca17976067750cb030b7
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

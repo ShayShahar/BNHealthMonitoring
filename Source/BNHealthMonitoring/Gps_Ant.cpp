@@ -2,7 +2,7 @@
 
 Gps_Ant::Gps_Ant(string p_name) : Node(p_name)
 {
-	m_reader = new CSVReader("C:\\Users\\Yakir\\Desktop\\Gps_Ant.csv");
+	m_reader = new CSVReader("CSVFiles//Gps_Ant.csv");
 }
 
 Gps_Ant::~Gps_Ant()
