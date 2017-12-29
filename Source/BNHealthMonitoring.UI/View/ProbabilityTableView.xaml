@@ -29,7 +29,7 @@
                         <Setter Property="Margin" Value="0,2,2,0"></Setter>
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding IsCurrentState}" Value="True">
-                                <Setter Property="Background" Value="#5b5b5b"></Setter>
+                                <Setter Property="Background" Value="#536756"></Setter>
                             </DataTrigger>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" Value="#453c4d"/>
