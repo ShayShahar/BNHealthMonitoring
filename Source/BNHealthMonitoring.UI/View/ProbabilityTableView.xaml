@@ -21,6 +21,7 @@
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
                   IsReadOnly="True"
+                  SelectionMode="Single"
                   Visibility="{Binding IsDataNotAvailable, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
                   HorizontalScrollBarVisibility="Disabled"
                   AutoGenerateColumns="false">
@@ -34,6 +35,10 @@
                             </DataTrigger>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" Value="#1d556d"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" Value="#1585b5"/>
                                 <Setter Property="Foreground" Value="White"/>
                             </Trigger>
                         </Style.Triggers>
@@ -115,7 +120,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-        <Label Visibility="{Binding IsDataAvailable, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+            <Label Visibility="{Binding IsDataAvailable, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
                Content="NO DATA TO DISPLAY"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"/>
