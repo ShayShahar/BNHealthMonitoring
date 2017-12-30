@@ -153,6 +153,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\EarthView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\ProbabilityTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,6 +180,7 @@
     <Compile Include="BL\MessageService.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
+    <Compile Include="Model\Earth.cs" />
     <Compile Include="Model\Link.cs" />
     <Compile Include="ViewModel\AlgorithmOutputViewModel.cs" />
     <Compile Include="ViewModel\ComponentsTreeViewModel.cs" />
@@ -187,6 +192,10 @@
     <Compile Include="View\ComponentsTreeView.xaml.cs">
       <DependentUpon>ComponentsTreeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EarthView.xaml.cs">
+      <DependentUpon>EarthView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EarthViewModel.cs" />
     <Compile Include="View\ProbabilityTableView.xaml.cs">
       <DependentUpon>ProbabilityTableView.xaml</DependentUpon>
     </Compile>
@@ -247,6 +256,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\about2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Earth4k.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

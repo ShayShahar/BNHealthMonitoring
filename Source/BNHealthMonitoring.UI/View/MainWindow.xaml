@@ -139,7 +139,14 @@
             <Grid Grid.Row="3"
               Grid.Column="0"
               ColumnSpan="3">
-                <view:LocationChartView></view:LocationChartView>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <view:LocationChartView Grid.Column="0"></view:LocationChartView>
+                    <view:EarthView Grid.Column="1"></view:EarthView>
+                </Grid>
             </Grid>
 
             <Grid Grid.Row="4"
