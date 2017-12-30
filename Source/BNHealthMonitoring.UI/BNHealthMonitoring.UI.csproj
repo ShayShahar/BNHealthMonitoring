@@ -232,7 +232,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\info.png" />
+    <Resource Include="Resources\log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\info_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\log_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\log2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\about2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

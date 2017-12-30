@@ -13,99 +13,170 @@
         xmlns:converters="clr-namespace:BNHealthMonitoring.UI.Converters"
         mc:Ignorable="d"
         Title="Health Monitoring" Height="768" Width="1024"
+        WindowTitleBrush="#252525"
         DataContext="{Binding Main, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter" />
+
+        <Style TargetType="Button" x:Key="TransparentButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="Transparent" BorderThickness="0">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsPressed" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#555555" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"></RowDefinition>
-            <RowDefinition Height="0.7*"></RowDefinition>
-            <RowDefinition Height="0.15*"></RowDefinition>
-            <RowDefinition Height="0.7*"></RowDefinition>
-            <RowDefinition Height="0.15*"></RowDefinition>
-            <RowDefinition Height="0.7*"></RowDefinition>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="0.3"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="2"
+        <Grid Grid.Column="0"
+              Background="#2b2b2b"
+              VerticalAlignment="Top">
+            <StackPanel Width="50">
+                <Button Width="40"
+                        Height="40"
+                        Margin="0,2,0,0"
+                        ToolTip="Log"
+                        Style="{StaticResource TransparentButton}"
+                        Command="{Binding LogViewCommand, Mode=OneTime}">
+                    <Button.Content>
+                        <Image Source="/Resources/log2.png" Width="30" Height="30"/>
+                    </Button.Content>
+                </Button>
+                <Button Width="40"
+                        Height="40"
+                        Margin="0,8,0,0"
+                        ToolTip="About"
+                        Style="{StaticResource TransparentButton}"
+                        Command="{Binding AboutViewCommand, Mode=OneTime}">
+                    <Button.Content>
+                        <Image Source="/Resources/about2.png" Width="30" Height="30"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"></RowDefinition>
+                <RowDefinition Height="0.7*"></RowDefinition>
+                <RowDefinition Height="0.15*"></RowDefinition>
+                <RowDefinition Height="0.7*"></RowDefinition>
+                <RowDefinition Height="0.15*"></RowDefinition>
+                <RowDefinition Height="0.7*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="0.3"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="2"
               Grid.Row="1"
               Margin="2,0,0,2">
-            <view:ProbabilityTableView></view:ProbabilityTableView>
-        </Grid>
-        <Grid Grid.Column="1"
+                <view:ProbabilityTableView></view:ProbabilityTableView>
+            </Grid>
+            <Grid Grid.Column="1"
               Grid.Row="1"
               Background="Gray"
               Margin="0,10,0,10"/>
-        <Grid Grid.Row="0"
+            <Grid Grid.Row="0"
               Grid.Column="0"
               ColumnSpan="3"
               Background="#363636">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0"
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"
                        Margin="5,0,0,0"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Content="COMPONENTS DEPHENDENCY TREE"
                        FontWeight="Bold">
-                </Label>
-                <Label Grid.Column="1" Margin="5,0,0,0"
+                    </Label>
+                    <Label Grid.Column="1" Margin="5,0,0,0"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Content="CONDITIONAL PROBABLITY TABLE"
                        FontWeight="Bold">
-                </Label>
+                    </Label>
+                </Grid>
             </Grid>
-        </Grid>
 
-        <Grid Grid.Row="1"
+            <Grid Grid.Row="1"
               Grid.Column="0">
-            <view:ComponentsTreeView></view:ComponentsTreeView>
-        </Grid>
+                <view:ComponentsTreeView></view:ComponentsTreeView>
+            </Grid>
 
-        <Grid Grid.Row="2"
+            <Grid Grid.Row="2"
               Grid.Column="0"
               ColumnSpan="3"
                Background="#363636">
-            <Label Grid.Column="0"
+                <Label Grid.Column="0"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Content="SATELLITE LOCATION MONITOR"
                        FontWeight="Bold">
-            </Label>
-        </Grid>
+                </Label>
+            </Grid>
 
-        <Grid Grid.Row="3"
+            <Grid Grid.Row="3"
               Grid.Column="0"
               ColumnSpan="3">
-            <view:LocationChartView></view:LocationChartView>
-        </Grid>
+                <view:LocationChartView></view:LocationChartView>
+            </Grid>
 
-        <Grid Grid.Row="4"
+            <Grid Grid.Row="4"
               Grid.Column="0"
               ColumnSpan="3"
               Background="#363636">
-            <Label Grid.Column="0"
+                <Label Grid.Column="0"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Content="FAULT DETECTION STATES"
                        FontWeight="Bold" />
-        </Grid>
+            </Grid>
 
-        <Grid Grid.Row="5"
+            <Grid Grid.Row="5"
               Grid.Column="0"
               ColumnSpan="3"
-              Margin="2,0,0,2">
-            <view:AlgorithmOutputView></view:AlgorithmOutputView>
+              Margin="2,0,2,0">
+                <view:AlgorithmOutputView></view:AlgorithmOutputView>
+            </Grid>
         </Grid>
+
+        <Controls:FlyoutsControl Grid.Column="1">
+            <Controls:Flyout Header="Log" Position="Right" Width="300" IsOpen="{Binding IsLogViewOpen, Mode=TwoWay}">
+                <StackPanel Margin="10">
+                    <TextBlock FontSize="24">Hello World</TextBlock>
+                </StackPanel>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+
+        <Controls:FlyoutsControl Grid.Column="1">
+            <Controls:Flyout Header="About" Position="Right" Width="300" IsOpen="{Binding IsAboutViewOpen, Mode=TwoWay}">
+                <StackPanel Margin="10">
+                    <TextBlock FontSize="20">Shay Shahar</TextBlock>
+                    <TextBlock FontSize="20">Yakir Karandian</TextBlock>
+                    <TextBlock FontSize="20">Ilya Zeldner</TextBlock>
+                </StackPanel>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
     </Grid>
 </Controls:MetroWindow>

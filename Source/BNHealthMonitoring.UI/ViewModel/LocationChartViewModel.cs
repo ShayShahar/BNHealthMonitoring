@@ -29,9 +29,9 @@ namespace BNHealthMonitoring.UI.ViewModel
                     PointGeometrySize = 10,
                     StrokeThickness = 1.5,
                     LineSmoothness = 1,
-                    PointForeground = new SolidColorBrush(Color.FromRgb(255,255,255)) {Opacity = 0.7},
-                    Stroke = Brushes.DarkSeaGreen,
-                    Fill = new SolidColorBrush(Color.FromRgb(143,188,143)) {Opacity = 0.4}
+                    PointForeground = new SolidColorBrush(Color.FromRgb(76,175,80)) {Opacity = 0.7},
+                    Stroke = new SolidColorBrush(Color.FromRgb(76,175,80)) {Opacity = 1},
+                    Fill = new SolidColorBrush(Color.FromRgb(76,175,80)) {Opacity = 0.4}
                 }
             };
         }

@@ -27,8 +27,8 @@ namespace BNHealthMonitoring.UI.ViewModel
                     Values = new ChartValues<double> {10, 50, 35, 50},
                     PointGeometry = DefaultGeometries.Circle,
                     StrokeThickness = 2,
-                    Stroke =  new SolidColorBrush(Color.FromRgb(101,84,117)) {Opacity = 1},
-                    Fill = new SolidColorBrush(Color.FromRgb(101,84,117)) {Opacity = 1}
+                    Stroke =  new SolidColorBrush(Color.FromRgb(255,23,68)) {Opacity = 1},
+                    Fill = new SolidColorBrush(Color.FromRgb(255,23,68)) {Opacity = 1}
                 }
             };
 
