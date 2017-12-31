@@ -47,6 +47,10 @@
       <HintPath>..\..\Workspace\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Cyotek.Drawing.BitmapFont, Version=1.0.0.0, Culture=neutral, PublicKeyToken=58daa28b0b2de221, processorArchitecture=MSIL">
+      <HintPath>..\..\Workspace\packages\Cyotek.Drawing.BitmapFont.1.3.2\lib\net20\Cyotek.Drawing.BitmapFont.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\..\Workspace\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
       <Private>True</Private>
@@ -75,6 +79,10 @@
       <HintPath>..\..\Workspace\packages\HelixToolkit.Wpf.1.0.0\lib\net45\HelixToolkit.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="HelixToolkit.Wpf.SharpDX, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
+      <HintPath>..\..\Workspace\packages\HelixToolkit.Wpf.SharpDX.1.0.0\lib\net45\HelixToolkit.Wpf.SharpDX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\..\Workspace\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
       <Private>True</Private>
@@ -96,6 +104,38 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="SharpDX, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\Workspace\packages\SharpDX.4.0.1\lib\net45\SharpDX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.D3DCompiler, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\Workspace\packages\SharpDX.D3DCompiler.4.0.1\lib\net45\SharpDX.D3DCompiler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.Direct2D1, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\Workspace\packages\SharpDX.Direct2D1.4.0.1\lib\net45\SharpDX.Direct2D1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\Workspace\packages\SharpDX.Direct3D11.4.0.1\lib\net45\SharpDX.Direct3D11.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11.Effects, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\Workspace\packages\SharpDX.Direct3D11.Effects.4.0.1\lib\net45\SharpDX.Direct3D11.Effects.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D9, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\Workspace\packages\SharpDX.Direct3D9.4.0.1\lib\net45\SharpDX.Direct3D9.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.DXGI, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\Workspace\packages\SharpDX.DXGI.4.0.1\lib\net45\SharpDX.DXGI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.Mathematics, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\Workspace\packages\SharpDX.Mathematics.4.0.1\lib\net45\SharpDX.Mathematics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -265,6 +305,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Earth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sharpdx_direct3d11_1_effects_arm.dll" />
+    <Content Include="sharpdx_direct3d11_1_effects_x64.dll" />
+    <Content Include="sharpdx_direct3d11_1_effects_x86.dll" />
+    <Content Include="x64\d3dcompiler_47.dll" />
+    <Content Include="x86\d3dcompiler_47.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -3,26 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-        xmlns:t="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf" 
+        xmlns:t="clr-namespace:HelixToolkit.Wpf.SharpDX;assembly=HelixToolkit.Wpf.SharpDX"
+        xmlns:h="http://helix-toolkit.org/wpf"
         mc:Ignorable="d" 
         d:DesignHeight="300" d:DesignWidth="300"
         >
     <Grid>
-        <t:HelixViewport3D x:Name="EarthViewport"
+        <h:HelixViewport3D x:Name="EarthViewport"
                            ItemsSource="{Binding Earth}"
                            IsPanEnabled="False"
                            ShowViewCube="False"
                            RotationSensitivity="0.3"
                            InfiniteSpin="True"
                      IsHeadLightEnabled="True">
-            <t:HelixViewport3D.Background>
+            <h:HelixViewport3D.Background>
                 <ImageBrush ImageSource="/BNHealthMonitoring.UI;component/Resources/stars.jpg"/>
-            </t:HelixViewport3D.Background>
-            <t:SphereVisual3D x:Name="EarthModule" 
+            </h:HelixViewport3D.Background>
+            <h:SphereVisual3D x:Name="EarthModule" 
                               Radius="1" 
-                              Material="{t:ImageMaterial 'pack://application:,,,/Resources/earth.jpg'}" 
+                              Material="{h:ImageMaterial 'pack://application:,,,/Resources/earth.jpg'}" 
                               ThetaDiv="180" 
                               PhiDiv="90" />
-        </t:HelixViewport3D>
+        </h:HelixViewport3D>
     </Grid>
 </UserControl>
