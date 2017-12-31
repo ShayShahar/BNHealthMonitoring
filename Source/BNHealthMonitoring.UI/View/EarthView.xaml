@@ -6,8 +6,7 @@
         xmlns:t="clr-namespace:HelixToolkit.Wpf.SharpDX;assembly=HelixToolkit.Wpf.SharpDX"
         xmlns:h="http://helix-toolkit.org/wpf"
         mc:Ignorable="d" 
-        d:DesignHeight="300" d:DesignWidth="300"
-        >
+        d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <h:HelixViewport3D x:Name="EarthViewport"
                            ItemsSource="{Binding Earth}"
@@ -24,6 +23,7 @@
                               Material="{h:ImageMaterial 'pack://application:,,,/Resources/earth.jpg'}" 
                               ThetaDiv="180" 
                               PhiDiv="90" />
+            <h:SphereVisual3D x:Name="CloudsLayer" Radius="1.05" Material="{Binding Clouds}" ThetaDiv="90" PhiDiv="45"/>
         </h:HelixViewport3D>
     </Grid>
 </UserControl>
