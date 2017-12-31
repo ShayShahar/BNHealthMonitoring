@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reactive;
 using System.Reactive.Subjects;
 using System.Windows;
+using System.Windows.Media.Media3D;
 using System.Windows.Threading;
 using BNHealthMonitoring.UI.Model;
 using HealthMonitoringMessages;
@@ -14,7 +15,8 @@ namespace BNHealthMonitoring.UI.BL
     {
         private ObservableCollection<Component> m_components;
         private readonly ISubject<Unit> m_componentsUpdated;
-        private readonly ISubject<Tuple<int, double>> m_locationUpdate;
+        private readonly ISubject<Tuple<int, double>> m_locationDeltaUpdate;
+        private readonly ISubject<Point3D> m_locationUpdate;
         private static DataState s_dataState;
         private readonly ISubject<Unit> m_selectedComponentChanged;
         private Component m_selectedComponent;
@@ -24,7 +26,8 @@ namespace BNHealthMonitoring.UI.BL
 
         private DataState()
         {
-            m_locationUpdate = new Subject<Tuple<int, double>>();
+            m_locationDeltaUpdate = new Subject<Tuple<int, double>>();
+            m_locationUpdate = new Subject<Point3D>();
             m_componentsUpdated = new Subject<Unit>();
             m_selectedComponentChanged = new Subject<Unit>();
             m_components = new ObservableCollection<Component>();
@@ -51,10 +54,16 @@ namespace BNHealthMonitoring.UI.BL
         {
             get { return m_selectedComponentChanged; }
         }
-        public IObservable<Tuple<int, double>> LocationUpdated
+        public IObservable<Tuple<int, double>> LocationDeltaUpdated
+        {
+            get { return m_locationDeltaUpdate; }
+        }
+
+        public IObservable<Point3D> LocationUpdated
         {
             get { return m_locationUpdate; }
         }
+
 
         public ObservableCollection<Component> Components
         {
@@ -139,25 +148,21 @@ namespace BNHealthMonitoring.UI.BL
 
         public void UpdateLocation(LocationMessage p_location)
         {
-            if (m_px == m_py && m_py == m_pz && m_pz == 0)
+            if (!(m_px == m_py && m_py == m_pz && m_pz == 0))
             {
-                m_px = p_location.X;
-                m_py = p_location.Y;
-                m_pz = p_location.Z;
+                double delta =
+                    Math.Sqrt(Math.Pow(p_location.X - m_px, 2)
+                              + Math.Pow(p_location.Y - m_py, 2)
+                              + Math.Pow(p_location.Z - m_pz, 2));
 
-                return;
+                m_locationDeltaUpdate.OnNext(new Tuple<int, double>(p_location.Seconds, delta));
             }
-
-            double delta =
-                Math.Sqrt(Math.Pow(p_location.X - m_px, 2) 
-                          + Math.Pow(p_location.Y - m_py, 2) 
-                          + Math.Pow(p_location.Z - m_pz, 2));
-
-            m_locationUpdate.OnNext(new Tuple<int, double>(p_location.Seconds, delta));
 
             m_px = p_location.X;
             m_py = p_location.Y;
             m_pz = p_location.Z;
+
+            m_locationUpdate.OnNext(new Point3D(m_px, m_py, m_pz));
         }
     }
 }

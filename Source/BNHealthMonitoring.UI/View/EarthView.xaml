@@ -12,10 +12,12 @@
                            ItemsSource="{Binding Earth}"
                            IsPanEnabled="False"
                            ShowViewCube="False"
-                           Background="#050505"
                            RotationSensitivity="0.3"
                            InfiniteSpin="True"
                      IsHeadLightEnabled="True">
+            <t:HelixViewport3D.Background>
+                <ImageBrush ImageSource="/BNHealthMonitoring.UI;component/Resources/stars.jpg"/>
+            </t:HelixViewport3D.Background>
             <t:SphereVisual3D x:Name="EarthModule" 
                               Radius="1" 
                               Material="{t:ImageMaterial 'pack://application:,,,/Resources/earth4k.jpg'}" 

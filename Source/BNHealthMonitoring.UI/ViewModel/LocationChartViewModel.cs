@@ -17,7 +17,7 @@ namespace BNHealthMonitoring.UI.ViewModel
         public LocationChartViewModel()
         {
             m_dataState = DataState.GetInstance();
-            m_dataState.LocationUpdated.ObserveOnDispatcher().Subscribe(onLocationUpdate);
+            m_dataState.LocationDeltaUpdated.ObserveOnDispatcher().Subscribe(onLocationUpdate);
 
             m_locationDelta = new SeriesCollection
             {
