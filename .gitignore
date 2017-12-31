@@ -5,3 +5,6 @@ BNHealthMonitoring.VC.VC.opendb
 BNHealthMonitoring/x64
 Deployment
 x64
+Source/BNHealthMonitoring.UI/bin/
+Source/BNHealthMonitoring.UI/obj/Release/BNHealthMonitoring.UI.csproj.FileListAbsolute.txt
+Source/BNHealthMonitoring.UI/obj/
