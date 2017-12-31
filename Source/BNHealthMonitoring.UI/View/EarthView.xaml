@@ -20,7 +20,7 @@
             </t:HelixViewport3D.Background>
             <t:SphereVisual3D x:Name="EarthModule" 
                               Radius="1" 
-                              Material="{t:ImageMaterial 'pack://application:,,,/Resources/earth4k.jpg'}" 
+                              Material="{t:ImageMaterial 'pack://application:,,,/Resources/earth.jpg'}" 
                               ThetaDiv="180" 
                               PhiDiv="90" />
         </t:HelixViewport3D>

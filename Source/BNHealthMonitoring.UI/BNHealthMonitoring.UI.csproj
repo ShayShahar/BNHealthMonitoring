@@ -263,6 +263,9 @@
   <ItemGroup>
     <Resource Include="Resources\stars.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Earth.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
