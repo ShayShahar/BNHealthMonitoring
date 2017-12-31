@@ -148,8 +148,7 @@
                     <view:LocationChartView Grid.Column="0"></view:LocationChartView>
                     <view:EarthView Grid.Column="2"></view:EarthView>
                     <Grid Grid.Column="1"
-              Background="#363636"
-              />
+                        Background="#363636"/>
                 </Grid>
             </Grid>
 
