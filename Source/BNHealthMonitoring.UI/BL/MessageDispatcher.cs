@@ -5,15 +5,15 @@ using NetMQ.Sockets;
 
 namespace BNHealthMonitoring.UI.BL
 {
-    public class MessageService
+    public class MessageDispatcher
     {
         private readonly SubscriberSocket m_socket;
         private readonly NetMQContext m_context;
         private readonly Poller m_poller;
-        private static MessageService s_messageService;
+        private static MessageDispatcher s_messageDispatcher;
         private readonly DataState m_dataState;
 
-        private MessageService()
+        private MessageDispatcher()
         {
             m_dataState = DataState.GetInstance();
             m_context = NetMQContext.Create();
@@ -42,12 +42,12 @@ namespace BNHealthMonitoring.UI.BL
             }
         }
 
-        public static MessageService GetInsatnce()
+        public static MessageDispatcher GetInsatnce()
         {
-            if (s_messageService == null)
-                s_messageService = new MessageService();
+            if (s_messageDispatcher == null)
+                s_messageDispatcher = new MessageDispatcher();
 
-            return s_messageService;
+            return s_messageDispatcher;
         }
 
         public void Close()

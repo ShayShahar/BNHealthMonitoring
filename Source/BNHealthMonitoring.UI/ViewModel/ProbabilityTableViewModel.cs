@@ -28,7 +28,12 @@ namespace BNHealthMonitoring.UI.ViewModel
 
         public bool IsDataNotAvailable
         {
-            get { return SelectedComponent?.Count == 0; }
+            get
+            {
+                if (SelectedComponent == null)
+                    return true;
+                return SelectedComponent.Count == 0;
+            }
         }
         public bool IsDataAvailable
         {

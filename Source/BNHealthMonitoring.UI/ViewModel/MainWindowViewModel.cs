@@ -8,13 +8,13 @@ namespace BNHealthMonitoring.UI.ViewModel
     public class MainWindowViewModel : ViewModelBase
     {
         private readonly DataState m_dataState;
-        private MessageService m_messageService;
+        private MessageDispatcher m_messageDispatcher;
         private bool m_isLogViewOpen;
         private bool m_isAboutViewOpen;
 
         public MainWindowViewModel()
         {
-            m_messageService = MessageService.GetInsatnce();
+            m_messageDispatcher = MessageDispatcher.GetInsatnce();
             m_dataState = DataState.GetInstance();
         }
 

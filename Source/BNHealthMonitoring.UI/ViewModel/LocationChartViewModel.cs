@@ -38,12 +38,12 @@ namespace BNHealthMonitoring.UI.ViewModel
 
         private void onLocationUpdate(Tuple<int, double> p_data)
         {
-            if (m_locationDelta[0].Values.Count == 10)
+            if (m_locationDelta[0].Values.Count == 5)
             {
                 m_locationDelta[0].Values.RemoveAt(0);
             }
             
-            m_locationDelta[0].Values.Add(new ObservablePoint(p_data.Item1, Math.Round(p_data.Item2, 2)));
+            m_locationDelta[0].Values.Add(new ObservablePoint(p_data.Item1, Math.Round(p_data.Item2, 1)));
             RaisePropertyChanged(() => LocationData);
         }
         public SeriesCollection LocationData

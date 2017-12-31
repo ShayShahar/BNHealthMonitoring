@@ -27,7 +27,7 @@ namespace BNHealthMonitoring.UI
         {
             try
             {
-                MessageService.GetInsatnce().Close();
+                MessageDispatcher.GetInsatnce().Close();
                 m_module.Kill();
             }
             catch (Exception e)

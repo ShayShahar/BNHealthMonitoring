@@ -21,6 +21,7 @@ namespace BNHealthMonitoring.UI.ViewModel
             SimpleIoc.Default.Register<LocationChartViewModel>();
             SimpleIoc.Default.Register<AlgorithmOutputViewModel>();
             SimpleIoc.Default.Register<EarthViewModel>();
+            SimpleIoc.Default.Register<LogViewModel>();
         }
 
         public MainWindowViewModel Main
@@ -69,6 +70,15 @@ namespace BNHealthMonitoring.UI.ViewModel
                 return ServiceLocator.Current.GetInstance<EarthViewModel>();
             }
         }
+
+        public LogViewModel Log
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<LogViewModel>();
+            }
+        }
+
 
         public static void Cleanup()
         {
