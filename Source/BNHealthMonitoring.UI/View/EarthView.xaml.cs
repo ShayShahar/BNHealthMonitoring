@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Media3D;
 using BNHealthMonitoring.UI.BL;
-using BNHealthMonitoring.UI.Model;
 using HelixToolkit.Wpf;
 
 namespace BNHealthMonitoring.UI.View
@@ -13,10 +12,12 @@ namespace BNHealthMonitoring.UI.View
     public partial class EarthView : UserControl
     {
         private DataState m_dataState;
+        private const int EARTH_RADIUS = 6371;
+
         public EarthView()
         {
             InitializeComponent();
-            EarthModule.Radius = GeocentricPointVisual3D.EarthRadiusKm;
+            EarthModule.Radius = EARTH_RADIUS;
             CloudsLayer.Radius = EarthModule.Radius + 350;
             Loaded += userControlLoaded;
             m_dataState = DataState.GetInstance();
@@ -49,7 +50,7 @@ namespace BNHealthMonitoring.UI.View
 
         private async Task addPoint(Point3D p_point)
         {
-            EarthViewport.Children.Add(new GeocentricPointVisual3D(p_point));
+            EarthViewport.Children.Add(new SphereVisual3D() { Center = p_point, Radius = 80, Material = Materials.Red });
         }
 
         private void userControlLoaded(object p_sender, RoutedEventArgs p_e)

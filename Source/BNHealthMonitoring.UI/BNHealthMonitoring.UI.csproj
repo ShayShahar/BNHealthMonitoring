@@ -224,7 +224,6 @@
     <Compile Include="BL\MessageDispatcher.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
-    <Compile Include="Model\Earth.cs" />
     <Compile Include="Model\Link.cs" />
     <Compile Include="Model\LogItem.cs" />
     <Compile Include="ViewModel\AlgorithmOutputViewModel.cs" />
@@ -241,7 +240,6 @@
     <Compile Include="View\EarthView.xaml.cs">
       <DependentUpon>EarthView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\EarthViewModel.cs" />
     <Compile Include="View\LogView.xaml.cs">
       <DependentUpon>LogView.xaml</DependentUpon>
     </Compile>
