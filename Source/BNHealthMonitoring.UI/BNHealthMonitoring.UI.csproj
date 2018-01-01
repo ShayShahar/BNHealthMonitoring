@@ -316,6 +316,8 @@
     <Resource Include="Resources\Earth.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\stars2.jpg" />
+    <Resource Include="Resources\earth_16k.jpg" />
     <Resource Include="Resources\clouds.jpg" />
     <Content Include="sharpdx_direct3d11_1_effects_arm.dll" />
     <Content Include="sharpdx_direct3d11_1_effects_x64.dll" />

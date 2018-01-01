@@ -9,14 +9,13 @@
         d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <h:HelixViewport3D x:Name="EarthViewport"
-                           ItemsSource="{Binding Earth}"
                            IsPanEnabled="False"
                            ShowViewCube="False"
                            RotationSensitivity="0.3"
                            InfiniteSpin="True"
                      IsHeadLightEnabled="True">
             <h:HelixViewport3D.Background>
-                <ImageBrush ImageSource="/BNHealthMonitoring.UI;component/Resources/stars.jpg"/>
+                <ImageBrush ImageSource="/BNHealthMonitoring.UI;component/Resources/stars2.jpg"/>
             </h:HelixViewport3D.Background>
             <h:SphereVisual3D x:Name="EarthModule" 
                               Radius="1" 

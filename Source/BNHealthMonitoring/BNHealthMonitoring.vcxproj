@@ -96,7 +96,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
+      <Optimization>Full</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Workspace\packages\ZeroMQ4.0.4\include;..\..\Workspace\packages\protobuf-2.4.1\src;..\Source\Interfaces\Messages</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>
