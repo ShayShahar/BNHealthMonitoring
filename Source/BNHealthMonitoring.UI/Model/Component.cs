@@ -1,14 +1,27 @@
 ﻿using System.Collections.ObjectModel;
 using Caliburn.Micro;
+using HelixToolkit.Wpf;
 
 namespace BNHealthMonitoring.UI.Model
 {
     public class Component : PropertyChangedBase
     {
+        private bool m_isExpanded;
+
         public Component()
         {
             Children = new ObservableCollection<Component>();
             Links =new ObservableCollection<Link>();
+        }
+
+        public bool IsExpanded
+        {
+            get { return m_isExpanded; }
+            set
+            {
+                m_isExpanded = value;
+                NotifyOfPropertyChange(()=> IsExpanded);
+            }
         }
 
         public string Name { get; set; }

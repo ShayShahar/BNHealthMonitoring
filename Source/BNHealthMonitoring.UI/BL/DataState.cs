@@ -12,6 +12,12 @@ namespace BNHealthMonitoring.UI.BL
 {
     public class DataState
     {
+        public enum RunningView
+        {
+            HOME = 0,
+            EARTH = 1,
+        }
+
         private static DataState s_dataState;
         private readonly ISubject<Unit> m_componentsUpdated;
         private readonly ISubject<Unit> m_logUpdate;
@@ -24,6 +30,9 @@ namespace BNHealthMonitoring.UI.BL
         private double m_py;
         private double m_pz;
         private Component m_selectedComponent;
+        private ISubject<RunningView> m_viewChanged;
+        private RunningView m_currentView;
+
 
         private DataState()
         {
@@ -34,6 +43,9 @@ namespace BNHealthMonitoring.UI.BL
             m_selectedComponentChanged = new Subject<Unit>();
             m_components = new ObservableCollection<Component>();
             m_incomingMessages = new ObservableCollection<LogItem>();
+            m_viewChanged = new Subject<RunningView>();
+
+            m_currentView = RunningView.HOME;
 
             m_px = 0;
             m_py = 0;
@@ -43,6 +55,15 @@ namespace BNHealthMonitoring.UI.BL
         public IObservable<Unit> ComponentsUpdate
         {
             get { return m_componentsUpdated; }
+        }
+        public ISubject<RunningView> ViewChanged
+        {
+            get { return m_viewChanged; }
+        }
+
+        public void SetView(RunningView p_view)
+        {
+            m_currentView = p_view;
         }
 
         public IObservable<Unit> LogMessageUpdate

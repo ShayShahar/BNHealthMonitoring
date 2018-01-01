@@ -2,9 +2,11 @@
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
+using System.Windows.Input;
 using BNHealthMonitoring.UI.BL;
 using BNHealthMonitoring.UI.Model;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace BNHealthMonitoring.UI.ViewModel
 {

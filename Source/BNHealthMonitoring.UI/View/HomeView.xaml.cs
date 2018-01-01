@@ -13,27 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BNHealthMonitoring.UI.BL;
-using BNHealthMonitoring.UI.Model;
 
 namespace BNHealthMonitoring.UI.View
 {
     /// <summary>
-    /// Interaction logic for ComponentsTreeView.xaml
+    /// Interaction logic for HomeView.xaml
     /// </summary>
-    public partial class ComponentsTreeView : UserControl
+    public partial class HomeView : UserControl
     {
-        private DataState m_dataState;
-
-        public ComponentsTreeView()
+        public HomeView()
         {
             InitializeComponent();
-            m_dataState = DataState.GetInstance();
+            DataState.GetInstance().ViewChanged.OnNext(DataState.RunningView.HOME);
         }
-
-        private void TreeView_SelectedItemChanged(object p_sender, RoutedPropertyChangedEventArgs<object> p_e)
-        {
-            m_dataState.SelectedComponent = (Component)p_e.NewValue;
-        }
-
     }
 }

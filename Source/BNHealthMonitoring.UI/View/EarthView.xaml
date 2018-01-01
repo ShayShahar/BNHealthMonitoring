@@ -13,16 +13,17 @@
                            ShowViewCube="False"
                            RotationSensitivity="0.3"
                            InfiniteSpin="True"
-                     IsHeadLightEnabled="True">
+                           IsHeadLightEnabled="True"
+                           IsZoomEnabled="True">
             <h:HelixViewport3D.Background>
                 <ImageBrush ImageSource="/BNHealthMonitoring.UI;component/Resources/stars2.jpg"/>
             </h:HelixViewport3D.Background>
             <h:SphereVisual3D x:Name="EarthModule" 
                               Radius="1" 
-                              Material="{h:ImageMaterial 'pack://application:,,,/Resources/earth.jpg'}" 
+                              Material="{h:ImageMaterial 'pack://application:,,,/Resources/earth_16k.jpg'}" 
                               ThetaDiv="180" 
                               PhiDiv="90" />
-            <h:SphereVisual3D x:Name="CloudsLayer" Radius="1.05" Material="{Binding Clouds}" ThetaDiv="90" PhiDiv="45"/>
+            <!--<h:SphereVisual3D x:Name="CloudsLayer" Radius="1.05" Material="{Binding Clouds}" ThetaDiv="90" PhiDiv="45"/>-->
         </h:HelixViewport3D>
     </Grid>
 </UserControl>

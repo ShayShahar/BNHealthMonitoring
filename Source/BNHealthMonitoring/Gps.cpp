@@ -6,7 +6,6 @@ CGps::CGps(string p_name) : Node(p_name)
 	m_communication_handler = CommunicationHandler::get_instance();
 }
 
-
 CGps::~CGps()
 {
 	delete m_reader;
@@ -27,7 +26,6 @@ void CGps::update_component_state()
 
 	create_location_msg(m_x, m_y, m_z, m_seconds);
 }
-
 
 void CGps::create_location_msg(double p_x, double p_y, double p_z, int p_sec)
 {
