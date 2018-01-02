@@ -52,6 +52,12 @@
     <ClCompile Include="Transmitter.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Magnetorquer.cpp">
+      <Filter>Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Ocxo.cpp">
+      <Filter>Components\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommunicationHandler.h">
@@ -105,6 +111,12 @@
     <ClInclude Include="Stx.h">
       <Filter>Components\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Magnetorquer.h">
+      <Filter>Components\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Ocxo.h">
+      <Filter>Components\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -127,6 +139,12 @@
       <Filter>CSVFiles</Filter>
     </None>
     <None Include="CSVFiles\Transmitter.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\Magnetorquer.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\Ocxo.csv">
       <Filter>CSVFiles</Filter>
     </None>
   </ItemGroup>

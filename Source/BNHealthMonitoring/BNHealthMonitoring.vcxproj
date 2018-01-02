@@ -155,8 +155,10 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClCompile Include="GpsReceiver.cpp" />
     <ClCompile Include="Gps_Ant.cpp" />
     <ClCompile Include="Link.cpp" />
+    <ClCompile Include="Magnetorquer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Ocxo.cpp" />
     <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="Receiver.cpp" />
     <ClCompile Include="Stx.cpp" />
@@ -175,7 +177,9 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClInclude Include="GpsReceiver.h" />
     <ClInclude Include="Gps_Ant.h" />
     <ClInclude Include="Link.h" />
+    <ClInclude Include="Magnetorquer.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="Ocxo.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Receiver.h" />
     <ClInclude Include="Stx.h" />
@@ -186,6 +190,8 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
   <ItemGroup>
     <None Include="CSVFiles\GpsReceiver.csv" />
     <None Include="CSVFiles\Gps_Ant.csv" />
+    <None Include="CSVFiles\Magnetorquer.csv" />
+    <None Include="CSVFiles\Ocxo.csv" />
     <None Include="CSVFiles\OutFileSatAlpha.csv" />
     <None Include="CSVFiles\Receiver.csv" />
     <None Include="CSVFiles\Stx.csv" />
