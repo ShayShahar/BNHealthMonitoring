@@ -3,6 +3,7 @@
 #include "CSVReader.h"
 
 // VHF & UHF Transceiver
+// divide for 2 componnets: (1)Transmitter (2)Receiver
 
 class Transceiver : public Node
 {
