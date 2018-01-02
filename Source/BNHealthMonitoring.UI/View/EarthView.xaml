@@ -23,7 +23,6 @@
                               Material="{h:ImageMaterial 'pack://application:,,,/Resources/earth_16k.jpg'}" 
                               ThetaDiv="180" 
                               PhiDiv="90" />
-            <!--<h:SphereVisual3D x:Name="CloudsLayer" Radius="1.05" Material="{Binding Clouds}" ThetaDiv="90" PhiDiv="45"/>-->
         </h:HelixViewport3D>
     </Grid>
 </UserControl>

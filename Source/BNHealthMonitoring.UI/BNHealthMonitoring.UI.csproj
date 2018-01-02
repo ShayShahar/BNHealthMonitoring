@@ -16,7 +16,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
@@ -189,6 +189,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AnalzyeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ComponentsTreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -227,6 +231,7 @@
     <Compile Include="BL\DataState.cs" />
     <Compile Include="BL\MessageDispatcher.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\StateToStringConverter.cs" />
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
     <Compile Include="Model\Link.cs" />
     <Compile Include="Model\LogItem.cs" />
@@ -238,6 +243,9 @@
     <Compile Include="ViewModel\LocationChartViewModel.cs" />
     <Compile Include="View\AlgorithmOutputView.xaml.cs">
       <DependentUpon>AlgorithmOutputView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AnalzyeView.xaml.cs">
+      <DependentUpon>AnalzyeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ComponentsTreeView.xaml.cs">
       <DependentUpon>ComponentsTreeView.xaml</DependentUpon>
@@ -298,7 +306,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\info.png" />
-    <Resource Include="Resources\log.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\info_35.png" />
@@ -313,20 +320,15 @@
     <Resource Include="Resources\about2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Earth4k.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\stars.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Earth.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\stars2.jpg" />
     <Resource Include="Resources\earth_16k.jpg" />
-    <Resource Include="Resources\clouds.jpg" />
     <Resource Include="Resources\home.png" />
     <Resource Include="Resources\globe.png" />
+    <Resource Include="Resources\globe_selected.png" />
+    <Resource Include="Resources\home_selected.png" />
+    <Resource Include="Resources\analyze.png" />
+    <Resource Include="Resources\analyze_selected.png" />
+    <Resource Include="Resources\enlarge.png" />
     <Content Include="sharpdx_direct3d11_1_effects_arm.dll" />
     <Content Include="sharpdx_direct3d11_1_effects_x64.dll" />
     <Content Include="sharpdx_direct3d11_1_effects_x86.dll" />

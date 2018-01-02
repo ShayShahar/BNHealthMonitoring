@@ -31,7 +31,7 @@
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding IsCurrentState}" Value="True">
                                 <Setter Property="Background" Value="#888888"></Setter>
-                                <Setter Property="Foreground" Value="Black"></Setter>
+                                <Setter Property="Foreground" Value="White"></Setter>
                             </DataTrigger>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" Value="#1d556d"/>

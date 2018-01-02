@@ -28,29 +28,10 @@ namespace BNHealthMonitoring.UI.View
         {
             InitializeComponent();
             EarthModule.Radius = EARTH_RADIUS;
-           // CloudsLayer.Radius = EarthModule.Radius + 350;
             Loaded += userControlLoaded;
             m_dataState = DataState.GetInstance();
             m_dataState.LocationUpdated.ObserveOnDispatcher().Subscribe(onLocationUpdate);
-            this.Clouds = MaterialHelper.CreateImageMaterial("pack://application:,,,/Resources/clouds.jpg", 0.5);
             DataContext = this;
-        }
-
-        public static readonly DependencyProperty CloudsProperty = DependencyProperty.Register(
-                "Clouds", typeof(Material), typeof(MainWindow), new UIPropertyMetadata(null));
-
-
-        public Material Clouds
-        {
-            get
-            {
-                return (Material)this.GetValue(CloudsProperty);
-            }
-
-            set
-            {
-                this.SetValue(CloudsProperty, value);
-            }
         }
 
         private async void onLocationUpdate(Point3D p_point)
@@ -66,12 +47,13 @@ namespace BNHealthMonitoring.UI.View
         private void userControlLoaded(object p_sender, RoutedEventArgs p_e)
         {
             EarthViewport.ZoomExtents();
-            EarthViewport.IsZoomEnabled = true;
             EarthViewport.IsPanEnabled = false;
+            EarthViewport.IsTouchZoomEnabled = false;
+
             EarthViewport.ZoomGesture2 = new MouseGesture()
             {
-                MouseAction = MouseAction.WheelClick,
-                Modifiers = ModifierKeys.Control
+                MouseAction = MouseAction.LeftClick,
+                Modifiers = ModifierKeys.None
             };
         }
 

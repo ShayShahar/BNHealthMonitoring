@@ -4,19 +4,16 @@ using System.Linq;
 using System.Reactive;
 using System.Reactive.Subjects;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Media3D;
 using BNHealthMonitoring.UI.Model;
+using BNHealthMonitoring.UI.View;
 using HealthMonitoringMessages;
 
 namespace BNHealthMonitoring.UI.BL
 {
     public class DataState
     {
-        public enum RunningView
-        {
-            HOME = 0,
-            EARTH = 1,
-        }
 
         private static DataState s_dataState;
         private readonly ISubject<Unit> m_componentsUpdated;
@@ -30,8 +27,8 @@ namespace BNHealthMonitoring.UI.BL
         private double m_py;
         private double m_pz;
         private Component m_selectedComponent;
-        private ISubject<RunningView> m_viewChanged;
-        private RunningView m_currentView;
+        private ISubject<Unit> m_viewChanged;
+        private UserControl m_currentView;
 
 
         private DataState()
@@ -43,27 +40,30 @@ namespace BNHealthMonitoring.UI.BL
             m_selectedComponentChanged = new Subject<Unit>();
             m_components = new ObservableCollection<Component>();
             m_incomingMessages = new ObservableCollection<LogItem>();
-            m_viewChanged = new Subject<RunningView>();
-
-            m_currentView = RunningView.HOME;
+            m_viewChanged = new Subject<Unit>();
 
             m_px = 0;
             m_py = 0;
             m_pz = 0;
         }
 
+        public UserControl CurrentView
+        {
+            get { return m_currentView; }
+            set
+            {
+                m_currentView = value;
+                m_viewChanged.OnNext(new Unit());
+            }
+        }
+
         public IObservable<Unit> ComponentsUpdate
         {
             get { return m_componentsUpdated; }
         }
-        public ISubject<RunningView> ViewChanged
+        public IObservable<Unit> ViewChanged
         {
             get { return m_viewChanged; }
-        }
-
-        public void SetView(RunningView p_view)
-        {
-            m_currentView = p_view;
         }
 
         public IObservable<Unit> LogMessageUpdate
@@ -122,10 +122,7 @@ namespace BNHealthMonitoring.UI.BL
 
         public static DataState GetInstance()
         {
-            if (s_dataState == null)
-                s_dataState = new DataState();
-
-            return s_dataState;
+            return s_dataState ?? (s_dataState = new DataState());
         }
 
         public void SetComponents(CDMMessage p_components)
