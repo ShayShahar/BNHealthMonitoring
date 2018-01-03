@@ -20,6 +20,54 @@
         <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter" />
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <converters:StateToStringConverter x:Key="StateToStringConverter"/>
+        <Storyboard x:Key="ViewFadeOut">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+                                           Storyboard.TargetName="SingleWindowUserControl">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:.8" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ViewFadeIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+                                           Storyboard.TargetName="SingleWindowUserControl">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="SlideAndFadeIn" >
+            <ThicknessAnimation Duration="0:0:.75" Storyboard.TargetProperty="Margin" From="-500,0,500,0" To="10,0,0,0" DecelerationRatio=".5" />
+            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="Opacity" From="0" To="1" />
+        </Storyboard>
+
+        <Storyboard x:Key="SlideAndFadeOut">
+            <ThicknessAnimation Duration="0:0:.5" Storyboard.TargetProperty="Margin" To="500,0,-500,0" AccelerationRatio=".5"/>
+            <DoubleAnimation Duration="0:0:.5" Storyboard.TargetProperty="Opacity" To="0" />
+        </Storyboard>
+
+        <Storyboard x:Key="MouseEnlarge">
+            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="FontSize" From="30" To="32" />
+        </Storyboard>
+        <Storyboard x:Key="MouseShrink">
+            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="FontSize" From="32" To="30" />
+        </Storyboard>
+
+        <Storyboard x:Key="ImageRotation">
+            <DoubleAnimation
+                   Storyboard.TargetProperty="RenderTransform.Angle"
+                   From="0"
+                   To="-360"
+                   Duration="0:0:.3"/>
+        </Storyboard>
+
+        <Storyboard x:Key="ImageRotationCancel">
+            <DoubleAnimation
+                   Storyboard.TargetProperty="RenderTransform.Angle"
+                   To="-360"
+                    BeginTime="0:0:0"
+                   Duration="0:0:.3"/>
+        </Storyboard>
+
+
         <Style TargetType="Button" x:Key="TransparentButton">
             <Setter Property="Template">
                 <Setter.Value>
@@ -58,7 +106,25 @@
                         Style="{StaticResource TransparentButton}"
                         Command="{Binding HomeViewCommand, Mode=OneTime}">
                     <Button.Content>
-                        <Image Source="{Binding HomeViewImage}" Width="30" Height="30"/>
+                        <Image Source="{Binding HomeViewImage}" Width="30" Height="30">
+                            <Image.RenderTransform>
+                                <RotateTransform CenterX="15" CenterY="15" />
+                            </Image.RenderTransform>
+                            <Image.Style>
+                                <Style>
+                                    <Style.Triggers>
+                                        <Trigger Property="Image.IsMouseOver" Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard Storyboard="{StaticResource ImageRotation}"></BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard Storyboard="{StaticResource ImageRotationCancel}"></BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </Button.Content>
                 </Button>
                 <Button Width="40"
@@ -68,7 +134,25 @@
                         Style="{StaticResource TransparentButton}"
                         Command="{Binding GlobeViewCommand, Mode=OneTime}">
                     <Button.Content>
-                        <Image Source="{Binding EarthViewImage}" Width="30" Height="30"/>
+                        <Image Source="{Binding EarthViewImage}" Width="30" Height="30">
+                            <Image.RenderTransform>
+                                <RotateTransform CenterX="15" CenterY="15" />
+                            </Image.RenderTransform>
+                            <Image.Style>
+                                <Style>
+                                    <Style.Triggers>
+                                        <Trigger Property="Image.IsMouseOver" Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard Storyboard="{StaticResource ImageRotation}"></BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard Storyboard="{StaticResource ImageRotationCancel}"></BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </Button.Content>
                 </Button>
                 <Button Width="40"
@@ -78,7 +162,25 @@
                         Style="{StaticResource TransparentButton}">
                     <!--Command="{Binding AnalyzeViewCommand, Mode=OneTime}"-->
                     <Button.Content>
-                        <Image Source="{Binding AnalyzeViewImage}" Width="30" Height="30"/>
+                        <Image Source="{Binding AnalyzeViewImage}" Width="30" Height="30">
+                            <Image.RenderTransform>
+                                <RotateTransform CenterX="15" CenterY="15" />
+                            </Image.RenderTransform>
+                            <Image.Style>
+                                <Style>
+                                    <Style.Triggers>
+                                        <Trigger Property="Image.IsMouseOver" Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard Storyboard="{StaticResource ImageRotation}"></BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard Storyboard="{StaticResource ImageRotationCancel}"></BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </Button.Content>
                 </Button>
 
@@ -91,7 +193,25 @@
                         Style="{StaticResource TransparentButton}"
                         Command="{Binding LogViewCommand, Mode=OneTime}">
                     <Button.Content>
-                        <Image Source="/Resources/log2.png" Width="30" Height="30"/>
+                        <Image Source="/Resources/log2.png" Width="30" Height="30">
+                            <Image.RenderTransform>
+                                <RotateTransform CenterX="15" CenterY="15" />
+                            </Image.RenderTransform>
+                            <Image.Style>
+                                <Style>
+                                    <Style.Triggers>
+                                        <Trigger Property="Image.IsMouseOver" Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard Storyboard="{StaticResource ImageRotation}"></BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard Storyboard="{StaticResource ImageRotationCancel}"></BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </Button.Content>
                 </Button>
                 <Button Width="40"
@@ -101,26 +221,63 @@
                         Style="{StaticResource TransparentButton}"
                         Command="{Binding AboutViewCommand, Mode=OneTime}">
                     <Button.Content>
-                        <Image Source="/Resources/about2.png" Width="30" Height="30"/>
+                        <Image Source="/Resources/about2.png" Width="30" Height="30">
+                            <Image.RenderTransform>
+                                <RotateTransform CenterX="15" CenterY="15" />
+                            </Image.RenderTransform>
+                            <Image.Style>
+                                <Style>
+                                    <Style.Triggers>
+                                        <Trigger Property="Image.IsMouseOver" Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard Storyboard="{StaticResource ImageRotation}"></BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard Storyboard="{StaticResource ImageRotationCancel}"></BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </Button.Content>
                 </Button>
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="1">
-            <ContentControl Content="{Binding CurrentView}"/>
-        </Grid>
+        <ContentControl Grid.Column="1"
+                        x:Name="SingleWindowUserControl"
+                        Content="{Binding CurrentView, NotifyOnTargetUpdated=True}">
+            <ContentControl.Triggers>
+                <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                    <BeginStoryboard Storyboard="{StaticResource ViewFadeOut}"></BeginStoryboard>
+                    <BeginStoryboard Storyboard="{StaticResource ViewFadeIn}"></BeginStoryboard>
+                </EventTrigger>
+            </ContentControl.Triggers>
+        </ContentControl>
 
         <Grid Grid.Column="1"
-                     Background="Transparent"
+              Background="Transparent"
               VerticalAlignment="Top"
               Height="50">
             <Label 
-                Content="{Binding CurrentView, Converter={StaticResource StateToStringConverter}, Mode=OneWay}"
-                Margin="5,0,0,0"
+                Content="{Binding CurrentView, Converter={StaticResource StateToStringConverter}, Mode=OneWay, NotifyOnTargetUpdated=True}"
                 VerticalAlignment="Center"
+                x:Name="ViewLabelName"
                 FontWeight="Light"
                 FontSize="30">
+                <Label.Triggers>
+                    <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                        <BeginStoryboard Storyboard="{StaticResource SlideAndFadeOut}"></BeginStoryboard>
+                        <BeginStoryboard Storyboard="{StaticResource SlideAndFadeIn}"></BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Label.MouseEnter">
+                        <BeginStoryboard Storyboard="{StaticResource MouseEnlarge}"></BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Label.MouseLeave">
+                        <BeginStoryboard Storyboard="{StaticResource MouseShrink}"></BeginStoryboard>
+                    </EventTrigger>
+                </Label.Triggers>
             </Label>
         </Grid>
 
