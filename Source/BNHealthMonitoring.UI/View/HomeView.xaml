@@ -21,16 +21,24 @@
                             <Trigger Property="Button.IsPressed" Value="True">
                                 <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
                             </Trigger>
-                            <Trigger Property="Button.IsMouseOver" Value="True">
+                            <!--<Trigger Property="Button.IsMouseOver" Value="True">
                                 <Setter TargetName="border" Property="Background" Value="#252525" />
-                            </Trigger>
+                            </Trigger>-->
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
-
+        <Storyboard x:Key="MouseEnlargeExpandImage">
+            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="Width" From="25" To="32" />
+            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="Height" From="25" To="32" />
+        </Storyboard>
+        
+        <Storyboard x:Key="MouseShrinkExpandImage">
+            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="Width" From="32" To="25" />
+            <DoubleAnimation Duration="0:0:.25" Storyboard.TargetProperty="Height" From="32" To="25" />
+        </Storyboard>
     </UserControl.Resources>
 
     <Grid>
@@ -118,14 +126,23 @@
                     <Button 
                         VerticalAlignment="Bottom"
                         HorizontalAlignment="Left"
-                        Width="25"
-                        Height="25"
-                        Margin="5,0,0,5"
+                        Width="30"
+                        Height="30"
+                        Margin="10,0,0,10"
                         ToolTip="Expand View"
                         Style="{StaticResource TransparentButton}"
                         Command="{Binding GlobeViewCommand, Mode=OneTime}">
                         <Button.Content>
-                            <Image Source="/Resources/enlarge.png" Width="25" Height="25"/>
+                            <Image Source="/Resources/enlarge.png" Width="25" Height="25">
+                                <Image.Triggers>
+                                    <EventTrigger RoutedEvent="Label.MouseEnter">
+                                        <BeginStoryboard Storyboard="{StaticResource MouseEnlargeExpandImage}"></BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="Label.MouseLeave">
+                                        <BeginStoryboard Storyboard="{StaticResource MouseShrinkExpandImage}"></BeginStoryboard>
+                                    </EventTrigger>
+                                </Image.Triggers>
+                            </Image>
                         </Button.Content>
                     </Button>
                 </Grid>
