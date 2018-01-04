@@ -147,9 +147,11 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.cc" />
+    <ClCompile Include="ACS.cpp" />
     <ClCompile Include="CommunicationHandler.cpp" />
     <ClCompile Include="ComponentsModel.cpp" />
     <ClCompile Include="CSVReader.cpp" />
+    <ClCompile Include="EPS.cpp" />
     <ClCompile Include="GenericComp.cpp" />
     <ClCompile Include="Gps.cpp" />
     <ClCompile Include="GpsReceiver.cpp" />
@@ -159,6 +161,9 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Ocxo.cpp" />
+    <ClCompile Include="RWX.cpp" />
+    <ClCompile Include="RWY.cpp" />
+    <ClCompile Include="RWZ.cpp" />
     <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="Receiver.cpp" />
     <ClCompile Include="Stx.cpp" />
@@ -167,10 +172,12 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ACS.h" />
     <ClInclude Include="CommunicationHandler.h" />
     <ClInclude Include="Components.h" />
     <ClInclude Include="ComponentsModel.h" />
     <ClInclude Include="CSVReader.h" />
+    <ClInclude Include="EPS.h" />
     <ClInclude Include="Externals.h" />
     <ClInclude Include="GenericComp.h" />
     <ClInclude Include="Gps.h" />
@@ -180,6 +187,9 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClInclude Include="Magnetorquer.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Ocxo.h" />
+    <ClInclude Include="RWX.h" />
+    <ClInclude Include="RWY.h" />
+    <ClInclude Include="RWZ.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Receiver.h" />
     <ClInclude Include="Stx.h" />
@@ -188,12 +198,17 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CSVFiles\ACS.csv" />
+    <None Include="CSVFiles\EPS.csv" />
     <None Include="CSVFiles\GpsReceiver.csv" />
     <None Include="CSVFiles\Gps_Ant.csv" />
     <None Include="CSVFiles\Magnetorquer.csv" />
     <None Include="CSVFiles\Ocxo.csv" />
     <None Include="CSVFiles\OutFileSatAlpha.csv" />
     <None Include="CSVFiles\Receiver.csv" />
+    <None Include="CSVFiles\RWX.csv" />
+    <None Include="CSVFiles\RWY.csv" />
+    <None Include="CSVFiles\RWZ.csv" />
     <None Include="CSVFiles\Stx.csv" />
     <None Include="CSVFiles\Transceiver.csv" />
     <None Include="CSVFiles\Transmitter.csv" />

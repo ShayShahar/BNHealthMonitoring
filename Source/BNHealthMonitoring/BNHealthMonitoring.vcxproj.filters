@@ -58,6 +58,21 @@
     <ClCompile Include="Ocxo.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
+    <ClCompile Include="ACS.cpp">
+      <Filter>Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EPS.cpp">
+      <Filter>Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RWX.cpp">
+      <Filter>Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RWY.cpp">
+      <Filter>Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RWZ.cpp">
+      <Filter>Components\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommunicationHandler.h">
@@ -117,6 +132,21 @@
     <ClInclude Include="Ocxo.h">
       <Filter>Components\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="ACS.h">
+      <Filter>Components\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="RWZ.h">
+      <Filter>Components\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="RWY.h">
+      <Filter>Components\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="RWX.h">
+      <Filter>Components\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="EPS.h">
+      <Filter>Components\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -145,6 +175,21 @@
       <Filter>CSVFiles</Filter>
     </None>
     <None Include="CSVFiles\Ocxo.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\EPS.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\RWX.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\RWY.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\RWZ.csv">
+      <Filter>CSVFiles</Filter>
+    </None>
+    <None Include="CSVFiles\ACS.csv">
       <Filter>CSVFiles</Filter>
     </None>
   </ItemGroup>
