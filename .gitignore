@@ -1,4 +1,3 @@
-BNHealthMonitoring.VC.db
-.vs/BNHealthMonitoring/v14/.suo
-BNHealthMonitoring.VC.VC.opendb
-Deployment
+!Workspace/packages
+!*.dll
+Deployment/
