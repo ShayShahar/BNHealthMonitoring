@@ -15,6 +15,7 @@ private:
 	CommunicationHandler* m_communication_handler;
 
 	void create_location_msg(double p_x, double p_y, double p_z, int p_sec);
+	void notify(int p_state, Node* p_sender) override;
 
 public:
 	enum State

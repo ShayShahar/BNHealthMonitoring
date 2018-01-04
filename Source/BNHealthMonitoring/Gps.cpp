@@ -56,6 +56,9 @@ void Gps::create_location_msg(double p_x, double p_y, double p_z, int p_sec)
 	m_communication_handler->send(msg);
 }
 
+void Gps::notify(int p_state, Node* p_sender)
+{
+}
 
 //void CGps::update_component_state()
 //{

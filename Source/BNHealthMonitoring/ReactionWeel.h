@@ -10,11 +10,12 @@ private :
 	const float max_voltage = 8;
 	const float min_voltage = 3.4;
 
-
 	float m_temperature;
 	float m_voltage;
 
 	CSVReader* m_reader;
+
+	void notify(int p_state, Node* p_sender) override;
 
 public:
 	enum State

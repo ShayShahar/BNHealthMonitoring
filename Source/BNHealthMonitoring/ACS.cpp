@@ -1,5 +1,9 @@
 #include "ACS.h"
 
+void ACS::notify(int p_state, Node* p_sender)
+{
+}
+
 ACS::ACS(string p_name, Node* p_parent) : Node(p_name, p_parent), m_voltage(0)
 {
 	m_reader = new CSVReader("CSVFiles//ACS.csv");

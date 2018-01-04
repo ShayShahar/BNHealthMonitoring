@@ -1,5 +1,10 @@
 #include "Node.h"
 
+void Node::propagate_state()
+{
+	m_parent->notify(m_state, this);
+}
+
 Node::Node(string p_name, Node* p_parent)
 {
 	m_parent = p_parent;

@@ -12,6 +12,7 @@ protected:
 	int m_state;
 	string m_name;
 	std::map<int, list<Link>*> m_probabilities;
+	void propagate_state();
 
 public:
 	Node(string p_name, Node* p_parent);
@@ -26,4 +27,5 @@ public:
 	virtual string get_state_str(int p_state) = 0;
 	//generate evidence from signals and set the update the link probabilities for each component
 	virtual void update_component_state() = 0;
+	virtual void notify(int p_state, Node* p_sender) = 0;
 };

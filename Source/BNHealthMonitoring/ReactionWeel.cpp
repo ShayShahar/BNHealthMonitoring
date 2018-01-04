@@ -1,5 +1,9 @@
 #include "ReactionWeel.h"
 
+void ReactionWeel::notify(int p_state, Node* p_sender)
+{
+}
+
 ReactionWeel::ReactionWeel(string p_name, Node* p_parent) : Node(p_name, p_parent)
 { 
 	m_reader = new CSVReader("CSVFiles//RWX.csv");

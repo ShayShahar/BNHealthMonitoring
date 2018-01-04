@@ -3,6 +3,8 @@
 
 class Sattelite : public Node
 {
+	void notify(int p_state, Node* p_sender) override;
+
 public:
 	enum State
 	{

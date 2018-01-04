@@ -8,6 +8,7 @@ private:
 	float m_voltage;
 	CSVReader* m_reader;
 	const float max_voltage = 12.0;
+	void notify(int p_state, Node* p_sender) override;
 
 public:
 	enum State
