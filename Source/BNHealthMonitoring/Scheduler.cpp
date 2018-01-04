@@ -31,12 +31,12 @@ void Scheduler::step() const
 	while (true)
 	{
 		m_cdm->update();
-		Node* component = m_cdm->find_fault();
+		list<Node*> component = m_cdm->find_fault();
 
 		HealthMonitoringMessages::DataUpdateMsg msg;
 		m_cdm->get_cdm_data(msg);
 		m_communication_handler->send(msg);
 
-		Sleep(5000);
+		Sleep(20000);
 	}
 }

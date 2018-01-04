@@ -1,17 +1,17 @@
 #include "Gps.h"
 
-CGps::CGps(string p_name) : Node(p_name)
+Gps::Gps(string p_name, Node* p_parent) : Node(p_name, p_parent)
 {
 	m_reader = new CSVReader("CSVFiles//OutFileSatAlpha.csv");
 	m_communication_handler = CommunicationHandler::get_instance();
 }
 
-CGps::~CGps()
+Gps::~Gps()
 {
 	delete m_reader;
 }
 
-void CGps::update_component_state()
+void Gps::update_component_state()
 {
 	vector<string> data = m_reader->readLine();
 
@@ -27,7 +27,7 @@ void CGps::update_component_state()
 	create_location_msg(m_x, m_y, m_z, m_seconds);
 }
 
-void CGps::create_location_msg(double p_x, double p_y, double p_z, int p_sec)
+void Gps::create_location_msg(double p_x, double p_y, double p_z, int p_sec)
 {
 	HealthMonitoringMessages::DataUpdateMsg msg;
 	msg.set_opcode(HealthMonitoringMessages::OpCode::SatLocation);

@@ -28,34 +28,13 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GenericComp.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
     <ClCompile Include="Gps.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Gps_Ant.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
     <ClCompile Include="GpsReceiver.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Receiver.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Stx.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Transceiver.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Transmitter.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
     <ClCompile Include="Magnetorquer.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Ocxo.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
     <ClCompile Include="ACS.cpp">
@@ -64,13 +43,13 @@
     <ClCompile Include="EPS.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
-    <ClCompile Include="RWX.cpp">
+    <ClCompile Include="ReactionWeel.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
-    <ClCompile Include="RWY.cpp">
+    <ClCompile Include="Satellite.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
-    <ClCompile Include="RWZ.cpp">
+    <ClCompile Include="GpsAntenna.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -102,49 +81,28 @@
     <ClInclude Include="Components.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="GenericComp.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Gps_Ant.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Gps.h">
       <Filter>Components\Headers</Filter>
     </ClInclude>
     <ClInclude Include="GpsReceiver.h">
       <Filter>Components\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Receiver.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Transceiver.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Transmitter.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Stx.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Magnetorquer.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Ocxo.h">
       <Filter>Components\Headers</Filter>
     </ClInclude>
     <ClInclude Include="ACS.h">
       <Filter>Components\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="RWZ.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="RWY.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="RWX.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="EPS.h">
+      <Filter>Components\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReactionWeel.h">
+      <Filter>Components\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Satellite.h">
+      <Filter>Components\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GpsAntenna.h">
       <Filter>Components\Headers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -162,19 +120,7 @@
     <None Include="CSVFiles\Receiver.csv">
       <Filter>CSVFiles</Filter>
     </None>
-    <None Include="CSVFiles\Stx.csv">
-      <Filter>CSVFiles</Filter>
-    </None>
-    <None Include="CSVFiles\Transceiver.csv">
-      <Filter>CSVFiles</Filter>
-    </None>
-    <None Include="CSVFiles\Transmitter.csv">
-      <Filter>CSVFiles</Filter>
-    </None>
     <None Include="CSVFiles\Magnetorquer.csv">
-      <Filter>CSVFiles</Filter>
-    </None>
-    <None Include="CSVFiles\Ocxo.csv">
       <Filter>CSVFiles</Filter>
     </None>
     <None Include="CSVFiles\EPS.csv">

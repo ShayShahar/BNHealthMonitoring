@@ -4,21 +4,26 @@
 
 class Magnetorquer : public Node
 {
+private:
+	enum State
+	{
+		HEALTHY,
+		TEMPERATURE,
+		VOLTAGE
+	};
 
 	const float max_temperature = 75.0;
 	const float min_temperature = -30.0;
 	const float max_voltage = 5.0;
 
-private:
-
-	float temperature;
-	float voltage;
+	float m_temperature;
+	float m_voltage;
 	CSVReader* m_reader;
 
 
 
 public:
-	Magnetorquer(string p_name);
+	Magnetorquer(string p_name, Node* p_parent);
 	~Magnetorquer();
 
 	void update_component_state() override;

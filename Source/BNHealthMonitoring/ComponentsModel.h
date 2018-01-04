@@ -15,7 +15,7 @@ public:
 	ComponentsModel();
 	~ComponentsModel();
 	void init();
-	Node* find_fault();
+	list<Node*> find_fault();
 	void get_cdm_data(HealthMonitoringMessages::DataUpdateMsg& p_msg);
 	void update();
 	Node* root();

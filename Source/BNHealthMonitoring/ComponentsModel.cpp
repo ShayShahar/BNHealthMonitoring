@@ -1,10 +1,9 @@
 #include "ComponentsModel.h"
 
-ComponentsModel::ComponentsModel()
+ComponentsModel::ComponentsModel(): m_root(nullptr)
 {
 	m_components = new list<Node*>();
 }
-
 
 ComponentsModel::~ComponentsModel()
 {
@@ -13,55 +12,65 @@ ComponentsModel::~ComponentsModel()
 
 void ComponentsModel::init()
 {
-	GenericComp *satellite = new GenericComp("satellite alpha");
-	CGps* gps = new CGps("GPS");
-	GenericComp *comp2 = new GenericComp("component_2");
-	GenericComp *comp3 = new GenericComp("component_3");
-	GenericComp *comp4 = new GenericComp("component_4");
-	GenericComp *comp5 = new GenericComp("component_5");
-	GenericComp *comp6 = new GenericComp("component_6");
-	GenericComp *comp7 = new GenericComp("component_7");
+	Sattelite* satellite = new Sattelite("Satellite Alpha", nullptr);
+
+	Gps* gps = new Gps("GPS", satellite);
+	ACS* acs = new ACS("ACS", satellite);
+	EPS* eps = new EPS("EPS", satellite);
+
+	Magnetorquer* magnetorquer = new Magnetorquer("Magnetorquer", acs);
+	ReactionWeel* rwx = new ReactionWeel("RWX", acs);
+	ReactionWeel* rwy = new ReactionWeel("RWY", acs);
+	ReactionWeel* rwz = new ReactionWeel("RWZ", acs);
+
+	GpsReceiver* gps_receiver = new GpsReceiver("GPS Receiver", gps);
+	GpsAntenna* gps_antenna = new GpsAntenna("GPS Antenna", gps);
 
 	m_components->push_back(satellite);
 	m_components->push_back(gps);
-	m_components->push_back(comp2);
-	m_components->push_back(comp3);
-	m_components->push_back(comp4);
-	m_components->push_back(comp5);
-	m_components->push_back(comp6);
-	m_components->push_back(comp7);
+	m_components->push_back(acs);
+	m_components->push_back(eps);
+	m_components->push_back(magnetorquer);
+	m_components->push_back(rwx);
+	m_components->push_back(rwy);
+	m_components->push_back(rwz);
+	m_components->push_back(gps_receiver);
+	m_components->push_back(gps_antenna);
 
 	m_root = satellite;
 
-	//probabilities of comp1 for state 0
-	satellite->add_link(0, Link(satellite, gps, 0.1));
-	satellite->add_link(0, Link(satellite, comp2, 0.8));
-	satellite->add_link(0, Link(satellite, comp3, 0.1));
+	////probabilities of comp1 for state 0
+	//satellite->add_link(0, Link(satellite, gps, 0.1));
+	//satellite->add_link(0, Link(satellite, comp2, 0.8));
+	//satellite->add_link(0, Link(satellite, comp3, 0.1));
 
-	satellite->add_link(1, Link(satellite, gps, 0.2));
-	satellite->add_link(1, Link(satellite, comp2, 0.1));
-	satellite->add_link(1, Link(satellite, comp3, 0.7));
+	//satellite->add_link(1, Link(satellite, gps, 0.2));
+	//satellite->add_link(1, Link(satellite, comp2, 0.1));
+	//satellite->add_link(1, Link(satellite, comp3, 0.7));
 
-	//probabilities of comp2 for state 0
-	comp2->add_link(0, Link(comp2, comp4, 0.1));
-	comp2->add_link(0, Link(comp2, comp5, 0.9));
+	////probabilities of comp2 for state 0
+	//comp2->add_link(0, Link(comp2, comp4, 0.1));
+	//comp2->add_link(0, Link(comp2, comp5, 0.9));
 
-	//probabilities of comp3 for state 0
-	comp3->add_link(0, Link(comp3, comp6, 0.1));
-	comp3->add_link(0, Link(comp3, comp7, 0.9));
+	////probabilities of comp3 for state 0
+	//comp3->add_link(0, Link(comp3, comp6, 0.1));
+	//comp3->add_link(0, Link(comp3, comp7, 0.9));
 }
 
-Node * ComponentsModel::find_fault()
+list<Node*> ComponentsModel::find_fault()
 {
+	list<Node*> path;
 	Node* temp = m_root;
 	Node* current;
+	path.push_back(temp);
 	
 	while ((current = temp->get_next()) != nullptr)
 	{
 		temp = current;
+		path.push_back(temp);
 	}
 
-	return temp;
+	return path;
 }
 
 void ComponentsModel::update()

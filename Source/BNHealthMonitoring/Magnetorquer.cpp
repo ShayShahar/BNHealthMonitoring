@@ -1,7 +1,7 @@
 #include "Magnetorquer.h"
 
 
-Magnetorquer::Magnetorquer(string p_name) : Node(p_name)
+Magnetorquer::Magnetorquer(string p_name, Node* p_parent) : Node(p_name, p_parent), m_temperature(0), m_voltage(0)
 {
 	m_reader = new CSVReader("CSVFiles//Magnetorquer.csv");
 }
@@ -15,7 +15,7 @@ void Magnetorquer::update_component_state()
 {
 	vector<string> data = m_reader->readLine();
 
-	temperature = stod(data[0]);
-	voltage = stod(data[1]);
+	m_temperature = stod(data[0]);
+	m_voltage = stod(data[1]);
 }
 

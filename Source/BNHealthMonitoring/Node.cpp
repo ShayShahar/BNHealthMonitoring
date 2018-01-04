@@ -1,7 +1,8 @@
 #include "Node.h"
 
-Node::Node(string p_name)
+Node::Node(string p_name, Node* p_parent)
 {
+	m_parent = p_parent;
 	m_name = p_name;
 	m_state = 0;
 }

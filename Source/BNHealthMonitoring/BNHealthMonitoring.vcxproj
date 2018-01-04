@@ -96,7 +96,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Full</Optimization>
+      <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Workspace\packages\ZeroMQ4.0.4\include;..\..\Workspace\packages\protobuf-2.4.1\src;..\Source\Interfaces\Messages</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>
@@ -152,23 +152,16 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClCompile Include="ComponentsModel.cpp" />
     <ClCompile Include="CSVReader.cpp" />
     <ClCompile Include="EPS.cpp" />
-    <ClCompile Include="GenericComp.cpp" />
     <ClCompile Include="Gps.cpp" />
     <ClCompile Include="GpsReceiver.cpp" />
-    <ClCompile Include="Gps_Ant.cpp" />
+    <ClCompile Include="GpsAntenna.cpp" />
     <ClCompile Include="Link.cpp" />
     <ClCompile Include="Magnetorquer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
-    <ClCompile Include="Ocxo.cpp" />
-    <ClCompile Include="RWX.cpp" />
-    <ClCompile Include="RWY.cpp" />
-    <ClCompile Include="RWZ.cpp" />
+    <ClCompile Include="ReactionWeel.cpp" />
+    <ClCompile Include="Satellite.cpp" />
     <ClCompile Include="Scheduler.cpp" />
-    <ClCompile Include="Receiver.cpp" />
-    <ClCompile Include="Stx.cpp" />
-    <ClCompile Include="Transceiver.cpp" />
-    <ClCompile Include="Transmitter.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -179,22 +172,15 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClInclude Include="CSVReader.h" />
     <ClInclude Include="EPS.h" />
     <ClInclude Include="Externals.h" />
-    <ClInclude Include="GenericComp.h" />
     <ClInclude Include="Gps.h" />
     <ClInclude Include="GpsReceiver.h" />
-    <ClInclude Include="Gps_Ant.h" />
+    <ClInclude Include="GpsAntenna.h" />
     <ClInclude Include="Link.h" />
     <ClInclude Include="Magnetorquer.h" />
     <ClInclude Include="Node.h" />
-    <ClInclude Include="Ocxo.h" />
-    <ClInclude Include="RWX.h" />
-    <ClInclude Include="RWY.h" />
-    <ClInclude Include="RWZ.h" />
+    <ClInclude Include="ReactionWeel.h" />
+    <ClInclude Include="Satellite.h" />
     <ClInclude Include="Scheduler.h" />
-    <ClInclude Include="Receiver.h" />
-    <ClInclude Include="Stx.h" />
-    <ClInclude Include="Transceiver.h" />
-    <ClInclude Include="Transmitter.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
@@ -203,15 +189,11 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <None Include="CSVFiles\GpsReceiver.csv" />
     <None Include="CSVFiles\Gps_Ant.csv" />
     <None Include="CSVFiles\Magnetorquer.csv" />
-    <None Include="CSVFiles\Ocxo.csv" />
     <None Include="CSVFiles\OutFileSatAlpha.csv" />
     <None Include="CSVFiles\Receiver.csv" />
     <None Include="CSVFiles\RWX.csv" />
     <None Include="CSVFiles\RWY.csv" />
     <None Include="CSVFiles\RWZ.csv" />
-    <None Include="CSVFiles\Stx.csv" />
-    <None Include="CSVFiles\Transceiver.csv" />
-    <None Include="CSVFiles\Transmitter.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

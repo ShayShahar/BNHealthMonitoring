@@ -1,6 +1,6 @@
 #include "GpsReceiver.h"
 
-GpsReceiver::GpsReceiver(string p_name) : Node(p_name)
+GpsReceiver::GpsReceiver(string p_name, Node* p_parent) : Node(p_name, p_parent), m_temperature(0), m_shock(0), m_voltage(0)
 {
 	m_reader = new CSVReader("CSVFiles//GpsReceiver.csv");
 }
@@ -14,8 +14,7 @@ void GpsReceiver::update_component_state()
 {
 	vector<string> data = m_reader->readLine();
 
-	temperature = stod(data[0]);
-	shock = stod(data[1]);
-	voltage = stod(data[2]);
-
+	m_temperature = stod(data[0]);
+	m_shock = stod(data[1]);
+	m_voltage = stod(data[2]);
 }

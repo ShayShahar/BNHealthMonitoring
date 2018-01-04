@@ -8,12 +8,13 @@
 class Node
 {
 protected:
+	Node* m_parent;
 	int m_state;
 	string m_name;
 	std::map<int, list<Link>*> m_probabilities;
 
 public:
-	Node(string p_name);
+	Node(string p_name, Node* p_parent);
 	virtual ~Node();
 	Node* get_next();
 	void add_link(unsigned int p_state, Link p_link);
