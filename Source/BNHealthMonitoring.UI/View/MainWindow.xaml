@@ -14,7 +14,12 @@
         mc:Ignorable="d"
         Title="Health Monitoring" Height="800" Width="1024"
         WindowTitleBrush="#252525"
+        AllowsTransparency="True"
         DataContext="{Binding Main, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen">
+
+    <Window.Background>
+        <SolidColorBrush Opacity="0.93" Color="#252525"/>
+    </Window.Background>
 
     <Window.Resources>
         <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter" />
@@ -55,7 +60,25 @@
             <DoubleAnimation
                    Storyboard.TargetProperty="RenderTransform.Angle"
                    From="0"
-                   To="-360"
+                   To="-50"
+                   Duration="0:0:.3"/>            
+            <DoubleAnimation
+                   Storyboard.TargetProperty="RenderTransform.Angle"
+                   From="-50"
+                   To="0"
+                   BeginTime="0:0:.3"
+                   Duration="0:0:.3"/>   
+            <DoubleAnimation
+                   Storyboard.TargetProperty="RenderTransform.Angle"
+                   From="0"
+                   To="50"
+                   BeginTime="0:0:.6"
+                   Duration="0:0:.3"/>        
+            <DoubleAnimation
+                   Storyboard.TargetProperty="RenderTransform.Angle"
+                   From="50"
+                   To="0"
+                   BeginTime="0:0:.9"
                    Duration="0:0:.3"/>
         </Storyboard>
 
@@ -96,7 +119,6 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0"
-              Background="#2b2b2b"
               VerticalAlignment="Top">
             <StackPanel Width="50">
                 <Button Width="40"
