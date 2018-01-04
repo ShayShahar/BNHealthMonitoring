@@ -3,3 +3,6 @@
 !*.lib
 Deployment/
 /Workspace/BNHealthMonitoring.VC
+Source/BNHealthMonitoring.UI/obj/
+Workspace/BNHealthMonitoring.VC.db
+Workspace/BNHealthMonitoring.VC.VC.opendb
