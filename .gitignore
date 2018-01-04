@@ -1,3 +1,4 @@
 !Workspace/packages
 !*.dll
 Deployment/
+/Workspace/BNHealthMonitoring.VC
