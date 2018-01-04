@@ -9,7 +9,9 @@ class ComponentsModel
 {
 private:
 	list<Node*>* m_components;
+	list<Node*>* m_leafs;
 	Node* m_root;
+
 
 public:
 	ComponentsModel();
@@ -18,6 +20,8 @@ public:
 	list<Node*> find_fault();
 	void get_cdm_data(HealthMonitoringMessages::DataUpdateMsg& p_msg);
 	void update();
+	void propagate_states();
+
 	Node* root();
 };
 

@@ -3,10 +3,12 @@
 ComponentsModel::ComponentsModel(): m_root(nullptr)
 {
 	m_components = new list<Node*>();
+	m_leafs = new list<Node*>();
 }
 
 ComponentsModel::~ComponentsModel()
 {
+	delete m_leafs;
 	delete m_components;
 }
 
@@ -37,6 +39,15 @@ void ComponentsModel::init()
 	//m_components->push_back(gps_receiver);
 	//m_components->push_back(gps_antenna);
 
+	m_leafs->push_back(magnetorquer);
+	m_leafs->push_back(rwx);
+	m_leafs->push_back(rwz);
+	m_leafs->push_back(rwy);
+	m_leafs->push_back(gps_receiver);
+	m_leafs->push_back(gps_antenna);
+	m_leafs->push_back(gps_antenna);
+	m_leafs->push_back(eps);
+
 	m_root = satellite;
 
 	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, gps, 0.05));
@@ -54,6 +65,14 @@ void ComponentsModel::init()
 	////probabilities of comp3 for state 0
 	//comp3->add_link(0, Link(comp3, comp6, 0.1));
 	//comp3->add_link(0, Link(comp3, comp7, 0.9));
+}
+
+void ComponentsModel::propagate_states()
+{
+	for (list<Node*>::iterator it = m_leafs->begin(); it != m_leafs->end(); ++it)
+	{
+		(*it)->propagate_state();
+	}
 }
 
 list<Node*> ComponentsModel::find_fault()
