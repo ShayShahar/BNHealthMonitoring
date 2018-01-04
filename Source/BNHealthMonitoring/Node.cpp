@@ -69,7 +69,7 @@ int Node::state()
 void Node::get_data(HealthMonitoringMessages::pComponent* p_msg)
 {
 	p_msg->set_name(m_name);
-	p_msg->set_state(m_state);
+	p_msg->set_state(get_state_str(m_state));
 
 	for (map<int, list<Link>*>::iterator it = m_probabilities.begin(); it != m_probabilities.end(); ++it)
 	{		
@@ -77,7 +77,7 @@ void Node::get_data(HealthMonitoringMessages::pComponent* p_msg)
 		{
 			HealthMonitoringMessages::pLink* links = p_msg->add_links();
 
-			links->set_state(it->first);
+			links->set_state(get_state_str(it->first));
 			links->set_probability(lt->value);
 			
 			if (lt->parent == nullptr)

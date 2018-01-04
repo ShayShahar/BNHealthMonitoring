@@ -39,9 +39,9 @@ namespace HealthMonitoringMessages {
             "Ch5IZWFsdGhNb25pdG9yaW5nTWVzc2FnZXMucHJvdG8SGEhlYWx0aE1vbml0", 
             "b3JpbmdNZXNzYWdlcyJjCgVwTGluaxI2CghjaGlsZHJlbhgBIAEoCzIkLkhl", 
             "YWx0aE1vbml0b3JpbmdNZXNzYWdlcy5wQ29tcG9uZW50EhMKC3Byb2JhYmls", 
-            "aXR5GAIgASgBEg0KBXN0YXRlGAMgASgFIlkKCnBDb21wb25lbnQSLgoFbGlu", 
+            "aXR5GAIgASgBEg0KBXN0YXRlGAMgASgJIlkKCnBDb21wb25lbnQSLgoFbGlu", 
             "a3MYASADKAsyHy5IZWFsdGhNb25pdG9yaW5nTWVzc2FnZXMucExpbmsSDAoE", 
-            "bmFtZRgCIAIoCRINCgVzdGF0ZRgDIAEoBSJECgpDRE1NZXNzYWdlEjYKCGNk", 
+            "bmFtZRgCIAIoCRINCgVzdGF0ZRgDIAEoCSJECgpDRE1NZXNzYWdlEjYKCGNk", 
             "bV9yb290GAEgAigLMiQuSGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLnBDb21w", 
             "b25lbnQiQwoPTG9jYXRpb25NZXNzYWdlEgkKAXgYASACKAESCQoBeRgCIAIo", 
             "ARIJCgF6GAMgAigBEg8KB3NlY29uZHMYBCACKAUiuAEKDURhdGFVcGRhdGVN", 
@@ -96,7 +96,7 @@ namespace HealthMonitoringMessages {
     private pLink() { }
     private static readonly pLink defaultInstance = new pLink().MakeReadOnly();
     private static readonly string[] _pLinkFieldNames = new string[] { "children", "probability", "state" };
-    private static readonly uint[] _pLinkFieldTags = new uint[] { 10, 17, 24 };
+    private static readonly uint[] _pLinkFieldTags = new uint[] { 10, 17, 26 };
     public static pLink DefaultInstance {
       get { return defaultInstance; }
     }
@@ -139,11 +139,11 @@ namespace HealthMonitoringMessages {
     
     public const int StateFieldNumber = 3;
     private bool hasState;
-    private int state_;
+    private string state_ = "";
     public bool HasState {
       get { return hasState; }
     }
-    public int State {
+    public string State {
       get { return state_; }
     }
     
@@ -166,7 +166,7 @@ namespace HealthMonitoringMessages {
         output.WriteDouble(2, field_names[1], Probability);
       }
       if (hasState) {
-        output.WriteInt32(3, field_names[2], State);
+        output.WriteString(3, field_names[2], State);
       }
       UnknownFields.WriteTo(output);
     }
@@ -192,7 +192,7 @@ namespace HealthMonitoringMessages {
         size += pb::CodedOutputStream.ComputeDoubleSize(2, Probability);
       }
       if (hasState) {
-        size += pb::CodedOutputStream.ComputeInt32Size(3, State);
+        size += pb::CodedOutputStream.ComputeStringSize(3, State);
       }
       size += UnknownFields.SerializedSize;
       memoizedSerializedSize = size;
@@ -382,8 +382,8 @@ namespace HealthMonitoringMessages {
               result.hasProbability = input.ReadDouble(ref result.probability_);
               break;
             }
-            case 24: {
-              result.hasState = input.ReadInt32(ref result.state_);
+            case 26: {
+              result.hasState = input.ReadString(ref result.state_);
               break;
             }
           }
@@ -459,11 +459,12 @@ namespace HealthMonitoringMessages {
       public bool HasState {
         get { return result.hasState; }
       }
-      public int State {
+      public string State {
         get { return result.State; }
         set { SetState(value); }
       }
-      public Builder SetState(int value) {
+      public Builder SetState(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasState = true;
         result.state_ = value;
@@ -472,7 +473,7 @@ namespace HealthMonitoringMessages {
       public Builder ClearState() {
         PrepareBuilder();
         result.hasState = false;
-        result.state_ = 0;
+        result.state_ = "";
         return this;
       }
     }
@@ -487,7 +488,7 @@ namespace HealthMonitoringMessages {
     private pComponent() { }
     private static readonly pComponent defaultInstance = new pComponent().MakeReadOnly();
     private static readonly string[] _pComponentFieldNames = new string[] { "links", "name", "state" };
-    private static readonly uint[] _pComponentFieldTags = new uint[] { 10, 18, 24 };
+    private static readonly uint[] _pComponentFieldTags = new uint[] { 10, 18, 26 };
     public static pComponent DefaultInstance {
       get { return defaultInstance; }
     }
@@ -532,11 +533,11 @@ namespace HealthMonitoringMessages {
     
     public const int StateFieldNumber = 3;
     private bool hasState;
-    private int state_;
+    private string state_ = "";
     public bool HasState {
       get { return hasState; }
     }
-    public int State {
+    public string State {
       get { return state_; }
     }
     
@@ -560,7 +561,7 @@ namespace HealthMonitoringMessages {
         output.WriteString(2, field_names[1], Name);
       }
       if (hasState) {
-        output.WriteInt32(3, field_names[2], State);
+        output.WriteString(3, field_names[2], State);
       }
       UnknownFields.WriteTo(output);
     }
@@ -586,7 +587,7 @@ namespace HealthMonitoringMessages {
         size += pb::CodedOutputStream.ComputeStringSize(2, Name);
       }
       if (hasState) {
-        size += pb::CodedOutputStream.ComputeInt32Size(3, State);
+        size += pb::CodedOutputStream.ComputeStringSize(3, State);
       }
       size += UnknownFields.SerializedSize;
       memoizedSerializedSize = size;
@@ -772,8 +773,8 @@ namespace HealthMonitoringMessages {
               result.hasName = input.ReadString(ref result.name_);
               break;
             }
-            case 24: {
-              result.hasState = input.ReadInt32(ref result.state_);
+            case 26: {
+              result.hasState = input.ReadString(ref result.state_);
               break;
             }
           }
@@ -854,11 +855,12 @@ namespace HealthMonitoringMessages {
       public bool HasState {
         get { return result.hasState; }
       }
-      public int State {
+      public string State {
         get { return result.State; }
         set { SetState(value); }
       }
-      public Builder SetState(int value) {
+      public Builder SetState(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasState = true;
         result.state_ = value;
@@ -867,7 +869,7 @@ namespace HealthMonitoringMessages {
       public Builder ClearState() {
         PrepareBuilder();
         result.hasState = false;
-        result.state_ = 0;
+        result.state_ = "";
         return this;
       }
     }

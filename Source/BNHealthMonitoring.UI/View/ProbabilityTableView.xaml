@@ -47,7 +47,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="STATE"
                                     Width="0.5*"
-                                    Binding="{Binding State, Mode=OneWay}">
+                                    Binding="{Binding State, Mode=OneWay, Converter={StaticResource StringToUppercaseConverter}}">
                         <DataGridTextColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="HorizontalContentAlignment" Value="Center" />

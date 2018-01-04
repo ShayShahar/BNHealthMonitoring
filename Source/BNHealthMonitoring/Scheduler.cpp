@@ -37,6 +37,6 @@ void Scheduler::step() const
 		m_cdm->get_cdm_data(msg);
 		m_communication_handler->send(msg);
 
-		Sleep(20000);
+		Sleep(5000);
 	}
 }

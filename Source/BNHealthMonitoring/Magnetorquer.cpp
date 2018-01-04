@@ -19,3 +19,15 @@ void Magnetorquer::update_component_state()
 	m_voltage = stod(data[1]);
 }
 
+string Magnetorquer::get_state_str(int p_state)
+{
+	switch (p_state)
+	{
+		case State::VOLTAGE:
+			return "VOLTAGE";
+		case State::TEMPERATURE:
+			return "TEMPERATURE";
+	}
+
+	return "HEALTHY";
+}

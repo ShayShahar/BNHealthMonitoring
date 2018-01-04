@@ -18,3 +18,18 @@ void GpsReceiver::update_component_state()
 	m_shock = stod(data[1]);
 	m_voltage = stod(data[2]);
 }
+
+string GpsReceiver::get_state_str(int p_state)
+{
+	switch (p_state)
+	{
+		case State::VOLTAGE:
+			return "VOLTAGE";
+		case State::TEMPERATURE:
+			return "TEMPERATURE";	
+		case State::SHOCK:
+			return "SHOCK";
+	}
+
+	return "HEALTHY";
+}

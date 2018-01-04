@@ -19,3 +19,18 @@ void GpsAntenna::update_component_state()
 	m_altitude = stod(data[2]);
 
 }
+
+string GpsAntenna::get_state_str(int p_state)
+{
+	switch (p_state)
+	{
+	case State::TEMPERATURE:
+		return "TEMPERATURE";
+	case State::ALTITUDE:
+		return "ALTITUDE";
+	case State::VIBRATION:
+		return "VIBRATION";
+	}
+
+	return "HEALTHY";
+}

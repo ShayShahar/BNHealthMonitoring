@@ -23,6 +23,7 @@ public:
 	int state();
 	void get_data(HealthMonitoringMessages::pComponent* p_msg);
 
+	virtual string get_state_str(int p_state) = 0;
 	//generate evidence from signals and set the update the link probabilities for each component
 	virtual void update_component_state() = 0;
 };

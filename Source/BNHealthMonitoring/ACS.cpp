@@ -16,3 +16,22 @@ void ACS::update_component_state()
 	m_voltage = stod(data[0]);
 
 }
+
+string ACS::get_state_str(int p_state)
+{
+	switch (p_state)
+	{
+		case State::MAGNETORQUER:
+			return "MAGNETORQUER";
+		case State::RWX:
+			return "RWX";		
+		case State::RWY:
+			return "RWY";		
+		case State::RWZ:
+			return "RWZ";	
+		case State::VOLTAGE:
+			return "VOLTAGE";
+	}
+
+	return "HEALTHY";
+}

@@ -177,10 +177,10 @@ void protobuf_AddDesc_HealthMonitoringMessages_2eproto() {
     "\n\036HealthMonitoringMessages.proto\022\030Health"
     "MonitoringMessages\"c\n\005pLink\0226\n\010children\030"
     "\001 \001(\0132$.HealthMonitoringMessages.pCompon"
-    "ent\022\023\n\013probability\030\002 \001(\001\022\r\n\005state\030\003 \001(\005\""
+    "ent\022\023\n\013probability\030\002 \001(\001\022\r\n\005state\030\003 \001(\t\""
     "Y\n\npComponent\022.\n\005links\030\001 \003(\0132\037.HealthMon"
     "itoringMessages.pLink\022\014\n\004name\030\002 \002(\t\022\r\n\005s"
-    "tate\030\003 \001(\005\"D\n\nCDMMessage\0226\n\010cdm_root\030\001 \002"
+    "tate\030\003 \001(\t\"D\n\nCDMMessage\0226\n\010cdm_root\030\001 \002"
     "(\0132$.HealthMonitoringMessages.pComponent"
     "\"C\n\017LocationMessage\022\t\n\001x\030\001 \002(\001\022\t\n\001y\030\002 \002("
     "\001\022\t\n\001z\030\003 \002(\001\022\017\n\007seconds\030\004 \002(\005\"\270\001\n\rDataUp"
@@ -254,7 +254,7 @@ void pLink::SharedCtor() {
   _cached_size_ = 0;
   children_ = NULL;
   probability_ = 0;
-  state_ = 0;
+  state_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -263,6 +263,9 @@ pLink::~pLink() {
 }
 
 void pLink::SharedDtor() {
+  if (state_ != &::google::protobuf::internal::kEmptyString) {
+    delete state_;
+  }
   if (this != default_instance_) {
     delete children_;
   }
@@ -294,7 +297,11 @@ void pLink::Clear() {
       if (children_ != NULL) children_->::HealthMonitoringMessages::pComponent::Clear();
     }
     probability_ = 0;
-    state_ = 0;
+    if (has_state()) {
+      if (state_ != &::google::protobuf::internal::kEmptyString) {
+        state_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -331,19 +338,20 @@ bool pLink::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_state;
+        if (input->ExpectTag(26)) goto parse_state;
         break;
       }
       
-      // optional int32 state = 3;
+      // optional string state = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_state:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &state_)));
-          set_has_state();
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_state()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->state().data(), this->state().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -380,9 +388,13 @@ void pLink::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->probability(), output);
   }
   
-  // optional int32 state = 3;
+  // optional string state = 3;
   if (has_state()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->state(), output);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->state().data(), this->state().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->state(), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -405,9 +417,14 @@ void pLink::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->probability(), target);
   }
   
-  // optional int32 state = 3;
+  // optional string state = 3;
   if (has_state()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->state(), target);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->state().data(), this->state().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->state(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -433,10 +450,10 @@ int pLink::ByteSize() const {
       total_size += 1 + 8;
     }
     
-    // optional int32 state = 3;
+    // optional string state = 3;
     if (has_state()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::StringSize(
           this->state());
     }
     
@@ -545,7 +562,7 @@ pComponent::pComponent(const pComponent& from)
 void pComponent::SharedCtor() {
   _cached_size_ = 0;
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  state_ = 0;
+  state_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -556,6 +573,9 @@ pComponent::~pComponent() {
 void pComponent::SharedDtor() {
   if (name_ != &::google::protobuf::internal::kEmptyString) {
     delete name_;
+  }
+  if (state_ != &::google::protobuf::internal::kEmptyString) {
+    delete state_;
   }
   if (this != default_instance_) {
   }
@@ -588,7 +608,11 @@ void pComponent::Clear() {
         name_->clear();
       }
     }
-    state_ = 0;
+    if (has_state()) {
+      if (state_ != &::google::protobuf::internal::kEmptyString) {
+        state_->clear();
+      }
+    }
   }
   links_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -629,19 +653,20 @@ bool pComponent::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_state;
+        if (input->ExpectTag(26)) goto parse_state;
         break;
       }
       
-      // optional int32 state = 3;
+      // optional string state = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_state:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &state_)));
-          set_has_state();
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_state()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->state().data(), this->state().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -682,9 +707,13 @@ void pComponent::SerializeWithCachedSizes(
       2, this->name(), output);
   }
   
-  // optional int32 state = 3;
+  // optional string state = 3;
   if (has_state()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->state(), output);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->state().data(), this->state().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->state(), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -712,9 +741,14 @@ void pComponent::SerializeWithCachedSizes(
         2, this->name(), target);
   }
   
-  // optional int32 state = 3;
+  // optional string state = 3;
   if (has_state()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->state(), target);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->state().data(), this->state().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->state(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -735,10 +769,10 @@ int pComponent::ByteSize() const {
           this->name());
     }
     
-    // optional int32 state = 3;
+    // optional string state = 3;
     if (has_state()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::StringSize(
           this->state());
     }
     

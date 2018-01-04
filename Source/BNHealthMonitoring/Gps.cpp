@@ -27,11 +27,26 @@ void Gps::update_component_state()
 	create_location_msg(m_x, m_y, m_z, m_seconds);
 }
 
+string Gps::get_state_str(int p_state)
+{
+	switch (p_state)
+	{
+		case State::ANTENNA:
+			return "ANTENNA";
+		case State::LOCATION:
+			return "LOCATION";
+		case State::RECEIVER:
+			return "RECEIVER";
+	}
+
+	return "HEALTHY";
+}
+
 void Gps::create_location_msg(double p_x, double p_y, double p_z, int p_sec)
 {
 	HealthMonitoringMessages::DataUpdateMsg msg;
 	msg.set_opcode(HealthMonitoringMessages::OpCode::SatLocation);
-	
+
 	HealthMonitoringMessages::LocationMessage* data = msg.mutable_location();
 	data->set_x(p_x);
 	data->set_y(p_y);

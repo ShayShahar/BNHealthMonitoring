@@ -12,7 +12,7 @@ namespace BNHealthMonitoring.UI.Model
         public Component ResponsibleComponent { get; set; }
         public double Probability{ get; set; }
         public string DestenationName { get; set; }
-        public int State { get; set; }
+        public string State { get; set; }
 
         public bool IsCurrentState
         {

@@ -25,7 +25,7 @@ namespace BNHealthMonitoring.UI.Model
         }
 
         public string Name { get; set; }
-        public int State { get; set; }
+        public string State { get; set; }
         public ObservableCollection<Component> Children { get; set; }
         public ObservableCollection<Link> Links { get; set; }
 

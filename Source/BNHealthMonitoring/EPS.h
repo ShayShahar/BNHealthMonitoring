@@ -26,5 +26,7 @@ public:
 	EPS(string p_name, Node* p_parent);
 	~EPS();
 	void update_component_state() override;
+	string get_state_str(int p_state) override;
+
 };
 

@@ -26,23 +26,22 @@ void ComponentsModel::init()
 	GpsReceiver* gps_receiver = new GpsReceiver("GPS Receiver", gps);
 	GpsAntenna* gps_antenna = new GpsAntenna("GPS Antenna", gps);
 
-	m_components->push_back(satellite);
+	//m_components->push_back(satellite);
 	m_components->push_back(gps);
-	m_components->push_back(acs);
-	m_components->push_back(eps);
-	m_components->push_back(magnetorquer);
-	m_components->push_back(rwx);
-	m_components->push_back(rwy);
-	m_components->push_back(rwz);
-	m_components->push_back(gps_receiver);
-	m_components->push_back(gps_antenna);
+	//m_components->push_back(acs);
+	//m_components->push_back(eps);
+	//m_components->push_back(magnetorquer);
+	//m_components->push_back(rwx);
+	//m_components->push_back(rwy);
+	//m_components->push_back(rwz);
+	//m_components->push_back(gps_receiver);
+	//m_components->push_back(gps_antenna);
 
 	m_root = satellite;
 
-	////probabilities of comp1 for state 0
-	//satellite->add_link(0, Link(satellite, gps, 0.1));
-	//satellite->add_link(0, Link(satellite, comp2, 0.8));
-	//satellite->add_link(0, Link(satellite, comp3, 0.1));
+	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, gps, 0.05));
+	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, acs, 0.05));
+	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, eps, 0.05));
 
 	//satellite->add_link(1, Link(satellite, gps, 0.2));
 	//satellite->add_link(1, Link(satellite, comp2, 0.1));

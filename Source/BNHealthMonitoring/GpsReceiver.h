@@ -5,14 +5,6 @@
 class GpsReceiver : public Node
 {
 private:
-	enum State
-	{
-		HEALTHY,
-		TEMPERATURE,
-		VOLTAGE,
-		SHOCK
-	};
-
 	const float max_temperature = 85; //celsius
 	const float min_temperature = -40; //celsius
 	const float max_shock = 40; //grams
@@ -25,8 +17,18 @@ private:
 	CSVReader* m_reader;
 
 public:
+	enum State
+	{
+		HEALTHY,
+		TEMPERATURE,
+		VOLTAGE,
+		SHOCK
+	};
+
 	GpsReceiver(string p_name, Node* p_parent);
 	~GpsReceiver();
 	void update_component_state() override;
+	string get_state_str(int p_state) override;
+
 };
 

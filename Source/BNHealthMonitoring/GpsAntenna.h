@@ -5,13 +5,6 @@
 class GpsAntenna : public Node
 {
 private:
-	enum State
-	{
-		HEALTHY,
-		TEMPERATURE,
-		VIBRATION,
-		ALTITUDE
-	};
 
 	//antenna properties:
 	const float max_temperature = 85;
@@ -29,5 +22,15 @@ public:
 	GpsAntenna(string p_name, Node* p_parent);
 	~GpsAntenna();
 	void update_component_state() override;
+	string get_state_str(int p_state) override;
+
+	enum State
+	{
+		HEALTHY,
+		TEMPERATURE,
+		VIBRATION,
+		ALTITUDE
+	};
+
 };
 

@@ -128,12 +128,16 @@ class pLink : public ::google::protobuf::Message {
   inline double probability() const;
   inline void set_probability(double value);
   
-  // optional int32 state = 3;
+  // optional string state = 3;
   inline bool has_state() const;
   inline void clear_state();
   static const int kStateFieldNumber = 3;
-  inline ::google::protobuf::int32 state() const;
-  inline void set_state(::google::protobuf::int32 value);
+  inline const ::std::string& state() const;
+  inline void set_state(const ::std::string& value);
+  inline void set_state(const char* value);
+  inline void set_state(const char* value, size_t size);
+  inline ::std::string* mutable_state();
+  inline ::std::string* release_state();
   
   // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.pLink)
  private:
@@ -148,7 +152,7 @@ class pLink : public ::google::protobuf::Message {
   
   ::HealthMonitoringMessages::pComponent* children_;
   double probability_;
-  ::google::protobuf::int32 state_;
+  ::std::string* state_;
   
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -239,12 +243,16 @@ class pComponent : public ::google::protobuf::Message {
   inline ::std::string* mutable_name();
   inline ::std::string* release_name();
   
-  // optional int32 state = 3;
+  // optional string state = 3;
   inline bool has_state() const;
   inline void clear_state();
   static const int kStateFieldNumber = 3;
-  inline ::google::protobuf::int32 state() const;
-  inline void set_state(::google::protobuf::int32 value);
+  inline const ::std::string& state() const;
+  inline void set_state(const ::std::string& value);
+  inline void set_state(const char* value);
+  inline void set_state(const char* value, size_t size);
+  inline ::std::string* mutable_state();
+  inline ::std::string* release_state();
   
   // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.pComponent)
  private:
@@ -257,7 +265,7 @@ class pComponent : public ::google::protobuf::Message {
   
   ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pLink > links_;
   ::std::string* name_;
-  ::google::protobuf::int32 state_;
+  ::std::string* state_;
   
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -626,7 +634,7 @@ inline void pLink::set_probability(double value) {
   probability_ = value;
 }
 
-// optional int32 state = 3;
+// optional string state = 3;
 inline bool pLink::has_state() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -637,15 +645,51 @@ inline void pLink::clear_has_state() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void pLink::clear_state() {
-  state_ = 0;
+  if (state_ != &::google::protobuf::internal::kEmptyString) {
+    state_->clear();
+  }
   clear_has_state();
 }
-inline ::google::protobuf::int32 pLink::state() const {
+inline const ::std::string& pLink::state() const {
+  return *state_;
+}
+inline void pLink::set_state(const ::std::string& value) {
+  set_has_state();
+  if (state_ == &::google::protobuf::internal::kEmptyString) {
+    state_ = new ::std::string;
+  }
+  state_->assign(value);
+}
+inline void pLink::set_state(const char* value) {
+  set_has_state();
+  if (state_ == &::google::protobuf::internal::kEmptyString) {
+    state_ = new ::std::string;
+  }
+  state_->assign(value);
+}
+inline void pLink::set_state(const char* value, size_t size) {
+  set_has_state();
+  if (state_ == &::google::protobuf::internal::kEmptyString) {
+    state_ = new ::std::string;
+  }
+  state_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pLink::mutable_state() {
+  set_has_state();
+  if (state_ == &::google::protobuf::internal::kEmptyString) {
+    state_ = new ::std::string;
+  }
   return state_;
 }
-inline void pLink::set_state(::google::protobuf::int32 value) {
-  set_has_state();
-  state_ = value;
+inline ::std::string* pLink::release_state() {
+  clear_has_state();
+  if (state_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = state_;
+    state_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
 }
 
 // -------------------------------------------------------------------
@@ -735,7 +779,7 @@ inline ::std::string* pComponent::release_name() {
   }
 }
 
-// optional int32 state = 3;
+// optional string state = 3;
 inline bool pComponent::has_state() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -746,15 +790,51 @@ inline void pComponent::clear_has_state() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void pComponent::clear_state() {
-  state_ = 0;
+  if (state_ != &::google::protobuf::internal::kEmptyString) {
+    state_->clear();
+  }
   clear_has_state();
 }
-inline ::google::protobuf::int32 pComponent::state() const {
+inline const ::std::string& pComponent::state() const {
+  return *state_;
+}
+inline void pComponent::set_state(const ::std::string& value) {
+  set_has_state();
+  if (state_ == &::google::protobuf::internal::kEmptyString) {
+    state_ = new ::std::string;
+  }
+  state_->assign(value);
+}
+inline void pComponent::set_state(const char* value) {
+  set_has_state();
+  if (state_ == &::google::protobuf::internal::kEmptyString) {
+    state_ = new ::std::string;
+  }
+  state_->assign(value);
+}
+inline void pComponent::set_state(const char* value, size_t size) {
+  set_has_state();
+  if (state_ == &::google::protobuf::internal::kEmptyString) {
+    state_ = new ::std::string;
+  }
+  state_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pComponent::mutable_state() {
+  set_has_state();
+  if (state_ == &::google::protobuf::internal::kEmptyString) {
+    state_ = new ::std::string;
+  }
   return state_;
 }
-inline void pComponent::set_state(::google::protobuf::int32 value) {
-  set_has_state();
-  state_ = value;
+inline ::std::string* pComponent::release_state() {
+  clear_has_state();
+  if (state_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = state_;
+    state_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
 }
 
 // -------------------------------------------------------------------
