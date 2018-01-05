@@ -181,15 +181,16 @@ namespace BNHealthMonitoring.UI.BL
 
         public void UpdateLocation(LocationMessage p_location)
         {
-            if (!(m_px == m_py && m_py == m_pz && m_pz == 0))
-            {
-                var delta =
-                    Math.Sqrt(Math.Pow(p_location.X - m_px, 2)
-                              + Math.Pow(p_location.Y - m_py, 2)
-                              + Math.Pow(p_location.Z - m_pz, 2));
+            //if (!(m_px == m_py && m_py == m_pz && m_pz == 0))
+            //{
+            //    var delta =
+            //        Math.Sqrt(Math.Pow(p_location.X - m_px, 2)
+            //                  + Math.Pow(p_location.Y - m_py, 2)
+            //                  + Math.Pow(p_location.Z - m_pz, 2));
 
-                m_locationDeltaUpdate.OnNext(new Tuple<int, double>(p_location.Seconds, delta));
-            }
+            //}
+
+            m_locationDeltaUpdate.OnNext(new Tuple<int, double>(p_location.Seconds, p_location.Delta));
 
             m_px = p_location.X;
             m_py = p_location.Y;
@@ -208,6 +209,11 @@ namespace BNHealthMonitoring.UI.BL
         {
             m_incomingMessages.Add(new LogItem { Message = p_message, Sender = p_sender });
             m_logUpdate.OnNext(new Unit());
+        }
+
+        public void UpdateAlgorithmOutput(OutputMessage p_result)
+        {
+
         }
     }
 }

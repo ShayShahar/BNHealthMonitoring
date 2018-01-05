@@ -39,6 +39,9 @@ namespace BNHealthMonitoring.UI.BL
                 case OpCode.SatLocation:
                     m_dataState.UpdateLocation(msg.Location);
                     break;
+                case OpCode.Result:
+                    m_dataState.UpdateAlgorithmOutput(msg.Result);
+                    break;
             }
         }
 

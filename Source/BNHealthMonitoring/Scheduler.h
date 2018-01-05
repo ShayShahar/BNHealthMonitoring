@@ -12,11 +12,12 @@ private:
 	ComponentsModel* m_cdm;
 
 private:
-	void step() const;
+	void step();
+	void send_result(list<Node*> p_path, HealthMonitoringMessages::DataUpdateMsg& p_msg);
 
 public:
 	Scheduler();
 	~Scheduler();
 	void init();
-	void join() const;
+	void join();
 };

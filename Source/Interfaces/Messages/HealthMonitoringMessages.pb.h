@@ -35,16 +35,18 @@ void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
 class pLink;
 class pComponent;
 class CDMMessage;
+class OutputMessage;
 class LocationMessage;
 class DataUpdateMsg;
 
 enum OpCode {
   Components = 0,
-  SatLocation = 1
+  SatLocation = 1,
+  Result = 2
 };
 bool OpCode_IsValid(int value);
 const OpCode OpCode_MIN = Components;
-const OpCode OpCode_MAX = SatLocation;
+const OpCode OpCode_MAX = Result;
 const int OpCode_ARRAYSIZE = OpCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* OpCode_descriptor();
@@ -362,6 +364,91 @@ class CDMMessage : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class OutputMessage : public ::google::protobuf::Message {
+ public:
+  OutputMessage();
+  virtual ~OutputMessage();
+  
+  OutputMessage(const OutputMessage& from);
+  
+  inline OutputMessage& operator=(const OutputMessage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OutputMessage& default_instance();
+  
+  void Swap(OutputMessage* other);
+  
+  // implements Message ----------------------------------------------
+  
+  OutputMessage* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const OutputMessage& from);
+  void MergeFrom(const OutputMessage& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // repeated .HealthMonitoringMessages.pComponent path = 1;
+  inline int path_size() const;
+  inline void clear_path();
+  static const int kPathFieldNumber = 1;
+  inline const ::HealthMonitoringMessages::pComponent& path(int index) const;
+  inline ::HealthMonitoringMessages::pComponent* mutable_path(int index);
+  inline ::HealthMonitoringMessages::pComponent* add_path();
+  inline const ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pComponent >&
+      path() const;
+  inline ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pComponent >*
+      mutable_path();
+  
+  // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.OutputMessage)
+ private:
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pComponent > path_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
+  friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
+  friend void protobuf_ShutdownFile_HealthMonitoringMessages_2eproto();
+  
+  void InitAsDefaultInstance();
+  static OutputMessage* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class LocationMessage : public ::google::protobuf::Message {
  public:
   LocationMessage();
@@ -444,6 +531,13 @@ class LocationMessage : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 seconds() const;
   inline void set_seconds(::google::protobuf::int32 value);
   
+  // required double delta = 5;
+  inline bool has_delta() const;
+  inline void clear_delta();
+  static const int kDeltaFieldNumber = 5;
+  inline double delta() const;
+  inline void set_delta(double value);
+  
   // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.LocationMessage)
  private:
   inline void set_has_x();
@@ -454,16 +548,19 @@ class LocationMessage : public ::google::protobuf::Message {
   inline void clear_has_z();
   inline void set_has_seconds();
   inline void clear_has_seconds();
+  inline void set_has_delta();
+  inline void clear_has_delta();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   double x_;
   double y_;
   double z_;
+  double delta_;
   ::google::protobuf::int32 seconds_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
   
   friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
   friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
@@ -551,6 +648,14 @@ class DataUpdateMsg : public ::google::protobuf::Message {
   inline ::HealthMonitoringMessages::LocationMessage* mutable_location();
   inline ::HealthMonitoringMessages::LocationMessage* release_location();
   
+  // optional .HealthMonitoringMessages.OutputMessage result = 4;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 4;
+  inline const ::HealthMonitoringMessages::OutputMessage& result() const;
+  inline ::HealthMonitoringMessages::OutputMessage* mutable_result();
+  inline ::HealthMonitoringMessages::OutputMessage* release_result();
+  
   // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.DataUpdateMsg)
  private:
   inline void set_has_opcode();
@@ -559,15 +664,18 @@ class DataUpdateMsg : public ::google::protobuf::Message {
   inline void clear_has_components();
   inline void set_has_location();
   inline void clear_has_location();
+  inline void set_has_result();
+  inline void clear_has_result();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::HealthMonitoringMessages::CDMMessage* components_;
   ::HealthMonitoringMessages::LocationMessage* location_;
+  ::HealthMonitoringMessages::OutputMessage* result_;
   int opcode_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
   
   friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
   friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
@@ -872,6 +980,35 @@ inline ::HealthMonitoringMessages::pComponent* CDMMessage::release_cdm_root() {
 
 // -------------------------------------------------------------------
 
+// OutputMessage
+
+// repeated .HealthMonitoringMessages.pComponent path = 1;
+inline int OutputMessage::path_size() const {
+  return path_.size();
+}
+inline void OutputMessage::clear_path() {
+  path_.Clear();
+}
+inline const ::HealthMonitoringMessages::pComponent& OutputMessage::path(int index) const {
+  return path_.Get(index);
+}
+inline ::HealthMonitoringMessages::pComponent* OutputMessage::mutable_path(int index) {
+  return path_.Mutable(index);
+}
+inline ::HealthMonitoringMessages::pComponent* OutputMessage::add_path() {
+  return path_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pComponent >&
+OutputMessage::path() const {
+  return path_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pComponent >*
+OutputMessage::mutable_path() {
+  return &path_;
+}
+
+// -------------------------------------------------------------------
+
 // LocationMessage
 
 // required double x = 1;
@@ -962,6 +1099,28 @@ inline void LocationMessage::set_seconds(::google::protobuf::int32 value) {
   seconds_ = value;
 }
 
+// required double delta = 5;
+inline bool LocationMessage::has_delta() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void LocationMessage::set_has_delta() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void LocationMessage::clear_has_delta() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void LocationMessage::clear_delta() {
+  delta_ = 0;
+  clear_has_delta();
+}
+inline double LocationMessage::delta() const {
+  return delta_;
+}
+inline void LocationMessage::set_delta(double value) {
+  set_has_delta();
+  delta_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // DataUpdateMsg
@@ -1044,6 +1203,35 @@ inline ::HealthMonitoringMessages::LocationMessage* DataUpdateMsg::release_locat
   clear_has_location();
   ::HealthMonitoringMessages::LocationMessage* temp = location_;
   location_ = NULL;
+  return temp;
+}
+
+// optional .HealthMonitoringMessages.OutputMessage result = 4;
+inline bool DataUpdateMsg::has_result() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void DataUpdateMsg::set_has_result() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void DataUpdateMsg::clear_has_result() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void DataUpdateMsg::clear_result() {
+  if (result_ != NULL) result_->::HealthMonitoringMessages::OutputMessage::Clear();
+  clear_has_result();
+}
+inline const ::HealthMonitoringMessages::OutputMessage& DataUpdateMsg::result() const {
+  return result_ != NULL ? *result_ : *default_instance_->result_;
+}
+inline ::HealthMonitoringMessages::OutputMessage* DataUpdateMsg::mutable_result() {
+  set_has_result();
+  if (result_ == NULL) result_ = new ::HealthMonitoringMessages::OutputMessage;
+  return result_;
+}
+inline ::HealthMonitoringMessages::OutputMessage* DataUpdateMsg::release_result() {
+  clear_has_result();
+  ::HealthMonitoringMessages::OutputMessage* temp = result_;
+  result_ = NULL;
   return temp;
 }
 

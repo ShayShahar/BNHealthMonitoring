@@ -307,4 +307,5 @@
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Grid>
+    
 </Controls:MetroWindow>

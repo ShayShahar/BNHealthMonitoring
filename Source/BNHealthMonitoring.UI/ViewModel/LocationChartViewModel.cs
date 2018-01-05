@@ -29,9 +29,9 @@ namespace BNHealthMonitoring.UI.ViewModel
                     PointGeometrySize = 10,
                     StrokeThickness = 1.5,
                     LineSmoothness = 1,
-                    PointForeground = new SolidColorBrush(Color.FromRgb(76,175,80)) {Opacity = 0.7},
-                    Stroke = new SolidColorBrush(Color.FromRgb(76,175,80)) {Opacity = 1},
-                    Fill = new SolidColorBrush(Color.FromRgb(76,175,80)) {Opacity = 0.4}
+                    PointForeground = new SolidColorBrush(Color.FromRgb(155,89,182)) {Opacity = 0.7},
+                    Stroke = new SolidColorBrush(Color.FromRgb(155,89,182)) {Opacity = 1},
+                    Fill = new SolidColorBrush(Color.FromRgb(155,89,182)) {Opacity = 0.2}
                 }
             };
         }
@@ -43,7 +43,7 @@ namespace BNHealthMonitoring.UI.ViewModel
                 m_locationDelta[0].Values.RemoveAt(0);
             }
             
-            m_locationDelta[0].Values.Add(new ObservablePoint(p_data.Item1, Math.Round(p_data.Item2, 1)));
+            m_locationDelta[0].Values.Add(new ObservablePoint(p_data.Item1, Math.Round(p_data.Item2, 2)));
             RaisePropertyChanged(() => LocationData);
         }
         public SeriesCollection LocationData
