@@ -142,12 +142,14 @@
     </UserControl.Resources>
 
     <Grid>
-        <StackPanel>
             <Label Content="WAITING FOR DATA..."
                    HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
                    Visibility="{Binding IsLoaded, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
                    Foreground="White"></Label>
             <TreeView
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ItemsSource="{Binding Components}" 
                   x:Name="ComponentsTree"
                   SelectedItemChanged="TreeView_SelectedItemChanged"
@@ -185,6 +187,5 @@
                     </HierarchicalDataTemplate>
                 </TreeView.ItemTemplate>
             </TreeView>
-        </StackPanel>
     </Grid>
 </UserControl>

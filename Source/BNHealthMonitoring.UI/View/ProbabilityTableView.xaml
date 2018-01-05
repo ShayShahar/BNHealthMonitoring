@@ -16,13 +16,13 @@
     </UserControl.Resources>
 
     <Grid>
-        <StackPanel>
             <DataGrid ItemsSource="{Binding SelectedComponent, Mode=OneWay}" 
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
                   IsReadOnly="True"
                   SelectionMode="Single"
                   Visibility="{Binding IsDataNotAvailable, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                  VerticalScrollBarVisibility="Auto"
                   HorizontalScrollBarVisibility="Disabled"
                   AutoGenerateColumns="false">
                 <DataGrid.RowStyle>
@@ -122,9 +122,7 @@
 
             <Label Visibility="{Binding IsDataAvailable, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
                Content="NO DATA TO DISPLAY"
-               VerticalAlignment="Center"
+               VerticalAlignment="Top"
                HorizontalAlignment="Center"/>
-
-        </StackPanel>
     </Grid>
 </UserControl>
