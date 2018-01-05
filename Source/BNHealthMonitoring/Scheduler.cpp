@@ -31,6 +31,8 @@ void Scheduler::step() const
 	while (true)
 	{
 		m_cdm->update();
+		m_cdm->propagate_states();
+
 		list<Node*> component = m_cdm->find_fault();
 
 		HealthMonitoringMessages::DataUpdateMsg msg;
