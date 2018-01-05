@@ -60,6 +60,13 @@ namespace BNHealthMonitoring.UI.ViewModel
                 return new RelayCommand(onGlobeViewClick, () => true);
             }
         }
+        public ICommand AnalyzeViewCommand
+        {
+            get
+            {
+                return new RelayCommand(onAnalyzeViewClick, () => true);
+            }
+        }
 
         private void onSelectedViewChanged(Unit p_unit)
         {
@@ -78,6 +85,17 @@ namespace BNHealthMonitoring.UI.ViewModel
                 return;
 
             m_dataState.CurrentView = new HomeView();
+        }
+
+        private void onAnalyzeViewClick()
+        {
+            IsAboutViewOpen = false;
+            IsLogViewOpen = false;
+
+            if (m_dataState.CurrentView is AnalzyeView)
+                return;
+
+            m_dataState.CurrentView = new AnalzyeView();
         }
 
         private void onGlobeViewClick()

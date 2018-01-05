@@ -22,6 +22,10 @@ namespace BNHealthMonitoring.UI.Converters
             if (usr is EarthView)
                 return "Earth View";
 
+
+            if (usr is AnalzyeView)
+                return "Analyze";
+
             return "";
         }
 
