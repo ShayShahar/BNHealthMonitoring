@@ -51,20 +51,24 @@ void ComponentsModel::init()
 	m_root = satellite;
 
 	//Satellite probabilities:
-	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, gps, 0.3333333333));
-	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, acs, 0.3333333333));
-	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, eps, 0.3333333333));
+	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, nullptr, 0.85));
+	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, gps, 0.05));
+	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, acs, 0.05));
+	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, eps, 0.05));
 
-	satellite->add_link(Sattelite::State::GPS, Link(satellite, gps, 0.9));
+	satellite->add_link(Sattelite::State::GPS, Link(satellite, nullptr, 0.05));
+	satellite->add_link(Sattelite::State::GPS, Link(satellite, gps, 0.85));
 	satellite->add_link(Sattelite::State::GPS, Link(satellite, acs, 0.05));
 	satellite->add_link(Sattelite::State::GPS, Link(satellite, eps, 0.05));
 
+	satellite->add_link(Sattelite::State::EPS, Link(satellite, nullptr, 0.05));
 	satellite->add_link(Sattelite::State::EPS, Link(satellite, gps, 0.05));
 	satellite->add_link(Sattelite::State::EPS, Link(satellite, acs, 0.05));
-	satellite->add_link(Sattelite::State::EPS, Link(satellite, eps, 0.9));
+	satellite->add_link(Sattelite::State::EPS, Link(satellite, eps, 0.85));
 
+	satellite->add_link(Sattelite::State::ACS, Link(satellite, nullptr, 0.05));
 	satellite->add_link(Sattelite::State::ACS, Link(satellite, gps, 0.05));
-	satellite->add_link(Sattelite::State::ACS, Link(satellite, acs, 0.9));
+	satellite->add_link(Sattelite::State::ACS, Link(satellite, acs, 0.85));
 	satellite->add_link(Sattelite::State::ACS, Link(satellite, eps, 0.05));
 
 	//Gps probabilities:
@@ -72,11 +76,11 @@ void ComponentsModel::init()
 	gps->add_link(Gps::State::HEALTHY, Link(gps, gps_antenna, 0.05));
 	gps->add_link(Gps::State::HEALTHY, Link(gps, gps_receiver, 0.05));
 
-	gps->add_link(Gps::State::HEALTHY, Link(gps, nullptr, 0.05));
+	gps->add_link(Gps::State::ANTENNA, Link(gps, nullptr, 0.05));
 	gps->add_link(Gps::State::ANTENNA, Link(gps, gps_receiver, 0.15));
 	gps->add_link(Gps::State::ANTENNA, Link(gps, gps_antenna, 0.8));
 
-	gps->add_link(Gps::State::HEALTHY, Link(gps, nullptr, 0.05));
+	gps->add_link(Gps::State::RECEIVER, Link(gps, nullptr, 0.05));
 	gps->add_link(Gps::State::RECEIVER, Link(gps, gps_receiver, 0.8));
 	gps->add_link(Gps::State::RECEIVER, Link(gps, gps_antenna, 0.15));
 
@@ -87,25 +91,25 @@ void ComponentsModel::init()
 	acs->add_link(ACS::State::HEALTHY, Link(acs, rwy, 0.025));
 	acs->add_link(ACS::State::HEALTHY, Link(acs, rwz, 0.025));
 
-	acs->add_link(ACS::State::HEALTHY, Link(acs, nullptr, 0.05));
+	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, nullptr, 0.05));
 	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, magnetorquer, 0.8));
 	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, rwx, 0.05));
 	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, rwy, 0.05));
 	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, rwz, 0.05));
 
-	acs->add_link(ACS::State::HEALTHY, Link(acs, nullptr, 0.05));
+	acs->add_link(ACS::State::RWX, Link(acs, nullptr, 0.05));
 	acs->add_link(ACS::State::RWX, Link(acs, magnetorquer, 0.05));
 	acs->add_link(ACS::State::RWX, Link(acs, rwx, 0.8));
 	acs->add_link(ACS::State::RWX, Link(acs, rwy, 0.05));
 	acs->add_link(ACS::State::RWX, Link(acs, rwz, 0.05));
 
-	acs->add_link(ACS::State::HEALTHY, Link(acs, nullptr, 0.05));
+	acs->add_link(ACS::State::RWY, Link(acs, nullptr, 0.05));
 	acs->add_link(ACS::State::RWY, Link(acs, magnetorquer, 0.05));
 	acs->add_link(ACS::State::RWY, Link(acs, rwx, 0.05));
 	acs->add_link(ACS::State::RWY, Link(acs, rwy, 0.8));
 	acs->add_link(ACS::State::RWY, Link(acs, rwz, 0.05));
 
-	acs->add_link(ACS::State::HEALTHY, Link(acs, nullptr, 0.05));
+	acs->add_link(ACS::State::RWZ, Link(acs, nullptr, 0.05));
 	acs->add_link(ACS::State::RWZ, Link(acs, magnetorquer, 0.05));
 	acs->add_link(ACS::State::RWZ, Link(acs, rwx, 0.05));
 	acs->add_link(ACS::State::RWZ, Link(acs, rwy, 0.05));
