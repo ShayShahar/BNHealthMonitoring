@@ -50,8 +50,6 @@ string ACS::get_state_str(int p_state)
 			return "RWY";		
 		case State::RWZ:
 			return "RWZ";	
-		case State::VOLTAGE:
-			return "VOLTAGE";
 	}
 
 	return "HEALTHY";

@@ -22,8 +22,7 @@ public:
 	{
 		HEALTHY,
 		RECEIVER,
-		ANTENNA,
-		LOCATION
+		ANTENNA
 	};
 
 	Gps(string p_name, Node* p_parent);

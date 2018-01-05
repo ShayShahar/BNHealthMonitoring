@@ -33,8 +33,6 @@ string Gps::get_state_str(int p_state)
 	{
 		case State::ANTENNA:
 			return "ANTENNA";
-		case State::LOCATION:
-			return "LOCATION";
 		case State::RECEIVER:
 			return "RECEIVER";
 	}

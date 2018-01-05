@@ -17,8 +17,7 @@ public:
 		MAGNETORQUER,
 		RWX,
 		RWY,
-		RWZ,
-		VOLTAGE
+		RWZ
 	};
 
 	ACS(string p_name, Node* p_parent);
