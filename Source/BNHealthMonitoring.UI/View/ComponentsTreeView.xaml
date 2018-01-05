@@ -132,13 +132,9 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Style.Triggers>
-
-                </Style.Triggers>
             </Style>
 
         </ResourceDictionary>
-        
     </UserControl.Resources>
 
     <Grid>
@@ -146,14 +142,13 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    Visibility="{Binding IsLoaded, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
-                   Foreground="White"></Label>
+                   Foreground="White"/>
             <TreeView
-                    ScrollViewer.VerticalScrollBarVisibility="Auto"
-                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ItemsSource="{Binding Components}" 
                   x:Name="ComponentsTree"
-                  SelectedItemChanged="TreeView_SelectedItemChanged"
-                   >
+                  SelectedItemChanged="TreeView_SelectedItemChanged">
                 <TreeView.ItemContainerStyle>
 
                     <Style TargetType="TreeViewItem" BasedOn="{StaticResource {x:Type TreeViewItem}}">
@@ -164,8 +159,7 @@
 
                 <TreeView.ItemTemplate>
                     <HierarchicalDataTemplate DataType="{x:Type model:Component}"
-                                          ItemsSource="{Binding Children}"
-                                              >
+                                              ItemsSource="{Binding Children}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.5*"></ColumnDefinition>

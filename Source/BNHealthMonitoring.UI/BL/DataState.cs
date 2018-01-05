@@ -156,14 +156,15 @@ namespace BNHealthMonitoring.UI.BL
             foreach (var c in p_component.LinksList)
             {
                 var link =
-                    component.Links.FirstOrDefault(p_l => p_l.DestenationName == c.Children.Name && p_l.State == c.State);
+                    component.Links.FirstOrDefault(p_l => p_l.ChildrenName == c.Children.Name && p_l.State == c.State);
 
                 if (link == null)
                 {
                     component.Links.Add(new Link
                     {
                         ResponsibleComponent = component,
-                        DestenationName = c.Children.Name,
+                        ChildrenName = c.Children.Name,
+                        DestenationName = c.Children.Name == string.Empty ? component.Name : c.Children.Name,
                         State = c.State,
                         Probability = c.Probability
                     });
@@ -173,7 +174,8 @@ namespace BNHealthMonitoring.UI.BL
                     link.Probability = c.Probability;
                 }
 
-                addComponent(component.Children, c.Children);
+                if (c.HasChildren)
+                    addComponent(component.Children, c.Children);
             }
         }
 

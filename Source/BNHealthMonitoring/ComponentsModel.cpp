@@ -114,18 +114,6 @@ void ComponentsModel::init()
 	acs->add_link(ACS::State::RWZ, Link(acs, rwx, 0.05));
 	acs->add_link(ACS::State::RWZ, Link(acs, rwy, 0.05));
 	acs->add_link(ACS::State::RWZ, Link(acs, rwz, 0.8));
-
-	//satellite->add_link(1, Link(satellite, gps, 0.2));
-	//satellite->add_link(1, Link(satellite, comp2, 0.1));
-	//satellite->add_link(1, Link(satellite, comp3, 0.7));
-
-	////probabilities of comp2 for state 0
-	//comp2->add_link(0, Link(comp2, comp4, 0.1));
-	//comp2->add_link(0, Link(comp2, comp5, 0.9));
-
-	////probabilities of comp3 for state 0
-	//comp3->add_link(0, Link(comp3, comp6, 0.1));
-	//comp3->add_link(0, Link(comp3, comp7, 0.9));
 }
 
 void ComponentsModel::propagate_states()
