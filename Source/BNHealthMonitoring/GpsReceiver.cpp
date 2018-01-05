@@ -2,6 +2,8 @@
 
 void GpsReceiver::notify(int p_state, Node* p_sender)
 {
+	if (m_parent != nullptr)
+		m_parent->notify(m_state, this);
 }
 
 GpsReceiver::GpsReceiver(string p_name, Node* p_parent) : Node(p_name, p_parent), m_temperature(0), m_shock(0), m_voltage(0)

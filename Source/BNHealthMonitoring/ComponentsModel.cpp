@@ -39,9 +39,67 @@ void ComponentsModel::init()
 
 	m_root = satellite;
 
-	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, gps, 0.05));
-	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, acs, 0.05));
-	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, eps, 0.05));
+	//Satellite probabilities:
+	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, gps, 0.3333333333));
+	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, acs, 0.3333333333));
+	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, eps, 0.3333333333));
+
+	satellite->add_link(Sattelite::State::GPS, Link(satellite, gps, 0.9));
+	satellite->add_link(Sattelite::State::GPS, Link(satellite, acs, 0.05));
+	satellite->add_link(Sattelite::State::GPS, Link(satellite, eps, 0.05));
+
+	satellite->add_link(Sattelite::State::EPS, Link(satellite, gps, 0.05));
+	satellite->add_link(Sattelite::State::EPS, Link(satellite, acs, 0.05));
+	satellite->add_link(Sattelite::State::EPS, Link(satellite, eps, 0.9));
+
+	satellite->add_link(Sattelite::State::ACS, Link(satellite, gps, 0.05));
+	satellite->add_link(Sattelite::State::ACS, Link(satellite, acs, 0.9));
+	satellite->add_link(Sattelite::State::ACS, Link(satellite, eps, 0.05));
+
+	//Gps probabilities:
+	gps->add_link(Gps::State::HEALTHY, Link(gps, gps_antenna, 0.5));
+	gps->add_link(Gps::State::HEALTHY, Link(gps, gps_receiver, 0.5));
+
+	gps->add_link(Gps::State::ANTENNA, Link(gps, gps_receiver, 0.1));
+	gps->add_link(Gps::State::ANTENNA, Link(gps, gps_antenna, 0.9));
+
+	gps->add_link(Gps::State::RECEIVER, Link(gps, gps_receiver, 0.9));
+	gps->add_link(Gps::State::RECEIVER, Link(gps, gps_antenna, 0.1));
+
+	gps->add_link(Gps::State::LOCATION, Link(gps, gps_receiver, 0.7));
+	gps->add_link(Gps::State::LOCATION, Link(gps, gps_antenna, 0.3));
+
+	//ACS probabilities:
+	acs->add_link(ACS::State::HEALTHY, Link(acs, magnetorquer, 0.25));
+	acs->add_link(ACS::State::HEALTHY, Link(acs, rwx, 0.25));
+	acs->add_link(ACS::State::HEALTHY, Link(acs, rwy, 0.25));
+	acs->add_link(ACS::State::HEALTHY, Link(acs, rwz, 0.25));
+
+	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, magnetorquer, 0.85));
+	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, rwx, 0.05));
+	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, rwy, 0.05));
+	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, rwz, 0.05));
+
+	acs->add_link(ACS::State::RWX, Link(acs, magnetorquer, 0.05));
+	acs->add_link(ACS::State::RWX, Link(acs, rwx, 0.85));
+	acs->add_link(ACS::State::RWX, Link(acs, rwy, 0.05));
+	acs->add_link(ACS::State::RWX, Link(acs, rwz, 0.05));
+
+	acs->add_link(ACS::State::RWY, Link(acs, magnetorquer, 0.05));
+	acs->add_link(ACS::State::RWY, Link(acs, rwx, 0.05));
+	acs->add_link(ACS::State::RWY, Link(acs, rwy, 0.85));
+	acs->add_link(ACS::State::RWY, Link(acs, rwz, 0.05));
+
+	acs->add_link(ACS::State::RWZ, Link(acs, magnetorquer, 0.05));
+	acs->add_link(ACS::State::RWZ, Link(acs, rwx, 0.05));
+	acs->add_link(ACS::State::RWZ, Link(acs, rwy, 0.05));
+	acs->add_link(ACS::State::RWZ, Link(acs, rwz, 0.85));
+
+	acs->add_link(ACS::State::VOLTAGE, Link(acs, magnetorquer, 0.7));
+	acs->add_link(ACS::State::VOLTAGE, Link(acs, rwx, 0.1));
+	acs->add_link(ACS::State::VOLTAGE, Link(acs, rwy, 0.1));
+	acs->add_link(ACS::State::VOLTAGE, Link(acs, rwz, 0.1));
+
 
 	//satellite->add_link(1, Link(satellite, gps, 0.2));
 	//satellite->add_link(1, Link(satellite, comp2, 0.1));

@@ -58,6 +58,17 @@ void Gps::create_location_msg(double p_x, double p_y, double p_z, int p_sec)
 
 void Gps::notify(int p_state, Node* p_sender)
 {
+	if (p_state == 0)
+		m_state = State::HEALTHY;
+
+	else if (p_sender->name() == "GPS Receiver")
+		m_state = State::RECEIVER;
+
+	else if (p_sender->name() == "GPS Antenna")
+		m_state = State::ANTENNA;
+
+	if (m_parent != nullptr)
+		m_parent->notify(m_state, this);
 }
 
 //void CGps::update_component_state()
