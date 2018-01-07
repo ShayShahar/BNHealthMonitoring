@@ -5,6 +5,14 @@
 class GpsReceiver : public Node
 {
 private:
+
+	/* Ranges:
+		-Temperature:
+			*Ok : 20 - 65
+			*Hot : 66 - 75 || -20 - 19
+			*Critical : 76 - 84 ||-39 - -21
+	*/
+
 	const float max_temperature = 85; //celsius
 	const float min_temperature = -40; //celsius
 	const float max_shock = 40; //grams

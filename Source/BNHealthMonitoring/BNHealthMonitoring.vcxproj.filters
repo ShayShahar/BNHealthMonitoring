@@ -117,9 +117,6 @@
     <None Include="CSVFiles\OutFileSatAlpha.csv">
       <Filter>CSVFiles</Filter>
     </None>
-    <None Include="CSVFiles\Receiver.csv">
-      <Filter>CSVFiles</Filter>
-    </None>
     <None Include="CSVFiles\Magnetorquer.csv">
       <Filter>CSVFiles</Filter>
     </None>
