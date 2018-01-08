@@ -29,10 +29,10 @@
                     <Style TargetType="DataGridRow">
                         <Setter Property="Margin" Value="0,2,2,0"></Setter>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsCurrentState}" Value="True">
+                            <!--<DataTrigger Binding="{Binding IsCurrentState}" Value="True">
                                 <Setter Property="Background" Value="#888888"></Setter>
                                 <Setter Property="Foreground" Value="White"></Setter>
-                            </DataTrigger>
+                            </DataTrigger>-->
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" Value="#1d556d"/>
                                 <Setter Property="Foreground" Value="White"/>
@@ -45,7 +45,7 @@
                     </Style>
                 </DataGrid.RowStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="STATE"
+                    <!--<DataGridTextColumn Header="STATE"
                                     Width="0.5*"
                                     Binding="{Binding State, Mode=OneWay, Converter={StaticResource StringToUppercaseConverter}}">
                         <DataGridTextColumn.HeaderStyle>
@@ -68,7 +68,7 @@
                                 <Setter Property="TextAlignment" Value="Center" />
                             </Style>
                         </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
+                    </DataGridTextColumn>-->
                     <DataGridTextColumn Header="PROBABILITY"
                                     Width="0.7*"
                                     Binding="{Binding Probability, Mode=OneWay}">
@@ -78,7 +78,7 @@
                                 <Setter Property="Background" Value="#2c2f30"/>
                                 <Setter Property="Foreground" Value="White"/>
                                 <Setter Property="BorderBrush" Value="DarkGray"/>
-                                <Setter Property="BorderThickness" Value="0.4,0,0.4,0"/>
+                                <Setter Property="BorderThickness" Value="0,0,0.4,0"/>
                                 <Setter Property="FontWeight" Value="DemiBold"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="true">

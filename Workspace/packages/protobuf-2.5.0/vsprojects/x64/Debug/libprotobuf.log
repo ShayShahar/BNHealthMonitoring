@@ -1,0 +1,5 @@
+﻿  importer.cc
+  zero_copy_stream_impl_lite.cc
+  message.cc
+  Generating Code...
+  libprotobuf.vcxproj -> C:\Users\shays\Documents\SourceTree\BNHealthMonitoring\Workspace\packages\protobuf-2.5.0\vsprojects\x64\Debug\libprotobuf.lib

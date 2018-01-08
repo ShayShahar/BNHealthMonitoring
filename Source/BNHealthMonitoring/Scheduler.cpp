@@ -45,16 +45,20 @@ void Scheduler::step()
 	while (true)
 	{
 		m_cdm->update();
-		m_cdm->propagate_states();
 
-		list<Node*> components = m_cdm->find_fault();
+		list<Node*> path = m_cdm->find_fault();
 
+		if (path.size() > 0)
+		{
+			path.back()->propagate_state();
+		}
+			
 		HealthMonitoringMessages::DataUpdateMsg msg;
 		m_cdm->get_cdm_data(msg);
 		m_communication_handler->send(msg);
 
 		HealthMonitoringMessages::DataUpdateMsg result;
-		send_result(components, result);
+		send_result(path, result);
 		m_communication_handler->send(result);
 
 

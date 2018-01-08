@@ -20,7 +20,7 @@ public:
 		RWZ
 	};
 
-	ACS(string p_name, Node* p_parent);
+	ACS(string p_name);
 	~ACS();
 	void update_component_state() override;
     string get_state_str(int p_state) override;

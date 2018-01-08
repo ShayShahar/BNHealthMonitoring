@@ -39,29 +39,28 @@ namespace HealthMonitoringMessages {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch5IZWFsdGhNb25pdG9yaW5nTWVzc2FnZXMucHJvdG8SGEhlYWx0aE1vbml0", 
-            "b3JpbmdNZXNzYWdlcyJjCgVwTGluaxI2CghjaGlsZHJlbhgBIAEoCzIkLkhl", 
+            "b3JpbmdNZXNzYWdlcyJUCgVwTGluaxI2CghjaGlsZHJlbhgBIAEoCzIkLkhl", 
             "YWx0aE1vbml0b3JpbmdNZXNzYWdlcy5wQ29tcG9uZW50EhMKC3Byb2JhYmls", 
-            "aXR5GAIgASgBEg0KBXN0YXRlGAMgASgJIlkKCnBDb21wb25lbnQSLgoFbGlu", 
-            "a3MYASADKAsyHy5IZWFsdGhNb25pdG9yaW5nTWVzc2FnZXMucExpbmsSDAoE", 
-            "bmFtZRgCIAIoCRINCgVzdGF0ZRgDIAEoCSJECgpDRE1NZXNzYWdlEjYKCGNk", 
-            "bV9yb290GAEgAigLMiQuSGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLnBDb21w", 
-            "b25lbnQiQwoNT3V0cHV0TWVzc2FnZRIyCgRwYXRoGAEgAygLMiQuSGVhbHRo", 
-            "TW9uaXRvcmluZ01lc3NhZ2VzLnBDb21wb25lbnQiUgoPTG9jYXRpb25NZXNz", 
-            "YWdlEgkKAXgYASACKAESCQoBeRgCIAIoARIJCgF6GAMgAigBEg8KB3NlY29u", 
-            "ZHMYBCACKAUSDQoFZGVsdGEYBSACKAEi8QEKDURhdGFVcGRhdGVNc2cSMAoG", 
-            "b3Bjb2RlGAEgAigOMiAuSGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLk9wQ29k", 
-            "ZRI4Cgpjb21wb25lbnRzGAIgASgLMiQuSGVhbHRoTW9uaXRvcmluZ01lc3Nh", 
-            "Z2VzLkNETU1lc3NhZ2USOwoIbG9jYXRpb24YAyABKAsyKS5IZWFsdGhNb25p", 
-            "dG9yaW5nTWVzc2FnZXMuTG9jYXRpb25NZXNzYWdlEjcKBnJlc3VsdBgEIAEo", 
-            "CzInLkhlYWx0aE1vbml0b3JpbmdNZXNzYWdlcy5PdXRwdXRNZXNzYWdlKjUK", 
-            "Bk9wQ29kZRIOCgpDb21wb25lbnRzEAASDwoLU2F0TG9jYXRpb24QARIKCgZS", 
-          "ZXN1bHQQAg=="));
+            "aXR5GAIgASgBIlkKCnBDb21wb25lbnQSLgoFbGlua3MYASADKAsyHy5IZWFs", 
+            "dGhNb25pdG9yaW5nTWVzc2FnZXMucExpbmsSDAoEbmFtZRgCIAIoCRINCgVz", 
+            "dGF0ZRgDIAEoCSJECgpDRE1NZXNzYWdlEjYKCGNkbV9yb290GAEgAigLMiQu", 
+            "SGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLnBDb21wb25lbnQiQwoNT3V0cHV0", 
+            "TWVzc2FnZRIyCgRwYXRoGAEgAygLMiQuSGVhbHRoTW9uaXRvcmluZ01lc3Nh", 
+            "Z2VzLnBDb21wb25lbnQiUgoPTG9jYXRpb25NZXNzYWdlEgkKAXgYASACKAES", 
+            "CQoBeRgCIAIoARIJCgF6GAMgAigBEg8KB3NlY29uZHMYBCACKAUSDQoFZGVs", 
+            "dGEYBSACKAEi8QEKDURhdGFVcGRhdGVNc2cSMAoGb3Bjb2RlGAEgAigOMiAu", 
+            "SGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLk9wQ29kZRI4Cgpjb21wb25lbnRz", 
+            "GAIgASgLMiQuSGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLkNETU1lc3NhZ2US", 
+            "OwoIbG9jYXRpb24YAyABKAsyKS5IZWFsdGhNb25pdG9yaW5nTWVzc2FnZXMu", 
+            "TG9jYXRpb25NZXNzYWdlEjcKBnJlc3VsdBgEIAEoCzInLkhlYWx0aE1vbml0", 
+            "b3JpbmdNZXNzYWdlcy5PdXRwdXRNZXNzYWdlKjUKBk9wQ29kZRIOCgpDb21w", 
+          "b25lbnRzEAASDwoLU2F0TG9jYXRpb24QARIKCgZSZXN1bHQQAg=="));
       pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
         descriptor = root;
         internal__static_HealthMonitoringMessages_pLink__Descriptor = Descriptor.MessageTypes[0];
         internal__static_HealthMonitoringMessages_pLink__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.pLink, global::HealthMonitoringMessages.pLink.Builder>(internal__static_HealthMonitoringMessages_pLink__Descriptor,
-                new string[] { "Children", "Probability", "State", });
+                new string[] { "Children", "Probability", });
         internal__static_HealthMonitoringMessages_pComponent__Descriptor = Descriptor.MessageTypes[1];
         internal__static_HealthMonitoringMessages_pComponent__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.pComponent, global::HealthMonitoringMessages.pComponent.Builder>(internal__static_HealthMonitoringMessages_pComponent__Descriptor,
@@ -106,8 +105,8 @@ namespace HealthMonitoringMessages {
   public sealed partial class pLink : pb::GeneratedMessage<pLink, pLink.Builder> {
     private pLink() { }
     private static readonly pLink defaultInstance = new pLink().MakeReadOnly();
-    private static readonly string[] _pLinkFieldNames = new string[] { "children", "probability", "state" };
-    private static readonly uint[] _pLinkFieldTags = new uint[] { 10, 17, 26 };
+    private static readonly string[] _pLinkFieldNames = new string[] { "children", "probability" };
+    private static readonly uint[] _pLinkFieldTags = new uint[] { 10, 17 };
     public static pLink DefaultInstance {
       get { return defaultInstance; }
     }
@@ -148,16 +147,6 @@ namespace HealthMonitoringMessages {
       get { return probability_; }
     }
     
-    public const int StateFieldNumber = 3;
-    private bool hasState;
-    private string state_ = "";
-    public bool HasState {
-      get { return hasState; }
-    }
-    public string State {
-      get { return state_; }
-    }
-    
     public override bool IsInitialized {
       get {
         if (HasChildren) {
@@ -175,9 +164,6 @@ namespace HealthMonitoringMessages {
       }
       if (hasProbability) {
         output.WriteDouble(2, field_names[1], Probability);
-      }
-      if (hasState) {
-        output.WriteString(3, field_names[2], State);
       }
       UnknownFields.WriteTo(output);
     }
@@ -201,9 +187,6 @@ namespace HealthMonitoringMessages {
       }
       if (hasProbability) {
         size += pb::CodedOutputStream.ComputeDoubleSize(2, Probability);
-      }
-      if (hasState) {
-        size += pb::CodedOutputStream.ComputeStringSize(3, State);
       }
       size += UnknownFields.SerializedSize;
       memoizedSerializedSize = size;
@@ -334,9 +317,6 @@ namespace HealthMonitoringMessages {
         if (other.HasProbability) {
           Probability = other.Probability;
         }
-        if (other.HasState) {
-          State = other.State;
-        }
         this.MergeUnknownFields(other.UnknownFields);
         return this;
       }
@@ -391,10 +371,6 @@ namespace HealthMonitoringMessages {
             }
             case 17: {
               result.hasProbability = input.ReadDouble(ref result.probability_);
-              break;
-            }
-            case 26: {
-              result.hasState = input.ReadString(ref result.state_);
               break;
             }
           }
@@ -464,27 +440,6 @@ namespace HealthMonitoringMessages {
         PrepareBuilder();
         result.hasProbability = false;
         result.probability_ = 0D;
-        return this;
-      }
-      
-      public bool HasState {
-        get { return result.hasState; }
-      }
-      public string State {
-        get { return result.State; }
-        set { SetState(value); }
-      }
-      public Builder SetState(string value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.hasState = true;
-        result.state_ = value;
-        return this;
-      }
-      public Builder ClearState() {
-        PrepareBuilder();
-        result.hasState = false;
-        result.state_ = "";
         return this;
       }
     }

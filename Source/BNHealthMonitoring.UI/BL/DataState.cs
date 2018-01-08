@@ -156,7 +156,7 @@ namespace BNHealthMonitoring.UI.BL
             foreach (var c in p_component.LinksList)
             {
                 var link =
-                    component.Links.FirstOrDefault(p_l => p_l.ChildrenName == c.Children.Name && p_l.State == c.State);
+                    component.Links.FirstOrDefault(p_l => p_l.ChildrenName == c.Children.Name);
 
                 if (link == null)
                 {
@@ -165,7 +165,6 @@ namespace BNHealthMonitoring.UI.BL
                         ResponsibleComponent = component,
                         ChildrenName = c.Children.Name,
                         DestenationName = c.Children.Name == string.Empty ? component.Name : c.Children.Name,
-                        State = c.State,
                         Probability = c.Probability
                     });
                 }

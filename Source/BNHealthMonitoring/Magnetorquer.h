@@ -24,7 +24,7 @@ public:
 	};
 
 
-	Magnetorquer(string p_name, Node* p_parent);
+	Magnetorquer(string p_name);
 	~Magnetorquer();
 
 	void update_component_state() override;

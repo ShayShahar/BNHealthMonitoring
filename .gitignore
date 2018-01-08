@@ -6,3 +6,5 @@ Deployment/
 Source/BNHealthMonitoring.UI/obj/
 Workspace/BNHealthMonitoring.VC.db
 Workspace/BNHealthMonitoring.VC.VC.opendb
+*.suo
+Workspace/.vs/BNHealthMonitoring/v15/

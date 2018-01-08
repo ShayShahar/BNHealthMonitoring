@@ -11,7 +11,6 @@ message pLink
 {
 	optional pComponent children = 1;
 	optional double probability = 2;
-    optional string state = 3;
 }
 
 message pComponent

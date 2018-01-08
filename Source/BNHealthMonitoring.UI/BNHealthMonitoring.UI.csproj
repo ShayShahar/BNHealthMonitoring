@@ -227,6 +227,7 @@
     <Compile Include="BL\DataState.cs" />
     <Compile Include="BL\MessageDispatcher.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\ComponentStateToVisibiliyConverter.cs" />
     <Compile Include="Converters\StateToStringConverter.cs" />
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
     <Compile Include="Model\Link.cs" />

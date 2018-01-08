@@ -21,7 +21,7 @@ private:
 	void notify(int p_state, Node* p_sender) override;
 
 public:
-	GpsAntenna(string p_name, Node* p_parent);
+	GpsAntenna(string p_name);
 	~GpsAntenna();
 	void update_component_state() override;
 	string get_state_str(int p_state) override;

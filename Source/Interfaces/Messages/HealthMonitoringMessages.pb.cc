@@ -47,10 +47,9 @@ void protobuf_AssignDesc_HealthMonitoringMessages_2eproto() {
       "HealthMonitoringMessages.proto");
   GOOGLE_CHECK(file != NULL);
   pLink_descriptor_ = file->message_type(0);
-  static const int pLink_offsets_[3] = {
+  static const int pLink_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pLink, children_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pLink, probability_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pLink, state_),
   };
   pLink_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -199,25 +198,24 @@ void protobuf_AddDesc_HealthMonitoringMessages_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\036HealthMonitoringMessages.proto\022\030Health"
-    "MonitoringMessages\"c\n\005pLink\0226\n\010children\030"
+    "MonitoringMessages\"T\n\005pLink\0226\n\010children\030"
     "\001 \001(\0132$.HealthMonitoringMessages.pCompon"
-    "ent\022\023\n\013probability\030\002 \001(\001\022\r\n\005state\030\003 \001(\t\""
-    "Y\n\npComponent\022.\n\005links\030\001 \003(\0132\037.HealthMon"
-    "itoringMessages.pLink\022\014\n\004name\030\002 \002(\t\022\r\n\005s"
-    "tate\030\003 \001(\t\"D\n\nCDMMessage\0226\n\010cdm_root\030\001 \002"
-    "(\0132$.HealthMonitoringMessages.pComponent"
-    "\"C\n\rOutputMessage\0222\n\004path\030\001 \003(\0132$.Health"
-    "MonitoringMessages.pComponent\"R\n\017Locatio"
-    "nMessage\022\t\n\001x\030\001 \002(\001\022\t\n\001y\030\002 \002(\001\022\t\n\001z\030\003 \002("
-    "\001\022\017\n\007seconds\030\004 \002(\005\022\r\n\005delta\030\005 \002(\001\"\361\001\n\rDa"
-    "taUpdateMsg\0220\n\006opcode\030\001 \002(\0162 .HealthMoni"
-    "toringMessages.OpCode\0228\n\ncomponents\030\002 \001("
-    "\0132$.HealthMonitoringMessages.CDMMessage\022"
-    ";\n\010location\030\003 \001(\0132).HealthMonitoringMess"
-    "ages.LocationMessage\0227\n\006result\030\004 \001(\0132\'.H"
-    "ealthMonitoringMessages.OutputMessage*5\n"
-    "\006OpCode\022\016\n\nComponents\020\000\022\017\n\013SatLocation\020\001"
-    "\022\n\n\006Result\020\002", 772);
+    "ent\022\023\n\013probability\030\002 \001(\001\"Y\n\npComponent\022."
+    "\n\005links\030\001 \003(\0132\037.HealthMonitoringMessages"
+    ".pLink\022\014\n\004name\030\002 \002(\t\022\r\n\005state\030\003 \001(\t\"D\n\nC"
+    "DMMessage\0226\n\010cdm_root\030\001 \002(\0132$.HealthMoni"
+    "toringMessages.pComponent\"C\n\rOutputMessa"
+    "ge\0222\n\004path\030\001 \003(\0132$.HealthMonitoringMessa"
+    "ges.pComponent\"R\n\017LocationMessage\022\t\n\001x\030\001"
+    " \002(\001\022\t\n\001y\030\002 \002(\001\022\t\n\001z\030\003 \002(\001\022\017\n\007seconds\030\004 "
+    "\002(\005\022\r\n\005delta\030\005 \002(\001\"\361\001\n\rDataUpdateMsg\0220\n\006"
+    "opcode\030\001 \002(\0162 .HealthMonitoringMessages."
+    "OpCode\0228\n\ncomponents\030\002 \001(\0132$.HealthMonit"
+    "oringMessages.CDMMessage\022;\n\010location\030\003 \001"
+    "(\0132).HealthMonitoringMessages.LocationMe"
+    "ssage\0227\n\006result\030\004 \001(\0132\'.HealthMonitoring"
+    "Messages.OutputMessage*5\n\006OpCode\022\016\n\nComp"
+    "onents\020\000\022\017\n\013SatLocation\020\001\022\n\n\006Result\020\002", 757);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "HealthMonitoringMessages.proto", &protobuf_RegisterTypes);
   pLink::default_instance_ = new pLink();
@@ -263,7 +261,6 @@ bool OpCode_IsValid(int value) {
 #ifndef _MSC_VER
 const int pLink::kChildrenFieldNumber;
 const int pLink::kProbabilityFieldNumber;
-const int pLink::kStateFieldNumber;
 #endif  // !_MSC_VER
 
 pLink::pLink()
@@ -285,7 +282,6 @@ void pLink::SharedCtor() {
   _cached_size_ = 0;
   children_ = NULL;
   probability_ = 0;
-  state_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -294,9 +290,6 @@ pLink::~pLink() {
 }
 
 void pLink::SharedDtor() {
-  if (state_ != &::google::protobuf::internal::kEmptyString) {
-    delete state_;
-  }
   if (this != default_instance_) {
     delete children_;
   }
@@ -328,11 +321,6 @@ void pLink::Clear() {
       if (children_ != NULL) children_->::HealthMonitoringMessages::pComponent::Clear();
     }
     probability_ = 0;
-    if (has_state()) {
-      if (state_ != &::google::protobuf::internal::kEmptyString) {
-        state_->clear();
-      }
-    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -369,23 +357,6 @@ bool pLink::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_state;
-        break;
-      }
-      
-      // optional string state = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_state:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_state()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->state().data(), this->state().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -419,15 +390,6 @@ void pLink::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->probability(), output);
   }
   
-  // optional string state = 3;
-  if (has_state()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->state().data(), this->state().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->state(), output);
-  }
-  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -446,16 +408,6 @@ void pLink::SerializeWithCachedSizes(
   // optional double probability = 2;
   if (has_probability()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->probability(), target);
-  }
-  
-  // optional string state = 3;
-  if (has_state()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->state().data(), this->state().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->state(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -479,13 +431,6 @@ int pLink::ByteSize() const {
     // optional double probability = 2;
     if (has_probability()) {
       total_size += 1 + 8;
-    }
-    
-    // optional string state = 3;
-    if (has_state()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->state());
     }
     
   }
@@ -521,9 +466,6 @@ void pLink::MergeFrom(const pLink& from) {
     if (from.has_probability()) {
       set_probability(from.probability());
     }
-    if (from.has_state()) {
-      set_state(from.state());
-    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -552,7 +494,6 @@ void pLink::Swap(pLink* other) {
   if (other != this) {
     std::swap(children_, other->children_);
     std::swap(probability_, other->probability_);
-    std::swap(state_, other->state_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

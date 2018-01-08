@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Link.h"
 #include "../../Source/Interfaces/Messages/HealthMonitoringMessages.pb.h"
 #include "Externals.h"
-#include "Utils.h"
+#include "Dependency.h"
+#include "State.h"
 
 class Node
 {
@@ -11,21 +11,25 @@ protected:
 	Node* m_parent;
 	int m_state;
 	string m_name;
-	std::map<int, list<Link>*> m_probabilities;
+	list<Dependency>* m_dependencies;
+	unsigned int m_count;
+	map<int, State> m_states;
 
 public:
-	Node(string p_name, Node* p_parent);
+	Node(string p_name);
 	virtual ~Node();
 	Node* get_next();
-	void add_link(unsigned int p_state, Link p_link);
 	string name();
-	map<int, list<Link>*> links();
 	int state();
 	void get_data(HealthMonitoringMessages::pComponent* p_msg);
 	void propagate_state();
+	void add_dependency(Dependency p_dependency);
+	void add_parent(Node* p_parent);
+	list<Dependency>* dependencies();
 
 	virtual string get_state_str(int p_state) = 0;
+
 	//generate evidence from signals and set the update the link probabilities for each component
 	virtual void update_component_state() = 0;
-	virtual void notify(int p_state, Node* p_sender) = 0;
+	virtual void notify(int p_size, Node* p_sender) = 0;
 };

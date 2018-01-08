@@ -6,7 +6,7 @@ void GpsAntenna::notify(int p_state, Node* p_sender)
 		m_parent->notify(m_state, this);
 }
 
-GpsAntenna::GpsAntenna(string p_name, Node* p_parent) : Node(p_name, p_parent), m_tempature(0), m_vibration(0), m_altitude(0)
+GpsAntenna::GpsAntenna(string p_name) : Node(p_name), m_tempature(0), m_vibration(0), m_altitude(0)
 {
 	m_reader = new CSVReader("CSVFiles//Gps_Ant.csv");
 }

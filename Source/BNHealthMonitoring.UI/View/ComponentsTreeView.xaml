@@ -13,6 +13,7 @@
     <UserControl.Resources>
         <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter" />
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:ComponentStateToVisibiliyConverter x:Key="ComponentStateToVisibiliyConverter" />
 
         <ResourceDictionary x:Key="ResourceDictionary">
             <Style x:Key="TreeViewItemFocusVisual">
@@ -169,6 +170,8 @@
                                        Margin="5,0,0,0"
                                        Text="{Binding Name, Converter={StaticResource StringToUppercaseConverter}}"/>
                             <StackPanel Grid.Column="1" 
+                                        Visibility="{Binding State , Converter={StaticResource ComponentStateToVisibiliyConverter}}"
+                                        
                                     Orientation="Horizontal"
                                     HorizontalAlignment="Right"
                                     Margin="0,0,10,0">

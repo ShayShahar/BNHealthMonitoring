@@ -130,34 +130,20 @@ class pLink : public ::google::protobuf::Message {
   inline double probability() const;
   inline void set_probability(double value);
   
-  // optional string state = 3;
-  inline bool has_state() const;
-  inline void clear_state();
-  static const int kStateFieldNumber = 3;
-  inline const ::std::string& state() const;
-  inline void set_state(const ::std::string& value);
-  inline void set_state(const char* value);
-  inline void set_state(const char* value, size_t size);
-  inline ::std::string* mutable_state();
-  inline ::std::string* release_state();
-  
   // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.pLink)
  private:
   inline void set_has_children();
   inline void clear_has_children();
   inline void set_has_probability();
   inline void clear_has_probability();
-  inline void set_has_state();
-  inline void clear_has_state();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::HealthMonitoringMessages::pComponent* children_;
   double probability_;
-  ::std::string* state_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
   
   friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
   friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
@@ -740,64 +726,6 @@ inline double pLink::probability() const {
 inline void pLink::set_probability(double value) {
   set_has_probability();
   probability_ = value;
-}
-
-// optional string state = 3;
-inline bool pLink::has_state() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void pLink::set_has_state() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void pLink::clear_has_state() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void pLink::clear_state() {
-  if (state_ != &::google::protobuf::internal::kEmptyString) {
-    state_->clear();
-  }
-  clear_has_state();
-}
-inline const ::std::string& pLink::state() const {
-  return *state_;
-}
-inline void pLink::set_state(const ::std::string& value) {
-  set_has_state();
-  if (state_ == &::google::protobuf::internal::kEmptyString) {
-    state_ = new ::std::string;
-  }
-  state_->assign(value);
-}
-inline void pLink::set_state(const char* value) {
-  set_has_state();
-  if (state_ == &::google::protobuf::internal::kEmptyString) {
-    state_ = new ::std::string;
-  }
-  state_->assign(value);
-}
-inline void pLink::set_state(const char* value, size_t size) {
-  set_has_state();
-  if (state_ == &::google::protobuf::internal::kEmptyString) {
-    state_ = new ::std::string;
-  }
-  state_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* pLink::mutable_state() {
-  set_has_state();
-  if (state_ == &::google::protobuf::internal::kEmptyString) {
-    state_ = new ::std::string;
-  }
-  return state_;
-}
-inline ::std::string* pLink::release_state() {
-  clear_has_state();
-  if (state_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = state_;
-    state_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
 }
 
 // -------------------------------------------------------------------

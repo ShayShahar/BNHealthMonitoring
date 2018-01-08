@@ -1,11 +1,12 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using HealthMonitoringMessages;
 using NetMQ;
 using NetMQ.Sockets;
 
 namespace BNHealthMonitoring.UI.BL
 {
-    public class MessageDispatcher
+    public class MessageDispatcher : IDisposable
     {
         private readonly SubscriberSocket m_socket;
         private readonly NetMQContext m_context;
@@ -57,6 +58,13 @@ namespace BNHealthMonitoring.UI.BL
         {
             m_poller.Cancel();
             m_socket.Disconnect("tcp://127.0.0.1:49993");
+        }
+
+        public void Dispose()
+        {
+            Close();
+            s_messageDispatcher = null;
+            m_context.Dispose();
         }
     }
 }

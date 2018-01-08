@@ -1,127 +1,81 @@
 #include "ComponentsModel.h"
 
+void ComponentsModel::create_dependencies()
+{
+	Sattelite* satellite = new Sattelite("Satellite Alpha");
+
+	Gps* gps = new Gps("GPS");
+	ACS* acs = new ACS("ACS");
+	EPS* eps = new EPS("EPS");
+
+	Magnetorquer* magnetorquer = new Magnetorquer("Magnetorquer");
+	ReactionWeel* rwx = new ReactionWeel("RWX");
+	ReactionWeel* rwy = new ReactionWeel("RWY");
+	ReactionWeel* rwz = new ReactionWeel("RWZ");
+
+	GpsReceiver* gps_receiver = new GpsReceiver("GPS Receiver");
+	GpsAntenna* gps_antenna = new GpsAntenna("GPS Antenna");
+
+	satellite->add_dependency(Dependency(gps));
+	satellite->add_dependency(Dependency(acs));
+	satellite->add_dependency(Dependency(eps));
+
+	gps->add_dependency(Dependency(gps_receiver));
+	gps->add_dependency(Dependency(gps_antenna));
+
+	acs->add_dependency(Dependency(magnetorquer));
+	acs->add_dependency(Dependency(rwx));
+	acs->add_dependency(Dependency(rwy));
+	acs->add_dependency(Dependency(rwz));
+
+	m_nodes->push_back(magnetorquer);
+	m_nodes->push_back(rwx);
+	m_nodes->push_back(rwz);
+	m_nodes->push_back(rwy);
+	m_nodes->push_back(gps_receiver);
+	m_nodes->push_back(gps_antenna);
+	m_nodes->push_back(eps);
+	m_nodes->push_back(satellite);
+	m_nodes->push_back(acs);
+	m_nodes->push_back(gps);
+
+	m_root = satellite;
+}
+
+/*
+   initialize node probabilities & dephendencies
+*/
+void ComponentsModel::initialzie_cdm()
+{
+	for (list<Node*>::iterator it = m_nodes->begin(); it != m_nodes->end(); ++it)
+	{
+		if (!(*it)->dependencies()->size())
+			continue;
+
+		for (list<Dependency>::iterator dt = (*it)->dependencies()->begin(); dt != (*it)->dependencies()->end(); ++dt)
+		{
+
+			dt->set_probability((double)1 / (*it)->dependencies()->size());
+			dt->child()->add_parent(*it);
+		}
+	}
+}
+
 ComponentsModel::ComponentsModel(): m_root(nullptr)
 {
+	m_nodes = new list<Node*>();
 	m_components = new list<Node*>();
-	m_leafs = new list<Node*>();
 }
 
 ComponentsModel::~ComponentsModel()
 {
-	delete m_leafs;
 	delete m_components;
 }
 
 void ComponentsModel::init()
 {
-	Sattelite* satellite = new Sattelite("Satellite Alpha", nullptr);
-
-	Gps* gps = new Gps("GPS", satellite);
-	ACS* acs = new ACS("ACS", satellite);
-	EPS* eps = new EPS("EPS", satellite);
-
-	Magnetorquer* magnetorquer = new Magnetorquer("Magnetorquer", acs);
-	ReactionWeel* rwx = new ReactionWeel("RWX", acs);
-	ReactionWeel* rwy = new ReactionWeel("RWY", acs);
-	ReactionWeel* rwz = new ReactionWeel("RWZ", acs);
-
-	GpsReceiver* gps_receiver = new GpsReceiver("GPS Receiver", gps);
-	GpsAntenna* gps_antenna = new GpsAntenna("GPS Antenna", gps);
-
-	//m_components->push_back(satellite);
-	m_components->push_back(gps);
-	//m_components->push_back(acs);
-	//m_components->push_back(eps);
-	//m_components->push_back(magnetorquer);
-	//m_components->push_back(rwx);
-	//m_components->push_back(rwy);
-	//m_components->push_back(rwz);
-	//m_components->push_back(gps_receiver);
-	//m_components->push_back(gps_antenna);
-
-	m_leafs->push_back(magnetorquer);
-	m_leafs->push_back(rwx);
-	m_leafs->push_back(rwz);
-	m_leafs->push_back(rwy);
-	m_leafs->push_back(gps_receiver);
-	m_leafs->push_back(gps_antenna);
-	m_leafs->push_back(gps_antenna);
-	m_leafs->push_back(eps);
-
-	m_root = satellite;
-
-	//Satellite probabilities:
-	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, nullptr, 0.85));
-	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, gps, 0.05));
-	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, acs, 0.05));
-	satellite->add_link(Sattelite::State::HEALTHY, Link(satellite, eps, 0.05));
-
-	satellite->add_link(Sattelite::State::GPS, Link(satellite, nullptr, 0.05));
-	satellite->add_link(Sattelite::State::GPS, Link(satellite, gps, 0.85));
-	satellite->add_link(Sattelite::State::GPS, Link(satellite, acs, 0.05));
-	satellite->add_link(Sattelite::State::GPS, Link(satellite, eps, 0.05));
-
-	satellite->add_link(Sattelite::State::EPS, Link(satellite, nullptr, 0.05));
-	satellite->add_link(Sattelite::State::EPS, Link(satellite, gps, 0.05));
-	satellite->add_link(Sattelite::State::EPS, Link(satellite, acs, 0.05));
-	satellite->add_link(Sattelite::State::EPS, Link(satellite, eps, 0.85));
-
-	satellite->add_link(Sattelite::State::ACS, Link(satellite, nullptr, 0.05));
-	satellite->add_link(Sattelite::State::ACS, Link(satellite, gps, 0.05));
-	satellite->add_link(Sattelite::State::ACS, Link(satellite, acs, 0.85));
-	satellite->add_link(Sattelite::State::ACS, Link(satellite, eps, 0.05));
-
-	//Gps probabilities:
-	gps->add_link(Gps::State::HEALTHY, Link(gps, nullptr, 0.9));
-	gps->add_link(Gps::State::HEALTHY, Link(gps, gps_antenna, 0.05));
-	gps->add_link(Gps::State::HEALTHY, Link(gps, gps_receiver, 0.05));
-
-	gps->add_link(Gps::State::ANTENNA, Link(gps, nullptr, 0.05));
-	gps->add_link(Gps::State::ANTENNA, Link(gps, gps_receiver, 0.15));
-	gps->add_link(Gps::State::ANTENNA, Link(gps, gps_antenna, 0.8));
-
-	gps->add_link(Gps::State::RECEIVER, Link(gps, nullptr, 0.05));
-	gps->add_link(Gps::State::RECEIVER, Link(gps, gps_receiver, 0.8));
-	gps->add_link(Gps::State::RECEIVER, Link(gps, gps_antenna, 0.15));
-
-	//ACS probabilities:
-	acs->add_link(ACS::State::HEALTHY, Link(acs, nullptr, 0.9));
-	acs->add_link(ACS::State::HEALTHY, Link(acs, magnetorquer, 0.025));
-	acs->add_link(ACS::State::HEALTHY, Link(acs, rwx, 0.025));
-	acs->add_link(ACS::State::HEALTHY, Link(acs, rwy, 0.025));
-	acs->add_link(ACS::State::HEALTHY, Link(acs, rwz, 0.025));
-
-	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, nullptr, 0.05));
-	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, magnetorquer, 0.8));
-	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, rwx, 0.05));
-	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, rwy, 0.05));
-	acs->add_link(ACS::State::MAGNETORQUER, Link(acs, rwz, 0.05));
-
-	acs->add_link(ACS::State::RWX, Link(acs, nullptr, 0.05));
-	acs->add_link(ACS::State::RWX, Link(acs, magnetorquer, 0.05));
-	acs->add_link(ACS::State::RWX, Link(acs, rwx, 0.8));
-	acs->add_link(ACS::State::RWX, Link(acs, rwy, 0.05));
-	acs->add_link(ACS::State::RWX, Link(acs, rwz, 0.05));
-
-	acs->add_link(ACS::State::RWY, Link(acs, nullptr, 0.05));
-	acs->add_link(ACS::State::RWY, Link(acs, magnetorquer, 0.05));
-	acs->add_link(ACS::State::RWY, Link(acs, rwx, 0.05));
-	acs->add_link(ACS::State::RWY, Link(acs, rwy, 0.8));
-	acs->add_link(ACS::State::RWY, Link(acs, rwz, 0.05));
-
-	acs->add_link(ACS::State::RWZ, Link(acs, nullptr, 0.05));
-	acs->add_link(ACS::State::RWZ, Link(acs, magnetorquer, 0.05));
-	acs->add_link(ACS::State::RWZ, Link(acs, rwx, 0.05));
-	acs->add_link(ACS::State::RWZ, Link(acs, rwy, 0.05));
-	acs->add_link(ACS::State::RWZ, Link(acs, rwz, 0.8));
-}
-
-void ComponentsModel::propagate_states()
-{
-	for (list<Node*>::iterator it = m_leafs->begin(); it != m_leafs->end(); ++it)
-	{
-		(*it)->propagate_state();
-	}
+	create_dependencies();
+	initialzie_cdm();
 }
 
 list<Node*> ComponentsModel::find_fault()
@@ -146,6 +100,8 @@ void ComponentsModel::update()
 	{
 		(*it)->update_component_state();
 	}
+
+	m_root->update_component_state();
 }
 
 Node* ComponentsModel::root()

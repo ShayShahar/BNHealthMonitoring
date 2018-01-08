@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D00ED7BA-D0D5-43C7-A341-80C2616D7257}</ProjectGuid>
     <RootNamespace>BNHealthMonitoring</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -151,11 +151,11 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClCompile Include="CommunicationHandler.cpp" />
     <ClCompile Include="ComponentsModel.cpp" />
     <ClCompile Include="CSVReader.cpp" />
+    <ClCompile Include="Dependency.cpp" />
     <ClCompile Include="EPS.cpp" />
     <ClCompile Include="Gps.cpp" />
     <ClCompile Include="GpsReceiver.cpp" />
     <ClCompile Include="GpsAntenna.cpp" />
-    <ClCompile Include="Link.cpp" />
     <ClCompile Include="Magnetorquer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -170,12 +170,12 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClInclude Include="Components.h" />
     <ClInclude Include="ComponentsModel.h" />
     <ClInclude Include="CSVReader.h" />
+    <ClInclude Include="Dependency.h" />
     <ClInclude Include="EPS.h" />
     <ClInclude Include="Externals.h" />
     <ClInclude Include="Gps.h" />
     <ClInclude Include="GpsReceiver.h" />
     <ClInclude Include="GpsAntenna.h" />
-    <ClInclude Include="Link.h" />
     <ClInclude Include="Magnetorquer.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="ReactionWeel.h" />

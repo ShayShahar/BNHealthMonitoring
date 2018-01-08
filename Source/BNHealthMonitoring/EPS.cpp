@@ -6,7 +6,7 @@ void EPS::notify(int p_state, Node* p_sender)
 		m_parent->notify(m_state, this);
 }
 
-EPS::EPS(string p_name, Node* p_parent) : Node(p_name, p_parent)
+EPS::EPS(string p_name) : Node(p_name)
 {
 	m_reader = new CSVReader("CSVFiles//EPS.csv");
 }

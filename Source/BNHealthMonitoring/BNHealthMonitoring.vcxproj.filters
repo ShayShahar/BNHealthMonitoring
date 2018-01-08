@@ -10,9 +10,6 @@
     <ClCompile Include="CSVReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Link.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.cc">
       <Filter>Messages</Filter>
     </ClCompile>
@@ -52,6 +49,9 @@
     <ClCompile Include="GpsAntenna.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Dependency.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommunicationHandler.h">
@@ -70,9 +70,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Link.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Node.h">
@@ -104,6 +101,9 @@
     </ClInclude>
     <ClInclude Include="GpsAntenna.h">
       <Filter>Components\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependency.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
