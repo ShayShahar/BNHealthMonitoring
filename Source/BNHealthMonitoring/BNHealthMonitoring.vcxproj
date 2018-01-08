@@ -190,7 +190,6 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <None Include="CSVFiles\Gps_Ant.csv" />
     <None Include="CSVFiles\Magnetorquer.csv" />
     <None Include="CSVFiles\OutFileSatAlpha.csv" />
-    <None Include="CSVFiles\Receiver.csv" />
     <None Include="CSVFiles\RWX.csv" />
     <None Include="CSVFiles\RWY.csv" />
     <None Include="CSVFiles\RWZ.csv" />
