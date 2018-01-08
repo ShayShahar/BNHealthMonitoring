@@ -6,7 +6,7 @@ void Node::propagate_state()
 	if (m_states.find(m_state) != m_states.end())
 	{
 		m_weight += m_states[m_state].weight();
-		
+
 		if (m_weight < 1)
 			m_weight = 1;
 
@@ -36,6 +36,19 @@ double Node::weight()
 
 void Node::notify()
 {
+	double weight = 0;
+
+	for (list<Dependency>::iterator it = m_dependencies->begin(); it != m_dependencies->end(); ++it)
+	{
+		weight += it->child()->weight();
+		it->set_probability(it->child()->weight() / m_dependencies->size());
+	}
+
+	//normalize node's weight
+	m_weight = weight / m_dependencies->size();
+
+	if (m_parent != nullptr)
+		m_parent->notify();
 }
 
 Node::Node(string p_name)

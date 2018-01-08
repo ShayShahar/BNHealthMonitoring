@@ -3,7 +3,7 @@
 #include "../../Source/Interfaces/Messages/HealthMonitoringMessages.pb.h"
 #include "Externals.h"
 #include "Dependency.h"
-#include "State.h"
+#include "StateData.h"
 
 class Node
 {
@@ -14,7 +14,7 @@ protected:
 	list<Dependency>* m_dependencies;
 	unsigned int m_count;
 	double m_weight;
-	map<int, State> m_states;
+	map<int, StateData> m_states;
 
 public:
 	Node(string p_name);
