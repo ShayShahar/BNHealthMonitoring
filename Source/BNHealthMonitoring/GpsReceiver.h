@@ -6,11 +6,11 @@ class GpsReceiver : public Node
 {
 private:
 
-	/* Ranges:
-		-Temperature:
-			*Ok : 20 - 65
-			*Hot : 66 - 75 || -20 - 19
-			*Critical : 76 - 84 ||-39 - -21
+	/*
+	GpsReceiver ranges:
+	temp:	   ||ok: 1-70 ||low: -30 - 0||high: 71-80||very low: -40 - -31||very high: 81-85||
+	shock: ||ok: 0-30||high:31-40||
+	voltage: ||ok: 3.3||low: <3.3||high: >3.3||
 	*/
 
 	const float max_temperature = 85; //celsius
@@ -28,12 +28,14 @@ public:
 	enum State
 	{
 		HEALTHY,
-		TEMPERATURE_VERY_LOW,
+		VOLTAGE_LOW,
+		VOLTAGE_HIGH,
+		SHOCK_HIGH,
 		TEMPERATURE_LOW,
+		TEMPERATURE_VERY_LOW,
 		TEMPERATURE_HIGH,
 		TEMPERATURE_VERY_HIGH,
-		VOLTAGE,
-		SHOCK
+
 	};
 
 	GpsReceiver(string p_name);

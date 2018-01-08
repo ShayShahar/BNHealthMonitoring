@@ -4,6 +4,12 @@
 
 class ReactionWeel : public Node
 {
+	/*
+	ReactionWeel ranges:
+	temp:	   ||ok: 1-55 ||low: -40 - 0||high: 56-70||
+	voltage: ||ok: 4-6||low: 3.4-3.9||high: 6.1-8||
+	*/
+
 private :
 	const float max_temperature = 70;
 	const float min_temperature = -40;

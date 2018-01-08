@@ -4,6 +4,12 @@
 
 class GpsAntenna : public Node
 {
+	/*
+	antenna ranges:
+	temp:	   ||ok: 1-60 ||low: -29 - 0||high: 61-74||very low: -55 - -30||very high: 75 - 85
+	vibration: ||ok: 0-25||high:26-30||
+	alttitude: ||ok: 0-60,000||high: 60,001-70,000||
+	*/
 private:
 
 	//antenna properties:
@@ -14,7 +20,7 @@ private:
 
 	CSVReader* m_reader;
 
-	float m_tempature;
+	float m_temperature;
 	float m_vibration;
 	float m_altitude;
 
@@ -27,9 +33,12 @@ public:
 	enum State
 	{
 		HEALTHY,
-		TEMPERATURE,
-		VIBRATION,
-		ALTITUDE
+		TEMPERATURE_HIGH,
+		TEMPERATURE_VERY_HIGH,
+		TEMPERATURE_LOW,
+		TEMPERATURE_VERY_LOW,
+		VIBRATION_HIGH,
+		ALTITUDE_HIGH
 	};
 
 };

@@ -8,6 +8,7 @@ private:
 	string m_name;
 public:
 	StateData(double p_weight, string p_name);
+	StateData();
 	string name();
 	double weight();
 };

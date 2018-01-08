@@ -4,6 +4,14 @@
 
 class Magnetorquer : public Node
 {
+	/*
+	Magnetorquer ranges:
+	temp:	   ||ok: 1-60 ||low: -30 - 0||high: 61-75||
+	voltage: ||ok: 5||low: <5||high: >%5||
+	*/
+
+
+
 private:
 	const float max_temperature = 75.0;
 	const float min_temperature = -30.0;

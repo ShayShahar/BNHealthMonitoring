@@ -162,7 +162,7 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClCompile Include="ReactionWeel.cpp" />
     <ClCompile Include="Satellite.cpp" />
     <ClCompile Include="Scheduler.cpp" />
-    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateData.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +183,7 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClInclude Include="Satellite.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="StateData.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

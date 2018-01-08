@@ -1,10 +1,11 @@
 #include "StateData.h"
 
-StateData::StateData(double p_weight, string p_name)
+StateData::StateData(double weight, string name)
 {
-	m_name = p_name;
-	m_weight = p_weight;
+	m_name = name;
+	m_weight = weight;
 }
+StateData::StateData() {};
 
 string StateData::name()
 {
