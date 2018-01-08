@@ -1,10 +1,5 @@
 #include "EPS.h"
 
-void EPS::notify(int p_state, Node* p_sender)
-{
-	if (m_parent != nullptr)
-		m_parent->notify(m_state, this);
-}
 
 EPS::EPS(string p_name) : Node(p_name)
 {

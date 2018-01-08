@@ -18,8 +18,6 @@ private:
 	float m_vibration;
 	float m_altitude;
 
-	void notify(int p_state, Node* p_sender) override;
-
 public:
 	GpsAntenna(string p_name);
 	~GpsAntenna();

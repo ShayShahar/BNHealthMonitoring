@@ -1,11 +1,5 @@
 #include "GpsAntenna.h"
 
-void GpsAntenna::notify(int p_state, Node* p_sender)
-{
-	if (m_parent != nullptr)
-		m_parent->notify(m_state, this);
-}
-
 GpsAntenna::GpsAntenna(string p_name) : Node(p_name), m_tempature(0), m_vibration(0), m_altitude(0)
 {
 	m_reader = new CSVReader("CSVFiles//Gps_Ant.csv");

@@ -3,8 +3,15 @@
 
 void Node::propagate_state()
 {
-	if (m_state > 0)
-		m_parent->notify(m_states[m_state].weight(), this);
+	if (m_states.find(m_state) != m_states.end())
+	{
+		m_weight += m_states[m_state].weight();
+		
+		if (m_weight < 1)
+			m_weight = 1;
+
+		m_parent->notify();
+	}
 }
 
 void Node::add_dependency(Dependency p_dependency)
@@ -20,6 +27,15 @@ void Node::add_parent(Node* p_parent)
 list<Dependency>* Node::dependencies()
 {
 	return m_dependencies;
+}
+
+double Node::weight()
+{
+	return m_weight;
+}
+
+void Node::notify()
+{
 }
 
 Node::Node(string p_name)

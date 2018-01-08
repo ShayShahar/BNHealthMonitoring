@@ -13,6 +13,7 @@ protected:
 	string m_name;
 	list<Dependency>* m_dependencies;
 	unsigned int m_count;
+	double m_weight;
 	map<int, State> m_states;
 
 public:
@@ -26,10 +27,11 @@ public:
 	void add_dependency(Dependency p_dependency);
 	void add_parent(Node* p_parent);
 	list<Dependency>* dependencies();
+	double weight();
 
+	void notify();
 	virtual string get_state_str(int p_state) = 0;
 
 	//generate evidence from signals and set the update the link probabilities for each component
 	virtual void update_component_state() = 0;
-	virtual void notify(int p_size, Node* p_sender) = 0;
 };

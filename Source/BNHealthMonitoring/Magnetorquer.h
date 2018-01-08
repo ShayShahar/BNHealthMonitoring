@@ -13,8 +13,6 @@ private:
 	float m_voltage;
 	CSVReader* m_reader;
 
-	void notify(int p_state, Node* p_sender) override;
-
 public:
 	enum State
 	{

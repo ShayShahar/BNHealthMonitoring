@@ -5,10 +5,6 @@
 
 class Gps : public Node
 {
-private:
-
-	void notify(int p_state, Node* p_sender) override;
-
 public:
 
 	Gps(string p_name);

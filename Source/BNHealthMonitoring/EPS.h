@@ -15,8 +15,6 @@ private:
 
 	CSVReader* m_reader;
 
-	void notify(int p_state, Node* p_sender) override;
-
 public:
 	EPS(string p_name);
 	~EPS();

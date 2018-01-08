@@ -1,23 +1,5 @@
 #include "Satellite.h"
 
-void Sattelite::notify(int p_state, Node* p_sender)
-{
-	if (p_state == 0)
-		m_state = State::HEALTHY;
-
-	else if (p_sender->name() == "ACS")
-		m_state = State::ACS;
-
-	else if (p_sender->name() == "EPS")
-		m_state = State::EPS;
-
-	else if (p_sender->name() == "GPS")
-		m_state = State::GPS;
-
-	if (m_parent != nullptr)
-		m_parent->notify(m_state, this);
-}
-
 Sattelite::Sattelite(string p_name) : Node(p_name)
 {
 	m_reader = new CSVReader("CSVFiles//OutFileSatAlpha.csv");

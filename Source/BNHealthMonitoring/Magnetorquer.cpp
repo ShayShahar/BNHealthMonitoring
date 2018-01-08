@@ -1,12 +1,5 @@
 #include "Magnetorquer.h"
 
-
-void Magnetorquer::notify(int p_state, Node* p_sender)
-{
-	if (m_parent != nullptr)
-		m_parent->notify(m_state, this);
-}
-
 Magnetorquer::Magnetorquer(string p_name) : Node(p_name), m_temperature(0), m_voltage(0)
 {
 	m_reader = new CSVReader("CSVFiles//Magnetorquer.csv");

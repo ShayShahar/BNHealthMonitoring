@@ -1,11 +1,5 @@
 #include "ReactionWeel.h"
 
-void ReactionWeel::notify(int p_state, Node* p_sender)
-{
-	if (m_parent != nullptr)
-		m_parent->notify(m_state, this);
-}
-
 ReactionWeel::ReactionWeel(string p_name) : Node(p_name)
 { 
 	m_reader = new CSVReader("CSVFiles//RWX.csv");
