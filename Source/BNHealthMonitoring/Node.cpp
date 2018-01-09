@@ -41,7 +41,11 @@ void Node::notify()
 	for (list<Dependency>::iterator it = m_dependencies->begin(); it != m_dependencies->end(); ++it)
 	{
 		weight += it->child()->weight();
-		it->set_probability(it->child()->weight() / m_dependencies->size());
+	}
+
+	for (list<Dependency>::iterator it = m_dependencies->begin(); it != m_dependencies->end(); ++it)
+	{
+		it->set_probability(it->child()->weight() / weight);
 	}
 
 	//normalize node's weight
