@@ -143,6 +143,7 @@ namespace BNHealthMonitoring.UI.BL
                 {
                     Name = p_component.Name,
                     State = p_component.State,
+                    Weight = Math.Round(p_component.Weight, 2),
                     Children = new ObservableCollection<Component>()
                 };
 
@@ -151,6 +152,7 @@ namespace BNHealthMonitoring.UI.BL
             else
             {
                 component.State = p_component.State;
+                component.Weight = Math.Round(p_component.Weight, 2);
             }
 
             foreach (var c in p_component.LinksList)
@@ -180,15 +182,6 @@ namespace BNHealthMonitoring.UI.BL
 
         public void UpdateLocation(LocationMessage p_location)
         {
-            //if (!(m_px == m_py && m_py == m_pz && m_pz == 0))
-            //{
-            //    var delta =
-            //        Math.Sqrt(Math.Pow(p_location.X - m_px, 2)
-            //                  + Math.Pow(p_location.Y - m_py, 2)
-            //                  + Math.Pow(p_location.Z - m_pz, 2));
-
-            //}
-
             m_locationDeltaUpdate.OnNext(new Tuple<int, double>(p_location.Seconds, p_location.Delta));
 
             m_px = p_location.X;

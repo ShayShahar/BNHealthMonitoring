@@ -5,6 +5,13 @@
 class EPS : public Node
 {
 private:
+	enum State
+	{
+		HEALTHY,
+		TEMPERATURE,
+		VOLTAGE
+	};
+
 	const float max_temperature = 60;
 	const float min_temperature = -20;
 	const float max_voltage = 4.2;
@@ -19,14 +26,6 @@ public:
 	EPS(string p_name);
 	~EPS();
 	void update_component_state() override;
-	string get_state_str(int p_state) override;
-
-	enum State
-	{
-		HEALTHY,
-		TEMPERATURE,
-		VOLTAGE
-	};
-
+	void receive() override;
 };
 

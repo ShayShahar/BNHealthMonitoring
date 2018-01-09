@@ -20,17 +20,11 @@ private:
 	void create_location_msg(double p_x, double p_y, double p_z, int p_sec, double p_delta);
 
 public:
-	enum State
-	{
-		HEALTHY,
-		ACS,
-		EPS,
-		GPS
-	};
 
 	Sattelite(string p_name);
 	~Sattelite();
 
 	void update_component_state() override;
-	string get_state_str(int p_state) override;
+	void receive() override;
+
 };

@@ -28,10 +28,10 @@ public:
 	void add_parent(Node* p_parent);
 	list<Dependency>* dependencies();
 	double weight();
-
 	void notify();
-	virtual string get_state_str(int p_state) = 0;
+	map<int, StateData> states();
 
 	//generate evidence from signals and set the update the link probabilities for each component
 	virtual void update_component_state() = 0;
+	virtual void receive() = 0;
 };

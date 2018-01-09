@@ -104,7 +104,7 @@
         <Grid Grid.Row="3"
               Grid.Column="0"
               ColumnSpan="3"
-               Background="#363636">
+              Background="#363636">
             <Label Grid.Column="0"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"

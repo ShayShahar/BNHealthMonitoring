@@ -10,19 +10,9 @@ private:
 	const float max_voltage = 12.0;
 
 public:
-	enum State
-	{
-		HEALTHY,
-		MAGNETORQUER,
-		RWX,
-		RWY,
-		RWZ
-	};
-
 	ACS(string p_name);
 	~ACS();
 	void update_component_state() override;
-    string get_state_str(int p_state) override;
-
+	void receive() override;
 };
 

@@ -13,6 +13,11 @@ Sattelite::~Sattelite()
 
 void Sattelite::update_component_state()
 {
+
+}
+
+void Sattelite::receive()
+{
 	vector<string> data = m_reader->readLine();
 
 	m_seconds = stoi(data[0]);
@@ -31,21 +36,6 @@ void Sattelite::update_component_state()
 	m_expected_z = m_z + 20 * v_z;
 
 	create_location_msg(m_x, m_y, m_z, m_seconds, delta);
-}
-
-string Sattelite::get_state_str(int p_state)
-{
-	switch (p_state)
-	{
-		case State::ACS:
-			return "ACS";
-		case State::EPS:
-			return "EPS";	
-		case State::GPS:
-			return "GPS";
-	}
-
-	return "HEALTHY";
 }
 
 void Sattelite::create_location_msg(double p_x, double p_y, double p_z, int p_sec, double p_delta)

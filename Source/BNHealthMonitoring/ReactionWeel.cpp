@@ -12,21 +12,13 @@ ReactionWeel::~ReactionWeel()
 
 void ReactionWeel::update_component_state()
 {
+
+}
+
+void ReactionWeel::receive()
+{
 	vector<string> data = m_reader->readLine();
 
 	m_temperature = stod(data[0]);
 	m_voltage = stod(data[1]);
-}
-
-string ReactionWeel::get_state_str(int p_state)
-{
-	switch (p_state)
-	{
-	case State::VOLTAGE:
-		return "VOLTAGE";
-	case State::TEMPERATURE:
-		return "TEMPERATURE";
-	}
-
-	return "HEALTHY";
 }

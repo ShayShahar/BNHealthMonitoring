@@ -17,19 +17,7 @@ void ACS::update_component_state()
 
 }
 
-string ACS::get_state_str(int p_state)
+void ACS::receive()
 {
-	switch (p_state)
-	{
-		case State::MAGNETORQUER:
-			return "MAGNETORQUER";
-		case State::RWX:
-			return "RWX";		
-		case State::RWY:
-			return "RWY";		
-		case State::RWZ:
-			return "RWZ";	
-	}
-
-	return "HEALTHY";
 }
+

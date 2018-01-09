@@ -5,6 +5,19 @@
 class GpsReceiver : public Node
 {
 private:
+	enum State
+	{
+		HEALTHY,
+		VOLTAGE_LOW,
+		VOLTAGE_HIGH,
+		SHOCK_HIGH,
+		TEMPERATURE_LOW,
+		TEMPERATURE_VERY_LOW,
+		TEMPERATURE_HIGH,
+		TEMPERATURE_VERY_HIGH,
+
+	};
+
 
 	/*
 	GpsReceiver ranges:
@@ -25,23 +38,9 @@ private:
 	CSVReader* m_reader;
 
 public:
-	enum State
-	{
-		HEALTHY,
-		VOLTAGE_LOW,
-		VOLTAGE_HIGH,
-		SHOCK_HIGH,
-		TEMPERATURE_LOW,
-		TEMPERATURE_VERY_LOW,
-		TEMPERATURE_HIGH,
-		TEMPERATURE_VERY_HIGH,
-
-	};
-
 	GpsReceiver(string p_name);
 	~GpsReceiver();
 	void update_component_state() override;
-	string get_state_str(int p_state) override;
-
+	void receive() override;
 };
 

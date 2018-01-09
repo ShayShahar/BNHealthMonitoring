@@ -32,6 +32,6 @@ public:
 	ReactionWeel(string p_name);
 	~ReactionWeel();
 	void update_component_state() override;
-	string get_state_str(int p_state) override;
+	void receive() override;
 };
 

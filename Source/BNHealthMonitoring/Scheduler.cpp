@@ -36,7 +36,7 @@ void Scheduler::send_result(list<Node*> p_path, HealthMonitoringMessages::DataUp
 	{
 		HealthMonitoringMessages::pComponent* addComponent = resultMsgs->add_path();
 		addComponent->set_name((*it)->name());
-		addComponent->set_state((*it)->get_state_str((*it)->state()));
+		addComponent->set_state((*it)->states()[((*it)->state())].name());
 	}
 }
 
@@ -44,7 +44,7 @@ void Scheduler::step()
 {
 	while (true)
 	{
-		m_cdm->update();
+		m_cdm->receive();
 
 		list<Node*> path = m_cdm->find_fault();
 

@@ -51,12 +51,18 @@ void Node::notify()
 		m_parent->notify();
 }
 
+map<int, StateData> Node::states()
+{
+	return m_states;
+}
+
 Node::Node(string p_name)
 {
 	m_dependencies = new list<Dependency>();
 	m_name = p_name;
 	m_state = 0;
 	m_count = 0;
+	m_weight = 1;
 }
 
 Node::~Node()
@@ -99,7 +105,9 @@ void Node::get_data(HealthMonitoringMessages::pComponent* p_msg)
 	p_msg->set_name(m_name);
 
 	if (m_dependencies->size() == 0)
-		p_msg->set_state(get_state_str(m_state));
+		p_msg->set_state(m_states[m_state].name());
+
+	p_msg->set_weight(m_weight);
 
 	for (list<Dependency>::iterator it = m_dependencies->begin(); it != m_dependencies->end(); ++it)
 	{

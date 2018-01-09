@@ -11,6 +11,16 @@ class GpsAntenna : public Node
 	alttitude: ||ok: 0-60,000||high: 60,001-70,000||
 	*/
 private:
+	enum State
+	{
+		HEALTHY,
+		TEMPERATURE_HIGH,
+		TEMPERATURE_VERY_HIGH,
+		TEMPERATURE_LOW,
+		TEMPERATURE_VERY_LOW,
+		VIBRATION_HIGH,
+		ALTITUDE_HIGH
+	};
 
 	//antenna properties:
 	const float max_temperature = 85;
@@ -28,18 +38,6 @@ public:
 	GpsAntenna(string p_name);
 	~GpsAntenna();
 	void update_component_state() override;
-	string get_state_str(int p_state) override;
-
-	enum State
-	{
-		HEALTHY,
-		TEMPERATURE_HIGH,
-		TEMPERATURE_VERY_HIGH,
-		TEMPERATURE_LOW,
-		TEMPERATURE_VERY_LOW,
-		VIBRATION_HIGH,
-		ALTITUDE_HIGH
-	};
-
+	void receive() override;
 };
 

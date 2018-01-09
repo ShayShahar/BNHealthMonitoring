@@ -13,6 +13,9 @@ namespace BNHealthMonitoring.UI.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null)
+                return Visibility.Collapsed;
+
             string str = value.ToString();
 
             if (str == String.Empty)
