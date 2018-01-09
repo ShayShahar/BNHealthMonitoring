@@ -13,8 +13,6 @@ void Gps::update_component_state()
 {
 }
 
-string Gps::get_state_str(int p_state)
+void Gps::receive()
 {
-	return "HEALTHY";
 }
-

@@ -242,21 +242,31 @@ class pComponent : public ::google::protobuf::Message {
   inline ::std::string* mutable_state();
   inline ::std::string* release_state();
   
+  // optional double weight = 4;
+  inline bool has_weight() const;
+  inline void clear_weight();
+  static const int kWeightFieldNumber = 4;
+  inline double weight() const;
+  inline void set_weight(double value);
+  
   // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.pComponent)
  private:
   inline void set_has_name();
   inline void clear_has_name();
   inline void set_has_state();
   inline void clear_has_state();
+  inline void set_has_weight();
+  inline void clear_has_weight();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pLink > links_;
   ::std::string* name_;
   ::std::string* state_;
+  double weight_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
   
   friend void  protobuf_AddDesc_HealthMonitoringMessages_2eproto();
   friend void protobuf_AssignDesc_HealthMonitoringMessages_2eproto();
@@ -871,6 +881,28 @@ inline ::std::string* pComponent::release_state() {
     state_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
+}
+
+// optional double weight = 4;
+inline bool pComponent::has_weight() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void pComponent::set_has_weight() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void pComponent::clear_has_weight() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void pComponent::clear_weight() {
+  weight_ = 0;
+  clear_has_weight();
+}
+inline double pComponent::weight() const {
+  return weight_;
+}
+inline void pComponent::set_weight(double value) {
+  set_has_weight();
+  weight_ = value;
 }
 
 // -------------------------------------------------------------------

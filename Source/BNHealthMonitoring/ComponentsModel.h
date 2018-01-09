@@ -22,8 +22,7 @@ public:
 	list<Node*> find_fault();
 	void get_cdm_data(HealthMonitoringMessages::DataUpdateMsg& p_msg);
 	void update();
-//	void propagate_states();
-
 	Node* root();
+	void receive();
 };
 

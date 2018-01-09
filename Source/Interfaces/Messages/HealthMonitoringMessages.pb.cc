@@ -63,10 +63,11 @@ void protobuf_AssignDesc_HealthMonitoringMessages_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pLink));
   pComponent_descriptor_ = file->message_type(1);
-  static const int pComponent_offsets_[3] = {
+  static const int pComponent_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pComponent, links_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pComponent, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pComponent, state_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pComponent, weight_),
   };
   pComponent_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -200,22 +201,23 @@ void protobuf_AddDesc_HealthMonitoringMessages_2eproto() {
     "\n\036HealthMonitoringMessages.proto\022\030Health"
     "MonitoringMessages\"T\n\005pLink\0226\n\010children\030"
     "\001 \001(\0132$.HealthMonitoringMessages.pCompon"
-    "ent\022\023\n\013probability\030\002 \001(\001\"Y\n\npComponent\022."
+    "ent\022\023\n\013probability\030\002 \001(\001\"i\n\npComponent\022."
     "\n\005links\030\001 \003(\0132\037.HealthMonitoringMessages"
-    ".pLink\022\014\n\004name\030\002 \002(\t\022\r\n\005state\030\003 \001(\t\"D\n\nC"
-    "DMMessage\0226\n\010cdm_root\030\001 \002(\0132$.HealthMoni"
-    "toringMessages.pComponent\"C\n\rOutputMessa"
-    "ge\0222\n\004path\030\001 \003(\0132$.HealthMonitoringMessa"
-    "ges.pComponent\"R\n\017LocationMessage\022\t\n\001x\030\001"
-    " \002(\001\022\t\n\001y\030\002 \002(\001\022\t\n\001z\030\003 \002(\001\022\017\n\007seconds\030\004 "
-    "\002(\005\022\r\n\005delta\030\005 \002(\001\"\361\001\n\rDataUpdateMsg\0220\n\006"
-    "opcode\030\001 \002(\0162 .HealthMonitoringMessages."
-    "OpCode\0228\n\ncomponents\030\002 \001(\0132$.HealthMonit"
-    "oringMessages.CDMMessage\022;\n\010location\030\003 \001"
-    "(\0132).HealthMonitoringMessages.LocationMe"
-    "ssage\0227\n\006result\030\004 \001(\0132\'.HealthMonitoring"
-    "Messages.OutputMessage*5\n\006OpCode\022\016\n\nComp"
-    "onents\020\000\022\017\n\013SatLocation\020\001\022\n\n\006Result\020\002", 757);
+    ".pLink\022\014\n\004name\030\002 \002(\t\022\r\n\005state\030\003 \001(\t\022\016\n\006w"
+    "eight\030\004 \001(\001\"D\n\nCDMMessage\0226\n\010cdm_root\030\001 "
+    "\002(\0132$.HealthMonitoringMessages.pComponen"
+    "t\"C\n\rOutputMessage\0222\n\004path\030\001 \003(\0132$.Healt"
+    "hMonitoringMessages.pComponent\"R\n\017Locati"
+    "onMessage\022\t\n\001x\030\001 \002(\001\022\t\n\001y\030\002 \002(\001\022\t\n\001z\030\003 \002"
+    "(\001\022\017\n\007seconds\030\004 \002(\005\022\r\n\005delta\030\005 \002(\001\"\361\001\n\rD"
+    "ataUpdateMsg\0220\n\006opcode\030\001 \002(\0162 .HealthMon"
+    "itoringMessages.OpCode\0228\n\ncomponents\030\002 \001"
+    "(\0132$.HealthMonitoringMessages.CDMMessage"
+    "\022;\n\010location\030\003 \001(\0132).HealthMonitoringMes"
+    "sages.LocationMessage\0227\n\006result\030\004 \001(\0132\'."
+    "HealthMonitoringMessages.OutputMessage*5"
+    "\n\006OpCode\022\016\n\nComponents\020\000\022\017\n\013SatLocation\020"
+    "\001\022\n\n\006Result\020\002", 773);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "HealthMonitoringMessages.proto", &protobuf_RegisterTypes);
   pLink::default_instance_ = new pLink();
@@ -515,6 +517,7 @@ void pLink::Swap(pLink* other) {
 const int pComponent::kLinksFieldNumber;
 const int pComponent::kNameFieldNumber;
 const int pComponent::kStateFieldNumber;
+const int pComponent::kWeightFieldNumber;
 #endif  // !_MSC_VER
 
 pComponent::pComponent()
@@ -535,6 +538,7 @@ void pComponent::SharedCtor() {
   _cached_size_ = 0;
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   state_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  weight_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -585,6 +589,7 @@ void pComponent::Clear() {
         state_->clear();
       }
     }
+    weight_ = 0;
   }
   links_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -642,6 +647,22 @@ bool pComponent::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(33)) goto parse_weight;
+        break;
+      }
+      
+      // optional double weight = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED64) {
+         parse_weight:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &weight_)));
+          set_has_weight();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -688,6 +709,11 @@ void pComponent::SerializeWithCachedSizes(
       3, this->state(), output);
   }
   
+  // optional double weight = 4;
+  if (has_weight()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->weight(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -723,6 +749,11 @@ void pComponent::SerializeWithCachedSizes(
         3, this->state(), target);
   }
   
+  // optional double weight = 4;
+  if (has_weight()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->weight(), target);
+  }
+  
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -746,6 +777,11 @@ int pComponent::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->state());
+    }
+    
+    // optional double weight = 4;
+    if (has_weight()) {
+      total_size += 1 + 8;
     }
     
   }
@@ -790,6 +826,9 @@ void pComponent::MergeFrom(const pComponent& from) {
     if (from.has_state()) {
       set_state(from.state());
     }
+    if (from.has_weight()) {
+      set_weight(from.weight());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -820,6 +859,7 @@ void pComponent::Swap(pComponent* other) {
     links_.Swap(&other->links_);
     std::swap(name_, other->name_);
     std::swap(state_, other->state_);
+    std::swap(weight_, other->weight_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

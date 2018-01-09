@@ -18,6 +18,7 @@ namespace BNHealthMonitoring.UI.ViewModel
         {
             m_dataState = DataState.GetInstance();
             m_dataState.ComponentsUpdate.ObserveOnDispatcher().Subscribe(onComponentsUpdateEvent);
+            m_dataState.SelectedComponentChangedEvent.ObserveOnDispatcher().Subscribe(onSelectionChanged);
         }
 
         public ObservableCollection<Component> Components
@@ -29,6 +30,28 @@ namespace BNHealthMonitoring.UI.ViewModel
         {
             RaisePropertyChanged(() => Components);
             RaisePropertyChanged(() => IsLoaded);
+        }
+
+        private void onSelectionChanged(Unit p_unit)
+        {
+            RaisePropertyChanged(() => Weight);
+            RaisePropertyChanged(() => State);
+            RaisePropertyChanged(() => IsComponentNotSelected);
+        }
+
+        public bool IsComponentNotSelected
+        {
+            get { return m_dataState.SelectedComponent == null; }
+        }
+
+        public double? Weight
+        {
+            get { return m_dataState.SelectedComponent?.Weight; }
+        }
+
+        public string State
+        {
+            get { return m_dataState.SelectedComponent?.State; }
         }
 
         public bool IsLoaded

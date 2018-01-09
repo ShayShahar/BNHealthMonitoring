@@ -41,20 +41,21 @@ namespace HealthMonitoringMessages {
             "Ch5IZWFsdGhNb25pdG9yaW5nTWVzc2FnZXMucHJvdG8SGEhlYWx0aE1vbml0", 
             "b3JpbmdNZXNzYWdlcyJUCgVwTGluaxI2CghjaGlsZHJlbhgBIAEoCzIkLkhl", 
             "YWx0aE1vbml0b3JpbmdNZXNzYWdlcy5wQ29tcG9uZW50EhMKC3Byb2JhYmls", 
-            "aXR5GAIgASgBIlkKCnBDb21wb25lbnQSLgoFbGlua3MYASADKAsyHy5IZWFs", 
+            "aXR5GAIgASgBImkKCnBDb21wb25lbnQSLgoFbGlua3MYASADKAsyHy5IZWFs", 
             "dGhNb25pdG9yaW5nTWVzc2FnZXMucExpbmsSDAoEbmFtZRgCIAIoCRINCgVz", 
-            "dGF0ZRgDIAEoCSJECgpDRE1NZXNzYWdlEjYKCGNkbV9yb290GAEgAigLMiQu", 
-            "SGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLnBDb21wb25lbnQiQwoNT3V0cHV0", 
-            "TWVzc2FnZRIyCgRwYXRoGAEgAygLMiQuSGVhbHRoTW9uaXRvcmluZ01lc3Nh", 
-            "Z2VzLnBDb21wb25lbnQiUgoPTG9jYXRpb25NZXNzYWdlEgkKAXgYASACKAES", 
-            "CQoBeRgCIAIoARIJCgF6GAMgAigBEg8KB3NlY29uZHMYBCACKAUSDQoFZGVs", 
-            "dGEYBSACKAEi8QEKDURhdGFVcGRhdGVNc2cSMAoGb3Bjb2RlGAEgAigOMiAu", 
-            "SGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLk9wQ29kZRI4Cgpjb21wb25lbnRz", 
-            "GAIgASgLMiQuSGVhbHRoTW9uaXRvcmluZ01lc3NhZ2VzLkNETU1lc3NhZ2US", 
-            "OwoIbG9jYXRpb24YAyABKAsyKS5IZWFsdGhNb25pdG9yaW5nTWVzc2FnZXMu", 
-            "TG9jYXRpb25NZXNzYWdlEjcKBnJlc3VsdBgEIAEoCzInLkhlYWx0aE1vbml0", 
-            "b3JpbmdNZXNzYWdlcy5PdXRwdXRNZXNzYWdlKjUKBk9wQ29kZRIOCgpDb21w", 
-          "b25lbnRzEAASDwoLU2F0TG9jYXRpb24QARIKCgZSZXN1bHQQAg=="));
+            "dGF0ZRgDIAEoCRIOCgZ3ZWlnaHQYBCABKAEiRAoKQ0RNTWVzc2FnZRI2Cghj", 
+            "ZG1fcm9vdBgBIAIoCzIkLkhlYWx0aE1vbml0b3JpbmdNZXNzYWdlcy5wQ29t", 
+            "cG9uZW50IkMKDU91dHB1dE1lc3NhZ2USMgoEcGF0aBgBIAMoCzIkLkhlYWx0", 
+            "aE1vbml0b3JpbmdNZXNzYWdlcy5wQ29tcG9uZW50IlIKD0xvY2F0aW9uTWVz", 
+            "c2FnZRIJCgF4GAEgAigBEgkKAXkYAiACKAESCQoBehgDIAIoARIPCgdzZWNv", 
+            "bmRzGAQgAigFEg0KBWRlbHRhGAUgAigBIvEBCg1EYXRhVXBkYXRlTXNnEjAK", 
+            "Bm9wY29kZRgBIAIoDjIgLkhlYWx0aE1vbml0b3JpbmdNZXNzYWdlcy5PcENv", 
+            "ZGUSOAoKY29tcG9uZW50cxgCIAEoCzIkLkhlYWx0aE1vbml0b3JpbmdNZXNz", 
+            "YWdlcy5DRE1NZXNzYWdlEjsKCGxvY2F0aW9uGAMgASgLMikuSGVhbHRoTW9u", 
+            "aXRvcmluZ01lc3NhZ2VzLkxvY2F0aW9uTWVzc2FnZRI3CgZyZXN1bHQYBCAB", 
+            "KAsyJy5IZWFsdGhNb25pdG9yaW5nTWVzc2FnZXMuT3V0cHV0TWVzc2FnZSo1", 
+            "CgZPcENvZGUSDgoKQ29tcG9uZW50cxAAEg8KC1NhdExvY2F0aW9uEAESCgoG", 
+          "UmVzdWx0EAI="));
       pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
         descriptor = root;
         internal__static_HealthMonitoringMessages_pLink__Descriptor = Descriptor.MessageTypes[0];
@@ -64,7 +65,7 @@ namespace HealthMonitoringMessages {
         internal__static_HealthMonitoringMessages_pComponent__Descriptor = Descriptor.MessageTypes[1];
         internal__static_HealthMonitoringMessages_pComponent__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.pComponent, global::HealthMonitoringMessages.pComponent.Builder>(internal__static_HealthMonitoringMessages_pComponent__Descriptor,
-                new string[] { "Links", "Name", "State", });
+                new string[] { "Links", "Name", "State", "Weight", });
         internal__static_HealthMonitoringMessages_CDMMessage__Descriptor = Descriptor.MessageTypes[2];
         internal__static_HealthMonitoringMessages_CDMMessage__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::HealthMonitoringMessages.CDMMessage, global::HealthMonitoringMessages.CDMMessage.Builder>(internal__static_HealthMonitoringMessages_CDMMessage__Descriptor,
@@ -453,8 +454,8 @@ namespace HealthMonitoringMessages {
   public sealed partial class pComponent : pb::GeneratedMessage<pComponent, pComponent.Builder> {
     private pComponent() { }
     private static readonly pComponent defaultInstance = new pComponent().MakeReadOnly();
-    private static readonly string[] _pComponentFieldNames = new string[] { "links", "name", "state" };
-    private static readonly uint[] _pComponentFieldTags = new uint[] { 10, 18, 26 };
+    private static readonly string[] _pComponentFieldNames = new string[] { "links", "name", "state", "weight" };
+    private static readonly uint[] _pComponentFieldTags = new uint[] { 10, 18, 26, 33 };
     public static pComponent DefaultInstance {
       get { return defaultInstance; }
     }
@@ -507,6 +508,16 @@ namespace HealthMonitoringMessages {
       get { return state_; }
     }
     
+    public const int WeightFieldNumber = 4;
+    private bool hasWeight;
+    private double weight_;
+    public bool HasWeight {
+      get { return hasWeight; }
+    }
+    public double Weight {
+      get { return weight_; }
+    }
+    
     public override bool IsInitialized {
       get {
         if (!hasName) return false;
@@ -528,6 +539,9 @@ namespace HealthMonitoringMessages {
       }
       if (hasState) {
         output.WriteString(3, field_names[2], State);
+      }
+      if (hasWeight) {
+        output.WriteDouble(4, field_names[3], Weight);
       }
       UnknownFields.WriteTo(output);
     }
@@ -554,6 +568,9 @@ namespace HealthMonitoringMessages {
       }
       if (hasState) {
         size += pb::CodedOutputStream.ComputeStringSize(3, State);
+      }
+      if (hasWeight) {
+        size += pb::CodedOutputStream.ComputeDoubleSize(4, Weight);
       }
       size += UnknownFields.SerializedSize;
       memoizedSerializedSize = size;
@@ -688,6 +705,9 @@ namespace HealthMonitoringMessages {
         if (other.HasState) {
           State = other.State;
         }
+        if (other.HasWeight) {
+          Weight = other.Weight;
+        }
         this.MergeUnknownFields(other.UnknownFields);
         return this;
       }
@@ -741,6 +761,10 @@ namespace HealthMonitoringMessages {
             }
             case 26: {
               result.hasState = input.ReadString(ref result.state_);
+              break;
+            }
+            case 33: {
+              result.hasWeight = input.ReadDouble(ref result.weight_);
               break;
             }
           }
@@ -836,6 +860,26 @@ namespace HealthMonitoringMessages {
         PrepareBuilder();
         result.hasState = false;
         result.state_ = "";
+        return this;
+      }
+      
+      public bool HasWeight {
+        get { return result.hasWeight; }
+      }
+      public double Weight {
+        get { return result.Weight; }
+        set { SetWeight(value); }
+      }
+      public Builder SetWeight(double value) {
+        PrepareBuilder();
+        result.hasWeight = true;
+        result.weight_ = value;
+        return this;
+      }
+      public Builder ClearWeight() {
+        PrepareBuilder();
+        result.hasWeight = false;
+        result.weight_ = 0D;
         return this;
       }
     }

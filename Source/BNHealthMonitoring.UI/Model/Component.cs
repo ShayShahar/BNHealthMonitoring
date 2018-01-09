@@ -23,7 +23,7 @@ namespace BNHealthMonitoring.UI.Model
                 NotifyOfPropertyChange(()=> IsExpanded);
             }
         }
-
+        public double Weight { get; set; }
         public string Name { get; set; }
         public string State { get; set; }
         public ObservableCollection<Component> Children { get; set; }

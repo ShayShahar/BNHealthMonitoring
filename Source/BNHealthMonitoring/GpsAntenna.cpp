@@ -18,6 +18,8 @@ GpsAntenna::~GpsAntenna()
 	delete m_reader;
 }
 
+
+
 void GpsAntenna::update_component_state()
 {
 	vector<string> data = m_reader->readLine();
@@ -58,23 +60,6 @@ void GpsAntenna::update_component_state()
 
 }
 
-string GpsAntenna::get_state_str(int p_state)
+void GpsAntenna::receive()
 {
-	switch (p_state)
-	{
-	case State::TEMPERATURE_HIGH:
-		return "Temperature High";
-	case State::TEMPERATURE_VERY_HIGH:
-		return "Temperature Very High";
-	case State::TEMPERATURE_LOW:
-		return "Temperature Low";
-	case State::TEMPERATURE_VERY_LOW:
-		return "Temperature Very Low";
-	case State::VIBRATION_HIGH:
-		return "Vibration High";
-	case State::ALTITUDE_HIGH:
-		return "Altitude High";
-	}
-
-	return "HEALTHY";
 }
