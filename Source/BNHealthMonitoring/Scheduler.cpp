@@ -49,6 +49,7 @@ void Scheduler::step()
 
 		if (path.size() > 0)
 		{
+			path.back()->update_component_state();
 			path.back()->propagate_state();
 		}
 			
