@@ -22,44 +22,46 @@ GpsAntenna::~GpsAntenna()
 
 void GpsAntenna::update_component_state()
 {
+
+	if ((m_temperature > -29) && (m_temperature < 0))
+	{
+		m_state = State::TEMPERATURE_LOW;
+		return;
+	}
+	if ((m_temperature > -55) && (m_temperature < -30))
+	{
+		m_state = State::TEMPERATURE_VERY_LOW;
+		return;
+	}
+	if ((m_temperature > 61) && (m_temperature < 74))
+	{
+		m_state = State::TEMPERATURE_HIGH;
+		return;
+	}
+	if ((m_temperature > 75) && (m_temperature < 85))
+	{
+		m_state = State::TEMPERATURE_VERY_HIGH;
+		return;
+	}
+	if ((m_vibration > 26) && (m_vibration < 30))
+	{
+		m_state = State::VIBRATION_HIGH;
+		return;
+	}
+	if ((m_altitude > 60001) && (m_altitude < 70000))
+	{
+		m_state = State::ALTITUDE_HIGH;
+		return;
+	}
+	
+		m_state = State::HEALTHY;
+
+}
+void GpsAntenna::receive()
+{
 	vector<string> data = m_reader->readLine();
 
 	m_temperature = stod(data[0]);
 	m_vibration = stod(data[1]);
 	m_altitude = stod(data[2]);
-
-	if ((1 < m_temperature < 60) && (0 < m_vibration < 25) && (0 < m_altitude < 60000))
-	{
-		m_state = State::HEALTHY;
-	}
-	else if (-29 < m_temperature < 0)
-	{
-		m_state = State::TEMPERATURE_LOW;
-	}
-	else if (-55 < m_temperature < -30)
-	{
-		m_state = State::TEMPERATURE_VERY_LOW;
-	}
-	else if (61 < m_temperature < 74)
-	{
-		m_state = State::TEMPERATURE_HIGH;
-	}
-	else if (75 < m_temperature < 85)
-	{
-		m_state = State::TEMPERATURE_VERY_HIGH;
-	}
-	else if (26 < m_vibration < 30)
-	{
-		m_state = State::VIBRATION_HIGH;
-	}
-	else if (60001 < m_altitude < 70000)
-	{
-		m_state = State::ALTITUDE_HIGH;
-	}
-
-
-}
-
-void GpsAntenna::receive()
-{
 }

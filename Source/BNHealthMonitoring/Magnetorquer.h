@@ -6,7 +6,7 @@ class Magnetorquer : public Node
 {
 	/*
 	Magnetorquer ranges:
-	temp:	   ||ok: 1-60 ||low: -30 - 0||high: 61-75||
+	temp:	   ||ok: 1-50 ||low: -20 - 0||high: 51-64||very low: -30 - -20||very high:65 - 75||
 	voltage: ||ok: 5||low: <5||high: >%5||
 	*/
 
@@ -14,8 +14,12 @@ private:
 	enum State
 	{
 		HEALTHY,
-		TEMPERATURE,
-		VOLTAGE
+		TEMPERATURE_HIGH,
+		TEMPERATURE_VERY_HIGH,
+		TEMPERATURE_LOW,
+		TEMPERATURE_VERY_LOW,
+		VOLTAGE_LOW,
+		VOLTAGE_HIGH
 	};
 
 	const float max_temperature = 75.0;
