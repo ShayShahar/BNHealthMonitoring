@@ -27,9 +27,8 @@ void Scheduler::join()
 
 }
 
-void Scheduler::send_result(list<Node*> p_path, HealthMonitoringMessages::DataUpdateMsg& p_msg)
+void Scheduler::populate_list_msg(list<Node*> p_path, HealthMonitoringMessages::DataUpdateMsg& p_msg)
 {
-	p_msg.set_opcode(HealthMonitoringMessages::OpCode::Result);
 	HealthMonitoringMessages::OutputMessage *resultMsgs = p_msg.mutable_result();
 
 	for (list<Node*>::iterator it = p_path.begin(); it != p_path.end(); ++it)
@@ -58,9 +57,9 @@ void Scheduler::step()
 		m_communication_handler->send(msg);
 
 		HealthMonitoringMessages::DataUpdateMsg result;
-		send_result(path, result);
+		result.set_opcode(HealthMonitoringMessages::OpCode::Result);
+		populate_list_msg(path, result);
 		m_communication_handler->send(result);
-
 
 		Sleep(5000);
 	}

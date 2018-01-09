@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive;
@@ -22,6 +23,7 @@ namespace BNHealthMonitoring.UI.BL
         private readonly ISubject<Point3D> m_locationUpdate;
         private readonly ISubject<Unit> m_selectedComponentChanged;
         private ObservableCollection<Component> m_components;
+        private IList<Component> m_componentList;
         private ObservableCollection<LogItem> m_incomingMessages;
         private double m_px;
         private double m_py;
@@ -41,6 +43,7 @@ namespace BNHealthMonitoring.UI.BL
             m_components = new ObservableCollection<Component>();
             m_incomingMessages = new ObservableCollection<LogItem>();
             m_viewChanged = new Subject<Unit>();
+            m_componentList = new List<Component>();
 
             m_px = 0;
             m_py = 0;
@@ -75,6 +78,11 @@ namespace BNHealthMonitoring.UI.BL
         {
             get { return m_selectedComponentChanged; }
         }
+
+        public IList<Component> ComponentsList
+        {
+            get { return m_componentList; }
+        } 
 
         public IObservable<Tuple<int, double>> LocationDeltaUpdated
         {
@@ -147,6 +155,7 @@ namespace BNHealthMonitoring.UI.BL
                     Children = new ObservableCollection<Component>()
                 };
 
+                m_componentList.Add(component);
                 p_list.Add(component);
             }
             else

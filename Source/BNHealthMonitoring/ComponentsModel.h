@@ -24,5 +24,6 @@ public:
 	void update();
 	Node* root();
 	void receive();
+	list<Node*>* components();
 };
 

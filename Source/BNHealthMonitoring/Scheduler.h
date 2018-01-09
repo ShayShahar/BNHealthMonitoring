@@ -13,7 +13,7 @@ private:
 
 private:
 	void step();
-	void send_result(list<Node*> p_path, HealthMonitoringMessages::DataUpdateMsg& p_msg);
+	void populate_list_msg(list<Node*> p_path, HealthMonitoringMessages::DataUpdateMsg& p_msg);
 
 public:
 	Scheduler();

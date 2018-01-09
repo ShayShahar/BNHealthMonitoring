@@ -31,7 +31,7 @@ namespace BNHealthMonitoring.UI.ViewModel
                     LineSmoothness = 1,
                     PointForeground = new SolidColorBrush(Color.FromRgb(155,89,182)) {Opacity = 0.7},
                     Stroke = new SolidColorBrush(Color.FromRgb(155,89,182)) {Opacity = 1},
-                    Fill = new SolidColorBrush(Color.FromRgb(155,89,182)) {Opacity = 0.2}
+                    Fill = new SolidColorBrush(Color.FromRgb(189,195,199)) {Opacity = 0.2}
                 }
             };
         }

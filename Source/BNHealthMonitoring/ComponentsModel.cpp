@@ -119,6 +119,11 @@ void ComponentsModel::receive()
 	m_root->receive();
 }
 
+list<Node*>* ComponentsModel::components()
+{
+	return m_components;
+}
+
 void ComponentsModel::get_cdm_data(HealthMonitoringMessages::DataUpdateMsg& p_msg)
 {
 	p_msg.set_opcode(HealthMonitoringMessages::OpCode::Components);
