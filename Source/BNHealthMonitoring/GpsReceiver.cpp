@@ -21,31 +21,31 @@ GpsReceiver::~GpsReceiver()
 
 void GpsReceiver::update_component_state()
 {
-	if (-30 < m_temperature && m_temperature < 0)
+	if ((-30 < m_temperature) && (m_temperature < 0))
 	{
 		m_state = State::TEMPERATURE_LOW;
 		return;
 	}
 
-	if (-40 < m_temperature && m_temperature < -31)
+	if ((-40 < m_temperature) && (m_temperature < -31))
 	{
 		m_state = State::TEMPERATURE_VERY_LOW;
 		return;
 	}
 
-	if (71 < m_temperature && m_temperature < 80)
+	if ((71 < m_temperature )&&( m_temperature < 80))
 	{
 		m_state = State::TEMPERATURE_HIGH;
 		return;
 	}
 
-	if (81 < m_temperature && m_temperature < 85)
+	if ((81 < m_temperature) && (m_temperature < 85))
 	{
 		m_state = State::TEMPERATURE_VERY_HIGH;
 		return;
 	}
 
-	if (31 < m_shock && m_temperature < 40)
+	if ((31 < m_shock )&& (m_temperature < 40))
 	{
 		m_state = State::SHOCK_HIGH;
 		return;
@@ -73,4 +73,5 @@ void GpsReceiver::receive()
 	m_temperature = stod(data[0]);
 	m_shock = stod(data[1]);
 	m_voltage = stod(data[2]);
+
 }
