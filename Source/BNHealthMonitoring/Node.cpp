@@ -77,7 +77,7 @@ Node::~Node()
 
 Node* Node::get_next()
 {
-	double rand = (double)(Utils::random() % 100) / 100;
+	double rand = (double)(Utils::random() % 101) / 100;
 	double begin = 0;
 	double end = 0;
 
@@ -86,7 +86,7 @@ Node* Node::get_next()
 		begin = end;
 		end = begin + it->probability();
 
-		if (rand > begin && rand <= end)
+		if (rand >= begin && rand <= end)
 		{
 			return it->child();
 		}
