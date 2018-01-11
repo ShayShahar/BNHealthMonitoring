@@ -50,7 +50,10 @@ void ComponentsModel::initialzie_cdm()
 	for (list<Node*>::iterator it = m_nodes->begin(); it != m_nodes->end(); ++it)
 	{
 		if (!(*it)->dependencies()->size())
+		{
+			m_components->push_back((*it));
 			continue;
+		}
 
 		for (list<Dependency>::iterator dt = (*it)->dependencies()->begin(); dt != (*it)->dependencies()->end(); ++dt)
 		{
@@ -61,7 +64,7 @@ void ComponentsModel::initialzie_cdm()
 	}
 }
 
-ComponentsModel::ComponentsModel(): m_root(nullptr)
+ComponentsModel::ComponentsModel() : m_root(nullptr)
 {
 	m_nodes = new list<Node*>();
 	m_components = new list<Node*>();
@@ -84,7 +87,7 @@ list<Node*> ComponentsModel::find_fault()
 	Node* temp = m_root;
 	Node* current;
 	path.push_back(temp);
-	
+
 	while ((current = temp->get_next()) != nullptr)
 	{
 		temp = current;

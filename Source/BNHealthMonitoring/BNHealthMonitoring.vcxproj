@@ -187,7 +187,6 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CSVFiles\ACS.csv" />
     <None Include="CSVFiles\EPS.csv" />
     <None Include="CSVFiles\GpsReceiver.csv" />
     <None Include="CSVFiles\Gps_Ant.csv" />

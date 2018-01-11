@@ -60,20 +60,12 @@ namespace BNHealthMonitoring.UI.ViewModel
                 return new RelayCommand(onGlobeViewClick, () => true);
             }
         }
-        public ICommand AnalyzeViewCommand
-        {
-            get
-            {
-                return new RelayCommand(onAnalyzeViewClick, () => true);
-            }
-        }
 
         private void onSelectedViewChanged(Unit p_unit)
         {
             RaisePropertyChanged(() => CurrentView);
             RaisePropertyChanged(() => HomeViewImage);
             RaisePropertyChanged(() => EarthViewImage);
-            RaisePropertyChanged(() => AnalyzeViewImage);
         }
 
         private void onHomeViewClick()
@@ -87,16 +79,6 @@ namespace BNHealthMonitoring.UI.ViewModel
             m_dataState.CurrentView = new HomeView();
         }
 
-        private void onAnalyzeViewClick()
-        {
-            IsAboutViewOpen = false;
-            IsLogViewOpen = false;
-
-            if (m_dataState.CurrentView is AnalzyeView)
-                return;
-
-            m_dataState.CurrentView = new AnalzyeView();
-        }
 
         private void onGlobeViewClick()
         {
@@ -155,18 +137,6 @@ namespace BNHealthMonitoring.UI.ViewModel
                 return @"/Resources/home.png";
             }
         }
-
-        public string AnalyzeViewImage
-        {
-            get
-            {
-                if (m_dataState.CurrentView is AnalzyeView)
-                    return @"/Resources/analyze_selected.png";
-
-                return @"/Resources/analyze.png";
-            }
-        }
-
 
         public string EarthViewImage
         {

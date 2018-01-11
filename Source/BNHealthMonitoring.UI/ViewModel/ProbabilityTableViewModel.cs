@@ -15,6 +15,7 @@ namespace BNHealthMonitoring.UI.ViewModel
         public ProbabilityTableViewModel()
         {
             m_dataState = DataState.GetInstance();
+            m_dataState.ComponentsUpdate.ObserveOnDispatcher().Subscribe(onComponentsUpdateEvent);
             m_dataState.SelectedComponentChangedEvent.ObserveOnDispatcher().Subscribe(onSelectionChanged);
         }
 
@@ -24,6 +25,12 @@ namespace BNHealthMonitoring.UI.ViewModel
             {
                 return m_dataState.SelectedComponent?.Links;
             }
+        }
+
+        private void onComponentsUpdateEvent(Unit p_unit)
+        {
+            RaisePropertyChanged(() => IsDataNotAvailable);
+            RaisePropertyChanged(() => SelectedComponent);
         }
 
         public bool IsDataNotAvailable

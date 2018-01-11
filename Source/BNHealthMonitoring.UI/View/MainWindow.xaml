@@ -7,7 +7,7 @@
         xmlns:view="clr-namespace:BNHealthMonitoring.UI.View"
         xmlns:converters="clr-namespace:BNHealthMonitoring.UI.Converters"
         mc:Ignorable="d"
-        Title="Health Monitoring" Height="800" Width="1100"
+        Title="Health Monitoring" Height="740" Width="1050"
         WindowTitleBrush="#252525"
         DataContext="{Binding Main, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen">
 
@@ -145,34 +145,6 @@
                         Command="{Binding GlobeViewCommand, Mode=OneTime}">
                     <Button.Content>
                         <Image Source="{Binding EarthViewImage}" Width="30" Height="30">
-                            <Image.RenderTransform>
-                                <RotateTransform CenterX="15" CenterY="15" />
-                            </Image.RenderTransform>
-                            <Image.Style>
-                                <Style>
-                                    <Style.Triggers>
-                                        <Trigger Property="Image.IsMouseOver" Value="True">
-                                            <Trigger.EnterActions>
-                                                <BeginStoryboard Storyboard="{StaticResource ImageRotation}"></BeginStoryboard>
-                                            </Trigger.EnterActions>
-                                            <!--<Trigger.ExitActions>
-                                                <BeginStoryboard Storyboard="{StaticResource ImageRotationCancel}"></BeginStoryboard>
-                                            </Trigger.ExitActions>-->
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Image.Style>
-                        </Image>
-                    </Button.Content>
-                </Button>
-                <Button Width="40"
-                        Height="40"
-                        Margin="0,8,0,0"
-                        ToolTip="Analyze"
-                        Style="{StaticResource TransparentButton}"
-                        Command="{Binding AnalyzeViewCommand, Mode=OneTime}">
-                    <Button.Content>
-                        <Image Source="{Binding AnalyzeViewImage}" Width="30" Height="30">
                             <Image.RenderTransform>
                                 <RotateTransform CenterX="15" CenterY="15" />
                             </Image.RenderTransform>

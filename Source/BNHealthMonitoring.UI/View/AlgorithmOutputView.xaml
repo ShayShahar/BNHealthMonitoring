@@ -15,13 +15,13 @@
                             Foreground="Black"
                             Background="#252525">
             <wpf:CartesianChart.AxisX>
-                <wpf:Axis Title="COMPONENT"
+                <wpf:Axis
                           Labels="{Binding Keys}"
                           FontStretch="Condensed"
                           FontWeight="DemiBold"/>
             </wpf:CartesianChart.AxisX>
             <wpf:CartesianChart.AxisY>
-                <wpf:Axis Title="%" Labels="{Binding Labels}"/>
+                <wpf:Axis Title="WEIGHT"/>
             </wpf:CartesianChart.AxisY>
         </wpf:CartesianChart>
     </Grid>

@@ -18,6 +18,7 @@
             <h:HelixViewport3D.Background>
                 <ImageBrush ImageSource="/BNHealthMonitoring.UI;component/Resources/stars2.jpg"/>
             </h:HelixViewport3D.Background>
+
             <h:SphereVisual3D x:Name="EarthModule" 
                               Radius="1" 
                               Material="{h:ImageMaterial 'pack://application:,,,/Resources/earth_16k.jpg'}" 

@@ -141,9 +141,6 @@
     <None Include="CSVFiles\RWZ.csv">
       <Filter>CSVFiles</Filter>
     </None>
-    <None Include="CSVFiles\ACS.csv">
-      <Filter>CSVFiles</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CSVFiles">

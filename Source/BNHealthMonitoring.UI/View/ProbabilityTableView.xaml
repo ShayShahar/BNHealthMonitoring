@@ -28,12 +28,8 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="Margin" Value="0,2,2,0"></Setter>
-                        <Style.Triggers>
-                            <!--<DataTrigger Binding="{Binding IsCurrentState}" Value="True">
-                                <Setter Property="Background" Value="#888888"></Setter>
-                                <Setter Property="Foreground" Value="White"></Setter>
-                            </DataTrigger>-->
-                            <Trigger Property="IsMouseOver" Value="true">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" Value="#1d556d"/>
                                 <Setter Property="Foreground" Value="White"/>
                             </Trigger>
@@ -44,32 +40,8 @@
                         </Style.Triggers>
                     </Style>
                 </DataGrid.RowStyle>
-                <DataGrid.Columns>
-                    <!--<DataGridTextColumn Header="STATE"
-                                    Width="0.5*"
-                                    Binding="{Binding State, Mode=OneWay, Converter={StaticResource StringToUppercaseConverter}}">
-                        <DataGridTextColumn.HeaderStyle>
-                            <Style TargetType="DataGridColumnHeader">
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                <Setter Property="Background" Value="#2c2f30"/>
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="BorderBrush" Value="DarkGray"/>
-                                <Setter Property="BorderThickness" Value="0,0,0.4,0"/>
-                                <Setter Property="FontWeight" Value="DemiBold"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="true">
-                                        <Setter Property="Background" Value="#555555"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </DataGridTextColumn.HeaderStyle>
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="TextAlignment" Value="Center" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>-->
-                    <DataGridTextColumn Header="PROBABILITY"
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="PROBABILITY"
                                     Width="0.7*"
                                     Binding="{Binding Probability, Mode=OneWay}">
                         <DataGridTextColumn.HeaderStyle>

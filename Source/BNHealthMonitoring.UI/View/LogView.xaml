@@ -17,10 +17,6 @@
                 <Style TargetType="DataGridRow">
                     <Setter Property="Margin" Value="0,2,2,0"></Setter>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsCurrentState}" Value="True">
-                            <Setter Property="Background" Value="#d1d1d1"></Setter>
-                            <Setter Property="Foreground" Value="Black"></Setter>
-                        </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="Background" Value="#1d556d"/>
                             <Setter Property="Foreground" Value="White"/>

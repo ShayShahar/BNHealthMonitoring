@@ -20,16 +20,16 @@ namespace BNHealthMonitoring.UI.Model
             {
                 return m_probability;
             }
-            set { m_probability = Math.Round(value, 2); }
+            set
+            {
+                m_probability = Math.Round(value, 2);
+                NotifyOfPropertyChange(() => Probability);
+            }
         }
 
         public string ChildrenName { get; set; }
         public string DestenationName { get; set; }
         public string State { get; set; }
 
-        public bool IsCurrentState
-        {
-            get { return ResponsibleComponent.State == State; }
-        }
     }
 }

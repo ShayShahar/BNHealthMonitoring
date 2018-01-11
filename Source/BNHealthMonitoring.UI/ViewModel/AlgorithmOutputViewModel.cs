@@ -23,7 +23,6 @@ namespace BNHealthMonitoring.UI.ViewModel
 
         public SeriesCollection Results { get; set; }
         public Dictionary<string, int> Components { get; set; }
-        public IList<int> Labels { get; set; }
         public Brush DangerBrush { get; set; }
         public Brush WarningBrush { get; set; }
         public Brush OkBrush { get; set; }
@@ -40,8 +39,8 @@ namespace BNHealthMonitoring.UI.ViewModel
 
             Mapper = Mappers.Xy<ObservableValue>().X((p_item, p_index) => p_index)
            .Y(p_item => p_item.Value)
-           .Fill(p_item => p_item.Value >= 70 ? DangerBrush : (p_item.Value >= 50 ? WarningBrush : OkBrush))
-           .Stroke(p_item => p_item.Value >= 70 ? DangerBrush : (p_item.Value >= 50 ? WarningBrush : OkBrush));
+           .Fill(p_item => p_item.Value >= 20 ? DangerBrush : (p_item.Value >= 10 ? WarningBrush : OkBrush))
+           .Stroke(p_item => p_item.Value >= 20 ? DangerBrush : (p_item.Value >= 10 ? WarningBrush : OkBrush));
 
             Components = new Dictionary<string, int>();
 
@@ -49,17 +48,16 @@ namespace BNHealthMonitoring.UI.ViewModel
             {
                 new ColumnSeries
                 {
-                    Title = "%",
+                    Title = "Weight",
                     Values = new ChartValues<ObservableValue>(),
                     PointGeometry = DefaultGeometries.Circle,
                     StrokeThickness = 2,
                     Configuration = Mapper,
-                    //Stroke =  new SolidColorBrush(Color.FromRgb(46,204,113)) {Opacity = 1},
-                    //Fill = new SolidColorBrush(Color.FromRgb(46,204,113)) {Opacity = 1}
+                    ColumnPadding = 3,
+                    Stroke =  new SolidColorBrush(Color.FromRgb(150,150,150)) {Opacity = 1},
+                    Fill = new SolidColorBrush(Color.FromRgb(150,150,150)) {Opacity = 1}
                 }
             }};
-
-            Labels = new List<int>() { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
         }
 
         public List<string> Keys
@@ -73,14 +71,12 @@ namespace BNHealthMonitoring.UI.ViewModel
             if (!components.Any())
                 return;
 
-            double total = components.Sum(p_component => p_component.Weight);
-
             foreach (var component in components)
             {
                 if (!Components.ContainsKey(component.Name))
                 {
                     Components.Add(component.Name, Components.Count + 1);
-                    Results[0].Values.Add(new ObservableValue(Math.Round((component.Weight / total) * 100, 2)));
+                    Results[0].Values.Add(new ObservableValue(component.Weight));
                     RaisePropertyChanged(() => Keys);
                 }
                 else
@@ -88,9 +84,7 @@ namespace BNHealthMonitoring.UI.ViewModel
                     var val = Results[0].Values[Components[component.Name] - 1];
                     ObservableValue value = val as ObservableValue;
                     if (value != null)
-                        value.Value = Math.Round((component.Weight / total) * 100, 2);
-
-                    //  Results[0].Values[Components[component.Name] - 1] = new ObservableValue((component.Weight / total) * 100);
+                        value.Value = component.Weight;
 
                 }
             }
