@@ -1,7 +1,5 @@
 #include "GpsReceiver.h"
 
-
-
 GpsReceiver::GpsReceiver(string p_name) : Node(p_name), m_temperature(0), m_shock(0), m_voltage(0)
 {
 	m_reader = new CSVReader("CSVFiles//GpsReceiver.csv");
@@ -53,13 +51,14 @@ void GpsReceiver::update_component_state()
 		return;
 	}
 
-	if (m_voltage > 3.3)
+	if ((3.4 < m_voltage + TOLERANCE))
+
 	{
 		m_state = State::VOLTAGE_HIGH;
 		return;
 	}
 
-	if (m_voltage  < 3.3)
+	if (m_voltage - TOLERANCE < 3.2)
 	{
 		m_state = State::VOLTAGE_LOW;
 		return;
