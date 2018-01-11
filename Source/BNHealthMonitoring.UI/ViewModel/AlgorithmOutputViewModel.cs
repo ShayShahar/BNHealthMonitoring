@@ -39,8 +39,8 @@ namespace BNHealthMonitoring.UI.ViewModel
 
             Mapper = Mappers.Xy<ObservableValue>().X((p_item, p_index) => p_index)
            .Y(p_item => p_item.Value)
-           .Fill(p_item => p_item.Value >= 20 ? DangerBrush : (p_item.Value >= 10 ? WarningBrush : OkBrush))
-           .Stroke(p_item => p_item.Value >= 20 ? DangerBrush : (p_item.Value >= 10 ? WarningBrush : OkBrush));
+           .Fill(p_item => p_item.Value >= 15 ? DangerBrush : (p_item.Value >= 8 ? WarningBrush : OkBrush))
+           .Stroke(p_item => p_item.Value >= 15 ? DangerBrush : (p_item.Value >= 8 ? WarningBrush : OkBrush));
 
             Components = new Dictionary<string, int>();
 

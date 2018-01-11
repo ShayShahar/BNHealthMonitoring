@@ -7,6 +7,9 @@ void Node::propagate_state()
 	{
 		m_weight += m_states[m_state].weight();
 
+		if (m_weight > 20)
+			m_weight = 20;
+
 		if (m_weight < 1)
 			m_weight = 1;
 
@@ -74,7 +77,6 @@ Node::~Node()
 
 Node* Node::get_next()
 {
-
 	double rand = (double)(Utils::random() % 100) / 100;
 	double begin = 0;
 	double end = 0;
@@ -123,6 +125,5 @@ void Node::get_data(HealthMonitoringMessages::pComponent* p_msg)
 
 		HealthMonitoringMessages::pComponent *parent = links->mutable_children();
 		it->child()->get_data(parent);
-
 	}
 }
