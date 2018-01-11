@@ -60,6 +60,6 @@ void ReactionWeel::receive()
 {
 	vector<string> data = m_reader->readLine();
 
-	m_temperature = stod(data[0]);
-	m_voltage = stod(data[1]);
+	m_temperature = stof(data[0]);
+	m_voltage = stof(data[1]);
 }

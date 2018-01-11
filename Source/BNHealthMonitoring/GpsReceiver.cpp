@@ -1,5 +1,7 @@
 #include "GpsReceiver.h"
 
+
+
 GpsReceiver::GpsReceiver(string p_name) : Node(p_name), m_temperature(0), m_shock(0), m_voltage(0)
 {
 	m_reader = new CSVReader("CSVFiles//GpsReceiver.csv");
@@ -21,43 +23,43 @@ GpsReceiver::~GpsReceiver()
 
 void GpsReceiver::update_component_state()
 {
-	if ((-30 < m_temperature) && (m_temperature < 0))
+	if ((-30 < m_temperature + TOLERANCE) && (m_temperature - TOLERANCE < 0))
 	{
 		m_state = State::TEMPERATURE_LOW;
 		return;
 	}
 
-	if ((-40 < m_temperature) && (m_temperature < -31))
+	if ((-40 < m_temperature + TOLERANCE) && (m_temperature - TOLERANCE < -31))
 	{
 		m_state = State::TEMPERATURE_VERY_LOW;
 		return;
 	}
 
-	if ((71 < m_temperature )&&( m_temperature < 80))
+	if ((71 < m_temperature + TOLERANCE ) && ( m_temperature - TOLERANCE < 80))
 	{
 		m_state = State::TEMPERATURE_HIGH;
 		return;
 	}
 
-	if ((81 < m_temperature) && (m_temperature < 85))
+	if ((81 < m_temperature + TOLERANCE) && (m_temperature - TOLERANCE < 85))
 	{
 		m_state = State::TEMPERATURE_VERY_HIGH;
 		return;
 	}
 
-	if ((31 < m_shock )&& (m_temperature < 40))
+	if ((31 < m_shock + TOLERANCE) && (m_temperature - TOLERANCE < 40))
 	{
 		m_state = State::SHOCK_HIGH;
 		return;
 	}
 
-	if (m_voltage > 3.3)
+	if (m_voltage + TOLERANCE> 3.3)
 	{
 		m_state = State::VOLTAGE_HIGH;
 		return;
 	}
 
-	if (m_voltage < 3.3)
+	if (m_voltage - TOLERANCE < 3.3)
 	{
 		m_state = State::VOLTAGE_LOW;
 		return;
@@ -70,8 +72,8 @@ void GpsReceiver::receive()
 {
 	vector<string> data = m_reader->readLine();
 
-	m_temperature = stod(data[0]);
-	m_shock = stod(data[1]);
-	m_voltage = stod(data[2]);
-
+	m_temperature = stof(data[0]);
+	m_shock = stof(data[1]);
+	m_voltage = stof(data[2]);
 }
+

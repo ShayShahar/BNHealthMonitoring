@@ -5,6 +5,8 @@
 #include "Dependency.h"
 #include "StateData.h"
 
+const float TOLERANCE = 0.0001;
+
 class Node
 {
 protected:

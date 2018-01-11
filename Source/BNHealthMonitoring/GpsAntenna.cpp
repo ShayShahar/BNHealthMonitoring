@@ -61,7 +61,7 @@ void GpsAntenna::receive()
 {
 	vector<string> data = m_reader->readLine();
 
-	m_temperature = stod(data[0]);
-	m_vibration = stod(data[1]);
-	m_altitude = stod(data[2]);
+	m_temperature = stof(data[0]);
+	m_vibration = stof(data[1]);
+	m_altitude = stof(data[2]);
 }
