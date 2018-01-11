@@ -86,7 +86,7 @@ Node* Node::get_next()
 		begin = end;
 		end = begin + it->probability();
 
-		if (rand >= begin && rand <= end)
+		if (rand >= begin && rand <= end || it->child() == m_dependencies->back().child())
 		{
 			return it->child();
 		}
