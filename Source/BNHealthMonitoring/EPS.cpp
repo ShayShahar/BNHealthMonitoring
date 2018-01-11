@@ -1,7 +1,7 @@
 #include "EPS.h"
 
 
-EPS::EPS(string p_name) : Node(p_name)
+EPS::EPS(string p_name) : Node(p_name), m_temperature(0), m_voltage(0)
 {
 	m_reader = new CSVReader("CSVFiles//EPS.csv");
 
@@ -53,7 +53,7 @@ void EPS::update_component_state()
 		return;
 	}
 	
-		m_state = State::HEALTHY;
+	m_state = State::HEALTHY;
 
 }
 
@@ -64,4 +64,3 @@ void EPS::receive()
 	m_temperature = stof(data[0]);
 	m_voltage = stof(data[1]);
 }
-

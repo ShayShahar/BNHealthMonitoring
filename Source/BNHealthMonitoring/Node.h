@@ -14,7 +14,6 @@ protected:
 	int m_state;
 	string m_name;
 	list<Dependency>* m_dependencies;
-	unsigned int m_count;
 	double m_weight;
 	map<int, StateData> m_states;
 

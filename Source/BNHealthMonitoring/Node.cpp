@@ -65,7 +65,6 @@ Node::Node(string p_name)
 	m_dependencies = new list<Dependency>();
 	m_name = p_name;
 	m_state = 0;
-	m_count = 0;
 	m_weight = 1;
 }
 
@@ -83,7 +82,7 @@ Node* Node::get_next()
 	for (list<Dependency>::iterator it = m_dependencies->begin(); it != m_dependencies->end(); ++it)
 	{
 		begin = end;
-		end += begin + it->probability();
+		end = begin + it->probability();
 
 		if (rand > begin && rand <= end)
 		{

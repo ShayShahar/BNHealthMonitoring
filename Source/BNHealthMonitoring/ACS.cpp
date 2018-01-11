@@ -7,7 +7,9 @@ ACS::~ACS()
 {}
 
 void ACS::update_component_state()
-{}
+{
+	
+}
 
 void ACS::receive()
 {}

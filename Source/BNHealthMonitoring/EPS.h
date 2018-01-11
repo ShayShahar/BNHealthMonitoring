@@ -34,6 +34,7 @@ private:
 public:
 	EPS(string p_name);
 	~EPS();
+
 	void update_component_state() override;
 	void receive() override;
 };
