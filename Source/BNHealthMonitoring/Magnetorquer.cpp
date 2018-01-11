@@ -4,7 +4,7 @@ Magnetorquer::Magnetorquer(string p_name) : Node(p_name), m_temperature(0), m_vo
 {
 	m_reader = new CSVReader("CSVFiles//Magnetorquer.csv");
 
-	m_states.insert({ State::HEALTHY, StateData(-0.5, "Healthy") });
+	m_states.insert({ State::HEALTHY, StateData(-1, "Healthy") });
 	m_states.insert({ State::TEMPERATURE_HIGH, StateData(1, "Temperature High") });
 	m_states.insert({ State::TEMPERATURE_LOW, StateData(1, "Temperature Low") });
 	m_states.insert({ State::TEMPERATURE_VERY_LOW, StateData(2, "Temperature Very Low") });
@@ -20,32 +20,32 @@ Magnetorquer::~Magnetorquer()
 
 void Magnetorquer::update_component_state()
 {
-	if ((m_temperature > -20) && (m_temperature < 0))
+	if ((m_temperature >= -20) && (m_temperature <= 0))
 	{
 		m_state = State::TEMPERATURE_LOW;
 		return;
 	}
-	if ((m_temperature > -30) && (m_temperature < -20))
+	if ((m_temperature >= -30) && (m_temperature <= -21))
 	{
 		m_state = State::TEMPERATURE_VERY_LOW;
 		return;
 	}
-	if ((m_temperature > 51) && (m_temperature < 64))
+	if ((m_temperature >= 51) && (m_temperature <= 64))
 	{
 		m_state = State::TEMPERATURE_HIGH;
 		return;
 	}
-	if ((m_temperature > 65) && (m_temperature < 75))
+	if ((m_temperature >= 65) && (m_temperature <= 75))
 	{
 		m_state = State::TEMPERATURE_VERY_HIGH;
 		return;
 	}
-	if (m_voltage < 5)
+	if (m_voltage - TOLERANCE < 4.8)
 	{
 		m_state = State::VOLTAGE_LOW;
 		return;
 	}
-	if (m_voltage > 5)
+	if (m_voltage +TOLERANCE > 5.1)
 	{
 		m_state = State::VOLTAGE_HIGH;
 		return;

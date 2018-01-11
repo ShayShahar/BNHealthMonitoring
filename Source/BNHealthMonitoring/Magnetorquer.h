@@ -6,8 +6,8 @@ class Magnetorquer : public Node
 {
 	/*
 	Magnetorquer ranges:
-	temp:	   ||ok: 1-50 ||low: -20 - 0||high: 51-64||very low: -30 - -20||very high:65 - 75||
-	voltage: ||ok: 5||low: <5||high: >%5||
+	temp:	   ||ok: 1-50 ||low: -20 - 0||high: 51-64||very low: -30 - -21||very high:65 - 75||
+	voltage: ||ok: 4.8 - 5.1||low: <4.8||high: >5.1||
 	*/
 
 private:	

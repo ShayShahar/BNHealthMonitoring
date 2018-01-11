@@ -4,7 +4,7 @@ ReactionWeel::ReactionWeel(string p_name) : Node(p_name)
 { 
 	m_reader = new CSVReader("CSVFiles//RWX.csv");
 
-	m_states.insert({ State::HEALTHY, StateData(-0.5, "Healthy") });
+	m_states.insert({ State::HEALTHY, StateData(-1, "Healthy") });
 	m_states.insert({ State::TEMPERATURE_HIGH, StateData(1, "Temperature High") });
 	m_states.insert({ State::TEMPERATURE_LOW, StateData(1, "Temperature Low") });
 	m_states.insert({ State::TEMPERATURE_VERY_LOW, StateData(2, "Temperature Very Low") });
@@ -20,32 +20,32 @@ ReactionWeel::~ReactionWeel()
 
 void ReactionWeel::update_component_state()
 {
-	if ((m_temperature > -19) && (m_temperature < 0))
+	if ((m_temperature >= -19) && (m_temperature <= 0))
 	{
 		m_state = State::TEMPERATURE_LOW;
 		return;
 	}
-	if ((m_temperature > -40) && (m_temperature < -20))
+	if ((m_temperature >= -40) && (m_temperature <= -20))
 	{
 		m_state = State::TEMPERATURE_VERY_LOW;
 		return;
 	}
-	if ((m_temperature > 50) && (m_temperature < 59))
+	if ((m_temperature >= 50) && (m_temperature <= 59))
 	{
 		m_state = State::TEMPERATURE_HIGH;
 		return;
 	}
-	if ((m_temperature > 60) && (m_temperature < 70))
+	if ((m_temperature >= 60) && (m_temperature <= 70))
 	{
 		m_state = State::TEMPERATURE_VERY_HIGH;
 		return;
 	}
-	if ((m_voltage > 3.4) && (m_voltage < 3.9))
+	if ((m_voltage >= 3.4) && (m_voltage <= 3.9))
 	{
 		m_state = State::VOLTAGE_LOW;
 		return;
 	}
-	if ((m_voltage > 6.1) && (m_voltage < 8))
+	if ((m_voltage >= 6.1) && (m_voltage <= 8))
 	{
 		m_state = State::VOLTAGE_HIGH;
 		return;

@@ -5,7 +5,7 @@ EPS::EPS(string p_name) : Node(p_name), m_temperature(0), m_voltage(0)
 {
 	m_reader = new CSVReader("CSVFiles//EPS.csv");
 
-	m_states.insert({ State::HEALTHY, StateData(-0.5, "Healthy") });
+	m_states.insert({ State::HEALTHY, StateData(-1, "Healthy") });
 	m_states.insert({ State::TEMPERATURE_HIGH, StateData(1, "Temperature High") });
 	m_states.insert({ State::TEMPERATURE_LOW, StateData(1, "Temperature Low") });
 	m_states.insert({ State::TEMPERATURE_VERY_LOW, StateData(2, "Temperature Very Low") });

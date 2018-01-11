@@ -4,7 +4,7 @@ GpsAntenna::GpsAntenna(string p_name) : Node(p_name), m_temperature(0), m_vibrat
 {
 	m_reader = new CSVReader("CSVFiles//Gps_Ant.csv");
 
-	m_states.insert({ State::HEALTHY, StateData(-0.5, "Healthy") });
+	m_states.insert({ State::HEALTHY, StateData(-1, "Healthy") });
 	m_states.insert({ State::TEMPERATURE_HIGH, StateData(1, "Temperature High") });
 	m_states.insert({ State::TEMPERATURE_LOW, StateData(1, "Temperature Low") });
 	m_states.insert({ State::TEMPERATURE_VERY_LOW, StateData(2, "Temperature Very Low") });
@@ -23,32 +23,32 @@ GpsAntenna::~GpsAntenna()
 void GpsAntenna::update_component_state()
 {
 
-	if ((m_temperature > -29) && (m_temperature < 0))
+	if ((m_temperature >= -29) && (m_temperature < 0))
 	{
 		m_state = State::TEMPERATURE_LOW;
 		return;
 	}
-	if ((m_temperature > -55) && (m_temperature < -30))
+	if ((m_temperature >= -55) && (m_temperature <= -30))
 	{
 		m_state = State::TEMPERATURE_VERY_LOW;
 		return;
 	}
-	if ((m_temperature > 61) && (m_temperature < 74))
+	if ((m_temperature >= 61) && (m_temperature <= 74))
 	{
 		m_state = State::TEMPERATURE_HIGH;
 		return;
 	}
-	if ((m_temperature > 75) && (m_temperature < 85))
+	if ((m_temperature >= 75) && (m_temperature <= 85))
 	{
 		m_state = State::TEMPERATURE_VERY_HIGH;
 		return;
 	}
-	if ((m_vibration > 26) && (m_vibration < 30))
+	if ((m_vibration >= 26) && (m_vibration <= 30))
 	{
 		m_state = State::VIBRATION_HIGH;
 		return;
 	}
-	if ((m_altitude > 60001) && (m_altitude < 70000))
+	if ((m_altitude > 60000) && (m_altitude <= 70000))
 	{
 		m_state = State::ALTITUDE_HIGH;
 		return;
