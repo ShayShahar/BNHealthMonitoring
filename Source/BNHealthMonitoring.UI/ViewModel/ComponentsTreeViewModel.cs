@@ -30,6 +30,8 @@ namespace BNHealthMonitoring.UI.ViewModel
         {
             RaisePropertyChanged(() => Components);
             RaisePropertyChanged(() => IsLoaded);
+            RaisePropertyChanged(() => Weight);
+            RaisePropertyChanged(() => State);
         }
 
         private void onSelectionChanged(Unit p_unit)
