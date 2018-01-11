@@ -23,7 +23,7 @@ private:
 	GpsReceiver ranges:
 	temp:	   ||ok: 1-70 ||low: -30 - 0||high: 71-80||very low: -40 - -31||very high: 81-85||
 	shock: ||ok: 0-30||high:31-40||
-	voltage: ||ok: 3.3||low: <3.3||high: >3.3||
+	voltage: ||ok: 3.2 - 3.4||low: <3.3||high: >3.3||
 	*/
 
 	const float max_temperature = 85; //celsius

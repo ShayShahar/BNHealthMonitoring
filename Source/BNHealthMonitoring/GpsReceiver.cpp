@@ -47,19 +47,19 @@ void GpsReceiver::update_component_state()
 		return;
 	}
 
-	if ((31 < m_shock + TOLERANCE) && (m_temperature - TOLERANCE < 40))
+	if ((31 < m_shock + TOLERANCE) && (m_shock - TOLERANCE < 40))
 	{
 		m_state = State::SHOCK_HIGH;
 		return;
 	}
 
-	if (m_voltage + TOLERANCE> 3.3)
+	if (m_voltage > 3.3)
 	{
 		m_state = State::VOLTAGE_HIGH;
 		return;
 	}
 
-	if (m_voltage - TOLERANCE < 3.3)
+	if (m_voltage  < 3.3)
 	{
 		m_state = State::VOLTAGE_LOW;
 		return;
