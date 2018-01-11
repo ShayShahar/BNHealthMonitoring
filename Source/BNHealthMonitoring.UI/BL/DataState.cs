@@ -214,7 +214,16 @@ namespace BNHealthMonitoring.UI.BL
 
         public void UpdateAlgorithmOutput(OutputMessage p_result)
         {
-
+            AddMessageToLog(
+                string.Format("Selected component: {0}, State: {1}", p_result.Component.Name, p_result.Component.State),
+                "CDM");
+        }
+        
+        public void UpdateLruResult(OutputMessage p_result)
+        {
+            AddMessageToLog(
+                string.Format("Selected component: {0}, State: {1}", p_result.Component.Name, p_result.Component.State),
+                "LRU");
         }
     }
 }

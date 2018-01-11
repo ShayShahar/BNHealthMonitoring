@@ -9,12 +9,14 @@
         mc:Ignorable="d"
         Title="Health Monitoring" Height="740" Width="1050"
         WindowTitleBrush="#252525"
+        Icon="/Resources/icon.png"
+                      ShowIconOnTitleBar="False"
         DataContext="{Binding Main, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen">
 
     <Window.Background>
         <SolidColorBrush Opacity="0.93" Color="#252525"/>
     </Window.Background>
-
+    
     <Window.Resources>
         <converters:StateToStringConverter x:Key="StateToStringConverter"/>
         
@@ -264,13 +266,13 @@
         </Grid>
 
         <Controls:FlyoutsControl Grid.Column="1">
-            <Controls:Flyout Header="Log" Position="Right" Width="400" IsOpen="{Binding IsLogViewOpen, Mode=TwoWay}">
+            <Controls:Flyout Header="Log" Position="Right" Width="500" IsOpen="{Binding IsLogViewOpen, Mode=TwoWay}">
                 <view:LogView></view:LogView>
             </Controls:Flyout>
         </Controls:FlyoutsControl>
 
         <Controls:FlyoutsControl Grid.Column="1">
-            <Controls:Flyout Header="About" Position="Right" Width="400" IsOpen="{Binding IsAboutViewOpen, Mode=TwoWay}">
+            <Controls:Flyout Header="About" Position="Right" Width="500" IsOpen="{Binding IsAboutViewOpen, Mode=TwoWay}">
                 <StackPanel Margin="10">
                     <TextBlock FontSize="20">Shay Shahar</TextBlock>
                     <TextBlock FontSize="20">Yakir Karandian</TextBlock>

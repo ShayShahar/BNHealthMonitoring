@@ -15,24 +15,25 @@
                             Foreground="Black"
                             Background="#252525">
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Name="Axis" Title="DELTA (m)">
-                    <!--<lvc:Axis.Sections>
-                        <lvc:AxisSection Value="140" SectionWidth="15" Label="Good">
+                <lvc:Axis Name="Axis" 
+                          Title="DELTA (m)" 
+                          MaxValue="20"
+                          MinRange="0" 
+                          MinValue="0">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator IsEnabled="false" Step="5"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                    <lvc:Axis.Sections>
+                        <lvc:AxisSection Value="5" 
+                                         SectionWidth=".2"
+                                         DataLabel="True"
+                                         DataLabelForeground="White"
+                                         Label="Warning">
                             <lvc:AxisSection.Fill>
-                                <SolidColorBrush Color="#222e31" Opacity="0.4"></SolidColorBrush>
+                                <SolidColorBrush Color="#FF0000" Opacity="1"></SolidColorBrush>
                             </lvc:AxisSection.Fill>
                         </lvc:AxisSection>
-                        <lvc:AxisSection Value="0" SectionWidth="140" Label="Bad">
-                            <lvc:AxisSection.Fill>
-                                <SolidColorBrush Color="#FF8585" Opacity=".2"></SolidColorBrush>
-                            </lvc:AxisSection.Fill>
-                        </lvc:AxisSection>                      
-                        <lvc:AxisSection Value="160" SectionWidth="200" Label="Bad">
-                            <lvc:AxisSection.Fill>
-                                <SolidColorBrush Color="#FF8585" Opacity=".2"></SolidColorBrush>
-                            </lvc:AxisSection.Fill>
-                        </lvc:AxisSection>
-                    </lvc:Axis.Sections>-->
+                    </lvc:Axis.Sections>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>

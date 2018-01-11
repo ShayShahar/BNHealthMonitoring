@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reactive.Linq;
 using System.Windows.Media;
 using BNHealthMonitoring.UI.BL;
@@ -13,12 +14,13 @@ namespace BNHealthMonitoring.UI.ViewModel
     {
         private readonly DataState m_dataState;
         private readonly SeriesCollection m_locationDelta;
+        private List<int> m_lables;
 
         public LocationChartViewModel()
         {
             m_dataState = DataState.GetInstance();
             m_dataState.LocationDeltaUpdated.ObserveOnDispatcher().Subscribe(onLocationUpdate);
-
+            Labels = new List<int>() {0, 5, 10};
             m_locationDelta = new SeriesCollection
             {
                 new LineSeries
@@ -51,5 +53,14 @@ namespace BNHealthMonitoring.UI.ViewModel
             get { return m_locationDelta; }
         }
 
+        public List<int> Labels
+        {
+            get { return m_lables; }
+            set
+            {
+                m_lables = value;
+                RaisePropertyChanged();
+            }
+        }
     }
 }

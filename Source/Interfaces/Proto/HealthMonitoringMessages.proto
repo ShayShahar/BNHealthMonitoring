@@ -5,6 +5,7 @@ enum OpCode
 	Components = 0;	
 	SatLocation = 1;
 	Result = 2;
+	LRU = 3;
 }
 
 message pLink
@@ -26,7 +27,7 @@ message CDMMessage{
 }
 
 message OutputMessage{
-	repeated pComponent path = 1;
+	required pComponent component = 1;
 }
 
 message LocationMessage

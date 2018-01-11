@@ -21,22 +21,20 @@ void Scheduler::init()
 	m_thread = new thread(&Scheduler::step, this);
 }
 
-void Scheduler::join() 
+void Scheduler::join()
 {
 	m_thread->join();
 
 }
 
-void Scheduler::populate_list_msg(list<Node*> p_path, HealthMonitoringMessages::DataUpdateMsg& p_msg)
+void Scheduler::create_component_msg(Node* p_component, HealthMonitoringMessages::DataUpdateMsg& p_msg, HealthMonitoringMessages::OpCode p_opCode)
 {
+	p_msg.set_opcode(p_opCode);
 	HealthMonitoringMessages::OutputMessage *resultMsgs = p_msg.mutable_result();
 
-	for (list<Node*>::iterator it = p_path.begin(); it != p_path.end(); ++it)
-	{
-		HealthMonitoringMessages::pComponent* addComponent = resultMsgs->add_path();
-		addComponent->set_name((*it)->name());
-		addComponent->set_state((*it)->states()[((*it)->state())].name());
-	}
+	HealthMonitoringMessages::pComponent* addComponent = resultMsgs->mutable_component();
+	addComponent->set_name(p_component->name());
+	addComponent->set_state(p_component->states()[(p_component->state())].name());
 }
 
 void Scheduler::step()
@@ -51,16 +49,19 @@ void Scheduler::step()
 		{
 			path.back()->update_component_state();
 			path.back()->propagate_state();
-			m_cdm->handle_lru(path.back());
+			Node* lru = m_cdm->handle_lru(path.back());
+
+			HealthMonitoringMessages::DataUpdateMsg msg;
+			create_component_msg(lru, msg, HealthMonitoringMessages::OpCode::LRU);
+			m_communication_handler->send(msg);
 		}
-			
+
 		HealthMonitoringMessages::DataUpdateMsg msg;
 		m_cdm->get_cdm_data(msg);
 		m_communication_handler->send(msg);
 
 		HealthMonitoringMessages::DataUpdateMsg result;
-		result.set_opcode(HealthMonitoringMessages::OpCode::Result);
-		populate_list_msg(path, result);
+		create_component_msg(path.back(), result, HealthMonitoringMessages::OpCode::Result);
 		m_communication_handler->send(result);
 
 		Sleep(5000);

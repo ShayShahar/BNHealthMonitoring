@@ -30,11 +30,11 @@ void ComponentsModel::create_dependencies()
 
 	m_nodes->push_back(magnetorquer);
 	m_nodes->push_back(rwx);
+	m_nodes->push_back(eps);
 	m_nodes->push_back(rwz);
 	m_nodes->push_back(rwy);
 	m_nodes->push_back(gps_receiver);
 	m_nodes->push_back(gps_antenna);
-	m_nodes->push_back(eps);
 	m_nodes->push_back(satellite);
 	m_nodes->push_back(acs);
 	m_nodes->push_back(gps);
@@ -65,7 +65,7 @@ void ComponentsModel::initialzie_cdm()
 	}
 }
 
-void ComponentsModel::handle_lru(Node* p_last)
+Node* ComponentsModel::handle_lru(Node* p_last)
 {
 	m_lru->erase(std::remove(m_lru->begin(), m_lru->end(), p_last), m_lru->end());
 	m_lru->push_back(p_last);
@@ -75,6 +75,8 @@ void ComponentsModel::handle_lru(Node* p_last)
 
 	first->update_component_state();
 	first->propagate_state();
+
+	return first;
 }
 
 ComponentsModel::ComponentsModel() : m_root(nullptr)

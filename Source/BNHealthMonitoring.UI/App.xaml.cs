@@ -17,18 +17,18 @@ namespace BNHealthMonitoring.UI
         {
             base.OnStartup(e);
 
-            m_module.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory();
-            m_module.StartInfo.FileName = "BNHealthMonitoring.exe";
-            // p.StartInfo.CreateNoWindow = true;
-            m_module.Start();
+            //m_module.StartInfo.WorkingDirectory = Directory.GetCurrentDirectory();
+            //m_module.StartInfo.FileName = "BNHealthMonitoring.exe";
+            //// p.StartInfo.CreateNoWindow = true;
+            //m_module.Start();
         }
 
         private void App_OnExit(object p_sender, ExitEventArgs p_e)
         {
             try
             {
-                MessageDispatcher.GetInsatnce().Close();
-                m_module.Kill();
+                MessageDispatcher.GetInsatnce().Dispose();
+                //m_module.Kill();
             }
             catch (Exception e)
             {

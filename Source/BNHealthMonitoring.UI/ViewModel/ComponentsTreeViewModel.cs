@@ -60,5 +60,6 @@ namespace BNHealthMonitoring.UI.ViewModel
         {
             get { return Components.Count > 0; }
         }
+
     }
 }

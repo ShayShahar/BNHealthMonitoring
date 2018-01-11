@@ -42,11 +42,12 @@ class DataUpdateMsg;
 enum OpCode {
   Components = 0,
   SatLocation = 1,
-  Result = 2
+  Result = 2,
+  LRU = 3
 };
 bool OpCode_IsValid(int value);
 const OpCode OpCode_MIN = Components;
-const OpCode OpCode_MAX = Result;
+const OpCode OpCode_MAX = LRU;
 const int OpCode_ARRAYSIZE = OpCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* OpCode_descriptor();
@@ -414,24 +415,22 @@ class OutputMessage : public ::google::protobuf::Message {
   
   // accessors -------------------------------------------------------
   
-  // repeated .HealthMonitoringMessages.pComponent path = 1;
-  inline int path_size() const;
-  inline void clear_path();
-  static const int kPathFieldNumber = 1;
-  inline const ::HealthMonitoringMessages::pComponent& path(int index) const;
-  inline ::HealthMonitoringMessages::pComponent* mutable_path(int index);
-  inline ::HealthMonitoringMessages::pComponent* add_path();
-  inline const ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pComponent >&
-      path() const;
-  inline ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pComponent >*
-      mutable_path();
+  // required .HealthMonitoringMessages.pComponent component = 1;
+  inline bool has_component() const;
+  inline void clear_component();
+  static const int kComponentFieldNumber = 1;
+  inline const ::HealthMonitoringMessages::pComponent& component() const;
+  inline ::HealthMonitoringMessages::pComponent* mutable_component();
+  inline ::HealthMonitoringMessages::pComponent* release_component();
   
   // @@protoc_insertion_point(class_scope:HealthMonitoringMessages.OutputMessage)
  private:
+  inline void set_has_component();
+  inline void clear_has_component();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
-  ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pComponent > path_;
+  ::HealthMonitoringMessages::pComponent* component_;
   
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -942,29 +941,33 @@ inline ::HealthMonitoringMessages::pComponent* CDMMessage::release_cdm_root() {
 
 // OutputMessage
 
-// repeated .HealthMonitoringMessages.pComponent path = 1;
-inline int OutputMessage::path_size() const {
-  return path_.size();
+// required .HealthMonitoringMessages.pComponent component = 1;
+inline bool OutputMessage::has_component() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void OutputMessage::clear_path() {
-  path_.Clear();
+inline void OutputMessage::set_has_component() {
+  _has_bits_[0] |= 0x00000001u;
 }
-inline const ::HealthMonitoringMessages::pComponent& OutputMessage::path(int index) const {
-  return path_.Get(index);
+inline void OutputMessage::clear_has_component() {
+  _has_bits_[0] &= ~0x00000001u;
 }
-inline ::HealthMonitoringMessages::pComponent* OutputMessage::mutable_path(int index) {
-  return path_.Mutable(index);
+inline void OutputMessage::clear_component() {
+  if (component_ != NULL) component_->::HealthMonitoringMessages::pComponent::Clear();
+  clear_has_component();
 }
-inline ::HealthMonitoringMessages::pComponent* OutputMessage::add_path() {
-  return path_.Add();
+inline const ::HealthMonitoringMessages::pComponent& OutputMessage::component() const {
+  return component_ != NULL ? *component_ : *default_instance_->component_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pComponent >&
-OutputMessage::path() const {
-  return path_;
+inline ::HealthMonitoringMessages::pComponent* OutputMessage::mutable_component() {
+  set_has_component();
+  if (component_ == NULL) component_ = new ::HealthMonitoringMessages::pComponent;
+  return component_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::HealthMonitoringMessages::pComponent >*
-OutputMessage::mutable_path() {
-  return &path_;
+inline ::HealthMonitoringMessages::pComponent* OutputMessage::release_component() {
+  clear_has_component();
+  ::HealthMonitoringMessages::pComponent* temp = component_;
+  component_ = NULL;
+  return temp;
 }
 
 // -------------------------------------------------------------------

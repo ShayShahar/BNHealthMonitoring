@@ -26,6 +26,6 @@ public:
 	Node* root();
 	void receive();
 	list<Node*>* components();
-	void handle_lru(Node* p_last);
+	Node* handle_lru(Node* p_last);
 };
 

@@ -222,6 +222,7 @@
     </Compile>
     <Compile Include="BL\DataState.cs" />
     <Compile Include="BL\MessageDispatcher.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverterB.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ComponentStateToVisibiliyConverter.cs" />
     <Compile Include="Converters\StateToStringConverter.cs" />
@@ -319,6 +320,9 @@
     <Resource Include="Resources\analyze.png" />
     <Resource Include="Resources\analyze_selected.png" />
     <Resource Include="Resources\enlarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
