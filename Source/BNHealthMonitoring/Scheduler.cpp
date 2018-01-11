@@ -51,6 +51,7 @@ void Scheduler::step()
 		{
 			path.back()->update_component_state();
 			path.back()->propagate_state();
+			m_cdm->handle_lru(path.back());
 		}
 			
 		HealthMonitoringMessages::DataUpdateMsg msg;

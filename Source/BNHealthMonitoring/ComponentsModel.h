@@ -10,6 +10,8 @@ class ComponentsModel
 private:
 	list<Node*>* m_nodes;
 	list<Node*>* m_components;
+	deque<Node*>* m_lru;
+
 	Node* m_root;
 
 	void create_dependencies();
@@ -21,9 +23,9 @@ public:
 	void init();
 	list<Node*> find_fault();
 	void get_cdm_data(HealthMonitoringMessages::DataUpdateMsg& p_msg);
-	void update();
 	Node* root();
 	void receive();
 	list<Node*>* components();
+	void handle_lru(Node* p_last);
 };
 

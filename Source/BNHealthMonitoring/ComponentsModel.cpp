@@ -52,6 +52,7 @@ void ComponentsModel::initialzie_cdm()
 		if (!(*it)->dependencies()->size())
 		{
 			m_components->push_back((*it));
+			m_lru->push_front((*it));
 			continue;
 		}
 
@@ -64,10 +65,23 @@ void ComponentsModel::initialzie_cdm()
 	}
 }
 
+void ComponentsModel::handle_lru(Node* p_last)
+{
+	m_lru->erase(std::remove(m_lru->begin(), m_lru->end(), p_last), m_lru->end());
+	m_lru->push_back(p_last);
+	Node* first = m_lru->front();
+    m_lru->pop_front();
+	m_lru->push_back(first);
+
+	first->update_component_state();
+	first->propagate_state();
+}
+
 ComponentsModel::ComponentsModel() : m_root(nullptr)
 {
 	m_nodes = new list<Node*>();
 	m_components = new list<Node*>();
+	m_lru = new deque<Node*>();
 }
 
 ComponentsModel::~ComponentsModel()
@@ -97,15 +111,6 @@ list<Node*> ComponentsModel::find_fault()
 	return path;
 }
 
-void ComponentsModel::update()
-{
-	for (list<Node*>::iterator it = m_components->begin(); it != m_components->end(); ++it)
-	{
-		(*it)->update_component_state();
-	}
-
-	m_root->update_component_state();
-}
 
 Node* ComponentsModel::root()
 {
