@@ -272,12 +272,8 @@
         </Controls:FlyoutsControl>
 
         <Controls:FlyoutsControl Grid.Column="1">
-            <Controls:Flyout Header="About" Position="Right" Width="500" IsOpen="{Binding IsAboutViewOpen, Mode=TwoWay}">
-                <StackPanel Margin="10">
-                    <TextBlock FontSize="20">Shay Shahar</TextBlock>
-                    <TextBlock FontSize="20">Yakir Karandian</TextBlock>
-                    <TextBlock FontSize="20">Ilya Zeldner</TextBlock>
-                </StackPanel>
+            <Controls:Flyout Header="About" Position="Right" Width="300" IsOpen="{Binding IsAboutViewOpen, Mode=TwoWay}">
+                <view:AboutView></view:AboutView>
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Grid>
