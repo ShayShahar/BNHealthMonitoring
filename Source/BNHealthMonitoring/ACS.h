@@ -1,8 +1,8 @@
 #pragma once
-#include "Node.h"
+#include "Component.h"
 #include "CSVReader.h"
 
-class ACS : public Node
+class ACS : public Component
 {
 private:
 	float m_voltage;

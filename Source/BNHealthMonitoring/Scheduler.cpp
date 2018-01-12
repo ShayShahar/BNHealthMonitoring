@@ -27,7 +27,7 @@ void Scheduler::join()
 
 }
 
-void Scheduler::create_component_msg(Node* p_component, HealthMonitoringMessages::DataUpdateMsg& p_msg, HealthMonitoringMessages::OpCode p_opCode)
+void Scheduler::create_component_msg(Component* p_component, HealthMonitoringMessages::DataUpdateMsg& p_msg, HealthMonitoringMessages::OpCode p_opCode)
 {
 	p_msg.set_opcode(p_opCode);
 	HealthMonitoringMessages::OutputMessage *resultMsgs = p_msg.mutable_result();
@@ -43,13 +43,13 @@ void Scheduler::step()
 	{
 		m_cdm->receive();
 
-		list<Node*> path = m_cdm->find_fault();
+		list<Component*> path = m_cdm->find_fault();
 
 		if (path.size() > 0)
 		{
 			path.back()->update_component_state();
 			path.back()->propagate_state();
-			Node* lru = m_cdm->handle_lru(path.back());
+			Component* lru = m_cdm->handle_lru(path.back());
 
 			HealthMonitoringMessages::DataUpdateMsg msg;
 			create_component_msg(lru, msg, HealthMonitoringMessages::OpCode::LRU);

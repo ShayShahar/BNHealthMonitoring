@@ -1,6 +1,6 @@
 #include "Satellite.h"
 
-Sattelite::Sattelite(string p_name) : Node(p_name)
+Sattelite::Sattelite(string p_name) : Component(p_name)
 {
 	m_reader = new CSVReader("CSVFiles//OutFileSatAlpha.csv");
 	m_communication_handler = CommunicationHandler::get_instance();

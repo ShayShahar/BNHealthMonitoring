@@ -1,18 +1,18 @@
 #pragma once
 
 #include "Externals.h"
-#include "Node.h"
+#include "Component.h"
 #include "../../Source/Interfaces/Messages/HealthMonitoringMessages.pb.h"
 #include "Components.h"
 
 class ComponentsModel
 {
 private:
-	list<Node*>* m_nodes;
-	list<Node*>* m_components;
-	deque<Node*>* m_lru;
+	list<Component*>* m_nodes;
+	list<Component*>* m_components;
+	deque<Component*>* m_lru;
 
-	Node* m_root;
+	Component* m_root;
 
 	void create_dependencies();
 	void initialzie_cdm();
@@ -21,11 +21,11 @@ public:
 	ComponentsModel();
 	~ComponentsModel();
 	void init();
-	list<Node*> find_fault();
+	list<Component*> find_fault();
 	void get_cdm_data(HealthMonitoringMessages::DataUpdateMsg& p_msg);
-	Node* root();
+	Component* root();
 	void receive();
-	list<Node*>* components();
-	Node* handle_lru(Node* p_last);
+	list<Component*>* components();
+	Component* handle_lru(Component* p_last);
 };
 

@@ -1,6 +1,6 @@
 #include "GpsAntenna.h"
 
-GpsAntenna::GpsAntenna(string p_name) : Node(p_name), m_temperature(0), m_vibration(0), m_altitude(0)
+GpsAntenna::GpsAntenna(string p_name) : Component(p_name), m_temperature(0), m_vibration(0), m_altitude(0)
 {
 	m_reader = new CSVReader("CSVFiles//Gps_Ant.csv");
 

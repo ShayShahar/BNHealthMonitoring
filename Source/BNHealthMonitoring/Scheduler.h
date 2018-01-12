@@ -13,7 +13,7 @@ private:
 
 private:
 	void step();
-	void Scheduler::create_component_msg(Node* p_component, HealthMonitoringMessages::DataUpdateMsg& p_msg, 
+	void Scheduler::create_component_msg(Component* p_component, HealthMonitoringMessages::DataUpdateMsg& p_msg, 
 		HealthMonitoringMessages::OpCode p_opCode);
 
 public:

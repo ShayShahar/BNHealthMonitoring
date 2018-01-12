@@ -1,6 +1,6 @@
 #include "GpsReceiver.h"
 
-GpsReceiver::GpsReceiver(string p_name) : Node(p_name), m_temperature(0), m_shock(0), m_voltage(0)
+GpsReceiver::GpsReceiver(string p_name) : Component(p_name), m_temperature(0), m_shock(0), m_voltage(0)
 {
 	m_reader = new CSVReader("CSVFiles//GpsReceiver.csv");
 

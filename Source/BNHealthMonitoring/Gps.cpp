@@ -1,6 +1,6 @@
 #include "Gps.h"
 
-Gps::Gps(string p_name) : Node(p_name)
+Gps::Gps(string p_name) : Component(p_name)
 {
 
 }

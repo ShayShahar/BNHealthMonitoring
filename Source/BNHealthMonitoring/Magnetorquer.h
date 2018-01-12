@@ -1,8 +1,8 @@
 #pragma once
-#include "Node.h"
+#include "Component.h"
 #include "CSVReader.h"
 
-class Magnetorquer : public Node
+class Magnetorquer : public Component
 {
 	/*
 	Magnetorquer ranges:

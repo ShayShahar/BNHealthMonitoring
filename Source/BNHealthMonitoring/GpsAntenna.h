@@ -1,8 +1,8 @@
 #pragma once
-#include "Node.h"
+#include "Component.h"
 #include "CSVReader.h"
 
-class GpsAntenna : public Node
+class GpsAntenna : public Component
 {
 	/*
 	antenna ranges:

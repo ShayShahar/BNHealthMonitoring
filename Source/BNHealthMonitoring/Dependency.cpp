@@ -1,6 +1,6 @@
 #include "Dependency.h"
 
-Dependency::Dependency(Node * p_child): m_probability(0)
+Dependency::Dependency(Component * p_child): m_probability(0)
 {
 	m_node = p_child;
 }
@@ -9,7 +9,7 @@ Dependency::~Dependency()
 {
 }
 
-Node * Dependency::child()
+Component * Dependency::child()
 {
 	return m_node;
 }

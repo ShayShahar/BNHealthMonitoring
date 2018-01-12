@@ -1,6 +1,6 @@
 #include "ACS.h"
 
-ACS::ACS(string p_name) : Node(p_name), m_voltage(0)
+ACS::ACS(string p_name) : Component(p_name), m_voltage(0)
 {}
 
 ACS::~ACS()
