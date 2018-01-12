@@ -182,7 +182,6 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClInclude Include="ReactionWeel.h" />
     <ClInclude Include="Satellite.h" />
     <ClInclude Include="Scheduler.h" />
-    <ClInclude Include="State.h" />
     <ClInclude Include="StateData.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
