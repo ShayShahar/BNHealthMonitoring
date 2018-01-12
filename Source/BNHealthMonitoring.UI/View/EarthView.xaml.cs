@@ -41,7 +41,17 @@ namespace BNHealthMonitoring.UI.View
 
         private async Task addPoint(Point3D p_point)
         {
-            EarthViewport.Children.Add(new SphereVisual3D() { Center = p_point, Radius = 80, Material = Materials.Red });
+            EarthViewport.Children.Add(new SphereVisual3D() { Center = p_point, Radius = 80, Material = Materials.Green });
+
+            if (EarthViewport.Children.Count > 3)
+            {
+                SphereVisual3D sv = EarthViewport.Children[EarthViewport.Children.Count - 2] as SphereVisual3D;
+
+                if (sv == null)
+                    return;
+
+                sv.Material = Materials.Red;
+            }
         }
 
         private void userControlLoaded(object p_sender, RoutedEventArgs p_e)
