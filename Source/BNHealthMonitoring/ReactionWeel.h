@@ -1,8 +1,8 @@
 #pragma once
-#include "Node.h"
+#include "Component.h"
 #include "CSVReader.h"
 
-class ReactionWeel : public Node
+class ReactionWeel : public Component
 {
 	/*
 	ReactionWeel ranges:

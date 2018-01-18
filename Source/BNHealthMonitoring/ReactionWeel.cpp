@@ -1,6 +1,6 @@
 #include "ReactionWeel.h"
 
-ReactionWeel::ReactionWeel(string p_name) : Node(p_name)
+ReactionWeel::ReactionWeel(string p_name) : Component(p_name)
 { 
 	m_reader = new CSVReader("CSVFiles//RWX.csv");
 

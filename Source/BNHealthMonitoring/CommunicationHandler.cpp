@@ -27,7 +27,9 @@ CommunicationHandler* CommunicationHandler::get_instance()
 
 void CommunicationHandler::init() const
 {
+	cout << "Establishing connection [127.0.0.1:49993]" << endl;
 	m_socket->bind("tcp://127.0.0.1:49993");
+	cout << "Connected." << endl;
 }
 
 void CommunicationHandler::close() const

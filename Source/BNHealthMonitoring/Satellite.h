@@ -1,9 +1,9 @@
 #pragma once
-#include "Node.h"
+#include "Component.h"
 #include "CommunicationHandler.h"
 #include "CSVReader.h"
 
-class Sattelite : public Node
+class Sattelite : public Component
 {
 private:
 	double m_x;

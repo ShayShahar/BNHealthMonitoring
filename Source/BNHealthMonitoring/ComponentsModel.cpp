@@ -30,11 +30,11 @@ void ComponentsModel::create_dependencies()
 
 	m_nodes->push_back(magnetorquer);
 	m_nodes->push_back(rwx);
+	m_nodes->push_back(eps);
 	m_nodes->push_back(rwz);
 	m_nodes->push_back(rwy);
 	m_nodes->push_back(gps_receiver);
 	m_nodes->push_back(gps_antenna);
-	m_nodes->push_back(eps);
 	m_nodes->push_back(satellite);
 	m_nodes->push_back(acs);
 	m_nodes->push_back(gps);
@@ -47,7 +47,7 @@ void ComponentsModel::create_dependencies()
 */
 void ComponentsModel::initialzie_cdm()
 {
-	for (list<Node*>::iterator it = m_nodes->begin(); it != m_nodes->end(); ++it)
+	for (list<Component*>::iterator it = m_nodes->begin(); it != m_nodes->end(); ++it)
 	{
 		if (!(*it)->dependencies()->size())
 		{
@@ -65,23 +65,25 @@ void ComponentsModel::initialzie_cdm()
 	}
 }
 
-void ComponentsModel::handle_lru(Node* p_last)
+Component* ComponentsModel::handle_lru(Component* p_last)
 {
 	m_lru->erase(std::remove(m_lru->begin(), m_lru->end(), p_last), m_lru->end());
 	m_lru->push_back(p_last);
-	Node* first = m_lru->front();
+	Component* first = m_lru->front();
     m_lru->pop_front();
 	m_lru->push_back(first);
 
 	first->update_component_state();
 	first->propagate_state();
+
+	return first;
 }
 
 ComponentsModel::ComponentsModel() : m_root(nullptr)
 {
-	m_nodes = new list<Node*>();
-	m_components = new list<Node*>();
-	m_lru = new deque<Node*>();
+	m_nodes = new list<Component*>();
+	m_components = new list<Component*>();
+	m_lru = new deque<Component*>();
 }
 
 ComponentsModel::~ComponentsModel()
@@ -95,11 +97,11 @@ void ComponentsModel::init()
 	initialzie_cdm();
 }
 
-list<Node*> ComponentsModel::find_fault()
+list<Component*> ComponentsModel::find_fault()
 {
-	list<Node*> path;
-	Node* temp = m_root;
-	Node* current;
+	list<Component*> path;
+	Component* temp = m_root;
+	Component* current;
 	path.push_back(temp);
 
 	while ((current = temp->get_next()) != nullptr)
@@ -112,14 +114,14 @@ list<Node*> ComponentsModel::find_fault()
 }
 
 
-Node* ComponentsModel::root()
+Component* ComponentsModel::root()
 {
 	return m_root;
 }
 
 void ComponentsModel::receive()
 {
-	for (list<Node*>::iterator it = m_components->begin(); it != m_components->end(); ++it)
+	for (list<Component*>::iterator it = m_components->begin(); it != m_components->end(); ++it)
 	{
 		(*it)->receive();
 	}
@@ -127,7 +129,7 @@ void ComponentsModel::receive()
 	m_root->receive();
 }
 
-list<Node*>* ComponentsModel::components()
+list<Component*>* ComponentsModel::components()
 {
 	return m_components;
 }

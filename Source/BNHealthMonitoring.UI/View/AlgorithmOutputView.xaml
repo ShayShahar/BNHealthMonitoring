@@ -21,7 +21,34 @@
                           FontWeight="DemiBold"/>
             </wpf:CartesianChart.AxisX>
             <wpf:CartesianChart.AxisY>
-                <wpf:Axis Title="WEIGHT"/>
+                <wpf:Axis Title="WEIGHT"
+                          MaxValue="20"
+                          MinRange="0" 
+                          MinValue="0">
+                    <wpf:Axis.Separator>
+                    <wpf:Separator IsEnabled="false" Step="5"></wpf:Separator>
+                </wpf:Axis.Separator>
+                <wpf:Axis.Sections>
+                        <wpf:AxisSection Value="8" 
+                                         SectionWidth=".1"
+                                         DataLabel="True"
+                                         DataLabelForeground="White"
+                                         Label="Warning">
+                            <wpf:AxisSection.Fill>
+                                <SolidColorBrush Color="#ffec13" Opacity="1"/>
+                            </wpf:AxisSection.Fill>
+                        </wpf:AxisSection>
+                        <wpf:AxisSection Value="15" 
+                                         SectionWidth=".1"
+                                         DataLabel="True"
+                                         DataLabelForeground="White"
+                                         Label="Error">
+                        <wpf:AxisSection.Fill>
+                            <SolidColorBrush Color="#FF0000" Opacity="1"/>
+                        </wpf:AxisSection.Fill>
+                    </wpf:AxisSection>
+                </wpf:Axis.Sections>
+                </wpf:Axis>
             </wpf:CartesianChart.AxisY>
         </wpf:CartesianChart>
     </Grid>

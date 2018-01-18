@@ -1,7 +1,7 @@
-#include "Node.h"
+#include "Component.h"
 #include "Utils.h"
 
-void Node::propagate_state()
+void Component::propagate_state()
 {
 	if (m_states.find(m_state) != m_states.end())
 	{
@@ -17,27 +17,27 @@ void Node::propagate_state()
 	}
 }
 
-void Node::add_dependency(Dependency p_dependency)
+void Component::add_dependency(Dependency p_dependency)
 {
 	m_dependencies->push_back(p_dependency);
 }
 
-void Node::add_parent(Node* p_parent)
+void Component::add_parent(Component* p_parent)
 {
 	m_parent = p_parent;
 }
 
-list<Dependency>* Node::dependencies()
+list<Dependency>* Component::dependencies()
 {
 	return m_dependencies;
 }
 
-double Node::weight()
+double Component::weight()
 {
 	return m_weight;
 }
 
-void Node::notify()
+void Component::notify()
 {
 	double weight = 0;
 
@@ -58,12 +58,12 @@ void Node::notify()
 		m_parent->notify();
 }
 
-map<int, StateData> Node::states()
+map<int, StateData> Component::states()
 {
 	return m_states;
 }
 
-Node::Node(string p_name)
+Component::Component(string p_name)
 {
 	m_dependencies = new list<Dependency>();
 	m_name = p_name;
@@ -71,13 +71,13 @@ Node::Node(string p_name)
 	m_weight = 1;
 }
 
-Node::~Node()
+Component::~Component()
 {
 }
 
-Node* Node::get_next()
+Component* Component::get_next()
 {
-	double rand = (double)(Utils::random() % 100) / 100;
+	double rand = (double)(Utils::random() % 101) / 100;
 	double begin = 0;
 	double end = 0;
 
@@ -86,7 +86,7 @@ Node* Node::get_next()
 		begin = end;
 		end = begin + it->probability();
 
-		if (rand > begin && rand <= end)
+		if (rand >= begin && rand <= end || it->child() == m_dependencies->back().child())
 		{
 			return it->child();
 		}
@@ -95,17 +95,17 @@ Node* Node::get_next()
 	return nullptr;
 }
 
-string Node::name()
+string Component::name()
 {
 	return m_name;
 }
 
-int Node::state()
+int Component::state()
 {
 	return m_state;
 }
 
-void Node::get_data(HealthMonitoringMessages::pComponent* p_msg)
+void Component::get_data(HealthMonitoringMessages::pComponent* p_msg)
 {
 	p_msg->set_name(m_name);
 

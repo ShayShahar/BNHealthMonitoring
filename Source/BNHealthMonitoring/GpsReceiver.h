@@ -1,8 +1,8 @@
 #pragma once
-#include "Node.h"
+#include "Component.h"
 #include "CSVReader.h"
 
-class GpsReceiver : public Node
+class GpsReceiver : public Component
 {
 private:
 	enum State

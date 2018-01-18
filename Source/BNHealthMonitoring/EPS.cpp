@@ -1,7 +1,7 @@
 #include "EPS.h"
 
 
-EPS::EPS(string p_name) : Node(p_name), m_temperature(0), m_voltage(0)
+EPS::EPS(string p_name) : Component(p_name), m_temperature(0), m_voltage(0)
 {
 	m_reader = new CSVReader("CSVFiles//EPS.csv");
 

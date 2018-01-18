@@ -1,6 +1,7 @@
 #pragma once
 #include "../../Source/Interfaces/Messages/HealthMonitoringMessages.pb.h"
 #include "zmq.hpp"
+#include "Externals.h"
 
 class CommunicationHandler
 {

@@ -181,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AlgorithmOutputView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -222,6 +226,7 @@
     </Compile>
     <Compile Include="BL\DataState.cs" />
     <Compile Include="BL\MessageDispatcher.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverterB.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ComponentStateToVisibiliyConverter.cs" />
     <Compile Include="Converters\StateToStringConverter.cs" />
@@ -234,6 +239,9 @@
     <Compile Include="ViewModel\LogViewModel.cs" />
     <Compile Include="ViewModel\ProbabilityTableViewModel.cs" />
     <Compile Include="ViewModel\LocationChartViewModel.cs" />
+    <Compile Include="View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AlgorithmOutputView.xaml.cs">
       <DependentUpon>AlgorithmOutputView.xaml</DependentUpon>
     </Compile>
@@ -319,6 +327,9 @@
     <Resource Include="Resources\analyze.png" />
     <Resource Include="Resources\analyze_selected.png" />
     <Resource Include="Resources\enlarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

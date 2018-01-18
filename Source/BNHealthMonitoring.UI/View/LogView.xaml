@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BNHealthMonitoring.UI.View"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="300" d:DesignWidth="500"
              DataContext="{Binding Log, Source={StaticResource Locator}}">
     <Grid>
         <DataGrid ItemsSource="{Binding Messages, Mode=OneWay}"
@@ -55,7 +55,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="SENDER"
-                                    Width="0.3*"
+                                    Width="0.2*"
                                     Binding="{Binding Sender, Mode=OneWay}">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">

@@ -1,9 +1,9 @@
 #pragma once
-#include "Node.h"
+#include "Component.h"
 #include "CommunicationHandler.h"
 #include "CSVReader.h"
 
-class Gps : public Node
+class Gps : public Component
 {
 public:
 

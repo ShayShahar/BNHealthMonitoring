@@ -30,20 +30,31 @@ namespace BNHealthMonitoring.UI.BL
 
         private void onMessageReceived(object p_sender, NetMQSocketEventArgs p_e)
         {
-            var msg = DataUpdateMsg.ParseFrom(p_e.Socket.ReceiveFrameBytes());
-
-            switch (msg.Opcode)
+            try
             {
-                case OpCode.Components:
-                    m_dataState.SetComponents(msg.Components);
-                    break;
-                case OpCode.SatLocation:
-                    m_dataState.UpdateLocation(msg.Location);
-                    break;
-                case OpCode.Result:
-                    m_dataState.UpdateAlgorithmOutput(msg.Result);
-                    break;
+                var msg = DataUpdateMsg.ParseFrom(p_e.Socket.ReceiveFrameBytes());
+
+                switch (msg.Opcode)
+                {
+                    case OpCode.Components:
+                        m_dataState.SetComponents(msg.Components);
+                        break;
+                    case OpCode.SatLocation:
+                        m_dataState.UpdateLocation(msg.Location);
+                        break;
+                    case OpCode.Result:
+                        m_dataState.UpdateAlgorithmOutput(msg.Result);
+                        break;
+                    case OpCode.LRU:
+                        m_dataState.UpdateLruResult(msg.Result);
+                        break;
+                }
             }
+            catch (Exception e)
+            {
+                //ignore socket exceptions
+            }
+
         }
 
         public static MessageDispatcher GetInsatnce()
@@ -64,7 +75,6 @@ namespace BNHealthMonitoring.UI.BL
         {
             Close();
             s_messageDispatcher = null;
-            m_context.Dispose();
         }
     }
 }

@@ -7,10 +7,10 @@
 
 const float TOLERANCE = 0.0001;
 
-class Node
+class Component
 {
 protected:
-	Node* m_parent;
+	Component* m_parent;
 	int m_state;
 	string m_name;
 	list<Dependency>* m_dependencies;
@@ -18,15 +18,15 @@ protected:
 	map<int, StateData> m_states;
 
 public:
-	Node(string p_name);
-	virtual ~Node();
-	Node* get_next();
+	Component(string p_name);
+	virtual ~Component();
+	Component* get_next();
 	string name();
 	int state();
 	void get_data(HealthMonitoringMessages::pComponent* p_msg);
 	void propagate_state();
 	void add_dependency(Dependency p_dependency);
-	void add_parent(Node* p_parent);
+	void add_parent(Component* p_parent);
 	list<Dependency>* dependencies();
 	double weight();
 	void notify();

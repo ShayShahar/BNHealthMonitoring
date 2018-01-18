@@ -158,7 +158,7 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClCompile Include="GpsAntenna.cpp" />
     <ClCompile Include="Magnetorquer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Component.cpp" />
     <ClCompile Include="ReactionWeel.cpp" />
     <ClCompile Include="Satellite.cpp" />
     <ClCompile Include="Scheduler.cpp" />
@@ -178,11 +178,10 @@ xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R 
     <ClInclude Include="GpsReceiver.h" />
     <ClInclude Include="GpsAntenna.h" />
     <ClInclude Include="Magnetorquer.h" />
-    <ClInclude Include="Node.h" />
+    <ClInclude Include="Component.h" />
     <ClInclude Include="ReactionWeel.h" />
     <ClInclude Include="Satellite.h" />
     <ClInclude Include="Scheduler.h" />
-    <ClInclude Include="State.h" />
     <ClInclude Include="StateData.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>

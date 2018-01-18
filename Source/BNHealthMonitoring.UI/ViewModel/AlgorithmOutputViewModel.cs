@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 using BNHealthMonitoring.UI.BL;
-using BNHealthMonitoring.UI.Model;
 using GalaSoft.MvvmLight;
 using LiveCharts;
 using LiveCharts.Configurations;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
-using LiveCharts.Wpf.Points;
 
 namespace BNHealthMonitoring.UI.ViewModel
 {
@@ -85,10 +81,8 @@ namespace BNHealthMonitoring.UI.ViewModel
                     ObservableValue value = val as ObservableValue;
                     if (value != null)
                         value.Value = component.Weight;
-
                 }
             }
         }
-
     }
 }

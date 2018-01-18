@@ -1,8 +1,8 @@
 #pragma once
-#include "Node.h"
+#include "Component.h"
 #include "CSVReader.h"
 
-class EPS : public Node
+class EPS : public Component
 {
 	/*
 	EPS ranges:
