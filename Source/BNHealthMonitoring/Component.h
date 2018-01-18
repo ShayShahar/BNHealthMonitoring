@@ -16,7 +16,7 @@ protected:
 	list<Dependency>* m_dependencies;
 	double m_weight;
 	map<int, StateData> m_states;
-
+	
 public:
 	Component(string p_name);
 	virtual ~Component();

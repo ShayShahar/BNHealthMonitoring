@@ -197,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\HelpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -250,6 +254,9 @@
     </Compile>
     <Compile Include="View\EarthView.xaml.cs">
       <DependentUpon>EarthView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HelpView.xaml.cs">
+      <DependentUpon>HelpView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -330,6 +337,29 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Help\delta.png" />
+    <Resource Include="Resources\Help\enlarge.png" />
+    <Resource Include="Resources\Help\fatal.png" />
+    <Resource Include="Resources\Help\prob.png" />
+    <Resource Include="Resources\Help\tree.png" />
+    <Resource Include="Resources\Help\warn.png" />
+    <Resource Include="Resources\Help\weights.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Help\leftweel.png" />
+    <Resource Include="Resources\Help\mouseleft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Help\earthzoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Help\mouseright.png" />
+    <Resource Include="Resources\Help\panningearth.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

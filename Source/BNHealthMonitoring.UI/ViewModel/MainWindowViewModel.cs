@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Reactive;
 using System.Reactive.Linq;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -6,16 +7,15 @@ using BNHealthMonitoring.UI.BL;
 using BNHealthMonitoring.UI.View;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using System;
-using System.Reactive;
 
 namespace BNHealthMonitoring.UI.ViewModel
 {
     public class MainWindowViewModel : ViewModelBase
     {
         private readonly DataState m_dataState;
-        private bool m_isLogViewOpen;
         private bool m_isAboutViewOpen;
+        private bool m_isHelpViewOpen;
+        private bool m_isLogViewOpen;
 
         public MainWindowViewModel()
         {
@@ -31,76 +31,32 @@ namespace BNHealthMonitoring.UI.ViewModel
 
         public ICommand LogViewCommand
         {
-            get
-            {
-                return new RelayCommand(onLogViewClick, () => true);
-            }
+            get { return new RelayCommand(onLogViewClick, () => true); }
+        }
+
+        public ICommand HelpViewCommand
+        {
+            get { return new RelayCommand(onHelpViewClick, () => true); }
         }
 
         public ICommand AboutViewCommand
         {
-            get
-            {
-                return new RelayCommand(onAboutViewClick, () => true);
-            }
+            get { return new RelayCommand(onAboutViewClick, () => true); }
         }
 
         public ICommand HomeViewCommand
         {
-            get
-            {
-                return new RelayCommand(onHomeViewClick, () => true);
-            }
+            get { return new RelayCommand(onHomeViewClick, () => true); }
         }
 
         public ICommand GlobeViewCommand
         {
-            get
-            {
-                return new RelayCommand(onGlobeViewClick, () => true);
-            }
-        }
-
-        private void onSelectedViewChanged(Unit p_unit)
-        {
-            RaisePropertyChanged(() => CurrentView);
-            RaisePropertyChanged(() => HomeViewImage);
-            RaisePropertyChanged(() => EarthViewImage);
-        }
-
-        private void onHomeViewClick()
-        {
-            IsAboutViewOpen = false;
-            IsLogViewOpen = false;
-
-            if (m_dataState.CurrentView is HomeView)
-                return;
-
-            m_dataState.CurrentView = new HomeView();
-        }
-
-
-        private void onGlobeViewClick()
-        {
-            IsAboutViewOpen = false;
-            IsLogViewOpen = false;
-
-            m_dataState.CurrentView = EarthView.GetInstance();
+            get { return new RelayCommand(onGlobeViewClick, () => true); }
         }
 
         public EarthView EarthView
         {
             get { return EarthView.GetInstance(); }
-        }
-
-        private void onAboutViewClick()
-        {
-            IsAboutViewOpen = !IsAboutViewOpen;
-        }
-
-        private void onLogViewClick()
-        {
-            IsLogViewOpen = !IsLogViewOpen;
         }
 
         public bool IsLogViewOpen
@@ -109,9 +65,31 @@ namespace BNHealthMonitoring.UI.ViewModel
             set
             {
                 m_isLogViewOpen = value;
+
                 if (m_isLogViewOpen)
+                {
                     IsAboutViewOpen = false;
+                    IsHelpViewOpen = false;
+                }
+
                 RaisePropertyChanged(() => IsLogViewOpen);
+            }
+        }
+
+        public bool IsHelpViewOpen
+        {
+            get { return m_isHelpViewOpen; }
+            set
+            {
+                m_isHelpViewOpen = value;
+
+                if (m_isHelpViewOpen)
+                {
+                    IsAboutViewOpen = false;
+                    IsLogViewOpen = false;
+                }
+
+                RaisePropertyChanged(() => IsHelpViewOpen);
             }
         }
 
@@ -121,8 +99,13 @@ namespace BNHealthMonitoring.UI.ViewModel
             set
             {
                 m_isAboutViewOpen = value;
+
                 if (m_isAboutViewOpen)
+                {
                     IsLogViewOpen = false;
+                    IsHelpViewOpen = false;
+                }
+
                 RaisePropertyChanged(() => IsAboutViewOpen);
             }
         }
@@ -149,5 +132,47 @@ namespace BNHealthMonitoring.UI.ViewModel
             }
         }
 
+        private void onHelpViewClick()
+        {
+            IsHelpViewOpen = !IsHelpViewOpen;
+        }
+
+        private void onSelectedViewChanged(Unit p_unit)
+        {
+            RaisePropertyChanged(() => CurrentView);
+            RaisePropertyChanged(() => HomeViewImage);
+            RaisePropertyChanged(() => EarthViewImage);
+        }
+
+        private void onHomeViewClick()
+        {
+            IsAboutViewOpen = false;
+            IsLogViewOpen = false;
+            IsHelpViewOpen = false;
+
+            if (m_dataState.CurrentView is HomeView)
+                return;
+
+            m_dataState.CurrentView = new HomeView();
+        }
+
+        private void onGlobeViewClick()
+        {
+            IsAboutViewOpen = false;
+            IsLogViewOpen = false;
+            IsHelpViewOpen = false;
+
+            m_dataState.CurrentView = EarthView.GetInstance();
+        }
+
+        private void onAboutViewClick()
+        {
+            IsAboutViewOpen = !IsAboutViewOpen;
+        }
+
+        private void onLogViewClick()
+        {
+            IsLogViewOpen = !IsLogViewOpen;
+        }
     }
 }
