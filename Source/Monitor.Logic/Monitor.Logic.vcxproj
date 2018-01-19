@@ -117,7 +117,7 @@
     </ProjectReference>
     <PreBuildEvent>
       <Command>xcopy ..\..\Workspace\packages\ZeroMQ4.0.4\bin\libzmq-v120-mt-gd-4_0_4.dll ..\..\Deployment /y
-xcopy ..\..\Source\BNHealthMonitoring\CSVFiles ..\..\Deployment\CSVFiles  /F /R /Y /I</Command>
+xcopy ..\..\Source\Monitor.Logic\CSVFiles ..\..\Deployment\CSVFiles  /F /R /Y /I</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
