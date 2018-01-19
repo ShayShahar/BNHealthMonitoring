@@ -361,6 +361,9 @@
     <Resource Include="Resources\Help\mouseright.png" />
     <Resource Include="Resources\Help\panningearth.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Help\up.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
