@@ -6,11 +6,17 @@ using Monitor.ViewApp.View;
 
 namespace Monitor.ViewApp.Converters
 {
+    /// <summary>
+    ///     StateToStringConverter is an helper class for WPF MVVM pattern.
+    ///     This converter converts between the current view's state to string.
+    /// </summary>
     public class StateToStringConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        #region Public Methods and Operators
+
+        public object Convert(object p_value, Type p_targetType, object p_parameter, CultureInfo p_culture)
         {
-            UserControl usr = (UserControl) value;
+            var usr = (UserControl) p_value;
 
             if (usr is HomeView)
                 return "Home";
@@ -21,9 +27,11 @@ namespace Monitor.ViewApp.Converters
             return "";
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object p_value, Type p_targetType, object p_parameter, CultureInfo p_culture)
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }

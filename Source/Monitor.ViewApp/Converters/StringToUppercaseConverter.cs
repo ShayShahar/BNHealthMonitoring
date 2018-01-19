@@ -4,15 +4,19 @@ using System.Windows.Data;
 
 namespace Monitor.ViewApp.Converters
 {
+    /// <summary>
+    ///     StringToUppercaseConverter is an helper class for WPF MVVM pattern.
+    ///     This converter switch all characters to UPPER-CASE
+    /// </summary>
     public class StringToUppercaseConverter :  IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object p_value, Type p_targetType, object p_parameter, CultureInfo p_culture)
         {
-            string s = (string) value;
+            string s = (string) p_value;
             return s?.ToUpper();
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object p_value, Type p_targetType, object p_parameter, CultureInfo p_culture)
         {
             throw new NotImplementedException();
         }

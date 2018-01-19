@@ -2,9 +2,10 @@
 !*.dll
 !*.lib
 Deployment/
-/Workspace/BNHealthMonitoring.VC
-Source/BNHealthMonitoring.UI/obj/
-Workspace/BNHealthMonitoring.VC.db
-Workspace/BNHealthMonitoring.VC.VC.opendb
+/Workspace/Satellite.Monitor.VC
+Source/Monitor.ViewApp/obj/
+Workspace/Satellite.Monitor.VC.db
+Workspace/Satellite.Monitor.VC.VC.opendb
 *.suo
 Workspace/.vs/BNHealthMonitoring/v15/
+Source/Monitor.ViewApp/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll

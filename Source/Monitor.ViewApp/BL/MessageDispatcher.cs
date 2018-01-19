@@ -6,13 +6,32 @@ using NetMQ.Sockets;
 
 namespace Monitor.ViewApp.BL
 {
+    /// <summary>
+    ///     MessageDispatcher class manage and handle the TCP/IP communication.
+    ///     In order to get an instance of MessageDispatcher you should call the "GetInstacne" method.
+    ///     Note that this class implemented the singleton pattern, which restricts the instantiation of the class to one
+    ///     object.
+    ///     The class implements the IDisposable interface which means that the Dispose method must be called before exiting 
+    ///     the application in order to gracefully close the sockets.
+    /// </summary>
     public class MessageDispatcher : IDisposable
     {
-        private readonly SubscriberSocket m_socket;
-        private readonly NetMQContext m_context;
-        private readonly Poller m_poller;
+        #region Static Fields
+
         private static MessageDispatcher s_messageDispatcher;
+
+        #endregion
+
+        #region Fields
+
+        private readonly NetMQContext m_context;
         private readonly DataState m_dataState;
+        private readonly Poller m_poller;
+        private readonly SubscriberSocket m_socket;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         private MessageDispatcher()
         {
@@ -27,6 +46,34 @@ namespace Monitor.ViewApp.BL
             m_socket.Connect("tcp://127.0.0.1:49993");
             m_socket.Subscribe("", Encoding.ASCII);
         }
+
+        #endregion
+
+        #region Public Methods and Operators
+
+        public static MessageDispatcher GetInsatnce()
+        {
+            if (s_messageDispatcher == null)
+                s_messageDispatcher = new MessageDispatcher();
+
+            return s_messageDispatcher;
+        }
+
+        public void Close()
+        {
+            m_poller.Cancel();
+            m_socket.Disconnect("tcp://127.0.0.1:49993");
+        }
+
+        public void Dispose()
+        {
+            Close();
+            s_messageDispatcher = null;
+        }
+
+        #endregion
+
+        #region Methods
 
         private void onMessageReceived(object p_sender, NetMQSocketEventArgs p_e)
         {
@@ -54,27 +101,8 @@ namespace Monitor.ViewApp.BL
             {
                 //ignore socket exceptions
             }
-
         }
 
-        public static MessageDispatcher GetInsatnce()
-        {
-            if (s_messageDispatcher == null)
-                s_messageDispatcher = new MessageDispatcher();
-
-            return s_messageDispatcher;
-        }
-
-        public void Close()
-        {
-            m_poller.Cancel();
-            m_socket.Disconnect("tcp://127.0.0.1:49993");
-        }
-
-        public void Dispose()
-        {
-            Close();
-            s_messageDispatcher = null;
-        }
+        #endregion
     }
 }

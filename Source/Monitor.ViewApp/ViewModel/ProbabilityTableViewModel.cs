@@ -8,9 +8,22 @@ using Monitor.ViewApp.Model;
 
 namespace Monitor.ViewApp.ViewModel
 {
+    /// <summary>
+    ///     ProbabilityTableViewModel class stores the logic & data of the ProbabilityTableView.
+    ///     The main goal of the ProbabilityTableViewModel is to link between the data which related to the selected component's dependencies
+    ///     to the UI components.
+    ///     This class inherits from Galasoft.MvvmLight.ViewModelBase which is the base class for any ViewModel in MVVM
+    ///     pattern.
+    /// </summary>
     public class ProbabilityTableViewModel : ViewModelBase
     {
+        #region Fields
+
         private readonly DataState m_dataState;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         public ProbabilityTableViewModel()
         {
@@ -19,18 +32,13 @@ namespace Monitor.ViewApp.ViewModel
             m_dataState.SelectedComponentChangedEvent.ObserveOnDispatcher().Subscribe(onSelectionChanged);
         }
 
-        public ObservableCollection<Link> SelectedComponent
-        {
-            get
-            {
-                return m_dataState.SelectedComponent?.Links;
-            }
-        }
+        #endregion
 
-        private void onComponentsUpdateEvent(Unit p_unit)
+        #region Public Properties
+
+        public bool IsDataAvailable
         {
-            RaisePropertyChanged(() => IsDataNotAvailable);
-            RaisePropertyChanged(() => SelectedComponent);
+            get { return !IsDataNotAvailable; }
         }
 
         public bool IsDataNotAvailable
@@ -42,9 +50,20 @@ namespace Monitor.ViewApp.ViewModel
                 return SelectedComponent.Count == 0;
             }
         }
-        public bool IsDataAvailable
+
+        public ObservableCollection<Link> SelectedComponent
         {
-            get { return !IsDataNotAvailable; }
+            get { return m_dataState.SelectedComponent?.Links; }
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void onComponentsUpdateEvent(Unit p_unit)
+        {
+            RaisePropertyChanged(() => IsDataNotAvailable);
+            RaisePropertyChanged(() => SelectedComponent);
         }
 
         private void onSelectionChanged(Unit p_unit)
@@ -53,5 +72,7 @@ namespace Monitor.ViewApp.ViewModel
             RaisePropertyChanged(() => IsDataNotAvailable);
             RaisePropertyChanged(() => IsDataAvailable);
         }
+
+        #endregion
     }
 }

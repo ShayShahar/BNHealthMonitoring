@@ -10,18 +10,30 @@ using Monitor.ViewApp.BL;
 
 namespace Monitor.ViewApp.ViewModel
 {
+    /// <summary>
+    ///     LocationChartViewModel class stores the logic & data of the LocationChartView.
+    ///     The main goal of the LocationChartViewModel is to link between the data which related to the satellite's location
+    ///     to the UI components.
+    ///     This class inherits from Galasoft.MvvmLight.ViewModelBase which is the base class for any ViewModel in MVVM
+    ///     pattern.
+    /// </summary>
     public class LocationChartViewModel : ViewModelBase
     {
+        #region Fields
+
         private readonly DataState m_dataState;
-        private readonly SeriesCollection m_locationDelta;
         private List<int> m_lables;
+
+        #endregion
+
+        #region Constructors and Destructors
 
         public LocationChartViewModel()
         {
             m_dataState = DataState.GetInstance();
             m_dataState.LocationDeltaUpdated.ObserveOnDispatcher().Subscribe(onLocationUpdate);
-            Labels = new List<int>() {0, 5, 10};
-            m_locationDelta = new SeriesCollection
+            Labels = new List<int> {0, 5, 10};
+            LocationData = new SeriesCollection
             {
                 new LineSeries
                 {
@@ -31,27 +43,16 @@ namespace Monitor.ViewApp.ViewModel
                     PointGeometrySize = 10,
                     StrokeThickness = 1.5,
                     LineSmoothness = 1,
-                    PointForeground = new SolidColorBrush(Color.FromRgb(155,89,182)) {Opacity = 0.7},
-                    Stroke = new SolidColorBrush(Color.FromRgb(155,89,182)) {Opacity = 1},
-                    Fill = new SolidColorBrush(Color.FromRgb(189,195,199)) {Opacity = 0.2}
+                    PointForeground = new SolidColorBrush(Color.FromRgb(155, 89, 182)) {Opacity = 0.7},
+                    Stroke = new SolidColorBrush(Color.FromRgb(155, 89, 182)) {Opacity = 1},
+                    Fill = new SolidColorBrush(Color.FromRgb(189, 195, 199)) {Opacity = 0.2}
                 }
             };
         }
 
-        private void onLocationUpdate(Tuple<int, double> p_data)
-        {
-            if (m_locationDelta[0].Values.Count == 5)
-            {
-                m_locationDelta[0].Values.RemoveAt(0);
-            }
-            
-            m_locationDelta[0].Values.Add(new ObservablePoint(p_data.Item1, Math.Round(p_data.Item2, 2)));
-            RaisePropertyChanged(() => LocationData);
-        }
-        public SeriesCollection LocationData
-        {
-            get { return m_locationDelta; }
-        }
+        #endregion
+
+        #region Public Properties
 
         public List<int> Labels
         {
@@ -62,5 +63,24 @@ namespace Monitor.ViewApp.ViewModel
                 RaisePropertyChanged();
             }
         }
+
+        public SeriesCollection LocationData { get; }
+
+        #endregion
+
+        #region Methods
+
+        private void onLocationUpdate(Tuple<int, double> p_data)
+        {
+            if (LocationData[0].Values.Count == 5)
+            {
+                LocationData[0].Values.RemoveAt(0);
+            }
+
+            LocationData[0].Values.Add(new ObservablePoint(p_data.Item1, Math.Round(p_data.Item2, 2)));
+            RaisePropertyChanged(() => LocationData);
+        }
+
+        #endregion
     }
 }

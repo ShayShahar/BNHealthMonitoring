@@ -8,6 +8,13 @@ using Monitor.ViewApp.Model;
 
 namespace Monitor.ViewApp.ViewModel
 {
+    /// <summary>
+    ///     ComponentsTreeViewModel class stores the logic & data of the ComponentsTreeView.
+    ///     The main goal of the ComponentsTreeViewModel is to link between the data which related to the components dependency model
+    ///     to the UI components.
+    ///     This class inherits from Galasoft.MvvmLight.ViewModelBase which is the base class for any ViewModel in MVVM pattern.
+    /// </summary>
+
     public class ComponentsTreeViewModel : ViewModelBase
     {
         private readonly DataState m_dataState;

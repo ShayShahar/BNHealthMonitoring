@@ -5,24 +5,32 @@ using System.Windows.Data;
 
 namespace Monitor.ViewApp.Converters
 {
+    /// <summary>
+    ///     ComponentStateToVisibiliyConverter is an helper class for WPF MVVM pattern.
+    ///     This converter converts between component's state to System.Visibillity.
+    /// </summary>
     public class ComponentStateToVisibiliyConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        #region Public Methods and Operators
+
+        public object Convert(object p_value, Type p_targetType, object p_parameter, CultureInfo p_culture)
         {
-            if (value == null)
+            if (p_value == null)
                 return Visibility.Collapsed;
 
-            string str = value.ToString();
+            var str = p_value.ToString();
 
-            if (str == String.Empty)
+            if (str == string.Empty)
                 return Visibility.Collapsed;
 
             return Visibility.Visible;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object p_value, Type p_targetType, object p_parameter, CultureInfo p_culture)
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }
