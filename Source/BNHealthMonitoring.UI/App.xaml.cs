@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Windows;
-using BNHealthMonitoring.UI.BL;
+using Monitor.ViewApp.BL;
 
-namespace BNHealthMonitoring.UI
+namespace Monitor.ViewApp
 {
     /// <summary>
     /// Interaction logic for App.xaml

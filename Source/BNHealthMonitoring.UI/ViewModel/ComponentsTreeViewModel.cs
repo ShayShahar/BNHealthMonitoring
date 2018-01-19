@@ -2,13 +2,11 @@
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Windows.Input;
-using BNHealthMonitoring.UI.BL;
-using BNHealthMonitoring.UI.Model;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using Monitor.ViewApp.BL;
+using Monitor.ViewApp.Model;
 
-namespace BNHealthMonitoring.UI.ViewModel
+namespace Monitor.ViewApp.ViewModel
 {
     public class ComponentsTreeViewModel : ViewModelBase
     {

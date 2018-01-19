@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BNHealthMonitoring", "..\Source\BNHealthMonitoring\BNHealthMonitoring.vcxproj", "{D00ED7BA-D0D5-43C7-A341-80C2616D7257}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BNHealthMonitoring.UI", "..\Source\BNHealthMonitoring.UI\BNHealthMonitoring.UI.csproj", "{DEC3CE4B-31CE-4898-A84E-13AA2C15A194}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor.ViewApp", "..\Source\BNHealthMonitoring.UI\Monitor.ViewApp.csproj", "{DEC3CE4B-31CE-4898-A84E-13AA2C15A194}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

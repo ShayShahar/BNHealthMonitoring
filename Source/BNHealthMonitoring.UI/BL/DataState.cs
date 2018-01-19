@@ -7,11 +7,10 @@ using System.Reactive.Subjects;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Media3D;
-using BNHealthMonitoring.UI.Model;
-using BNHealthMonitoring.UI.View;
 using HealthMonitoringMessages;
+using Monitor.ViewApp.Model;
 
-namespace BNHealthMonitoring.UI.BL
+namespace Monitor.ViewApp.BL
 {
     public class DataState
     {

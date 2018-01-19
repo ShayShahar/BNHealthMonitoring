@@ -5,10 +5,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Media3D;
-using BNHealthMonitoring.UI.BL;
 using HelixToolkit.Wpf;
+using Monitor.ViewApp.BL;
 
-namespace BNHealthMonitoring.UI.View
+namespace Monitor.ViewApp.View
 {
     public partial class EarthView : UserControl
     {

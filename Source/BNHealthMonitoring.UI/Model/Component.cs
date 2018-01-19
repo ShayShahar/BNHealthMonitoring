@@ -1,8 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using Caliburn.Micro;
-using HelixToolkit.Wpf;
 
-namespace BNHealthMonitoring.UI.Model
+namespace Monitor.ViewApp.Model
 {
     public class Component : PropertyChangedBase
     {

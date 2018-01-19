@@ -4,14 +4,14 @@ using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Windows.Media;
-using BNHealthMonitoring.UI.BL;
 using GalaSoft.MvvmLight;
 using LiveCharts;
 using LiveCharts.Configurations;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
+using Monitor.ViewApp.BL;
 
-namespace BNHealthMonitoring.UI.ViewModel
+namespace Monitor.ViewApp.ViewModel
 {
     public class AlgorithmOutputViewModel : ViewModelBase
     {

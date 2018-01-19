@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using BNHealthMonitoring.UI.BL;
-using BNHealthMonitoring.UI.View;
+﻿using System.Windows.Input;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.CommandWpf;
+using Monitor.ViewApp.BL;
+using Monitor.ViewApp.View;
 using RelayCommand = GalaSoft.MvvmLight.Command.RelayCommand;
 
-namespace BNHealthMonitoring.UI.ViewModel
+namespace Monitor.ViewApp.ViewModel
 {
     public class HomeViewModel : ViewModelBase
     {

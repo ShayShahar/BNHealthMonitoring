@@ -3,12 +3,12 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Windows.Controls;
 using System.Windows.Input;
-using BNHealthMonitoring.UI.BL;
-using BNHealthMonitoring.UI.View;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Monitor.ViewApp.BL;
+using Monitor.ViewApp.View;
 
-namespace BNHealthMonitoring.UI.ViewModel
+namespace Monitor.ViewApp.ViewModel
 {
     public class MainWindowViewModel : ViewModelBase
     {

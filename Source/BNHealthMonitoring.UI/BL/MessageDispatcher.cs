@@ -4,7 +4,7 @@ using HealthMonitoringMessages;
 using NetMQ;
 using NetMQ.Sockets;
 
-namespace BNHealthMonitoring.UI.BL
+namespace Monitor.ViewApp.BL
 {
     public class MessageDispatcher : IDisposable
     {

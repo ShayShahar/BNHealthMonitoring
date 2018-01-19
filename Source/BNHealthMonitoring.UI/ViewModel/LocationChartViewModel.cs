@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Reactive.Linq;
 using System.Windows.Media;
-using BNHealthMonitoring.UI.BL;
 using GalaSoft.MvvmLight;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
+using Monitor.ViewApp.BL;
 
-namespace BNHealthMonitoring.UI.ViewModel
+namespace Monitor.ViewApp.ViewModel
 {
     public class LocationChartViewModel : ViewModelBase
     {

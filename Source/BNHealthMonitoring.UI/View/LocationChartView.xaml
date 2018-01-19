@@ -1,10 +1,9 @@
-﻿<UserControl x:Class="BNHealthMonitoring.UI.View.LocationChartView"
+﻿<UserControl x:Class="Monitor.ViewApp.View.LocationChartView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BNHealthMonitoring.UI.View"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="950"
              DataContext="{Binding LocationChart, Source={StaticResource Locator}}">

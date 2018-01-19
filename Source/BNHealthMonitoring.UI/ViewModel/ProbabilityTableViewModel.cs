@@ -2,11 +2,11 @@
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
-using BNHealthMonitoring.UI.BL;
-using BNHealthMonitoring.UI.Model;
 using GalaSoft.MvvmLight;
+using Monitor.ViewApp.BL;
+using Monitor.ViewApp.Model;
 
-namespace BNHealthMonitoring.UI.ViewModel
+namespace Monitor.ViewApp.ViewModel
 {
     public class ProbabilityTableViewModel : ViewModelBase
     {

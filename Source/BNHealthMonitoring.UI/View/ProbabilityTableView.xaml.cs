@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace BNHealthMonitoring.UI.View
+namespace Monitor.ViewApp.View
 {
     /// <summary>
     /// Interaction logic for CptView.xaml
