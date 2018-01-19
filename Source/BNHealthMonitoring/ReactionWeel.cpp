@@ -2,7 +2,12 @@
 
 ReactionWeel::ReactionWeel(string p_name) : Component(p_name)
 { 
-	m_reader = new CSVReader("CSVFiles//RWX.csv");
+	if(p_name == "RWX")
+		m_reader = new CSVReader("CSVFiles//RWX.csv");
+	else if (p_name == "RWY")
+		m_reader = new CSVReader("CSVFiles//RWY.csv");
+	else
+		m_reader = new CSVReader("CSVFiles//RWZ.csv");
 
 	m_states.insert({ State::HEALTHY, StateData(-1, "Healthy") });
 	m_states.insert({ State::TEMPERATURE_HIGH, StateData(1, "Temperature High") });
