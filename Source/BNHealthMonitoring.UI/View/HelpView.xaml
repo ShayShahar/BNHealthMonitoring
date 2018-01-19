@@ -238,7 +238,7 @@
                            VerticalAlignment="Center"
                            TextWrapping="Wrap"
                            Height="auto"
-                           Text="The bottom chart displays the current weight of the components which calculated by the 'Health Monitoring Module'. When a component's state is normal, its color will be green. The yellow and the red lines show the warning and the error limits respectively."/>
+                           Text="The bottom chart displays the current weight of the components which calculated by the 'Health Monitoring Module'. When a component's weight is normal, its color will be green. The yellow and the red lines show the warning and error limits respectively."/>
                 <Image Grid.Row="10" 
                        Margin="0,10,0,0"
                        Source="../Resources/Help/weights.png"
@@ -291,7 +291,7 @@
                 <Image Grid.Row="2" 
                        Margin="0,10,0,0"
                        Source="../Resources/Help/leftweel.png"
-                       Width="100"/>                
+                       Width="70"/>                
                 <Image Grid.Row="3" 
                        Margin="0,10,0,0"
                        Source="../Resources/Help/earthzoom.png"
@@ -306,7 +306,7 @@
                 <Image Grid.Row="5" 
                        Margin="0,10,0,0"
                        Source="../Resources/Help/mouseright.png"
-                       Width="100"/>
+                       Width="70"/>
                 <Image Grid.Row="6" 
                        Margin="0,10,0,0"
                        Source="../Resources/Help/panningearth.png"
