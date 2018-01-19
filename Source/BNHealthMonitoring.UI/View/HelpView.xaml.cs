@@ -39,5 +39,10 @@ namespace BNHealthMonitoring.UI.View
         {
             Earth.BringIntoView();
         }
+
+        private void topButtonClick(object p_sender, RoutedEventArgs p_e)
+        {
+            Contents.BringIntoView();
+        }
     }
 }
