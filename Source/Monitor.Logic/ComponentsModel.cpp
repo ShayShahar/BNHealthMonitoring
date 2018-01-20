@@ -121,10 +121,13 @@ Component* ComponentsModel::root()
 
 void ComponentsModel::receive()
 {
+	Component *cp = nullptr;
+
 	try
 	{
 		for (list<Component*>::iterator it = m_components->begin(); it != m_components->end(); ++it)
 		{
+			cp = (*it);
 			(*it)->receive();
 		}
 
@@ -132,7 +135,8 @@ void ComponentsModel::receive()
 	}
 	catch (...)
 	{
-		cout << "an error occurred while try to get sensor data." << endl;
+		if (cp != nullptr)
+			cout << "an error occurred while try to get sensor data. component: '" << cp->name() << "'" << endl;
 	}
 
 }
