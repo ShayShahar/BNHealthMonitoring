@@ -43,7 +43,7 @@ void ComponentsModel::create_dependencies()
 }
 
 /*
-   initialize node probabilities & dephendencies
+   initialize node probabilities & dependencies
 */
 void ComponentsModel::initialzie_cdm()
 {

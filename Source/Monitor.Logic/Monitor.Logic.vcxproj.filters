@@ -40,9 +40,6 @@
     <ClCompile Include="ReactionWeel.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Satellite.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
     <ClCompile Include="GpsAntenna.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
@@ -54,6 +51,9 @@
     </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Satellite.cpp">
+      <Filter>Components\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
