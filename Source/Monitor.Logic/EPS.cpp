@@ -61,6 +61,6 @@ void EPS::receive()
 {
 	vector<string> data = m_reader->readLine();
 
-	m_temperature = stof(data[0]);
-	m_voltage = stof(data[1]);
+	m_temperature = stof(data.at(0));
+	m_voltage = stof(data.at(1));
 }

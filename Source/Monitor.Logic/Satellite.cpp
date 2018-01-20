@@ -20,16 +20,16 @@ void Sattelite::receive()
 {
 	vector<string> data = m_reader->readLine();
 
-	m_seconds = stoi(data[0]);
-	m_x = stod(data[3]);
-	m_y = stod(data[4]);
-	m_z = stod(data[5]);
+	m_seconds = stoi(data.at(0));
+	m_x = stod(data.at(3));
+	m_y = stod(data.at(4));
+	m_z = stod(data.at(5));
 
 	double delta = sqrt(pow(m_expected_x - m_x, 2) + pow(m_expected_y - m_y, 2) + pow(m_expected_z - m_z, 2));
 
-	double v_x = stod(data[6]);
-	double v_y = stod(data[7]);
-	double v_z = stod(data[8]);
+	double v_x = stod(data.at(6));
+	double v_y = stod(data.at(7));
+	double v_z = stod(data.at(8));
 
 	m_expected_x = m_x + 20 * v_x;
 	m_expected_y = m_y + 20 * v_y;

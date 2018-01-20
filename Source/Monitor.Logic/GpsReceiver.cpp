@@ -71,8 +71,8 @@ void GpsReceiver::receive()
 {
 	vector<string> data = m_reader->readLine();
 
-	m_temperature = stof(data[0]);
-	m_shock = stof(data[1]);
-	m_voltage = stof(data[2]);
+	m_temperature = stof(data.at(0));
+	m_shock = stof(data.at(1));
+	m_voltage = stof(data.at(2));
 }
 

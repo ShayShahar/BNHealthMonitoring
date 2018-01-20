@@ -121,12 +121,20 @@ Component* ComponentsModel::root()
 
 void ComponentsModel::receive()
 {
-	for (list<Component*>::iterator it = m_components->begin(); it != m_components->end(); ++it)
+	try
 	{
-		(*it)->receive();
+		for (list<Component*>::iterator it = m_components->begin(); it != m_components->end(); ++it)
+		{
+			(*it)->receive();
+		}
+
+		m_root->receive();
+	}
+	catch (...)
+	{
+		cout << "an error occurred while try to get sensor data." << endl;
 	}
 
-	m_root->receive();
 }
 
 list<Component*>* ComponentsModel::components()
