@@ -3,11 +3,15 @@
 #include "CommunicationHandler.h"
 #include "ComponentsModel.h"
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	The Scheduler class demonstrate the satellite's operation system cycle in order to run the module. 
+/// </summary>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class Scheduler
 {
 private:
-	std::thread* m_thread;
+	thread* m_thread;
 	CommunicationHandler* m_communication_handler;
 	ComponentsModel* m_cdm;
 

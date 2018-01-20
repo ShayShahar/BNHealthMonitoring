@@ -1,14 +1,16 @@
-﻿using System;
-using System.Text;
-using HealthMonitoringMessages;
-using NetMQ;
-using NetMQ.Sockets;
-
-namespace Monitor.ViewApp.BL
+﻿namespace Monitor.ViewApp.BL
 {
+    using System;
+    using System.Text;
+
+    using HealthMonitoringMessages;
+
+    using NetMQ;
+    using NetMQ.Sockets;
+
     /// <summary>
     ///     MessageDispatcher class manage and handle the TCP/IP communication.
-    ///     In order to get an instance of MessageDispatcher you should call the "GetInstacne" method.
+    ///     In order to get an instance of MessageDispatcher you should call the "GetInstance" method.
     ///     Note that this class implemented the singleton pattern, which restricts the instantiation of the class to one
     ///     object.
     ///     The class implements the IDisposable interface which means that the Dispose method must be called before exiting 

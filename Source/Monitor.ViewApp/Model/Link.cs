@@ -1,8 +1,9 @@
-﻿using System;
-using Caliburn.Micro;
-
-namespace Monitor.ViewApp.Model
+﻿namespace Monitor.ViewApp.Model
 {
+    using System;
+
+    using Caliburn.Micro;
+
     /// <summary>
     ///     Link class stores the component's dependencies.
     ///     The class inherits from PropertyChangedBase -> Caliburn.Micro helper which implements INotifyPropertyChanged
@@ -19,11 +20,15 @@ namespace Monitor.ViewApp.Model
         #region Public Properties
 
         public string ChildrenName { get; set; }
+
         public string DestenationName { get; set; }
 
         public double Probability
         {
-            get { return m_probability; }
+            get
+            {
+                return m_probability;
+            }
             set
             {
                 m_probability = Math.Round(value, 2);
@@ -32,6 +37,7 @@ namespace Monitor.ViewApp.Model
         }
 
         public Component ResponsibleComponent { get; set; }
+
         public string State { get; set; }
 
         #endregion

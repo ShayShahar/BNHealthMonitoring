@@ -255,7 +255,7 @@
                            VerticalAlignment="Center"
                            TextWrapping="Wrap"
                            Height="auto"
-                           Text="By clicking on the component's name, you can view the current probabilities of the component's available transitions. The updated weight is pinned to the buttom of the tree."/>
+                           Text="By clicking on the component's name, you can view the current probabilities of the component's available transitions. The updated weight is pinned to the bottom of the tree."/>
                     <Image Grid.Row="5" 
                        Margin="0,10,0,0"
                        Source="../Resources/Help/prob.png"
@@ -266,7 +266,7 @@
                            VerticalAlignment="Center"
                            TextWrapping="Wrap"
                            Height="auto"
-                           Text="The satellite location monitor controls the satellite's orbit. The graph displays the difference between the expected to the actual location. The purple line displays the calculated delta at a spefic time t (sec). If the differnce exceecds the 5m limit, it warns the user by changing the line color to red."/>
+                           Text="The satellite location monitor controls the satellite's orbit. The graph displays the difference between the expected to the actual location. The purple line displays the calculated delta at a specific time t (sec). If the difference exceeds the 5m limit, it warns the user by changing the line color to red."/>
                     <Image Grid.Row="7" 
                        Margin="0,10,0,0"
                        Source="../Resources/Help/delta.png"
@@ -337,7 +337,7 @@
                            VerticalAlignment="Center"
                            TextWrapping="Wrap"
                            Height="auto"
-                           Text="In order to zoom-in or out you need to press the left mouse button and rotate the weel up or down respectively."/>
+                           Text="In order to zoom-in or out you need to press the left mouse button and rotate the wheel up or down respectively."/>
                     <Image Grid.Row="2" 
                        Margin="0,10,0,0"
                        Source="../Resources/Help/leftweel.png"

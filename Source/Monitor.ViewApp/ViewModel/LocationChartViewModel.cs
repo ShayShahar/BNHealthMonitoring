@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reactive.Linq;
-using System.Windows.Media;
-using GalaSoft.MvvmLight;
-using LiveCharts;
-using LiveCharts.Defaults;
-using LiveCharts.Wpf;
-using Monitor.ViewApp.BL;
-
-namespace Monitor.ViewApp.ViewModel
+﻿namespace Monitor.ViewApp.ViewModel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Reactive.Linq;
+    using System.Windows.Media;
+
+    using BL;
+
+    using GalaSoft.MvvmLight;
+
+    using LiveCharts;
+    using LiveCharts.Defaults;
+    using LiveCharts.Wpf;
+
     /// <summary>
     ///     LocationChartViewModel class stores the logic & data of the LocationChartView.
     ///     The main goal of the LocationChartViewModel is to link between the data which related to the satellite's location

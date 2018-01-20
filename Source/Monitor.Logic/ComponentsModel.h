@@ -2,8 +2,14 @@
 
 #include "Externals.h"
 #include "Component.h"
-#include "../../Source/Interfaces/Messages/HealthMonitoringMessages.pb.h"
 #include "Components.h"
+#include "../../Source/Interfaces/Messages/HealthMonitoringMessages.pb.h"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	ComponentsModel represents the 'Components Dependency Model' (CDM).
+/// 			This class exposes the CDM API to the user.
+/// </summary>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class ComponentsModel
 {

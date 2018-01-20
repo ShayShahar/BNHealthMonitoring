@@ -3,6 +3,14 @@
 #include "zmq.hpp"
 #include "Externals.h"
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	A communication handler class which manages the application's sockets.
+/// 		    In order to get an instance of CommunicationHandler you should call the "get_instance" method.
+///			    Note that this class implemented the singleton pattern, which restricts the 
+///             instantiation  of the class to one object. 
+/// </summary>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 class CommunicationHandler
 {
 private:

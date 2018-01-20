@@ -13,7 +13,7 @@
         <converters:StringToUppercaseConverter x:Key="StringToUppercaseConverter" />
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <converters:BooleanToVisibilityConverterB x:Key="BooleanToVisibilityConverterB" />
-        <converters:ComponentStateToVisibiliyConverter x:Key="ComponentStateToVisibiliyConverter" />
+        <converters:ComponentStateToVisibilityConverter x:Key="ComponentStateToVisibiliyConverter" />
 
         <ResourceDictionary x:Key="ResourceDictionary">
             <Style x:Key="TreeViewItemFocusVisual">

@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Reactive;
-using System.Reactive.Linq;
-using GalaSoft.MvvmLight;
-using Monitor.ViewApp.BL;
-using Monitor.ViewApp.Model;
-
-namespace Monitor.ViewApp.ViewModel
+﻿namespace Monitor.ViewApp.ViewModel
 {
+    using System;
+    using System.Collections.ObjectModel;
+    using System.Reactive;
+    using System.Reactive.Linq;
+
+    using BL;
+
+    using GalaSoft.MvvmLight;
+
+    using Model;
+
     /// <summary>
     ///     LogViewModel class stores the logic & data of the LogView.
     ///     The main goal of the LogViewModel is to link between the messages list to the UI components.

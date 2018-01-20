@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reactive;
-using System.Reactive.Subjects;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media.Media3D;
-using HealthMonitoringMessages;
-using Monitor.ViewApp.Model;
-
-namespace Monitor.ViewApp.BL
+﻿namespace Monitor.ViewApp.BL
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Reactive;
+    using System.Reactive.Subjects;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Media.Media3D;
+
+    using HealthMonitoringMessages;
+
+    using Monitor.ViewApp.Model;
+
     /// <summary>
     ///     DataState class stores all the logic & user data.
-    ///     In order to get an instance of DataState you should call the "GetInstacne" method.
+    ///     In order to get an instance of DataState you should call the "GetInstance" method.
     ///     Note that this class implemented the singleton pattern, which restricts the instantiation of the class to one
     ///     object.
     /// </summary>

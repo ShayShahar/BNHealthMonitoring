@@ -24,6 +24,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -232,7 +234,7 @@
     <Compile Include="BL\MessageDispatcher.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverterB.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\ComponentStateToVisibiliyConverter.cs" />
+    <Compile Include="Converters\ComponentStateToVisibilityConverter.cs" />
     <Compile Include="Converters\StateToStringConverter.cs" />
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
     <Compile Include="Model\Link.cs" />

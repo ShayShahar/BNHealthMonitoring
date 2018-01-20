@@ -7,6 +7,14 @@
 
 const float TOLERANCE = 0.0001;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	The component class contains the logic for each reflected component in the 'Components 
+///				Dependency Model' tree.
+///				Note that 'Component' is an abstract class. Each implemented component must inherit 'Component'
+///				and implement the receive and update methods according to the component's unique data.
+/// </summary>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 class Component
 {
 protected:

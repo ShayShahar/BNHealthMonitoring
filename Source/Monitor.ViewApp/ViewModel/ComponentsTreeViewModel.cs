@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Reactive;
-using System.Reactive.Linq;
-using GalaSoft.MvvmLight;
-using Monitor.ViewApp.BL;
-using Monitor.ViewApp.Model;
-
-namespace Monitor.ViewApp.ViewModel
+﻿namespace Monitor.ViewApp.ViewModel
 {
+    using System;
+    using System.Collections.ObjectModel;
+    using System.Reactive;
+    using System.Reactive.Linq;
+    using GalaSoft.MvvmLight;
+    using BL;
+    using Model;
+
     /// <summary>
     ///     ComponentsTreeViewModel class stores the logic & data of the ComponentsTreeView.
     ///     The main goal of the ComponentsTreeViewModel is to link between the data which related to the components dependency model

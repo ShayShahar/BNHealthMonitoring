@@ -1,8 +1,9 @@
-using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
-
 namespace Monitor.ViewApp.ViewModel
 {
+    using GalaSoft.MvvmLight.Ioc;
+
+    using Microsoft.Practices.ServiceLocation;
+
     /// <summary>
     /// This class contains static references to all the view models in the
     /// application and provides an entry point for the bindings.
@@ -31,6 +32,7 @@ namespace Monitor.ViewApp.ViewModel
                 return ServiceLocator.Current.GetInstance<MainWindowViewModel>();
             }
         }
+
         public ProbabilityTableViewModel Cpt
         {
             get

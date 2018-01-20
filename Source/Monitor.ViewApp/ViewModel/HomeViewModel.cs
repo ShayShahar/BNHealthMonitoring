@@ -1,11 +1,13 @@
-﻿using System.Windows.Input;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using Monitor.ViewApp.BL;
-using Monitor.ViewApp.View;
-
-namespace Monitor.ViewApp.ViewModel
+﻿namespace Monitor.ViewApp.ViewModel
 {
+    using System.Windows.Input;
+
+    using GalaSoft.MvvmLight;
+    using GalaSoft.MvvmLight.Command;
+
+    using Monitor.ViewApp.BL;
+    using Monitor.ViewApp.View;
+
     /// <summary>
     ///     HomeViewModel class stores the logic & data of the HomeView.
     ///     The main goal of the HomeViewModel is to handle user operations on the main program view.

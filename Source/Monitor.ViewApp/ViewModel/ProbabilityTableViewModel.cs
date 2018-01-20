@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Reactive;
-using System.Reactive.Linq;
-using GalaSoft.MvvmLight;
-using Monitor.ViewApp.BL;
-using Monitor.ViewApp.Model;
-
-namespace Monitor.ViewApp.ViewModel
+﻿namespace Monitor.ViewApp.ViewModel
 {
+    using System;
+    using System.Collections.ObjectModel;
+    using System.Reactive;
+    using System.Reactive.Linq;
+    using GalaSoft.MvvmLight;
+    using Monitor.ViewApp.BL;
+    using Monitor.ViewApp.Model;
+
+
     /// <summary>
     ///     ProbabilityTableViewModel class stores the logic & data of the ProbabilityTableView.
     ///     The main goal of the ProbabilityTableViewModel is to link between the data which related to the selected component's dependencies

@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive;
-using System.Reactive.Linq;
-using System.Windows.Media;
-using GalaSoft.MvvmLight;
-using LiveCharts;
-using LiveCharts.Configurations;
-using LiveCharts.Defaults;
-using LiveCharts.Wpf;
-using Monitor.ViewApp.BL;
-
-namespace Monitor.ViewApp.ViewModel
+﻿namespace Monitor.ViewApp.ViewModel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reactive;
+    using System.Reactive.Linq;
+    using System.Windows.Media;
+
+    using BL;
+
+    using GalaSoft.MvvmLight;
+
+    using LiveCharts;
+    using LiveCharts.Configurations;
+    using LiveCharts.Defaults;
+    using LiveCharts.Wpf;
+
     /// <summary>
     ///     AlgorithmOutputViewModel class stores the logic & data of the AlgorithmOutputView.
     ///     The main goal of the AlgorithmOutputViewModel is to link between the data which related to the health monitoring algorithm output
@@ -32,7 +35,7 @@ namespace Monitor.ViewApp.ViewModel
         public AlgorithmOutputViewModel()
         {
             m_dataState = DataState.GetInstance();
-            m_dataState.ComponentsUpdate.ObserveOnDispatcher().Subscribe(onComponentsUpdateEvent);
+            m_dataState.ComponentsUpdate.ObserveOnDispatcher().Subscribe(this.OnComponentsUpdateEvent);
 
             DangerBrush = new SolidColorBrush(Color.FromRgb(238, 83, 80));
             WarningBrush = new SolidColorBrush(Color.FromRgb(241, 196, 15));
@@ -66,6 +69,7 @@ namespace Monitor.ViewApp.ViewModel
         #region Public Properties
 
         public Dictionary<string, int> Components { get; set; }
+
         public Brush DangerBrush { get; set; }
 
         public List<string> Keys
@@ -74,16 +78,18 @@ namespace Monitor.ViewApp.ViewModel
         }
 
         public CartesianMapper<ObservableValue> Mapper { get; set; }
+
         public Brush OkBrush { get; set; }
 
         public SeriesCollection Results { get; set; }
+
         public Brush WarningBrush { get; set; }
 
         #endregion
 
         #region Methods
 
-        private void onComponentsUpdateEvent(Unit p_unit)
+        private void OnComponentsUpdateEvent(Unit p_unit)
         {
             var components = m_dataState.ComponentsList.Where(p_c => p_c.Children.Count == 0).ToList();
             if (!components.Any())

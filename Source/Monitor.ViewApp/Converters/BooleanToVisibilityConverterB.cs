@@ -1,13 +1,13 @@
-﻿using System;
-using System.Globalization;
-using System.Windows;
-using System.Windows.Data;
-
-namespace Monitor.ViewApp.Converters
+﻿namespace Monitor.ViewApp.Converters
 {
+    using System;
+    using System.Globalization;
+    using System.Windows;
+    using System.Windows.Data;
+
     /// <summary>
     ///     BooleanToVisibilityConverterB is an helper class for WPF MVVM pattern.
-    ///     This converter converts between boolean data to System.Visibillity.
+    ///     This converter converts between boolean data to System.Visibility.
     /// </summary>
     public class BooleanToVisibilityConverterB : IValueConverter
     {
@@ -16,12 +16,16 @@ namespace Monitor.ViewApp.Converters
         public object Convert(object p_value, Type p_targetType, object p_parameter, CultureInfo p_culture)
         {
             if (p_value == null)
+            {
                 return Visibility.Collapsed;
+            }
 
             var val = (bool) p_value;
 
             if (val)
+            {
                 return Visibility.Visible;
+            }
 
             return Visibility.Collapsed;
         }

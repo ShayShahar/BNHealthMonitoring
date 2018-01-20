@@ -1,15 +1,18 @@
-﻿using System;
-using System.Reactive;
-using System.Reactive.Linq;
-using System.Windows.Controls;
-using System.Windows.Input;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using Monitor.ViewApp.BL;
-using Monitor.ViewApp.View;
-
-namespace Monitor.ViewApp.ViewModel
+﻿namespace Monitor.ViewApp.ViewModel
 {
+    using System;
+    using System.Reactive;
+    using System.Reactive.Linq;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+
+    using BL;
+
+    using GalaSoft.MvvmLight;
+    using GalaSoft.MvvmLight.Command;
+
+    using View;
+
     /// <summary>
     ///     MainWindowViewModel class stores the logic & data of the MainWindowView.
     ///     The main goal of the MainWindowViewModel is to link between the user's selected view to the UI components.
@@ -22,8 +25,11 @@ namespace Monitor.ViewApp.ViewModel
         #region Fields
 
         private readonly DataState m_dataState;
+
         private bool m_isAboutViewOpen;
+
         private bool m_isHelpViewOpen;
+
         private bool m_isLogViewOpen;
 
         #endregion
@@ -43,17 +49,26 @@ namespace Monitor.ViewApp.ViewModel
 
         public ICommand AboutViewCommand
         {
-            get { return new RelayCommand(onAboutViewClick, () => true); }
+            get
+            {
+                return new RelayCommand(onAboutViewClick, () => true);
+            }
         }
 
         public UserControl CurrentView
         {
-            get { return m_dataState.CurrentView; }
+            get
+            {
+                return m_dataState.CurrentView;
+            }
         }
 
         public EarthView EarthView
         {
-            get { return EarthView.GetInstance(); }
+            get
+            {
+                return EarthView.GetInstance();
+            }
         }
 
         public string EarthViewImage
@@ -61,7 +76,9 @@ namespace Monitor.ViewApp.ViewModel
             get
             {
                 if (m_dataState.CurrentView is EarthView)
+                {
                     return @"/Resources/globe_selected.png";
+                }
 
                 return @"/Resources/globe.png";
             }
@@ -69,17 +86,26 @@ namespace Monitor.ViewApp.ViewModel
 
         public ICommand GlobeViewCommand
         {
-            get { return new RelayCommand(onGlobeViewClick, () => true); }
+            get
+            {
+                return new RelayCommand(onGlobeViewClick, () => true);
+            }
         }
 
         public ICommand HelpViewCommand
         {
-            get { return new RelayCommand(onHelpViewClick, () => true); }
+            get
+            {
+                return new RelayCommand(onHelpViewClick, () => true);
+            }
         }
 
         public ICommand HomeViewCommand
         {
-            get { return new RelayCommand(onHomeViewClick, () => true); }
+            get
+            {
+                return new RelayCommand(onHomeViewClick, () => true);
+            }
         }
 
         public string HomeViewImage
@@ -87,7 +113,9 @@ namespace Monitor.ViewApp.ViewModel
             get
             {
                 if (m_dataState.CurrentView is HomeView)
+                {
                     return @"/Resources/home_selected.png";
+                }
 
                 return @"/Resources/home.png";
             }
@@ -95,7 +123,11 @@ namespace Monitor.ViewApp.ViewModel
 
         public bool IsAboutViewOpen
         {
-            get { return m_isAboutViewOpen; }
+            get
+            {
+                return m_isAboutViewOpen;
+            }
+
             set
             {
                 m_isAboutViewOpen = value;
@@ -112,7 +144,11 @@ namespace Monitor.ViewApp.ViewModel
 
         public bool IsHelpViewOpen
         {
-            get { return m_isHelpViewOpen; }
+            get
+            {
+                return m_isHelpViewOpen;
+            }
+
             set
             {
                 m_isHelpViewOpen = value;
@@ -129,7 +165,11 @@ namespace Monitor.ViewApp.ViewModel
 
         public bool IsLogViewOpen
         {
-            get { return m_isLogViewOpen; }
+            get
+            {
+                return m_isLogViewOpen;
+            }
+
             set
             {
                 m_isLogViewOpen = value;
@@ -146,7 +186,10 @@ namespace Monitor.ViewApp.ViewModel
 
         public ICommand LogViewCommand
         {
-            get { return new RelayCommand(onLogViewClick, () => true); }
+            get
+            {
+                return new RelayCommand(onLogViewClick, () => true);
+            }
         }
 
         #endregion
@@ -179,7 +222,9 @@ namespace Monitor.ViewApp.ViewModel
             IsHelpViewOpen = false;
 
             if (m_dataState.CurrentView is HomeView)
+            {
                 return;
+            }
 
             m_dataState.CurrentView = new HomeView();
         }
