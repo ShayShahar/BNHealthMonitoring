@@ -45,8 +45,7 @@
             m_socket.ReceiveReady += onMessageReceived;
             m_poller.PollTillCancelledNonBlocking();
 
-            m_socket.Connect("tcp://127.0.0.1:49993");
-            m_socket.Subscribe("", Encoding.ASCII);
+            connect();
         }
 
         #endregion
@@ -76,6 +75,25 @@
         #endregion
 
         #region Methods
+
+        private void connect()
+        {
+            string ip = "127.0.0.1";
+            int port = 49993;
+
+            try
+            {
+                IniParser parser = new IniParser("config.ini");
+                ip = parser.GetSetting("TCP", "HostIp");
+                port = int.Parse(parser.GetSetting("TCP", "Port"));
+            }
+            catch (Exception e)
+            {}
+
+            m_socket.Connect("tcp://" + ip + ":" + port);
+            m_socket.Subscribe("", Encoding.ASCII);
+        }
+
 
         private void onMessageReceived(object p_sender, NetMQSocketEventArgs p_e)
         {

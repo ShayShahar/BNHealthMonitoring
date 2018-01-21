@@ -1,4 +1,5 @@
 #include "CommunicationHandler.h"
+#include "IniReader.h"
 
 bool CommunicationHandler::s_initialized = false;
 CommunicationHandler* CommunicationHandler::s_instance = nullptr;
@@ -27,9 +28,55 @@ CommunicationHandler* CommunicationHandler::get_instance()
 
 void CommunicationHandler::init() const
 {
-	cout << "Establishing connection [127.0.0.1:49993]" << endl;
-	m_socket->bind("tcp://127.0.0.1:49993");
-	cout << "Connected." << endl;
+	INIReader reader("config.ini");
+	string ip = "127.0.0.1";
+	int port = 49993;
+
+	if (reader.ParseError() < 0) 
+	{
+		std::cout << "Can't load 'config.ini', using default endpoint: 127.0.0.1:49993" << endl;;
+	}
+	else
+	{
+		ip = reader.Get("TCP", "HostIp", "UNKNOWN");
+		port = reader.GetInteger("TCP", "Port", -1);
+
+		if (ip == "UNKNOWN")
+		{
+			std::cout << "couldn't load IP address from config.ini. using default: '127.0.0.1'" << endl;
+			ip = "127.0.0.1";
+		}
+		else
+		{
+			std::cout << "Config loaded from 'config.ini': IP=" << ip << endl;
+		}
+
+		if (port == -1)
+		{
+			std::cout << "couldn't load port from config.ini. using default: '49993'" << endl;
+			port = 49993;
+		}
+		else
+		{
+			std::cout << "Config loaded from 'config.ini': Port=" << port << endl;
+		}
+
+	}
+
+	std::cout << "Establishing connection [" << ip << ":" << port << "]" << endl;
+
+	std::stringstream connStream;
+	connStream << "tcp://" << ip << ":" << port;
+	
+	try
+	{
+		m_socket->bind(connStream.str());
+		std::cout << "Connected." << endl;
+	}
+	catch(...)
+	{
+		std::cout << "ERROR: Couldn't create socket." << endl;
+	}
 }
 
 void CommunicationHandler::close() const

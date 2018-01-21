@@ -117,7 +117,8 @@
     </ProjectReference>
     <PreBuildEvent>
       <Command>xcopy ..\..\Workspace\packages\ZeroMQ4.0.4\bin\libzmq-v120-mt-gd-4_0_4.dll ..\..\Deployment /y
-xcopy ..\..\Source\Monitor.Logic\CSVFiles ..\..\Deployment\CSVFiles  /F /R /Y /I</Command>
+xcopy ..\..\Source\Monitor.Logic\CSVFiles ..\..\Deployment\CSVFiles  /F /R /Y /I
+xcopy ..\..\Source\Monitor.Logic\*.ini ..\..\Deployment /F /R /Y /I</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -157,6 +158,8 @@ xcopy ..\..\Source\Monitor.Logic\CSVFiles ..\..\Deployment\CSVFiles  /F /R /Y /I
     <ClCompile Include="Gps.cpp" />
     <ClCompile Include="GpsReceiver.cpp" />
     <ClCompile Include="GpsAntenna.cpp" />
+    <ClCompile Include="ini.cpp" />
+    <ClCompile Include="IniReader.cpp" />
     <ClCompile Include="Magnetorquer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -178,6 +181,8 @@ xcopy ..\..\Source\Monitor.Logic\CSVFiles ..\..\Deployment\CSVFiles  /F /R /Y /I
     <ClInclude Include="Gps.h" />
     <ClInclude Include="GpsReceiver.h" />
     <ClInclude Include="GpsAntenna.h" />
+    <ClInclude Include="ini.h" />
+    <ClInclude Include="IniReader.h" />
     <ClInclude Include="Magnetorquer.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ReactionWeel.h" />
@@ -187,6 +192,7 @@ xcopy ..\..\Source\Monitor.Logic\CSVFiles ..\..\Deployment\CSVFiles  /F /R /Y /I
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="config.ini" />
     <None Include="CSVFiles\EPS.csv" />
     <None Include="CSVFiles\GpsReceiver.csv" />
     <None Include="CSVFiles\Gps_Ant.csv" />

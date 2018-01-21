@@ -231,6 +231,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BL\DataState.cs" />
+    <Compile Include="BL\IniParser.cs" />
     <Compile Include="BL\MessageDispatcher.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverterB.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />

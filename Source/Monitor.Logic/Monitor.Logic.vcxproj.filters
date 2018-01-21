@@ -55,6 +55,12 @@
     <ClCompile Include="Satellite.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
+    <ClCompile Include="ini.cpp">
+      <Filter>IniHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="IniReader.cpp">
+      <Filter>IniHelper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommunicationHandler.h">
@@ -111,6 +117,12 @@
     <ClInclude Include="Component.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ini.h">
+      <Filter>IniHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="IniReader.h">
+      <Filter>IniHelper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -138,6 +150,7 @@
     <None Include="CSVFiles\RWZ.csv">
       <Filter>CSVFiles</Filter>
     </None>
+    <None Include="config.ini" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CSVFiles">
@@ -160,6 +173,9 @@
     </Filter>
     <Filter Include="Components\Source">
       <UniqueIdentifier>{29350da7-8d87-4868-8fe8-699e14fff14c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IniHelper">
+      <UniqueIdentifier>{6b8743c6-380d-4ab9-b07c-737171be2f37}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
