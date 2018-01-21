@@ -1,0 +1,18 @@
+#pragma once
+
+#include "Externals.h"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	CSVReader is a helper class which returns requested data from a .csv file.
+/// </summary>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class CSVReader
+{
+private:
+	ifstream* m_file;
+public:
+	CSVReader(string p_file);
+	~CSVReader();
+	vector<string> readLine() const;
+};
