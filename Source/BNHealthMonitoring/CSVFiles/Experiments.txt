@@ -1,4 +1,0 @@
-1) all healty
-2)RWX faulty
-3)RWX + magtorquer faulty
-4)first the GPS antenna faulty and then the RWY faulty too
