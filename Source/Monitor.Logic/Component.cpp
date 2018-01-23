@@ -81,12 +81,34 @@ map<int, StateData> Component::states()
 	return m_states;
 }
 
+Component* Component::lru_next()
+{
+	return m_lru_next;
+}
+
+Component* Component::lru_prev()
+{
+	return m_lru_prev;
+}
+
+void Component::set_lru_next(Component* p_component)
+{
+	m_lru_next = p_component;
+}
+
+void Component::set_lru_prev(Component* p_component)
+{
+	m_lru_prev = p_component;
+}
+
 Component::Component(string p_name)
 {
 	m_dependencies = new list<Dependency>();
 	m_name = p_name;
 	m_state = 0;
 	m_weight = 1;
+	m_lru_next = nullptr;
+	m_lru_prev = nullptr;
 }
 
 Component::~Component()

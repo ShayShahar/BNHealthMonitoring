@@ -25,6 +25,8 @@ protected:
 	double m_weight;
 	map<int, StateData> m_states;
 	Component* m_transitions[101];
+	Component* m_lru_next;
+	Component* m_lru_prev;
 	
 public:
 	Component(string p_name);
@@ -41,6 +43,11 @@ public:
 	void notify();
 	Component** transitions();
 	map<int, StateData> states();
+	Component* lru_next();
+	Component* lru_prev();
+	void set_lru_next(Component* p_component);
+	void set_lru_prev(Component* p_component);
+
 
 	//generate evidence from signals and set the update the link probabilities for each component
 	virtual void update_component_state() = 0;

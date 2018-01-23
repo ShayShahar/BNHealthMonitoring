@@ -52,7 +52,19 @@ void ComponentsModel::initialzie_cdm()
 		if (!(*it)->dependencies()->size())
 		{
 			m_components->push_back((*it));
-			m_lru->push_front((*it));
+
+			if (lru_head == nullptr)
+			{
+				lru_head = (*it);
+				lru_tail = (*it);
+
+				continue;
+			}
+
+			(*it)->set_lru_prev(lru_tail);
+			lru_tail->set_lru_next(*it);
+			lru_tail = lru_tail->lru_next();
+
 			continue;
 		}
 
@@ -69,7 +81,7 @@ void ComponentsModel::initialzie_cdm()
 			if (&*dt == &(*it)->dependencies()->back())
 				intervalLimit = 100;
 
-			for (int j = i; j <=  intervalLimit; j++, i++)
+			for (int j = i; j <= intervalLimit; j++, i++)
 			{
 				(*it)->transitions()[j] = dt->child();
 			}
@@ -77,13 +89,39 @@ void ComponentsModel::initialzie_cdm()
 	}
 }
 
+void ComponentsModel::dequeue_lru(Component* p_component)
+{
+	if (p_component != lru_tail)
+	{
+		if (p_component == lru_head)
+		{
+			lru_head = lru_head->lru_next();
+			lru_head->set_lru_prev(nullptr);
+
+			p_component->set_lru_prev(lru_tail);
+			lru_tail->set_lru_next(p_component);
+			lru_tail = p_component;
+			p_component->set_lru_next(nullptr);
+		}
+		else
+		{
+			p_component->lru_prev()->set_lru_next(p_component->lru_next());
+			p_component->lru_next()->set_lru_prev(p_component->lru_prev());
+
+			p_component->set_lru_next(nullptr);
+			p_component->set_lru_prev(lru_tail);
+			lru_tail = p_component;
+		}
+	}
+}
+
 Component* ComponentsModel::handle_lru(Component* p_last)
 {
-	m_lru->erase(std::remove(m_lru->begin(), m_lru->end(), p_last), m_lru->end());
-	m_lru->push_back(p_last);
-	Component* first = m_lru->front();
-    m_lru->pop_front();
-	m_lru->push_back(first);
+	dequeue_lru(p_last);
+
+	Component* first = lru_head;
+
+	dequeue_lru(first);
 
 	first->update_component_state();
 	first->propagate_state();
@@ -95,7 +133,9 @@ ComponentsModel::ComponentsModel() : m_root(nullptr)
 {
 	m_nodes = new list<Component*>();
 	m_components = new list<Component*>();
-	m_lru = new deque<Component*>();
+
+	lru_head = nullptr;
+	lru_tail = nullptr;
 }
 
 ComponentsModel::~ComponentsModel()

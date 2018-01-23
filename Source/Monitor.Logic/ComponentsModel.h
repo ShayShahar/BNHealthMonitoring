@@ -16,12 +16,15 @@ class ComponentsModel
 private:
 	list<Component*>* m_nodes;
 	list<Component*>* m_components;
-	deque<Component*>* m_lru;
+
+	Component* lru_head;
+	Component* lru_tail;
 
 	Component* m_root;
 
 	void create_dependencies();
 	void initialzie_cdm();
+	void dequeue_lru(Component* p_component);
 
 public:
 	ComponentsModel();
