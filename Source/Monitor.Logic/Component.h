@@ -24,6 +24,7 @@ protected:
 	list<Dependency>* m_dependencies;
 	double m_weight;
 	map<int, StateData> m_states;
+	Component* m_transitions[101];
 	
 public:
 	Component(string p_name);
@@ -38,6 +39,7 @@ public:
 	list<Dependency>* dependencies();
 	double weight();
 	void notify();
+	Component** transitions();
 	map<int, StateData> states();
 
 	//generate evidence from signals and set the update the link probabilities for each component

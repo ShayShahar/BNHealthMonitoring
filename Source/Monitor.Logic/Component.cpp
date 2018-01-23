@@ -46,9 +46,22 @@ void Component::notify()
 		weight += it->child()->weight();
 	}
 
+	int i = 0;
+	int intervalLimit = 0;
+
 	for (list<Dependency>::iterator it = m_dependencies->begin(); it != m_dependencies->end(); ++it)
 	{
 		it->set_probability(it->child()->weight() / weight);
+
+		intervalLimit += it->probability() * 100;
+
+		if (&*it == &m_dependencies->back())
+			intervalLimit = 100;
+
+		for (int j = i; j <= intervalLimit; j++, i++)
+		{
+			m_transitions[j] = it->child();
+		}
 	}
 
 	//normalize node's weight
@@ -56,6 +69,11 @@ void Component::notify()
 
 	if (m_parent != nullptr)
 		m_parent->notify();
+}
+
+Component** Component::transitions()
+{
+	return m_transitions;
 }
 
 map<int, StateData> Component::states()
@@ -77,22 +95,12 @@ Component::~Component()
 
 Component* Component::get_next()
 {
-	double rand = (double)(Utils::random() % 101) / 100;
-	double begin = 0;
-	double end = 0;
+	if (m_dependencies->size() == 0)
+		return nullptr;
 
-	for (list<Dependency>::iterator it = m_dependencies->begin(); it != m_dependencies->end(); ++it)
-	{
-		begin = end;
-		end = begin + it->probability();
+	int rand = Utils::random() % 101;
 
-		if (rand >= begin && rand <= end || it->child() == m_dependencies->back().child())
-		{
-			return it->child();
-		}
-	}
-
-	return nullptr;
+	return m_transitions[rand];
 }
 
 string Component::name()

@@ -56,11 +56,23 @@ void ComponentsModel::initialzie_cdm()
 			continue;
 		}
 
+		int i = 0;
+		int intervalLimit = 0;
+
 		for (list<Dependency>::iterator dt = (*it)->dependencies()->begin(); dt != (*it)->dependencies()->end(); ++dt)
 		{
-
 			dt->set_probability((double)1 / (*it)->dependencies()->size());
 			dt->child()->add_parent(*it);
+
+			intervalLimit += dt->probability() * 100;
+
+			if (&*dt == &(*it)->dependencies()->back())
+				intervalLimit = 100;
+
+			for (int j = i; j <=  intervalLimit; j++, i++)
+			{
+				(*it)->transitions()[j] = dt->child();
+			}
 		}
 	}
 }
