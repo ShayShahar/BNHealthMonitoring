@@ -7,4 +7,4 @@
 #include "GpsReceiver.h"
 #include "Satellite.h"
 #include "Magnetorquer.h"
-#include "ReactionWeel.h"
+#include "ReactionWheel.h"

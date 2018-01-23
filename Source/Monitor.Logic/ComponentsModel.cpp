@@ -2,16 +2,16 @@
 
 void ComponentsModel::create_dependencies()
 {
-	Sattelite* satellite = new Sattelite("Satellite Alpha");
+	Satellite* satellite = new Satellite("Satellite Alpha");
 
 	Gps* gps = new Gps("GPS");
 	ACS* acs = new ACS("ACS");
 	EPS* eps = new EPS("EPS");
 
 	Magnetorquer* magnetorquer = new Magnetorquer("Magnetorquer");
-	ReactionWeel* rwx = new ReactionWeel("RWX");
-	ReactionWeel* rwy = new ReactionWeel("RWY");
-	ReactionWeel* rwz = new ReactionWeel("RWZ");
+	ReactionWheel* rwx = new ReactionWheel("RWX");
+	ReactionWheel* rwy = new ReactionWheel("RWY");
+	ReactionWheel* rwz = new ReactionWheel("RWZ");
 
 	GpsReceiver* gps_receiver = new GpsReceiver("GPS Receiver");
 	GpsAntenna* gps_antenna = new GpsAntenna("GPS Antenna");
@@ -96,20 +96,23 @@ void ComponentsModel::dequeue_lru(Component* p_component)
 		if (p_component == lru_head)
 		{
 			lru_head = lru_head->lru_next();
-			lru_head->set_lru_prev(nullptr);
-
 			p_component->set_lru_prev(lru_tail);
 			lru_tail->set_lru_next(p_component);
 			lru_tail = p_component;
-			p_component->set_lru_next(nullptr);
+			lru_tail->set_lru_next(nullptr);
+			lru_head->set_lru_prev(nullptr);
 		}
 		else
 		{
-			p_component->lru_prev()->set_lru_next(p_component->lru_next());
-			p_component->lru_next()->set_lru_prev(p_component->lru_prev());
+			Component* next = p_component->lru_next();
+			Component* prev = p_component->lru_prev();
+
+			p_component->lru_prev()->set_lru_next(next);
+			p_component->lru_next()->set_lru_prev(prev);
 
 			p_component->set_lru_next(nullptr);
 			p_component->set_lru_prev(lru_tail);
+			lru_tail->set_lru_next(p_component);
 			lru_tail = p_component;
 		}
 	}

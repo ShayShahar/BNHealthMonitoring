@@ -37,9 +37,6 @@
     <ClCompile Include="EPS.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
-    <ClCompile Include="ReactionWeel.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
     <ClCompile Include="GpsAntenna.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
@@ -60,6 +57,9 @@
     </ClCompile>
     <ClCompile Include="IniReader.cpp">
       <Filter>IniHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="ReactionWheel.cpp">
+      <Filter>Components\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,9 +99,6 @@
     <ClInclude Include="EPS.h">
       <Filter>Components\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="ReactionWeel.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Satellite.h">
       <Filter>Components\Headers</Filter>
     </ClInclude>
@@ -122,6 +119,9 @@
     </ClInclude>
     <ClInclude Include="IniReader.h">
       <Filter>IniHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="ReactionWheel.h">
+      <Filter>Components\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

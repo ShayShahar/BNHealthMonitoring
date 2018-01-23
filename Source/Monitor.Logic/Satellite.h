@@ -3,7 +3,7 @@
 #include "CommunicationHandler.h"
 #include "CSVReader.h"
 
-class Sattelite : public Component
+class Satellite : public Component
 {
 private:
 	double m_x;
@@ -21,8 +21,8 @@ private:
 
 public:
 
-	Sattelite(string p_name);
-	~Sattelite();
+	Satellite(string p_name);
+	~Satellite();
 
 	void update_component_state() override;
 	void receive() override;

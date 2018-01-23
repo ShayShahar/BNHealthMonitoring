@@ -1,6 +1,23 @@
-#include "ReactionWeel.h"
+// ***********************************************************************
+// Assembly         : 
+// Author           : shays
+// Created          : 01-04-2018
+//
+// Last Modified By : shays
+// Last Modified On : 01-23-2018
+// ***********************************************************************
+// <copyright file="ReactionWeel.cpp" company="">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#include "ReactionWheel.h"
 
-ReactionWeel::ReactionWeel(string p_name) : Component(p_name)
+/// <summary>
+/// Initializes a new instance of the <see cref="ReactionWheel"/> class.
+/// </summary>
+/// <param name="p_name">Name of the p.</param>
+ReactionWheel::ReactionWheel(string p_name) : Component(p_name)
 { 
 	if(p_name == "RWX")
 		m_reader = new CSVReader("CSVFiles//RWX.csv");
@@ -18,12 +35,18 @@ ReactionWeel::ReactionWeel(string p_name) : Component(p_name)
 	m_states.insert({ State::VOLTAGE_LOW, StateData(1, "Voltage Low") });
 }
 
-ReactionWeel::~ReactionWeel()
+/// <summary>
+/// Finalizes an instance of the <see cref="ReactionWheel"/> class.
+/// </summary>
+ReactionWheel::~ReactionWheel()
 {
 	delete m_reader;
 }
 
-void ReactionWeel::update_component_state()
+/// <summary>
+/// Updates the state of the component.
+/// </summary>
+void ReactionWheel::update_component_state()
 {
 	if ((m_temperature >= -19) && (m_temperature <= 0))
 	{
@@ -61,7 +84,10 @@ void ReactionWeel::update_component_state()
 
 }
 
-void ReactionWeel::receive()
+/// <summary>
+/// Receives this instance.
+/// </summary>
+void ReactionWheel::receive()
 {
 	vector<string> data = m_reader->readLine();
 

@@ -163,7 +163,7 @@ xcopy ..\..\Source\Monitor.Logic\*.ini ..\..\Deployment /F /R /Y /I</Command>
     <ClCompile Include="Magnetorquer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Component.cpp" />
-    <ClCompile Include="ReactionWeel.cpp" />
+    <ClCompile Include="ReactionWheel.cpp" />
     <ClCompile Include="Satellite.cpp" />
     <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="StateData.cpp" />
@@ -185,7 +185,7 @@ xcopy ..\..\Source\Monitor.Logic\*.ini ..\..\Deployment /F /R /Y /I</Command>
     <ClInclude Include="IniReader.h" />
     <ClInclude Include="Magnetorquer.h" />
     <ClInclude Include="Component.h" />
-    <ClInclude Include="ReactionWeel.h" />
+    <ClInclude Include="ReactionWheel.h" />
     <ClInclude Include="Satellite.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="StateData.h" />

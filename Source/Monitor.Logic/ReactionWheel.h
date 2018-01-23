@@ -2,11 +2,11 @@
 #include "Component.h"
 #include "CSVReader.h"
 
-class ReactionWeel : public Component
+class ReactionWheel : public Component
 {
 	/*
-	ReactionWeel ranges:
-	temp:	   ||ok: 1-49 ||low: -19 - 0||high: 50-59||very low: -40 - -20||very high: 60 - 70|| 
+	ReactionWheel ranges:
+	temp:	   ||OK: 1-49 ||low: -19 - 0||high: 50-59||very low: -40 - -20||very high: 60 - 70|| 
 	voltage: ||ok: 4-6||low: 3.4-3.9||high: 6.1-8||
 	*/
 
@@ -33,8 +33,8 @@ public:
 		VOLTAGE_HIGH
 	};
 
-	ReactionWeel(string p_name);
-	~ReactionWeel();
+	ReactionWheel(string p_name);
+	~ReactionWheel();
 	void update_component_state() override;
 	void receive() override;
 };

@@ -1,22 +1,22 @@
 #include "Satellite.h"
 
-Sattelite::Sattelite(string p_name) : Component(p_name)
+Satellite::Satellite(string p_name) : Component(p_name)
 {
 	m_reader = new CSVReader("CSVFiles//OutFileSatAlpha.csv");
 	m_communication_handler = CommunicationHandler::get_instance();
 }
 
-Sattelite::~Sattelite()
+Satellite::~Satellite()
 {
 	delete m_reader;
 }
 
-void Sattelite::update_component_state()
+void Satellite::update_component_state()
 {
 
 }
 
-void Sattelite::receive()
+void Satellite::receive()
 {
 	vector<string> data = m_reader->readLine();
 
@@ -38,7 +38,7 @@ void Sattelite::receive()
 	create_location_msg(m_x, m_y, m_z, m_seconds, delta);
 }
 
-void Sattelite::create_location_msg(double p_x, double p_y, double p_z, int p_sec, double p_delta)
+void Satellite::create_location_msg(double p_x, double p_y, double p_z, int p_sec, double p_delta)
 {
 	HealthMonitoringMessages::DataUpdateMsg msg;
 	msg.set_opcode(HealthMonitoringMessages::OpCode::SatLocation);
