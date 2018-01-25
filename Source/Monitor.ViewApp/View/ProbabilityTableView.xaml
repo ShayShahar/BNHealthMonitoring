@@ -64,7 +64,7 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="DESTENATION"
+                    <DataGridTextColumn Header="DESTINATION"
                                     Width="*"
                                     Binding="{Binding DestinationName, Mode=OneWay, Converter={StaticResource StringToUppercaseConverter}}">
                         <DataGridTextColumn.HeaderStyle>

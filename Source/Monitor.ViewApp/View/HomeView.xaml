@@ -86,13 +86,13 @@
                        Margin="5,0,0,0"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Content="COMPONENTS DEPHENDENCY TREE"
+                       Content="COMPONENTS DEPENDENCY TREE"
                        FontWeight="Bold">
                 </Label>
                 <Label Grid.Column="1" Margin="5,0,0,0"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       Content="PROBABLITY TABLE"
+                       Content="TRANSITIONS PROBABILITY TABLE"
                        FontWeight="Bold">
                 </Label>
             </Grid>
