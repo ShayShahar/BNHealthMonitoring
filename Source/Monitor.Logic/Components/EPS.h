@@ -2,7 +2,9 @@
 #include "../Helpers/CSVReader.h"
 #include "../BL/Component.h"
 
-
+/* Class: EPS
+Reflected EPS component, implements the Component methods.
+*/
 class EPS : public Component
 {
 	/*
