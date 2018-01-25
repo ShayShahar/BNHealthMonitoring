@@ -1,10 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using Monitor.ViewApp.BL;
-using Monitor.ViewApp.Model;
-
-namespace Monitor.ViewApp.View
+﻿namespace Monitor.ViewApp.View
 {
+    using System.Windows;
+    using System.Windows.Controls;
+
+    using Monitor.ViewApp.BL;
+    using Monitor.ViewApp.Model;
+
     /// <summary>
     /// Interaction logic for ComponentsTreeView.xaml
     /// </summary>

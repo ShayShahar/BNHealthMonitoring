@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("s_i",["Variable"],[["s_initialized",,[["CommunicationHandler",,,,0,"File2:BL/CommunicationHandler.h:CommunicationHandler.s_initialized","CClass:CommunicationHandler:s_initialized"]]],["s_instance",,[["CommunicationHandler",,,,0,"File2:BL/CommunicationHandler.h:CommunicationHandler.s_instance","CClass:CommunicationHandler:s_instance"]]]]);

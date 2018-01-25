@@ -1,5 +1,5 @@
-#include "ComponentsModel.h"
-#include "Scheduler.h"
+#include "BL/ComponentsModel.h"
+#include "BL/Scheduler.h"
 
 void main (int argc, char* argv[])
 {

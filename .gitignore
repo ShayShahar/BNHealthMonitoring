@@ -9,3 +9,8 @@ Workspace/Satellite.Monitor.VC.VC.opendb
 *.suo
 Workspace/.vs/BNHealthMonitoring/v15/
 Source/Monitor.ViewApp/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
+Workspace/.vs/Satellite.Monitor/v15/Server/sqlite3/db.lock
+Workspace/.vs/Satellite.Monitor/v15/Browse.VC.db
+Workspace/.vs/Satellite.Monitor/v15/ipch/AutoPCH/d2c4976827663b03/COMPONENTSMODEL.ipch
+Workspace/.vs/Satellite.Monitor/v15/Solution.VC.db
+Workspace/.vs/Satellite.Monitor/v15/Server/sqlite3/storage.ide

@@ -1,0 +1,1 @@
+NDFramePage.OnPageTitleLoaded("CClass:GpsAntenna","GpsAntenna");NDSummary.OnSummaryLoaded("CClass:GpsAntenna",[["C/C++","C"]],[["Classes","Class"]],[[1060,0,0,"GpsAntenna"]]);

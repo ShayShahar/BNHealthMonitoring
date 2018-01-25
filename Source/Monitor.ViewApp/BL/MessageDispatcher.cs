@@ -11,7 +11,7 @@
     /// <summary>
     ///     MessageDispatcher class manage and handle the TCP/IP communication.
     ///     In order to get an instance of MessageDispatcher you should call the "GetInstance" method.
-    ///     Note that this class implemented the singleton pattern, which restricts the instantiation of the class to one
+    ///     Note that this class implements the singleton pattern, which restricts the instantiation of the class to one
     ///     object.
     ///     The class implements the IDisposable interface which means that the Dispose method must be called before exiting 
     ///     the application in order to gracefully close the sockets.
@@ -35,6 +35,10 @@
 
         #region Constructors and Destructors
 
+
+        /// <summary>
+        /// Prevents a default instance of the <see cref="MessageDispatcher"/> class from being created.
+        /// </summary>
         private MessageDispatcher()
         {
             m_dataState = DataState.GetInstance();
@@ -52,6 +56,10 @@
 
         #region Public Methods and Operators
 
+        /// <summary>
+        /// Gets the insatnce.
+        /// </summary>
+        /// <returns>MessageDispatcher.</returns>
         public static MessageDispatcher GetInsatnce()
         {
             if (s_messageDispatcher == null)
@@ -60,12 +68,18 @@
             return s_messageDispatcher;
         }
 
+        /// <summary>
+        /// Closes the TCP sockets
+        /// </summary>
         public void Close()
         {
             m_poller.Cancel();
             m_socket.Disconnect("tcp://127.0.0.1:49993");
         }
 
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
         public void Dispose()
         {
             Close();
@@ -76,6 +90,9 @@
 
         #region Methods
 
+        /// <summary>
+        /// Create the TCP connections to the health monitoring module.
+        /// </summary>
         private void connect()
         {
             string ip = "127.0.0.1";
@@ -95,6 +112,12 @@
         }
 
 
+        /// <summary>
+        /// Message received event.
+        /// This function classifies the received message according to the message's opcode then pass it to the DataState.
+        /// </summary>
+        /// <param name="p_sender">Sender</param>
+        /// <param name="p_e">The <see cref="NetMQSocketEventArgs"/> event data.</param>
         private void onMessageReceived(object p_sender, NetMQSocketEventArgs p_e)
         {
             try

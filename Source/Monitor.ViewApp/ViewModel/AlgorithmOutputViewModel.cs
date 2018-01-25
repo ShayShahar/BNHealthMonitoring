@@ -32,10 +32,13 @@
 
         #region Constructors and Destructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AlgorithmOutputViewModel"/> class.
+        /// </summary>
         public AlgorithmOutputViewModel()
         {
             m_dataState = DataState.GetInstance();
-            m_dataState.ComponentsUpdate.ObserveOnDispatcher().Subscribe(this.OnComponentsUpdateEvent);
+            m_dataState.ComponentsUpdate.ObserveOnDispatcher().Subscribe(this.onComponentsUpdateEvent);
 
             DangerBrush = new SolidColorBrush(Color.FromRgb(238, 83, 80));
             WarningBrush = new SolidColorBrush(Color.FromRgb(241, 196, 15));
@@ -68,28 +71,53 @@
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets or sets the components to weight map.
+        /// </summary>
         public Dictionary<string, int> Components { get; set; }
 
-        public Brush DangerBrush { get; set; }
-
+        /// <summary>
+        /// Gets the components' names from the components to weight map
+        /// </summary>
         public List<string> Keys
         {
             get { return Components.Keys.ToList(); }
         }
 
+        /// <summary>
+        /// Gets or sets the mapper which is a value to color converter that changes the chart's color according to its value.
+        /// </summary>
         public CartesianMapper<ObservableValue> Mapper { get; set; }
 
-        public Brush OkBrush { get; set; }
-
+        /// <summary>
+        /// Gets or sets the results collection.
+        /// </summary>
         public SeriesCollection Results { get; set; }
 
+        /// <summary>
+        /// Gets or sets the OK state's bar color.
+        /// </summary>
+        public Brush OkBrush { get; set; }
+
+        /// <summary>
+        /// Gets or sets the warning state's bar color.
+        /// </summary>
         public Brush WarningBrush { get; set; }
+
+        /// <summary>
+        /// Gets or sets the danger state's bar color.
+        /// </summary>
+        public Brush DangerBrush { get; set; }
+
 
         #endregion
 
         #region Methods
 
-        private void OnComponentsUpdateEvent(Unit p_unit)
+        /// <summary>
+        /// This function invokes where there is a change in the components' data in the DataState.
+        /// </summary>
+        private void onComponentsUpdateEvent(Unit p_unit)
         {
             var components = m_dataState.ComponentsList.Where(p_c => p_c.Children.Count == 0).ToList();
             if (!components.Any())

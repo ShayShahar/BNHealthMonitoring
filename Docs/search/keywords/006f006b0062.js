@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("okb",["Property"],[["OkBrush",,[["Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel",,,,0,"File:ViewModel/AlgorithmOutputViewModel.cs:Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel.OkBrush","CSharpClass:Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel:OkBrush"]]]]);

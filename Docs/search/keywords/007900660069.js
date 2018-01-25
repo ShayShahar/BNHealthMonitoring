@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("yfi",["Constant"],[["YFieldNumber",,[["HealthMonitoringMessages.LocationMessage",,,,0,"File3:Messages/HealthMonitoringMessages.pb.cs:HealthMonitoringMessages.LocationMessage.YFieldNumber","CSharpClass:HealthMonitoringMessages.LocationMessage:YFieldNumber"]]]]);

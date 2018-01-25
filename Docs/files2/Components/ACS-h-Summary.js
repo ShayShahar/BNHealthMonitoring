@@ -1,0 +1,1 @@
+NDFramePage.OnPageTitleLoaded("File2:Components/ACS.h","ACS.h");NDSummary.OnSummaryLoaded("File2:Components/ACS.h",[["C/C++","C"]],[["Classes","Class"]],[[1061,0,0,"ACS","ACS"]]);

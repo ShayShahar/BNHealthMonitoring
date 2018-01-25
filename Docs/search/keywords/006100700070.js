@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("app",["Class","Function"],[["App",,[["Monitor.ViewApp",,,,0,"File:App.xaml.cs:Monitor.ViewApp.App","CSharpClass:Monitor.ViewApp.App"]]],["App_OnExit",,[["Monitor.ViewApp.App",,,,1,"File:App.xaml.cs:Monitor.ViewApp.App.App_OnExit","CSharpClass:Monitor.ViewApp.App:App_OnExit"]]]]);

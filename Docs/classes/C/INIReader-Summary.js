@@ -1,0 +1,1 @@
+NDFramePage.OnPageTitleLoaded("CClass:INIReader","INIReader");NDSummary.OnSummaryLoaded("CClass:INIReader",[["C/C++","C"]],[["Classes","Class"]],[[1026,0,0,"INIReader"]]);

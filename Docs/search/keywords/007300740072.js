@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("str",["Class"],[["StringToUppercaseConverter",,[["Monitor.ViewApp.Converters",,,,0,"File:Converters/StringToUppercaseConverter.cs:Monitor.ViewApp.Converters.StringToUppercaseConverter","CSharpClass:Monitor.ViewApp.Converters.StringToUppercaseConverter"]]]]);

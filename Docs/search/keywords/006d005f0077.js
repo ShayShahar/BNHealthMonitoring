@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("m_w",["Variable"],[["m_weight",,[["Component",,,,0,"File2:BL/Component.h:Component.m_weight","CClass:Component:m_weight"],["StateData",,,,0,"File2:BL/StateData.h:StateData.m_weight","CClass:StateData:m_weight"]]]]);

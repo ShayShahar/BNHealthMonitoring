@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("s_v",["Variable"],[["s_view",,[["Monitor.ViewApp.View.EarthView",,,,0,"File:View/EarthView.xaml.cs:Monitor.ViewApp.View.EarthView.s_view","CSharpClass:Monitor.ViewApp.View.EarthView:s_view"]]]]);

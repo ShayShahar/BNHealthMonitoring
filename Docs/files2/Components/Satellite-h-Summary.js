@@ -1,0 +1,1 @@
+NDFramePage.OnPageTitleLoaded("File2:Components/Satellite.h","Satellite.h");NDSummary.OnSummaryLoaded("File2:Components/Satellite.h",[["C/C++","C"]],[["Classes","Class"]],[[1059,0,0,"Satellite","Satellite"]]);

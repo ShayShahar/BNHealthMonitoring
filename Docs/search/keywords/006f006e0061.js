@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("ona",["Function"],[["onAboutViewClick",,[["Monitor.ViewApp.ViewModel.MainWindowViewModel",,,,0,"File:ViewModel/MainWindowViewModel.cs:Monitor.ViewApp.ViewModel.MainWindowViewModel.onAboutViewClick","CSharpClass:Monitor.ViewApp.ViewModel.MainWindowViewModel:onAboutViewClick"]]]]);

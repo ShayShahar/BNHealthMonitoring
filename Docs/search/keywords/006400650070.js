@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("dep",["Function","Class"],[["dependencies",,[["Component",,,,0,"File2:BL/Component.h:Component.dependencies","CClass:Component:dependencies"]]],["Dependency",,[[,,,,1,"File2:BL/Dependency.h:Dependency","CClass:Dependency"]]]]);

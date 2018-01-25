@@ -1,0 +1,1 @@
+NDFramePage.OnPageTitleLoaded("File2:Components/Magnetorquer.h","Magnetorquer.h");NDSummary.OnSummaryLoaded("File2:Components/Magnetorquer.h",[["C/C++","C"]],[["Classes","Class"]],[[1058,0,0,"Magnetorquer","Magnetorquer"]]);

@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("ise",["Property"],[["IsExpanded",,[["Monitor.ViewApp.Model.Component",,,,0,"File:Model/Component.cs:Monitor.ViewApp.Model.Component.IsExpanded","CSharpClass:Monitor.ViewApp.Model.Component:IsExpanded"]]]]);

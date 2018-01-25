@@ -1,10 +1,10 @@
 #pragma once
 
-#include "GPS.h"
-#include "ACS.h"
-#include "EPS.h"
-#include "GpsAntenna.h"
-#include "GpsReceiver.h"
-#include "Satellite.h"
-#include "Magnetorquer.h"
-#include "ReactionWheel.h"
+#include "Components/GPS.h"
+#include "Components/ACS.h"
+#include "Components/EPS.h"
+#include "Components/GpsAntenna.h"
+#include "Components/GpsReceiver.h"
+#include "Components/Satellite.h"
+#include "Components/Magnetorquer.h"
+#include "Components/ReactionWheel.h"

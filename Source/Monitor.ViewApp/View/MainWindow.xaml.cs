@@ -1,7 +1,7 @@
-﻿using MahApps.Metro.Controls;
-
-namespace Monitor.ViewApp.View
+﻿namespace Monitor.ViewApp.View
 {
+    using MahApps.Metro.Controls;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>

@@ -1,0 +1,1 @@
+NDContentPage.OnToolTipsLoaded({852:"<div class=\"NDToolTip TFunction LCSharp\"><div id=\"NDPrototype852\" class=\"NDPrototype NoParameterForm\"><span class=\"SHKeyword\">public</span> ProbabilityTableViewModel()</div><div class=\"TTSummary\">Initializes a new instance of the ProbabilityTableViewModel class.</div></div>"});

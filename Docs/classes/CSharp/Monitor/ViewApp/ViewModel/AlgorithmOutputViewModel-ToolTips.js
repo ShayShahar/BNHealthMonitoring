@@ -1,0 +1,1 @@
+NDContentPage.OnToolTipsLoaded({709:"<div class=\"NDToolTip TFunction LCSharp\"><div id=\"NDPrototype709\" class=\"NDPrototype NoParameterForm\"><span class=\"SHKeyword\">public</span> AlgorithmOutputViewModel()</div><div class=\"TTSummary\">Initializes a new instance of the AlgorithmOutputViewModel class.</div></div>"});

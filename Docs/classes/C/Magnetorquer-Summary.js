@@ -1,0 +1,1 @@
+NDFramePage.OnPageTitleLoaded("CClass:Magnetorquer","Magnetorquer");NDSummary.OnSummaryLoaded("CClass:Magnetorquer",[["C/C++","C"]],[["Classes","Class"]],[[1058,0,0,"Magnetorquer"]]);

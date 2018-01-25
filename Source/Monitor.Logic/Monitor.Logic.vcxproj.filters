@@ -1,20 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="CommunicationHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ComponentsModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CSVReader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.cc">
       <Filter>Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="Scheduler.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
@@ -22,60 +10,26 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Gps.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="GpsReceiver.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Magnetorquer.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="ACS.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="EPS.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="GpsAntenna.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Dependency.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StateData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Satellite.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="ini.cpp">
-      <Filter>IniHelper</Filter>
-    </ClCompile>
-    <ClCompile Include="IniReader.cpp">
-      <Filter>IniHelper</Filter>
-    </ClCompile>
-    <ClCompile Include="ReactionWheel.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
+    <ClCompile Include="BL\CommunicationHandler.cpp" />
+    <ClCompile Include="BL\Component.cpp" />
+    <ClCompile Include="BL\ComponentsModel.cpp" />
+    <ClCompile Include="BL\Dependency.cpp" />
+    <ClCompile Include="BL\Scheduler.cpp" />
+    <ClCompile Include="BL\StateData.cpp" />
+    <ClCompile Include="Components\ACS.cpp" />
+    <ClCompile Include="Components\EPS.cpp" />
+    <ClCompile Include="Components\Gps.cpp" />
+    <ClCompile Include="Components\GpsAntenna.cpp" />
+    <ClCompile Include="Components\GpsReceiver.cpp" />
+    <ClCompile Include="Components\Magnetorquer.cpp" />
+    <ClCompile Include="Components\ReactionWheel.cpp" />
+    <ClCompile Include="Components\Satellite.cpp" />
+    <ClCompile Include="Helpers\CSVReader.cpp" />
+    <ClCompile Include="Helpers\ini.cpp" />
+    <ClCompile Include="Helpers\IniReader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CommunicationHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ComponentsModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CSVReader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Externals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scheduler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
@@ -84,45 +38,23 @@
     <ClInclude Include="Components.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="Gps.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="GpsReceiver.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Magnetorquer.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="ACS.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="EPS.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Satellite.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="GpsAntenna.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Dependency.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StateData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ini.h">
-      <Filter>IniHelper</Filter>
-    </ClInclude>
-    <ClInclude Include="IniReader.h">
-      <Filter>IniHelper</Filter>
-    </ClInclude>
-    <ClInclude Include="ReactionWheel.h">
-      <Filter>Components\Headers</Filter>
-    </ClInclude>
+    <ClInclude Include="BL\CommunicationHandler.h" />
+    <ClInclude Include="BL\Component.h" />
+    <ClInclude Include="BL\ComponentsModel.h" />
+    <ClInclude Include="BL\Dependency.h" />
+    <ClInclude Include="BL\Scheduler.h" />
+    <ClInclude Include="BL\StateData.h" />
+    <ClInclude Include="Components\Satellite.h" />
+    <ClInclude Include="Components\ACS.h" />
+    <ClInclude Include="Components\EPS.h" />
+    <ClInclude Include="Components\Gps.h" />
+    <ClInclude Include="Components\GpsAntenna.h" />
+    <ClInclude Include="Components\GpsReceiver.h" />
+    <ClInclude Include="Components\Magnetorquer.h" />
+    <ClInclude Include="Components\ReactionWheel.h" />
+    <ClInclude Include="Helpers\CSVReader.h" />
+    <ClInclude Include="Helpers\ini.h" />
+    <ClInclude Include="Helpers\IniReader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

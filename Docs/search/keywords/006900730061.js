@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("isa",["Property"],[["IsAboutViewOpen",,[["Monitor.ViewApp.ViewModel.MainWindowViewModel",,,,0,"File:ViewModel/MainWindowViewModel.cs:Monitor.ViewApp.ViewModel.MainWindowViewModel.IsAboutViewOpen","CSharpClass:Monitor.ViewApp.ViewModel.MainWindowViewModel:IsAboutViewOpen"]]]]);

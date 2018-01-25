@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("equ",["Function"],[["Equals",,[["Monitor.ViewApp.Model.Component",,,,0,"File:Model/Component.cs:Monitor.ViewApp.Model.Component.Equals","CSharpClass:Monitor.ViewApp.Model.Component:Equals"]]]]);

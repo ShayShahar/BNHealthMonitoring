@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("inc",["Property"],[["IncomingMessagesLog",,[["Monitor.ViewApp.BL.DataState",,,,0,"File:BL/DataState.cs:Monitor.ViewApp.BL.DataState.IncomingMessagesLog","CSharpClass:Monitor.ViewApp.BL.DataState:IncomingMessagesLog"]]]]);

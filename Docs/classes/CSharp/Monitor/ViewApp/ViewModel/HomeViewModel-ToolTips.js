@@ -1,0 +1,1 @@
+NDContentPage.OnToolTipsLoaded({772:"<div class=\"NDToolTip TFunction LCSharp\"><div id=\"NDPrototype772\" class=\"NDPrototype NoParameterForm\"><span class=\"SHKeyword\">public</span> HomeViewModel()</div><div class=\"TTSummary\">Initializes a new instance of the HomeViewModel class.</div></div>"});

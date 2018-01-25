@@ -1,0 +1,1 @@
+NDFramePage.OnPageTitleLoaded("File2:Components/GpsAntenna.h","GpsAntenna.h");NDSummary.OnSummaryLoaded("File2:Components/GpsAntenna.h",[["C/C++","C"]],[["Classes","Class"]],[[1060,0,0,"GpsAntenna","GpsAntenna"]]);

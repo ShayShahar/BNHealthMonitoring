@@ -5,8 +5,8 @@
     using System.Reactive;
     using System.Reactive.Linq;
     using GalaSoft.MvvmLight;
-    using Monitor.ViewApp.BL;
-    using Monitor.ViewApp.Model;
+    using BL;
+    using Model;
 
 
     /// <summary>
@@ -26,6 +26,9 @@
 
         #region Constructors and Destructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProbabilityTableViewModel"/> class.
+        /// </summary>
         public ProbabilityTableViewModel()
         {
             m_dataState = DataState.GetInstance();
@@ -37,6 +40,10 @@
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets a value indicating whether there is available data for the selected component
+        /// </summary>
+        /// <value><c>true</c> if the data available; otherwise, <c>false</c>.</value>
         public bool IsDataAvailable
         {
             get { return !IsDataNotAvailable; }
@@ -52,6 +59,10 @@
             }
         }
 
+        /// <summary>
+        /// Gets the selected component.
+        /// </summary>
+        /// <value>The selected component.</value>
         public ObservableCollection<Link> SelectedComponent
         {
             get { return m_dataState.SelectedComponent?.Links; }
@@ -61,12 +72,19 @@
 
         #region Methods
 
+
+        /// <summary>
+        /// This function invokes where there is a change in the components' data in the DataState.
+        /// </summary>
         private void onComponentsUpdateEvent(Unit p_unit)
         {
             RaisePropertyChanged(() => IsDataNotAvailable);
             RaisePropertyChanged(() => SelectedComponent);
         }
 
+        /// <summary>
+        /// This function invokes where the user selects a component in the components tree.
+        /// </summary>
         private void onSelectionChanged(Unit p_unit)
         {
             RaisePropertyChanged(() => SelectedComponent);

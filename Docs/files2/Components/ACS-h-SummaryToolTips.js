@@ -1,0 +1,1 @@
+NDSummary.OnToolTipsLoaded("File2:Components/ACS.h",{1061:"<div class=\"NDToolTip TClass LC\"><div class=\"NDClassPrototype\" id=\"NDClassPrototype1061\"><div class=\"CPEntry TClass Current\"><div class=\"CPName\">ACS</div></div></div><div class=\"TTSummary\">Reflected ACS component, implements the Component methods.</div></div>"});

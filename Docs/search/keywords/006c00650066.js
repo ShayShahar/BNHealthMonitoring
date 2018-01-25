@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("lef",["Function"],[["leftButtonClick",,[["Monitor.ViewApp.View.HelpView",,,,0,"File:View/HelpView.xaml.cs:Monitor.ViewApp.View.HelpView.leftButtonClick","CSharpClass:Monitor.ViewApp.View.HelpView:leftButtonClick"]]]]);

@@ -1,8 +1,8 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-
-namespace Monitor.ViewApp.View
+﻿namespace Monitor.ViewApp.View
 {
+    using System.Windows;
+    using System.Windows.Controls;
+
     /// <summary>
     /// Interaction logic for HelpView.xaml
     /// </summary>

@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("enu",["Function"],[["EnumSection",,[["Monitor.ViewApp.BL.IniParser",,,,0,"File:BL/IniParser.cs:Monitor.ViewApp.BL.IniParser.EnumSection","CSharpClass:Monitor.ViewApp.BL.IniParser:EnumSection"]]]]);

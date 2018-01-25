@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("map",["Property"],[["Mapper",,[["Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel",,,,0,"File:ViewModel/AlgorithmOutputViewModel.cs:Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel.Mapper","CSharpClass:Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel:Mapper"]]]]);

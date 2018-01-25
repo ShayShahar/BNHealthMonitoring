@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("dan",["Property"],[["DangerBrush",,[["Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel",,,,0,"File:ViewModel/AlgorithmOutputViewModel.cs:Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel.DangerBrush","CSharpClass:Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel:DangerBrush"]]]]);

@@ -1,0 +1,1 @@
+NDSummary.OnToolTipsLoaded("CClass:GpsAntenna",{1060:"<div class=\"NDToolTip TClass LC\"><div class=\"NDClassPrototype\" id=\"NDClassPrototype1060\"><div class=\"CPEntry TClass Current\"><div class=\"CPName\">GpsAntenna</div></div></div><div class=\"TTSummary\">Reflected GPS antenna component, implements the Component methods.</div></div>"});

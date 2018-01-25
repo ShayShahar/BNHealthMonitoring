@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("sen",["Function","Property"],[["send",,[["CommunicationHandler",,,,0,"File2:BL/CommunicationHandler.h:CommunicationHandler.send","CClass:CommunicationHandler:send"]]],["Sender",,[["Monitor.ViewApp.Model.LogItem",,,,1,"File:Model/LogItem.cs:Monitor.ViewApp.Model.LogItem.Sender","CSharpClass:Monitor.ViewApp.Model.LogItem:Sender"]]]]);

@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("top",["Function"],[["topButtonClick",,[["Monitor.ViewApp.View.HelpView",,,,0,"File:View/HelpView.xaml.cs:Monitor.ViewApp.View.HelpView.topButtonClick","CSharpClass:Monitor.ViewApp.View.HelpView:topButtonClick"]]]]);

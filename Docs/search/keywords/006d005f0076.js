@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("m_v",["Variable"],[["m_viewChanged",,[["Monitor.ViewApp.BL.DataState",,,,0,"File:BL/DataState.cs:Monitor.ViewApp.BL.DataState.m_viewChanged","CSharpClass:Monitor.ViewApp.BL.DataState:m_viewChanged"]]]]);

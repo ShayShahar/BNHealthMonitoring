@@ -19,10 +19,19 @@
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets or sets the name of the children.
+        /// </summary>
         public string ChildrenName { get; set; }
 
-        public string DestenationName { get; set; }
+        /// <summary>
+        /// Gets or sets the name of the destination.
+        /// </summary>
+        public string DestinationName { get; set; }
 
+        /// <summary>
+        /// Gets or sets the transition's probability.
+        /// </summary>
         public double Probability
         {
             get
@@ -36,10 +45,10 @@
             }
         }
 
+        /// <summary>
+        /// Gets or sets the component which owns the link.
+        /// </summary>
         public Component ResponsibleComponent { get; set; }
-
-        public string State { get; set; }
-
         #endregion
     }
 }

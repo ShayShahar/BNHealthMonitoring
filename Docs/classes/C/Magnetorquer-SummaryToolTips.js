@@ -1,0 +1,1 @@
+NDSummary.OnToolTipsLoaded("CClass:Magnetorquer",{1058:"<div class=\"NDToolTip TClass LC\"><div class=\"NDClassPrototype\" id=\"NDClassPrototype1058\"><div class=\"CPEntry TClass Current\"><div class=\"CPName\">Magnetorquer</div></div></div><div class=\"TTSummary\">Reflected magnetorquer component, implements the Component methods.</div></div>"});

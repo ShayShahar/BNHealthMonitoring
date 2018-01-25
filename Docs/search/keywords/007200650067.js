@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("reg",["Function"],[["RegisterAllExtensions",,[["HealthMonitoringMessages.HealthMonitoringMessages",,,,0,"File3:Messages/HealthMonitoringMessages.pb.cs:HealthMonitoringMessages.HealthMonitoringMessages.RegisterAllExtensions","CSharpClass:HealthMonitoringMessages.HealthMonitoringMessages:RegisterAllExtensions"]]]]);

@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("war",["Property"],[["WarningBrush",,[["Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel",,,,0,"File:ViewModel/AlgorithmOutputViewModel.cs:Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel.WarningBrush","CSharpClass:Monitor.ViewApp.ViewModel.AlgorithmOutputViewModel:WarningBrush"]]]]);

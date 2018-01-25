@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("csv",["Class"],[["CSVReader",,[[,,,,0,"File2:Helpers/CSVReader.h:CSVReader","CClass:CSVReader"]]]]);

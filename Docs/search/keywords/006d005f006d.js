@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("m_m",["Variable"],[["m_messageDispatcher",,[["Monitor.ViewApp.ViewModel.LogViewModel",,,,0,"File:ViewModel/LogViewModel.cs:Monitor.ViewApp.ViewModel.LogViewModel.m_messageDispatcher","CSharpClass:Monitor.ViewApp.ViewModel.LogViewModel:m_messageDispatcher"]]]]);

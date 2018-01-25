@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("mag",["Class"],[["Magnetorquer",,[[,,,,0,"File2:Components/Magnetorquer.h:Magnetorquer","CClass:Magnetorquer"]]]]);

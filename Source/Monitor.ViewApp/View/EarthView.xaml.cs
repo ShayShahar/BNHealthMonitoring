@@ -1,15 +1,17 @@
-﻿using System;
-using System.Reactive.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media.Media3D;
-using HelixToolkit.Wpf;
-using Monitor.ViewApp.BL;
-
-namespace Monitor.ViewApp.View
+﻿namespace Monitor.ViewApp.View
 {
+    using System;
+    using System.Reactive.Linq;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+    using System.Windows.Media.Media3D;
+
+    using HelixToolkit.Wpf;
+
+    using Monitor.ViewApp.BL;
+
     public partial class EarthView : UserControl
     {
         private DataState m_dataState;

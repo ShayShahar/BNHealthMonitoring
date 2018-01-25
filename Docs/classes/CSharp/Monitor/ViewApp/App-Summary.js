@@ -1,0 +1,1 @@
+NDFramePage.OnPageTitleLoaded("CSharpClass:Monitor.ViewApp.App","App");NDSummary.OnSummaryLoaded("CSharpClass:Monitor.ViewApp.App",[["C#","CSharp"]],[["Classes","Class"],["Functions","Function"],["Groups","Group"]],[[952,0,0,"<span class=\"Qualifier\">Monitor.&#8203;ViewApp.</span>&#8203;App"],[955,0,2,"Functions","Functions"],[957,0,1,"App_OnExit","App_OnExit"]]);

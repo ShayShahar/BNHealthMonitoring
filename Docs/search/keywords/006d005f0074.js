@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("m_t",["Variable"],[["m_thread",,[["Scheduler",,,,0,"File2:BL/Scheduler.h:Scheduler.m_thread","CClass:Scheduler:m_thread"]]],["m_transitions",,[["Component",,,,0,"File2:BL/Component.h:Component.m_transitions","CClass:Component:m_transitions"]]]]);

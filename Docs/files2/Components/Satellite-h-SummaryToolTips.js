@@ -1,0 +1,1 @@
+NDSummary.OnToolTipsLoaded("File2:Components/Satellite.h",{1059:"<div class=\"NDToolTip TClass LC\"><div class=\"NDClassPrototype\" id=\"NDClassPrototype1059\"><div class=\"CPEntry TClass Current\"><div class=\"CPName\">Satellite</div></div></div><div class=\"TTSummary\">Reflected satellite component, implements the Component methods.</div></div>"});

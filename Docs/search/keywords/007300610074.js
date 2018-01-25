@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("sat",["Class"],[["Satellite",,[[,,,,0,"File2:Components/Satellite.h:Satellite","CClass:Satellite"]]]]);

@@ -1,0 +1,1 @@
+NDSummary.OnToolTipsLoaded("File2:Components/GpsReceiver.h",{1062:"<div class=\"NDToolTip TClass LC\"><div class=\"NDClassPrototype\" id=\"NDClassPrototype1062\"><div class=\"CPEntry TClass Current\"><div class=\"CPName\">GpsReceiver</div></div></div><div class=\"TTSummary\">Reflected GPS receiver component, implements the Component methods.</div></div>"});

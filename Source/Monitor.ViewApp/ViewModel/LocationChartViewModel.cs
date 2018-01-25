@@ -31,6 +31,9 @@
 
         #region Constructors and Destructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocationChartViewModel"/> class.
+        /// </summary>
         public LocationChartViewModel()
         {
             m_dataState = DataState.GetInstance();
@@ -57,6 +60,9 @@
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets or sets the chart's labels.
+        /// </summary>
         public List<int> Labels
         {
             get { return m_lables; }
@@ -67,12 +73,21 @@
             }
         }
 
+        /// <summary>
+        /// Gets the location data chart.
+        /// </summary>
         public SeriesCollection LocationData { get; }
 
         #endregion
 
         #region Methods
 
+        /// <summary>
+        /// This function invokes where a new location delta message received.
+        /// </summary>
+        /// <param name="p_data">
+        /// time, delta
+        /// </param>
         private void onLocationUpdate(Tuple<int, double> p_data)
         {
             if (LocationData[0].Values.Count == 5)

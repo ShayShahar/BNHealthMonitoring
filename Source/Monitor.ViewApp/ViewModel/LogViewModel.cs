@@ -28,6 +28,9 @@
 
         #region Constructors and Destructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LogViewModel"/> class.
+        /// </summary>
         public LogViewModel()
         {
             m_dataState = DataState.GetInstance();
@@ -39,6 +42,9 @@
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets the messages which stored at the DataState.
+        /// </summary>
         public ObservableCollection<LogItem> Messages
         {
             get { return m_dataState.IncomingMessagesLog; }
@@ -48,6 +54,9 @@
 
         #region Methods
 
+        /// <summary>
+        /// This function invokes where a new message received.
+        /// </summary>
         private void onLogMessageReceived(Unit p_unit)
         {
             RaisePropertyChanged(() => Messages);

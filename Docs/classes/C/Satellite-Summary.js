@@ -1,0 +1,1 @@
+NDFramePage.OnPageTitleLoaded("CClass:Satellite","Satellite");NDSummary.OnSummaryLoaded("CClass:Satellite",[["C/C++","C"]],[["Classes","Class"]],[[1059,0,0,"Satellite"]]);

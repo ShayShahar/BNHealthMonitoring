@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("~sc",["Function"],[["~Scheduler",,[["Scheduler",,,,0,"File2:BL/Scheduler.h:Scheduler.~Scheduler","CClass:Scheduler:~Scheduler"]]]]);

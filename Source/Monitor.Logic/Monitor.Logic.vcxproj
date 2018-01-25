@@ -75,7 +75,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>..\..\Deployment</OutDir>
     <IntDir>..\..\Deployment</IntDir>
-    <TargetName>Health Monitoring Module</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -105,6 +104,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <DisableSpecificWarnings>
       </DisableSpecificWarnings>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>..\..\Workspace\packages\ZeroMQ4.0.4\lib;..\..\Workspace\packages\protobuf-2.4.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -149,46 +149,46 @@ xcopy ..\..\Source\Monitor.Logic\*.ini ..\..\Deployment /F /R /Y /I</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Interfaces\Messages\HealthMonitoringMessages.pb.cc" />
-    <ClCompile Include="ACS.cpp" />
-    <ClCompile Include="CommunicationHandler.cpp" />
-    <ClCompile Include="ComponentsModel.cpp" />
-    <ClCompile Include="CSVReader.cpp" />
-    <ClCompile Include="Dependency.cpp" />
-    <ClCompile Include="EPS.cpp" />
-    <ClCompile Include="Gps.cpp" />
-    <ClCompile Include="GpsReceiver.cpp" />
-    <ClCompile Include="GpsAntenna.cpp" />
-    <ClCompile Include="ini.cpp" />
-    <ClCompile Include="IniReader.cpp" />
-    <ClCompile Include="Magnetorquer.cpp" />
+    <ClCompile Include="BL\CommunicationHandler.cpp" />
+    <ClCompile Include="BL\Component.cpp" />
+    <ClCompile Include="BL\ComponentsModel.cpp" />
+    <ClCompile Include="BL\Dependency.cpp" />
+    <ClCompile Include="BL\Scheduler.cpp" />
+    <ClCompile Include="BL\StateData.cpp" />
+    <ClCompile Include="Components\ACS.cpp" />
+    <ClCompile Include="Components\EPS.cpp" />
+    <ClCompile Include="Components\Gps.cpp" />
+    <ClCompile Include="Components\GpsAntenna.cpp" />
+    <ClCompile Include="Components\GpsReceiver.cpp" />
+    <ClCompile Include="Components\Magnetorquer.cpp" />
+    <ClCompile Include="Components\ReactionWheel.cpp" />
+    <ClCompile Include="Components\Satellite.cpp" />
+    <ClCompile Include="Helpers\CSVReader.cpp" />
+    <ClCompile Include="Helpers\ini.cpp" />
+    <ClCompile Include="Helpers\IniReader.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Component.cpp" />
-    <ClCompile Include="ReactionWheel.cpp" />
-    <ClCompile Include="Satellite.cpp" />
-    <ClCompile Include="Scheduler.cpp" />
-    <ClCompile Include="StateData.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ACS.h" />
-    <ClInclude Include="CommunicationHandler.h" />
+    <ClInclude Include="BL\CommunicationHandler.h" />
+    <ClInclude Include="BL\Component.h" />
+    <ClInclude Include="BL\ComponentsModel.h" />
+    <ClInclude Include="BL\Dependency.h" />
+    <ClInclude Include="BL\Scheduler.h" />
+    <ClInclude Include="BL\StateData.h" />
     <ClInclude Include="Components.h" />
-    <ClInclude Include="ComponentsModel.h" />
-    <ClInclude Include="CSVReader.h" />
-    <ClInclude Include="Dependency.h" />
-    <ClInclude Include="EPS.h" />
+    <ClInclude Include="Components\ACS.h" />
+    <ClInclude Include="Components\EPS.h" />
+    <ClInclude Include="Components\Gps.h" />
+    <ClInclude Include="Components\GpsAntenna.h" />
+    <ClInclude Include="Components\GpsReceiver.h" />
+    <ClInclude Include="Components\Magnetorquer.h" />
+    <ClInclude Include="Components\ReactionWheel.h" />
+    <ClInclude Include="Components\Satellite.h" />
     <ClInclude Include="Externals.h" />
-    <ClInclude Include="Gps.h" />
-    <ClInclude Include="GpsReceiver.h" />
-    <ClInclude Include="GpsAntenna.h" />
-    <ClInclude Include="ini.h" />
-    <ClInclude Include="IniReader.h" />
-    <ClInclude Include="Magnetorquer.h" />
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="ReactionWheel.h" />
-    <ClInclude Include="Satellite.h" />
-    <ClInclude Include="Scheduler.h" />
-    <ClInclude Include="StateData.h" />
+    <ClInclude Include="Helpers\CSVReader.h" />
+    <ClInclude Include="Helpers\ini.h" />
+    <ClInclude Include="Helpers\IniReader.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("onm",["Function"],[["onMessageReceived",,[["Monitor.ViewApp.BL.MessageDispatcher",,,,0,"File:BL/MessageDispatcher.cs:Monitor.ViewApp.BL.MessageDispatcher.onMessageReceived","CSharpClass:Monitor.ViewApp.BL.MessageDispatcher:onMessageReceived"]]]]);

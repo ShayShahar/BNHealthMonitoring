@@ -1,0 +1,1 @@
+NDContentPage.OnToolTipsLoaded({916:"<div class=\"NDToolTip TFunction LCSharp\"><div id=\"NDPrototype916\" class=\"NDPrototype NoParameterForm\"><span class=\"SHKeyword\">public</span> LocationChartViewModel()</div><div class=\"TTSummary\">Initializes a new instance of the LocationChartViewModel class.</div></div>"});
